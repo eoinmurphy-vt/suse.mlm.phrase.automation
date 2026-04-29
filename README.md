@@ -192,7 +192,7 @@ This variable contains the client‑specific repository configuration in JSON fo
   * `preprocess_adoc.py`
   * `postprocess_adoc.py`
 * Encoding: **Unix-compatible UTF-8**
-* Languages: **de-DE, es-ES, fr-FR, ja-JP, pt-BR, zh-CN**
+* Languages: **ja-JP, ko-KR, zh-CN**
 
 ---
 
