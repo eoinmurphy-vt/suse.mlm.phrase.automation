@@ -1,0 +1,267 @@
+ifdef::ss-ff-stackpacks2_enabled[]
+= チュートリアルカスタム・インテグレーション（StackPack）の開発
+:revdate: 2026-01-08
+:page-revdate: {revdate}
+:description:  カスタム・インテグレーション（StackPack）の開発
+
+[IMPORTANT]
+====
+この特集はプリプロダクションで未発表。環境変数`+STS_EXPERIMENTAL_STACKPACK+` が設定されている場合のみ利用できる。ブレークチェンジが起こるかもしれない。
+====
+
+== ゴール
+
+開発者として、あなたはカスタムStackPackを構築することによって、自分の技術を{stackstate-product-name} 。このチュートリアルでは、StackPack CLIを使用した手順を説明します。
+
+== 前提条件
+
+- xref:/setup/cli/cli-sts.adoc[StackPack CLIへの]アクセス
+- 機能フラグが有効：
++
+[source,bash]
+----
+export STS_EXPERIMENTAL_STACKPACK=true
+----
+
+
+== カスタム・インテグレーション（StackPack）の開発方法
+
+=== 新しいStackPackを足場にする
+
+`+scaffold+` サブコマンドは、設定可能なテンプレートから新しい StackPack プロジェクト構造を作成し、StackPack 開発の初期設定プロセスを合理化します。このコマンドは、ローカル・ディレクトリのテンプレートとGitHubでホストされているテンプレートの両方をサポートしている。
+
+- CLIを使用して新しいStackPackプロジェクトを作成します：
++
+[source,bash]
+----
+sts stackpack scaffold --name my-stackpack
+----
+
+- 特定のGitHubテンプレートを使用する場合（デフォルト https://github.com/StackVista/stackpack-templates[：]）：
++
+[source,bash]
+----
+sts stackpack scaffold --name my-stackpack --template-github-repo stackvista/stackpack-templates --template-name microservice --destination-dir stackpack
+✓ Validating arguments...
+✓ Checking destination directory...
+✓ Fetching template from github:stackvista/stackpack-templates@main:templates
+✓ Rendering templates...
+✓ Validating rendered templates...
+✓ Copying files to destination...
+Files copied:
+  README.md
+  provisioning/dashboard.sty
+  provisioning/metricbindings.sty
+  provisioning/monitors.sty
+  provisioning/remediation-hints/node-memory-pressure.md.hbs
+  provisioning/stackpack.sty
+  resources/deprovisioning.md
+  resources/error.md
+  resources/installed.md
+  resources/logo.png
+  resources/notinstalled.md
+  resources/overview.md
+  resources/provisioning.md
+  resources/waitingfordata.md
+  stackpack.yaml
+
+✅ ✓ Scaffold complete!
+
+Next steps:
+1. Review the generated files in: ./my-stackpack
+2. Check the ./my-stackpack/README.md for instructions on what to do next.
+...
+----
+
++
+- ローカル・テンプレートを使うには
++
+[source,bash]
+----
+sts stackpack scaffold --name my-stackpack --template-local-dir ./templates --template-name webapp
+----
+
+
+=== レビューとカスタマイズ
+
+- 生成されたファイルをターゲット・ディレクトリで確認する。
+- `+stackpack.yaml+` などのファイルを編集して、統合ロジックを定義します。
+  * データを統合する。コンポーネントとインジェスト・メトリクスのマッピングについては、「xref:setup/custom-integrations/otelmappings/README.adoc[Otel Telemetryマッピングの追加]」を参照してください。
+  * xref:setup/custom-integrations/monitors/index.adoc[モニターの追加]
+  * xref:setup/custom-integrations/metric-bindings/index.adoc[メートルバインディングの追加]
+
+[NOTE]
+====
+default:https://github.com/StackVista/stackpack-templates[stackvista/stackpack-templates]テンプレートは、モニターやメトリックバインディングなど、ほとんどの拡張ポイントの例が含まれているため、出発点として最適です。
+====
+
+=== StackPackのテスト
+
+`+test+` サブコマンドコマンドは、パッケージ→アップロード→インストール/アップグレードの一連の流れを自動化し、テストの反復のための自動バージョン管理によってstackpack開発ワークフローを合理化します。
+
+- プレプロダクション環境でStackPackを迅速にテストできます（実行中のSuse Observabilityインスタンスが必要です）：
++
+[source,bash]
+----
+sts stackpack test -d ./my-stackpack --yes
+✅ Starting stackpack test sequence...
+  Stackpack: my-stackpack (current version: 0.0.1)
+
+Step 1/5: Checking installed version...
+
+Step 2/5: Creating temporary copy for testing...
+✅ ✓ Temporary copy created
+
+Step 3/5: Bumping version for testing...
+✅ ✓ Version bumped to: 0.0.1-cli-test.10000
+
+Step 4/5: Packaging stackpack...
+✅ ✓ Stackpack packaged successfully!
+
+Stackpack: my-stackpack (v0.0.1-cli-test.10000)
+Zip file: /Users/viliakov/Workspace/src/github/stackstate-cli/my-stackpack/my-stackpack-0.0.1-cli-test.10000.zip
+✅ ✓ Stackpack packaged successfully
+
+Step 5/5: Uploading and installing/upgrading stackpack...
+✅ Uploaded StackPack: /Users/viliakov/Workspace/src/github/stackstate-cli/my-stackpack/my-stackpack-0.0.1-cli-test.10000.zip
+NAME              | DISPLAY NAME      | VERSION
+my-stackpack | my-stackpack | 0.0.1-cli-test.10000
+✅ ✓ Stackpack uploaded successfully
+✅ StackPack instance installed
+ID             | NAME | STATUS      | VERSION         | LAST UPDATED
+274027256960772 | -    | PROVISIONING | 0.0.1-cli-test.1 | Fri Aug 29 09:10
+                |      |              | 0000             | :26 2025 CEST
+✅ ✓ Stackpack installed successfully
+
+✅ 🎉 Test sequence completed successfully!
+----
+
+- `+test+` サブコマンドは、あなたのStackPackをパッケージ化し、アップロードし、テストバージョンの接尾辞を付けてインストールします。
+- `+test+` コマンドを使用して、StackPack を繰り返し実行し、迅速なフィードバックを得て、変更を加え、インストール/アップグレード処理が正常に実行されることを確認します。Suse Observability UI で、取り込まれたトポロジーとテレメトリーを確認します。
+
+=== パッケージ StackPackの完成バージョン
+
+`+package+` サブコマンドはstackpackディレクトリからzipファイルを作成する。このコマンドは、必要なすべてのstackpackファイルとディレクトリを、配布と配備のために適切な名前のzipアーカイブにパッケージ化します。
+
+- StackPackを配布可能なzipにパッケージします：
++
+[source,bash]
+----
+sts stackpack package -d ./my-stackpack
+✅ ✓ Stackpack packaged successfully!
+
+Stackpack: stackpack (v0.0.1)
+Zip file: /Users/viliakov/Workspace/src/github/stackstate-cli/my-stackpack/my-stackpack-0.0.1-cli-test.zip
+----
+
+- 出力ファイルを指定する：
++
+[source,bash]
+----
+sts stackpack package -d ./my-stackpack -f my-custom-archive.zip
+----
+
+=== StackPackを検証する
+
+StackPackをアップロードしてインストールする前に、それが適切に設定されていることを確認するために検証することができます（よりタイトなフィードバックループのために）。ワークフローによって2つのアプローチがある：
+
+==== ライブ・バックエンドによるローカル検証
+
+`+validate+` サブコマンドは、実行中の{stackstate-product-name} インスタンスに対して StackPack を検証する。これは、開発中にStackPackを検証するのに便利です。
+
+- StackPackディレクトリを検証する（自動的にパッケージ化され、アップロードされる）：
++
+[source,bash]
+----
+sts stackpack validate -d ./my-stackpack
+✅ Stackpack validation successful!
+----
+
+- 事前にパッケージ化された`+.sts+` ファイルを検証する：
++
+[source,bash]
+----
+sts stackpack validate -f ./my-stackpack-0.0.1.sts
+✅ Stackpack validation successful!
+----
+
+[NOTE]
+====
+`+sts stackpack validate+` コマンドを実行するには、CLI コンテキストで構成された実行中の{stackstate-product-name} インスタンスが必要です。ライブ・インスタンスが利用できない場合は、代わりにCIバリデーションを使用する。
+====
+
+==== CI/CDパイプラインにおけるバリデーション
+
+実行中の{stackstate-product-name} インスタンスがないCI/CDパイプラインの場合は、StackState Server Dockerイメージの`+stack-pack-validator+` ツールを使用します。これは、ライブのバックエンド接続を必要とせずに検証を実行します。
+
+===== GitLab CI の例
+
+GitLab CIパイプラインでStackState ServerのDockerイメージを直接使用する：
+
+[source,yaml]
+----
+.validate-stackpack: &validate-stackpack
+  stage: validate
+  image: registry.rancher.com/stackstate/stackstate-server:<latest-tag>
+  script:
+    - |
+      echo "Validating stackpack source: stackpacks/$STACKPACK"
+      /opt/docker/bin/stack-pack-validator -directory "$CI_PROJECT_DIR/stackpacks/$STACKPACK" || {
+        echo "ERROR: Stackpack validation failed for stackpacks/$STACKPACK"
+        exit 1
+      }
+      echo "Stackpack validation passed for stackpacks/$STACKPACK"
+  dependencies: []
+
+validate-my-stackpack:
+  <<: *validate-stackpack
+  variables:
+    STACKPACK: my-stackpack
+----
+
+===== Dockerコマンドライン
+
+ローカルまたは他のCI/CDシステムで検証を実行する場合は、`+docker run+` ：
+
+- パッケージ化された`+.sts+` ファイルを検証する：
++
+[source,bash]
+----
+docker run --rm --entrypoint="/opt/docker/bin/stack-pack-validator" \
+    -v /path/to/my-stackpack-0.0.1.sts:/stackpack.sts \
+    registry.rancher.com/stackstate/stackstate-server:<latest-tag> \
+    -file /stackpack.sts
+----
+
+- stackpackディレクトリを検証する：
++
+[source,bash]
+----
+docker run --rm --entrypoint="/opt/docker/bin/stack-pack-validator" \
+    -v /path/to/my-stackpack:/stackpack \
+    registry.rancher.com/stackstate/stackstate-server:<latest-tag> \
+    -directory /stackpack
+----
+
+[TIP]
+====
+`+stackstate-server+` イメージの`+stack-pack-validator+` スクリプトを CI/CD パイプラインで使用して、StackPacks を公開する前に検証します。これにより、稼働中の{stackstate-product-name} インスタンスを必要とせずに、StackPack がすべての要件を満たすようになります。
+====
+
+=== StackPackをアップロードする
+
+`+upload+` サブコマンドは、実行中の{stackstate-product-name} インスタンスにzipアーカイブをプッシュする。
+
+- アーカイブを{stackstate-product-name} にアップロードする：
++
+[source,bash]
+----
+sts stackpack upload -f ./my-stackpack-0.0.1.zip
+✅ ✓ Stackpack uploaded successfully!
+----
+
+=== StackPackをインストールする
+
+{stackstate-product-name} stackpacks UIからxref:/stackpacks/about-stackpacks.adoc#_install_or_uninstall_a_stackpack[StackPackをインストールまたはアップグレード]します。
+
+endif::ss-ff-stackpacks2_enabled[]
