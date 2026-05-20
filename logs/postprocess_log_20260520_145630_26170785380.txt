@@ -1,0 +1,8 @@
+Postprocess started: 2026-05-20 14:56:30.315514
+
+✓ Processed: ko_kr/suse-repo-b/develop_test.adoc -> final/suse-repo-b/ko/develop_test.adoc
+✓ Processed: ko_kr/suse-repo-b/pages/rbac_permissions_test.adoc -> final/suse-repo-b/ko/pages/rbac_permissions_test.adoc
+✓ Processed: ko_kr/suse-repo-b/pages/self-signed-certificates_test.adoc -> final/suse-repo-b/ko/pages/self-signed-certificates_test.adoc
+
+=== Test Complete ===
+Summary: Processed=3, Cleaned=3, Errors=0, Skipped=0
