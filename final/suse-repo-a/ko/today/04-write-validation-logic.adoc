@@ -1,0 +1,232 @@
+include::partial$variables.adoc[]
+= 유효성 검사 로직 작성
+:revdate: 2026-03-18
+:page-revdate: {revdate}
+:description: 유효성 검사 로직을 작성하여 페이로드를 파싱하고 파드 오브젝트를 확인하여 들어오는 요청의 유효성을 확인합니다.
+:doc-persona: ["kubewarden-policy-developer"]
+:doc-topic: ["kubewarden", "writing-policies", "rust", "validation-logic"]
+:doc-type: ["tutorial"]
+:keywords: ["kubewarden", "kubernetes", "policy", "writing", "rust", "validation logic"]
+:sidebar_label: 유효성 검사 로직 작성
+:current-version: {page-origin-branch}
+
+이제 실제 유효성 검사 코드를 작성할 차례입니다.
+`src/lib.rs` 파일에 정의되어 있습니다.
+이 파일에서 `validate` 라는 함수를 찾을 수 있습니다.
+
+비계 제공 기능입니다:
+
+[subs="+attributes",rust]
+----
+fn validate(payload: &[u8]) -> CallResult {
+    let validation_request: ValidationRequest<Settings> = ValidationRequest::new(payload)?; <1>
+
+    info!(LOG_DRAIN, "starting validation");
+    if validation_request.request.kind.kind != apicore::Pod::KIND {
+        warn!(LOG_DRAIN, "Policy validates Pods only. Accepting resource"; "kind" => &validation_request.request.kind.kind);
+        return kubewarden::accept_request();
+    }
+    // TODO: you can unmarshal any Kubernetes API type you are interested in <2>
+    match serde_json::from_value::<apicore::Pod>(validation_request.request.object) {
+        Ok(pod) => {
+            // TODO: your logic goes here <3>
+            if pod.metadata.name == Some("invalid-pod-name".to_string()) {
+                let pod_name = pod.metadata.name.unwrap();
+                info!(
+                    LOG_DRAIN,
+                    "rejecting pod";
+                    "pod_name" => &pod_name
+                );
+                kubewarden::reject_request(
+                    Some(format!("pod name {} is not accepted", &pod_name)),
+                    None,
+                    None,
+                    None,
+                )
+            } else {
+                info!(LOG_DRAIN, "accepting resource");
+                kubewarden::accept_request()
+            }
+        }
+        Err(_) => {
+            // TODO: handle as you wish
+            // We were forwarded a request we cannot unmarshal or
+            // understand, just accept it
+            warn!(LOG_DRAIN, "cannot unmarshal resource: this policy does not know how to evaluate this resource; accept it");
+            kubewarden::accept_request() <4>
+        }
+    }
+}
+----
+
+
+코드 목록을 살펴봅니다:
+
+* 표시된 줄에 ➀를 입력합니다. 들어오는 `payload` 을 `ValidationRequest<Setting>` 객체로 구문 분석합니다.
+이렇게 하면 `ValidationRequest` 내부의 `Settings` 인스턴스가 사용자가 제공한 매개변수로 자동으로 채워집니다.
+* 표시된 줄에 ➁. 요청에 포함된 쿠버네티스 원시 JSON 객체를 https://arnavion.github.io/k8s-openapi/v0.25.x/k8s_openapi/api/core/v1/struct.Pod.html[파드 구조의] 인스턴스로 변환합니다.
+* 표시된 줄에 ➂. 요청에 파드 오브젝트가 있고, 코드가 하드코딩된 값과 동일한 `metadata.name` 가 없는 요청만 승인한다. `invalid-pod-name`
+* 표시된 줄에 ➃. 요청에 파드 오브젝트가 포함되어 있지 않으므로 정책에서 요청을 수락합니다.
+
+보시다시피 코드는 이미 구현하려는 코드와 유사한 유효성 검사를 수행하고 있습니다.
+하드코딩된 값을 제거하고 정책 설정을 통해 사용자가 제공한 값을 사용하기만 하면 됩니다.
+
+`src/lib.rs` 에서 스캐폴딩 `validate` 함수를 이 함수로 대체하면 됩니다:
+
+[subs="+attributes",rust]
+----
+fn validate(payload: &[u8]) -> CallResult {
+    let validation_request: ValidationRequest<Settings> = ValidationRequest::new(payload)?;
+
+    info!(LOG_DRAIN, "starting validation");
+    if validation_request.request.kind.kind != apicore::Pod::KIND {
+        warn!(LOG_DRAIN, "Policy validates Pods only. Accepting resource"; "kind" => &validation_request.request.kind.kind);
+        return kubewarden::accept_request();
+    }
+
+    match serde_json::from_value::<apicore::Pod>(validation_request.request.object) {
+        Ok(pod) => {
+            let pod_name = pod.metadata.name.unwrap_or_default();
+            if validation_request
+                .settings
+                .invalid_names
+                .contains(&pod_name)
+            {
+                kubewarden::reject_request(
+                    Some(format!("pod name {:?} is not accepted", pod_name)),
+                    None,
+                    None,
+                    None,
+                )
+            } else {
+                kubewarden::accept_request()
+            }
+        }
+        Err(_) => {
+            // We were forwarded a request we cannot unmarshal or
+            // understand, just accept it
+            kubewarden::accept_request()
+        }
+    }
+}
+----
+
+== 단위 테스트
+
+마지막으로 단위 테스트를 생성하여 유효성 검사 코드가 예상대로 작동하는지 확인할 수 있습니다.
+
+`lib.rs` 파일에는 이미 파일 하단에 테스트가 정의되어 있으며, 보시다시피 {short-project-name} 의 Rust SDK는 테스트 헬퍼도 제공합니다.
+
+또한 스캐폴드 프로젝트는 이미 `test_data` 디렉터리에 기본 https://en.wikipedia.org/wiki/Test_fixture#Software[테스트 픽스처가] 포함되어 있습니다. 이렇게 기록된 인정 요청을 사용하여 단위 테스트를 작성합니다.
+
+`src/lib.rs` 끝에 있는 테스트 섹션의 내용을 다음과 같이 변경합니다:
+
+[subs="+attributes",rust]
+----
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    use kubewarden_policy_sdk::test::Testcase;
+    use std::collections::HashSet;
+
+    #[test]
+    fn accept_pod_with_valid_name() -> Result<(), ()> {
+        let mut invalid_names = HashSet::new();
+        invalid_names.insert(String::from("bad_name1"));
+        let settings = Settings { invalid_names };
+
+        let request_file = "test_data/pod_creation.json";
+        let tc = Testcase {
+            name: String::from("Pod creation with valid name"),
+            fixture_file: String::from(request_file),
+            expected_validation_result: true,
+            settings,
+        };
+
+        let res = tc.eval(validate).unwrap();
+        assert!(
+            res.mutated_object.is_none(),
+            "Something mutated with test case: {}",
+            tc.name,
+        );
+
+        Ok(())
+    }
+
+    #[test]
+    fn reject_pod_with_invalid_name() -> Result<(), ()> {
+        let mut invalid_names = HashSet::new();
+        invalid_names.insert(String::from("nginx"));
+        let settings = Settings { invalid_names };
+
+        let request_file = "test_data/pod_creation.json";
+        let tc = Testcase {
+            name: String::from("Pod creation with invalid name"),
+            fixture_file: String::from(request_file),
+            expected_validation_result: false,
+            settings,
+        };
+
+        let res = tc.eval(validate).unwrap();
+        assert!(
+            res.mutated_object.is_none(),
+            "Something mutated with test case: {}",
+            tc.name,
+        );
+
+        Ok(())
+    }
+
+    #[test]
+    fn accept_request_with_non_pod_resource() -> Result<(), ()> {
+        let mut invalid_names = HashSet::new();
+        invalid_names.insert(String::from("prod"));
+        let settings = Settings { invalid_names };
+
+        let request_file = "test_data/ingress_creation.json";
+        let tc = Testcase {
+            name: String::from("Ingress creation"),
+            fixture_file: String::from(request_file),
+            expected_validation_result: true,
+            settings,
+        };
+
+        let res = tc.eval(validate).unwrap();
+        assert!(
+            res.mutated_object.is_none(),
+            "Something mutated with test case: {}",
+            tc.name,
+        );
+
+        Ok(())
+    }
+}
+----
+
+이제 `lib.rs` 에 세 가지 단위 테스트가 정의되었습니다:
+
+* `accept_pod_with_valid_name`유효한 이름을 가진 파드를 허용합니다.
+* `reject_pod_with_invalid_name`: 잘못된 이름의 파드를 거부한다.
+* `accept_request_with_non_pod_resource`객체로 `Pod` 가 없는 요청을 수락합니다.
+
+단위 테스트를 다시 실행할 수 있습니다:
+
+[subs="+attributes",shell]
+----
+$ cargo test
+   Compiling demo v0.1.0 (/home/flavio/hacking/kubernetes/kubewarden/demo)
+    Finished test [unoptimized + debuginfo] target(s) in 3.45s
+     Running target/debug/deps/demo-24670dd6a538fd72
+
+running 5 tests
+test settings::tests::accept_settings_with_a_list_of_invalid_names ... ok
+test settings::tests::reject_settings_without_a_list_of_invalid_names ... ok
+test tests::accept_request_with_non_pod_resource ... ok
+test tests::accept_pod_with_valid_name ... ok
+test tests::reject_pod_with_invalid_name ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+----
+
+간단한 유효성 검사 정책을 작성해야 하는 경우 이 정도면 충분합니다.

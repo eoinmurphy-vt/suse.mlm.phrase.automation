@@ -1,0 +1,120 @@
+= 인증된 CAPI 제공업체
+:revdate: 2025-10-14
+:page-revdate: {revdate}
+
+== 인증 제공업체란 무엇을 의미하나요?
+
+인증 제공업체는 Turtles 팀의 CI 워크플로에서 **적극적으로 테스트하여** Rancher용 CAPI 확장 프로그램과 제대로 작동하는지 검증하는 CAPI 제공업체입니다. 그러나 대부분의 CAPI 프로바이더는 쿠버네티스 오픈 커뮤니티에서 유지 관리하는 업스트림 프로젝트이므로, 새로운 프로바이더 버전이 출시될 때 문제가 발생하지 않는다고 **보장할 수는 없습니다**.
+
+== 인증된 제공업체 목록
+
+[NOTE]
+====
+이 목록은 프로젝트의 지속적인 발전을 반영하기 위해 지속적으로 진화하고 있습니다.
+====
+
+
+터틀즈에서 공식 인증한 CAPI 제공업체 목록입니다. 이러한 제공업체는 테스트 스위트의 적용을 받으며, 랜처용 CAPI 확장 프로그램에서 제대로 작동하는지 적극적으로 확인합니다.
+
+|===
+| 플랫폼 | 코드 이름 | 공급자 유형 | 문서
+
+| *RKE2*
+| CAPRKE2
+| 부트스트랩/컨트롤 플레인
+| https://rancher.github.io/cluster-api-provider-rke2[CAPRKE2 책]
+
+| *Kubeadm*
+| Kubeadm
+| 부트스트랩/컨트롤 플레인
+| https://cluster-api.sigs.k8s.io/tasks/bootstrap/kubeadm-bootstrap[CABPK docs]
+
+| *AWS*
+| CAPA
+| 인프라
+| https://cluster-api-aws.sigs.k8s.io[CAPA 예약]
+
+| *도커**
+| CAPD
+| 인프라
+| https://cluster-api.sigs.k8s.io[CAPI 예약]
+
+| *vSphere*
+| CAPV
+| 인프라
+| https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/blob/main/docs/getting_started.md[CAPV 문서]
+
+| *Azure*
+| CAPZ
+| 인프라
+| https://capz.sigs.k8s.io/[CAPZ book]
+
+| *GCP* (GKE 관리 클러스터만 해당)
+| CAPG
+| 인프라
+| https://cluster-api-gcp.sigs.k8s.io/[CAPG 책]
+
+| *애드온 제공자 플릿*
+| CAAPF
+| 애드온
+| https://rancher.github.io/cluster-api-addon-provider-fleet/[CAAPF book]
+|===
+
+*개발 목적으로만 권장됩니다.
+
+== 실험 모드의 공급자 목록
+
+이 목록은 개발이 진행 중이며 곧 인증을 받을 예정인 제공업체의 목록입니다.
+
+|===
+| 플랫폼 | 코드 이름 | 공급자 유형 | 문서
+|===
+
+== 인증된 공급자를 위한 클러스터클래스 지원
+
+다음은 각 인증 공급업체의 지원 매트릭스와 클러스터 토폴로지 기능에 대한 지원입니다:
+
+[tabs]
+======
+CAPZ::
++
+--
+- `ClusterClass`: **관리형** (AKS) 및 비관리형(가상 머신) 클러스터 모두 토폴로지를 통해 프로비저닝할 수 있습니다.
+--
+
+CAPA::
++
+--
+- `ClusterClass`**완벽 지원**: 관리형(EKS) 및 비관리형(EC2 기반) 클러스터 모두 토폴로지를 통해 프로비저닝할 수 있습니다.
+--
+
+CAPG::
++
+--
+- `ClusterClass`: **관리형** (GKE) 및 비관리형(가상 머신) 클러스터 모두 토폴로지를 통해 프로비저닝할 수 있습니다.
+--
+
+CAPRKE2::
++
+--
+- `ClusterClass` 의 **전폭적인 지원**.
+--
+
+CABPK::
++
+--
+- `ClusterClass` 의 **전폭적인 지원**.
+--
+
+CAPV::
++
+--
+- `ClusterClass` 의 **전폭적인 지원**.
+--
+
+CAPD::
++
+--
+- `ClusterClass` 의 **전폭적인 지원**.
+--
+======

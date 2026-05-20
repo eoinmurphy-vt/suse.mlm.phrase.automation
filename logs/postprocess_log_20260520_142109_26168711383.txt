@@ -1,0 +1,20 @@
+Postprocess started: 2026-05-20 14:21:09.232435
+
+✓ Processed: ja_jp/suse-repo-a/certified.adoc -> final/suse-repo-a/ja/certified.adoc
+✓ Processed: ja_jp/suse-repo-a/overview/architecture.adoc -> final/suse-repo-a/ja/overview/architecture.adoc
+✓ Processed: ja_jp/suse-repo-a/overview/rancher-cluster-registration.adoc -> final/suse-repo-a/ja/overview/rancher-cluster-registration.adoc
+✓ Processed: ja_jp/suse-repo-a/today/04-example-sigstore.adoc -> final/suse-repo-a/ja/today/04-example-sigstore.adoc
+✓ Processed: ja_jp/suse-repo-a/today/04-write-validation-logic.adoc -> final/suse-repo-a/ja/today/04-write-validation-logic.adoc
+✓ Processed: ko_kr/suse-repo-a/certified.adoc -> final/suse-repo-a/ko/certified.adoc
+✓ Processed: ko_kr/suse-repo-a/overview/architecture.adoc -> final/suse-repo-a/ko/overview/architecture.adoc
+✓ Processed: ko_kr/suse-repo-a/overview/rancher-cluster-registration.adoc -> final/suse-repo-a/ko/overview/rancher-cluster-registration.adoc
+✓ Processed: ko_kr/suse-repo-a/today/04-example-sigstore.adoc -> final/suse-repo-a/ko/today/04-example-sigstore.adoc
+✓ Processed: ko_kr/suse-repo-a/today/04-write-validation-logic.adoc -> final/suse-repo-a/ko/today/04-write-validation-logic.adoc
+✓ Processed: zh_cn/suse-repo-a/certified.adoc -> final/suse-repo-a/zh/certified.adoc
+✓ Processed: zh_cn/suse-repo-a/overview/architecture.adoc -> final/suse-repo-a/zh/overview/architecture.adoc
+✓ Processed: zh_cn/suse-repo-a/overview/rancher-cluster-registration.adoc -> final/suse-repo-a/zh/overview/rancher-cluster-registration.adoc
+✓ Processed: zh_cn/suse-repo-a/today/04-example-sigstore.adoc -> final/suse-repo-a/zh/today/04-example-sigstore.adoc
+✓ Processed: zh_cn/suse-repo-a/today/04-write-validation-logic.adoc -> final/suse-repo-a/zh/today/04-write-validation-logic.adoc
+
+=== Test Complete ===
+Summary: Processed=15, Cleaned=12, Errors=0, Skipped=0

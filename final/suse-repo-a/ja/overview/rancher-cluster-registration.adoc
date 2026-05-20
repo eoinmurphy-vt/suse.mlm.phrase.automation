@@ -1,0 +1,95 @@
+= ランチャークラスター登録
+:revdate: 2026-03-06
+:page-revdate: {revdate}
+
+== タートルズの自動インポートを使ってRancherにCAPIクラスタを登録する方法
+
+タートルズを使用してRancherにCAPIクラスタを登録するためにサポートされている唯一のワークフローは、`cluster-api.cattle.io/rancher-auto-import` ラベルを使用することです：
+
+. ネームスペースにラベルを付けると、そのネームスペースに含まれるすべてのクラスタがインポートされます。
++
+[source,bash]
+----
+kubectl label namespace capi-clusters cluster-api.cattle.io/rancher-auto-import=true
+----
+. 個々のクラスタ定義にラベルを付け、インポートできるようにします。
++
+[source,bash]
+----
+kubectl label clusters.cluster.x-k8s.io cluster1 cluster-api.cattle.io/rancher-auto-import=true
+----
+
+自動インポートラベルが使用されている場合、TurtlesはCAPIクラスタが`ControlPlaneAvailable` 条件を`True` に設定するのを待ちます。
+この状態は、クラスタが完全に初期化され、リクエストを処理できる状態であることを示します。
+Turtlesは、管理クラスタ上にRancher`clusters.management.cattle.io` リソースを自動的に作成し、ダウンストリームのCAPIクラスタ上に`cattle-cluster-agent` をインストールする。
+エージェントのデプロイが成功すると、インポートされたクラスタがRancherダッシュボードに表示されるはずです。
+
+[NOTE]
+====
+ネームスペース（またはクラスタ）は、クラスタが作成される前でも後でも、いつでも自動インポート用にマークできます。
+====
+
+[CAUTION]
+====
+クラスタを自動インポート用にマークすると、Turtlesコントローラによる自動登録がトリガされます。登録コマンドの手動実行はサポートされていません。
+====
+
+== Rancherクラスタにカスタム説明を追加する
+
+インポートされたRancherクラスタに割り当てられたデフォルトの説明は「RancherにインポートされたCAPIクラスタ」です。image:imported-cluster-default-description.png[デフォルトの説明でインポートされたRancherクラスタ]
+
+インポートしたRancherクラスタにカスタム説明を追加するには、CAPIクラスタに`cluster-api.cattle.io/cluster-description` アノテーションを追加します。
+
+[source,yaml]
+----
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: docker-kubeadm-quickstart
+  labels:
+    cni: calico
+  annotations:
+    cluster-api.cattle.io/cluster-description: "This is a custom description of Rancher Cluster"
+----
+
+image:imported-cluster-custom-description.png[ランチャークラスターをカスタム記述でインポート]
+
+CAPIクラスタがすでにインポートされている場合、アノテーションを追加しても何も起こりません。インポートしたRancherクラスタを削除して、再度インポートする必要があるかもしれません。
+
+== インポートしたクラスタをRancherから削除する
+
+`cluster-api.cattle.io/capi-cluster-owner` と`cluster-api.cattle.io/capi-cluster-owner-ns` ラベルは Rancher クラスタを削除するために使用できます：
+
+[source,bash]
+----
+kubectl delete clusters.management.cattle.io -l cluster-api.cattle.io/capi-cluster-owner=cluster1 -l cluster-api.cattle.io/capi-cluster-owner-ns=capi-clusters
+----
+
+インポートされたクラスタが削除マークが付けられると、クラスタは削除されます：
+
+. タートルズのコントローラーは、CAPIクラスタに`imported: true` 。
+. このアノテーションは、クラスタがRancherによって自動的に再インポートされるのを防ぎます。
+. 以下のコマンドでアノテーションを確認する：
++
+[source,bash]
+----
+kubectl -n capi-clusters get clusters.cluster.x-k8s.io cluster1 -o json | jq .metadata.annotations
+{
+"imported": "true"
+...
+}
+----
+
+[NOTE]
+====
+Rancherクラスタを削除すると、`clusters.management.cattle.io` リソースのみが削除され、関連するCAPIクラスタの自動インポートが無効になります。基礎となるCAPIクラスター自体はそのまま残っている。
+====
+
+== クラスタの再インポート
+
+同じCAPIクラスタをRancherに再インポートする必要がある場合は、以下のコマンドで`imported: true` アノテーションを削除してください：
+
+[source, bash]
+----
+kubectl -n capi-clusters patch clusters.cluster.x-k8s.io <cluster-name> --type='json' -p='[{"op": "remove", "path": "/metadata/annotations/imported"}]'
+----

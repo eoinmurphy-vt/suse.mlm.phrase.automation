@@ -1,0 +1,95 @@
+= 랜처 클러스터 등록
+:revdate: 2026-03-06
+:page-revdate: {revdate}
+
+== Turtles 자동 가져오기를 사용하여 Rancher에 CAPI 클러스터를 등록하는 방법
+
+Turtles를 사용하여 Rancher에서 CAPI 클러스터를 등록하는 데 지원되는 유일한 워크플로우는 `cluster-api.cattle.io/rancher-auto-import` 레이블을 사용하는 것입니다:
+
+. 네임스페이스에 레이블을 지정하여 그 안에 포함된 모든 클러스터를 가져오도록 합니다.
++
+[source,bash]
+----
+kubectl label namespace capi-clusters cluster-api.cattle.io/rancher-auto-import=true
+----
+. 개별 클러스터 정의에 레이블을 지정하여 가져올 수 있도록 합니다.
++
+[source,bash]
+----
+kubectl label clusters.cluster.x-k8s.io cluster1 cluster-api.cattle.io/rancher-auto-import=true
+----
+
+자동 가져오기 레이블을 사용하면 Turtles는 CAPI 클러스터가 `ControlPlaneAvailable` 조건이 `True` 으로 설정될 때까지 기다립니다.
+이 조건은 클러스터가 완전히 초기화되어 요청을 처리할 수 있음을 강조합니다.
+그러면 Turtles가 자동으로 관리 클러스터에 랜처 `clusters.management.cattle.io` 리소스를 생성하여 다운스트림 CAPI 클러스터에 `cattle-cluster-agent` 리소스를 설치합니다.
+에이전트 배포가 성공하면 가져온 클러스터가 Rancher 대시보드에 나타납니다.
+
+[NOTE]
+====
+네임스페이스(또는 클러스터)는 클러스터가 생성되기 전이나 후에 언제든지 자동 가져오기를 위해 표시할 수 있습니다.
+====
+
+[CAUTION]
+====
+자동 가져오기를 위해 클러스터를 표시하면 Turtles 컨트롤러에 의해 자동 등록이 트리거되며, 등록 명령의 수동 실행은 지원되지 않습니다.
+====
+
+== 랜처 클러스터에 사용자 지정 설명 추가하기
+
+가져온 Rancher 클러스터에 할당된 기본 설명은 "랜처로 가져온 CAPI 클러스터"입니다.image:imported-cluster-default-description.png[기본 설명이 포함된 가져온 Rancher 클러스터]
+
+가져온 랜처 클러스터에 사용자 지정 설명을 추가하려면 `cluster-api.cattle.io/cluster-description` 어노테이션을 CAPI 클러스터에 추가하면 됩니다.
+
+[source,yaml]
+----
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: docker-kubeadm-quickstart
+  labels:
+    cni: calico
+  annotations:
+    cluster-api.cattle.io/cluster-description: "This is a custom description of Rancher Cluster"
+----
+
+image:imported-cluster-custom-description.png[사용자 지정 설명이 포함된 가져온 랜처 클러스터]
+
+CAPI 클러스터를 이미 가져온 경우 어노테이션을 추가해도 아무 효과가 없습니다. 가져온 Rancher 클러스터를 삭제하고 다시 가져와야 할 수도 있습니다.
+
+== 랜처에서 가져온 클러스터 삭제
+
+`cluster-api.cattle.io/capi-cluster-owner` 및 `cluster-api.cattle.io/capi-cluster-owner-ns` 레이블을 사용하여 랜처 클러스터를 삭제할 수 있습니다:
+
+[source,bash]
+----
+kubectl delete clusters.management.cattle.io -l cluster-api.cattle.io/capi-cluster-owner=cluster1 -l cluster-api.cattle.io/capi-cluster-owner-ns=capi-clusters
+----
+
+가져온 클러스터가 삭제 대상으로 표시되면 삭제됩니다:
+
+. 터틀즈 컨트롤러는 CAPI 클러스터에 `imported: true` 로 주석을 달게 됩니다.
+. 이 어노테이션은 Rancher에서 클러스터를 자동으로 다시 가져오지 못하게 합니다.
+. 다음 명령을 사용하여 주석을 확인합니다:
++
+[source,bash]
+----
+kubectl -n capi-clusters get clusters.cluster.x-k8s.io cluster1 -o json | jq .metadata.annotations
+{
+"imported": "true"
+...
+}
+----
+
+[NOTE]
+====
+Rancher 클러스터를 삭제하면 `clusters.management.cattle.io` 리소스만 제거되고 연결된 CAPI 클러스터에 대한 자동 가져오기가 비활성화됩니다. 기본 CAPI 클러스터 자체는 그대로 유지됩니다.
+====
+
+== 클러스터 다시 가져오기
+
+동일한 CAPI 클러스터를 Rancher로 다시 가져오려면 아래 명령어를 통해 `imported: true` 어노테이션을 제거하세요:
+
+[source, bash]
+----
+kubectl -n capi-clusters patch clusters.cluster.x-k8s.io <cluster-name> --type='json' -p='[{"op": "remove", "path": "/metadata/annotations/imported"}]'
+----
