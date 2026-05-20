@@ -1,0 +1,267 @@
+ifdef::ss-ff-stackpacks2_enabled[]
+= 튜토리얼: 사용자 지정 통합 개발(StackPack)
+:revdate: 2026-01-08
+:page-revdate: {revdate}
+:description:  사용자 지정 통합 개발(StackPack)
+
+[IMPORTANT]
+====
+이 기능은 사전 제작 중이며 아직 출시되지 않았습니다. 환경 변수 `+STS_EXPERIMENTAL_STACKPACK+` 가 설정된 경우에만 사용할 수 있습니다. 획기적인 변경 사항이 발생할 수 있습니다.
+====
+
+== 목표
+
+개발자는 사용자 지정 StackPack을 구축하여 자신의 기술을 {stackstate-product-name} 와 통합하고자 합니다. 이 튜토리얼에서는 StackPack CLI를 사용하여 프로세스를 안내합니다.
+
+== 전제 조건
+
+- xref:/setup/cli/cli-sts.adoc[StackPack CLI에] 액세스
+- 기능 플래그가 활성화되었습니다:
++
+[source,bash]
+----
+export STS_EXPERIMENTAL_STACKPACK=true
+----
+
+
+== 사용자 정의 통합을 개발하는 방법(StackPack)
+
+=== 새 스택팩 발판
+
+`+scaffold+` 하위 명령은 구성 가능한 템플릿에서 새로운 StackPack 프로젝트 구조를 생성하여 StackPack 개발을 위한 초기 설정 프로세스를 간소화합니다. 이 명령은 로컬 디렉토리 템플릿과 GitHub 호스팅 템플릿을 모두 지원합니다.
+
+- CLI를 사용하여 새 StackPack 프로젝트를 생성합니다:
++
+[source,bash]
+----
+sts stackpack scaffold --name my-stackpack
+----
+
+- 특정 GitHub 템플릿을 사용하려면(기본값: https://github.com/StackVista/stackpack-templates[stackvista/stackpack-templates]):
++
+[source,bash]
+----
+sts stackpack scaffold --name my-stackpack --template-github-repo stackvista/stackpack-templates --template-name microservice --destination-dir stackpack
+✓ Validating arguments...
+✓ Checking destination directory...
+✓ Fetching template from github:stackvista/stackpack-templates@main:templates
+✓ Rendering templates...
+✓ Validating rendered templates...
+✓ Copying files to destination...
+Files copied:
+  README.md
+  provisioning/dashboard.sty
+  provisioning/metricbindings.sty
+  provisioning/monitors.sty
+  provisioning/remediation-hints/node-memory-pressure.md.hbs
+  provisioning/stackpack.sty
+  resources/deprovisioning.md
+  resources/error.md
+  resources/installed.md
+  resources/logo.png
+  resources/notinstalled.md
+  resources/overview.md
+  resources/provisioning.md
+  resources/waitingfordata.md
+  stackpack.yaml
+
+✅ ✓ Scaffold complete!
+
+Next steps:
+1. Review the generated files in: ./my-stackpack
+2. Check the ./my-stackpack/README.md for instructions on what to do next.
+...
+----
+
++
+- 로컬 템플릿을 사용하려면
++
+[source,bash]
+----
+sts stackpack scaffold --name my-stackpack --template-local-dir ./templates --template-name webapp
+----
+
+
+=== 검토 및 사용자 지정
+
+- 대상 디렉터리에서 생성된 파일을 검토합니다.
+- `+stackpack.yaml+` 및 기타 파일을 편집하여 통합 로직을 정의합니다.
+  * 데이터 통합. 구성 요소 및 수집 메트릭을 매핑하려면 xref:setup/custom-integrations/otelmappings/README.adoc[Otel 원격 분석 매핑 추가하기를] 참조하세요 xref:setup/custom-integrations/otelmappings/README.adoc[.]
+  * xref:setup/custom-integrations/monitors/index.adoc[모니터 추가]
+  * xref:setup/custom-integrations/metric-bindings/index.adoc[메트릭 바인딩 추가]
+
+[NOTE]
+====
+기본값: https://github.com/StackVista/stackpack-templates[stackvista/stackpack-templates] 템플릿은 모니터 및 메트릭 바인딩과 같은 대부분의 확장 지점에 대한 예제가 포함되어 있으므로 좋은 출발점이 될 수 있습니다.
+====
+
+=== 스택팩 테스트
+
+`+test+` 하위 명령은 테스트 반복을 위한 자동 버전 관리로 패키지 → 업로드 → 설치/업그레이드 순서를 자동화하여 스택팩 개발 워크플로우를 간소화하는 명령입니다.
+
+- 사전 프로덕션 환경에서 StackPack을 신속하게 테스트하세요(실행 중인 Suse Observability 인스턴스가 필요함):
++
+[source,bash]
+----
+sts stackpack test -d ./my-stackpack --yes
+✅ Starting stackpack test sequence...
+  Stackpack: my-stackpack (current version: 0.0.1)
+
+Step 1/5: Checking installed version...
+
+Step 2/5: Creating temporary copy for testing...
+✅ ✓ Temporary copy created
+
+Step 3/5: Bumping version for testing...
+✅ ✓ Version bumped to: 0.0.1-cli-test.10000
+
+Step 4/5: Packaging stackpack...
+✅ ✓ Stackpack packaged successfully!
+
+Stackpack: my-stackpack (v0.0.1-cli-test.10000)
+Zip file: /Users/viliakov/Workspace/src/github/stackstate-cli/my-stackpack/my-stackpack-0.0.1-cli-test.10000.zip
+✅ ✓ Stackpack packaged successfully
+
+Step 5/5: Uploading and installing/upgrading stackpack...
+✅ Uploaded StackPack: /Users/viliakov/Workspace/src/github/stackstate-cli/my-stackpack/my-stackpack-0.0.1-cli-test.10000.zip
+NAME              | DISPLAY NAME      | VERSION
+my-stackpack | my-stackpack | 0.0.1-cli-test.10000
+✅ ✓ Stackpack uploaded successfully
+✅ StackPack instance installed
+ID             | NAME | STATUS      | VERSION         | LAST UPDATED
+274027256960772 | -    | PROVISIONING | 0.0.1-cli-test.1 | Fri Aug 29 09:10
+                |      |              | 0000             | :26 2025 CEST
+✅ ✓ Stackpack installed successfully
+
+✅ 🎉 Test sequence completed successfully!
+----
+
+- `+test+` 서브커맨드는 테스트 버전 접미사를 사용하여 StackPack을 패키징, 업로드 및 설치합니다.
+- 빠른 피드백을 위해 `+test+` 명령을 사용하여 StackPack을 반복하고, 변경하고, 설치/업그레이드 프로세스가 성공적으로 실행되는지 관찰하세요. 수집된 토폴로지 및 원격 분석을 Suse Observability UI에서 검토하세요.
+
+=== 완성된 StackPack 버전 패키지
+
+`+package+` 하위 명령은 스택팩 디렉터리에서 zip 파일을 생성합니다. 이 명령은 필요한 모든 스택팩 파일과 디렉터리를 배포 및 배포를 위해 적절한 이름의 zip 아카이브로 패키지화합니다.
+
+- 스택팩을 배포 가능한 압축 파일로 포장하세요:
++
+[source,bash]
+----
+sts stackpack package -d ./my-stackpack
+✅ ✓ Stackpack packaged successfully!
+
+Stackpack: stackpack (v0.0.1)
+Zip file: /Users/viliakov/Workspace/src/github/stackstate-cli/my-stackpack/my-stackpack-0.0.1-cli-test.zip
+----
+
+- 출력 파일을 지정합니다:
++
+[source,bash]
+----
+sts stackpack package -d ./my-stackpack -f my-custom-archive.zip
+----
+
+=== 스택팩 유효성 검사
+
+StackPack을 업로드하고 설치하기 전에 유효성을 검사하여 올바르게 구성되었는지 확인할 수 있습니다(보다 긴밀한 피드백 루프를 위해). 워크플로에 따라 두 가지 접근 방식이 있습니다:
+
+==== 라이브 백엔드를 통한 로컬 유효성 검사
+
+`+validate+` 하위 명령은 실행 중인 {stackstate-product-name} 인스턴스에 대해 StackPack의 유효성을 검사합니다. 개발 중에 StackPack을 검증하는 데 유용합니다.
+
+- StackPack 디렉토리의 유효성을 검사합니다(자동으로 패키징 및 업로드됨):
++
+[source,bash]
+----
+sts stackpack validate -d ./my-stackpack
+✅ Stackpack validation successful!
+----
+
+- 미리 패키징된 `+.sts+` 파일의 유효성을 검사합니다:
++
+[source,bash]
+----
+sts stackpack validate -f ./my-stackpack-0.0.1.sts
+✅ Stackpack validation successful!
+----
+
+[NOTE]
+====
+`+sts stackpack validate+` 명령은 CLI 컨텍스트에서 구성된 {stackstate-product-name} 인스턴스가 실행 중이어야 합니다. 사용 가능한 라이브 인스턴스가 없는 경우 대신 CI 유효성 검사를 사용하세요.
+====
+
+==== CI/CD 파이프라인에서의 유효성 검사
+
+실행 중인 {stackstate-product-name} 인스턴스가 없을 수 있는 CI/CD 파이프라인의 경우, StackState Server Docker 이미지의 `+stack-pack-validator+` 도구를 사용하세요. 이렇게 하면 라이브 백엔드 연결 없이 유효성 검사를 수행합니다.
+
+===== GitLab CI 예시
+
+GitLab CI 파이프라인에서 직접 StackState 서버 도커 이미지를 사용하세요:
+
+[source,yaml]
+----
+.validate-stackpack: &validate-stackpack
+  stage: validate
+  image: registry.rancher.com/stackstate/stackstate-server:<latest-tag>
+  script:
+    - |
+      echo "Validating stackpack source: stackpacks/$STACKPACK"
+      /opt/docker/bin/stack-pack-validator -directory "$CI_PROJECT_DIR/stackpacks/$STACKPACK" || {
+        echo "ERROR: Stackpack validation failed for stackpacks/$STACKPACK"
+        exit 1
+      }
+      echo "Stackpack validation passed for stackpacks/$STACKPACK"
+  dependencies: []
+
+validate-my-stackpack:
+  <<: *validate-stackpack
+  variables:
+    STACKPACK: my-stackpack
+----
+
+===== 도커 명령줄
+
+로컬 또는 다른 CI/CD 시스템에서 유효성 검사를 실행하는 경우 `+docker run+` 명령을 사용하세요:
+
+- 패키징된 `+.sts+` 파일의 유효성을 검사합니다:
++
+[source,bash]
+----
+docker run --rm --entrypoint="/opt/docker/bin/stack-pack-validator" \
+    -v /path/to/my-stackpack-0.0.1.sts:/stackpack.sts \
+    registry.rancher.com/stackstate/stackstate-server:<latest-tag> \
+    -file /stackpack.sts
+----
+
+- 스택팩 디렉터리의 유효성을 검사합니다:
++
+[source,bash]
+----
+docker run --rm --entrypoint="/opt/docker/bin/stack-pack-validator" \
+    -v /path/to/my-stackpack:/stackpack \
+    registry.rancher.com/stackstate/stackstate-server:<latest-tag> \
+    -directory /stackpack
+----
+
+[TIP]
+====
+CI/CD 파이프라인의 `+stackstate-server+` 이미지에 있는 `+stack-pack-validator+` 스크립트를 사용하여 스택팩을 게시하기 전에 유효성을 검사하세요. 이렇게 하면 {stackstate-product-name} 인스턴스를 실행하지 않고도 StackPack이 모든 요구 사항을 충족할 수 있습니다.
+====
+
+=== StackPack 업로드
+
+`+upload+` 하위 명령은 zip 아카이브를 실행 중인 {stackstate-product-name} 인스턴스로 푸시합니다.
+
+- {stackstate-product-name} 에 아카이브를 업로드합니다:
++
+[source,bash]
+----
+sts stackpack upload -f ./my-stackpack-0.0.1.zip
+✅ ✓ Stackpack uploaded successfully!
+----
+
+=== StackPack 설치
+
+{stackstate-product-name} 스택팩 UI를 통해 xref:/stackpacks/about-stackpacks.adoc#_install_or_uninstall_a_stackpack[스택팩을 설치하거나 업그레이드하세요].
+
+endif::ss-ff-stackpacks2_enabled[]
