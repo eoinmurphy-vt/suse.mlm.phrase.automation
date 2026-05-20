@@ -143,10 +143,11 @@ def map_output_path(src_path: str, rel: str) -> str:
     lang_folder = parts[0]   # 'fr_fr' or 'zh_cn'
     repo_id = parts[1]       # 'suse-repo-b'
     
-    # --- ADD THIS NEW CHECK ---
-    # If a specific product was typed in, and this file doesn't match it, skip it!
+    # --- FIXED CHECK ---
+    # If a specific product was typed in, and this file doesn't match it, return None to skip it!
     if TARGET_PRODUCT and repo_id != TARGET_PRODUCT:
-        continue
+        return None
+    # -------------------
     
     # 2. Get Smart Language Code
     lang_code = get_target_lang(lang_folder)
