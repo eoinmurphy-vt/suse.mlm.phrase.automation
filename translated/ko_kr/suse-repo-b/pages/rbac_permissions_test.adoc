@@ -1,0 +1,281 @@
+= 권한
+:revdate: 2025-07-10
+:page-revdate: {revdate}
+:description: SUSE Observability 자체 호스팅
+
+== 개요
+
+관리자는 SUSE Observability의 권한을 통해 각 사용자 또는 사용자 그룹이 SUSE Observability 내에서 수행할 수 있는 작업과 SUSE Observability UI에 표시되는 정보를 관리할 수 있습니다. 각 사용자의 활성 역할과 관련된 기능 세트만 표시됩니다. 사용자에게 액세스 권한이 없는 작업, 정보 및 페이지는 SUSE Observability UI에 표시되지 않습니다.
+
+[NOTE]
+====
+권한은 스택그래프에 저장됩니다. 이는 곧
+
+* '모든 데이터 지우기'로 업그레이드를 수행하면 권한 설정도 제거됩니다.
+* 사용자를 완전히 제거하려면 스택그래프에서도 수동으로 제거해야 합니다.
+====
+
+
+== SUSE 관찰 가능성 권한
+
+SUSE Observability에는 두 가지 유형의 권한이 있습니다. *시스템 권한은* 설정, 쿼리 실행 및 스크립팅에 대한 액세스와 같은 사용자 기능의 범위를 지정합니다. *범위가 지정된 권한은* 통합 가시성 데이터 및 SUSE 통합 가시성 보기와 같은 일부 리소스 유형에 대한 액세스를 결정합니다.  SUSE 통합 가시성 보기에 대한 CRUD 작업의 경우, 특정 보기 또는 모든 보기에 대해 이러한 권한을 부여할 수 있습니다. SUSE Observability의 각 사전 정의된 역할에 연결된 권한에 대한 자세한 내용은 xref:/setup/security/rbac/rbac_roles.adoc#_predefined_roles[사전 정의된 역할을] 참조하십시오.
+
+SUSE Observability에서 사용할 수 있는 권한은 다음과 같습니다:
+
+.권한
+[cols="2,2,5"]
+|===
+|리소스 |동사 |설명
+
+|에이전트
+|get
+|연결된 상담원
+
+|api-토큰
+|get
+|SUSE Observability CLI로 인증하는 데 사용할 API 키입니다.  이는 사용자별로 고유합니다.
+
+|컴포넌트 액션
+|실행
+|xref:/use/views/k8s-topology-perspective.adoc#_actions[토폴로지 관점에서의 컴포넌트 동작].
+
+|대시보드
+|가져오기, 만들기, 업데이트, 삭제
+|xref:/use/dashboards/dashboards.adoc[대시보드].
+
+|메트릭 바인딩
+|가져오기, 만들기, 업데이트, 삭제
+ifdef::ss-ff-stackpacks2_enabled[]
+|xref:/setup/custom-integrations/metric-bindings/index.adoc[메트릭 관점에서 데이터를 시각화하기 위한 바인딩입니다].
+endif::[]
+ifndef::ss-ff-stackpacks2_enabled[]
+|xref:/use/metrics/k8s-add-charts.adoc[메트릭 관점에서 데이터를 시각화하기 위한 바인딩입니다].
+endif::[]
+
+|메트릭
+|get\^[1]^, update
+|PromQL을 사용하여 메트릭 데이터 수집 및 쿼리하기
+
+|모니터
+|가져오기, 생성, 업데이트, 삭제, 실행
+|xref:/use/alerting/k8s-monitors.adoc[모니터를 통해 컴포넌트 상태를 파악하세요].
+
+|알림
+|가져오기, 만들기, 업데이트, 삭제
+|xref:/use/alerting/notifications/configure.adoc[알림을 통해 알림을 받습니다].
+
+|권한
+|가져오기, 업데이트
+|과목에 대한 권한을 관리합니다.
+
+|범위 지정 권한
+|update\^[1]^
+|단일 클러스터에서 토폴로지, 메트릭 및 추적에 대한 액세스 권한을 부여(또는 취소)하는 범위 지정 권한을 관리합니다.
+
+|스크립트
+|실행
+|SUSE Observability UI 분석 환경에서 스크립트를 실행합니다.
+
+|restricted-scripts
+|실행
+|애널리틱스 환경에서 HTTP 스크립트 및 그렘린 그래프 API를 사용합니다.
+
+|서비스 토큰
+|가져오기, 만들기, 삭제
+|xref:/setup/security/authentication/service_tokens.adoc[서비스 토큰은] 외부 서비스를 인증하고 데이터 수집에 사용할 수 있습니다.
+
+|설정
+|가져오기, 업데이트, 잠금 해제
+|설정을 내보내거나 가져오거나 xref:/stackpacks/about-stackpacks.adoc#_locked_configuration_items[잠긴 구성 항목을 잠금] 해제합니다.
+
+|스택팩
+|가져오기, 업데이트
+|xref:/stackpacks/about-stackpacks.adoc[스택팩을] 나열하거나 업로드합니다.
+
+|스택팩 구성
+|생성, 업데이트, 삭제
+|xref:/stackpacks/about-stackpacks.adoc[스택팩을] 사용하여 통합을 관리합니다.
+
+|동기화 데이터
+|가져오기, 삭제
+|토폴로지 및 상태 동기화 파이프라인을 검사하거나 재설정합니다.
+
+|시스템 알림
+|get
+|UI에서 시스템 알림에 액세스
+
+|주제 메시지
+|get
+|SUSE 옵저버빌리티 수신기 데이터에 액세스합니다.
+
+|토폴로지
+|get\^[1]^
+|xref:/use/views/k8s-views.adoc[토폴로지 범위 뷰를 살펴]보세요.
+
+|추적
+|get\^[1]^
+|xref:/use/traces/k8sTs-explore-traces.adoc[흔적을 탐색하세요].
+
+|조회수
+|get^[1]^, create, update^[1^], delete^[1]^
+|xref:/use/views/k8s-custom-views.adoc[사용자 지정 보기를] 사용하거나 관리합니다.
+
+|즐겨찾기 보기
+|생성, 삭제
+|보기에서 별을 추가하고 제거합니다.
+
+|시각화
+|업데이트
+|xref:/use/views/k8s-topology-perspective.adoc#_visualization_settings[시각화 설정을] 변경합니다.
+
+|===
+[1]^ 이것은 *범위가 지정된 권한이며*, 리소스 이름의 해석은 컨텍스트에 따라 달라집니다.
+
+=== 범위 지정 권한
+
+시스템 전체에 특정 권한을 부여하거나 리소스의 하위 집합으로 제한할 수 있습니다.  범위를 나타내는 *리소스 이름을* 지정할 수 있습니다.  이 이름의 해석은 리소스 유형에 따라 다릅니다.  범위 지정은 일부 동사에만 적용될 수 있습니다.
+
+* `+views+` - 뷰의 이름
+* `+topology+` - 모든 컴포넌트 레이블. 쿠버네티스 환경에서는 예를 들어 `+cluster-name:<cluster-name>+` 또는 `+k8s-scope:<cluster-name>/<namespace>+`
+* `+metrics+` - 쿠버네티스 환경에서는 `+k8s:<cluster-name>:\\__any__+` 또는 `+k8s:<cluster-name>:<namespace>+`
+* `+traces+` - 쿠버네티스 환경에서는 `+k8s.cluster.name:<cluster-name>+` 또는 `+k8s.scope:<cluster-name>/<namespace>+`
+* `+scoped-permissions+` - 권한이 관리되는 클러스터의 이름입니다.
+
+== 권한 관리
+
+`+sts+` CLI를 사용하여 SUSE Observability 권한을 관리할 수 있습니다.
+범위가 지정된 권한의 경우 리소스 이름을 지정할 수 있습니다.  권한이 부여되지 않으면 시스템 전체에서 권한이 부여(또는 취소)됩니다.
+
+[NOTE]
+====
+*중요 참고 사항:* SUSE Observability의 모든 권한은 대소문자를 구분합니다.
+====
+
+
+=== 사용 가능한 모든 권한 나열
+
+사용 가능한 모든 권한을 나열합니다:
+
+[,text]
+----
+sts rbac list-permissions
+----
+
+=== 모든 주제 나열
+
+모든 주제를 나열합니다:
+
+[,text]
+----
+sts rbac describe-subjects
+
+SUBJECT                                    | SOURCE
+stackstate-admin                           | Static
+suse-observability-instance-admin          | Kubernetes
+suse-observability-agent-clusterA          | Observability
+----
+[NOTE]
+====
+주제 `+SOURCE는` 주제를 소유하고 관리하는 주체를 표시합니다. RBAC 소스(구성|정적, 통합 가시성, Kubernetes) 중 하나 일 수 있습니다.
+
+* Configuration|Static: 헬름을 통해 Suse Observability 구성을 통해 얻은 주제
+* Observability: sts cli를 통해 관리되는 대상
+* Kubernetes: 쿠버네티스 역할 바인딩 및 클러스터 역할 바인딩에서 RBAC 에이전트를 통해 획득한 대상
+====
+
+=== 사용자에 대한 주제 나열
+
+컨텍스트에 할당된 모든 주체를 나열하고, 첫 번째로 표시되는 항목은 사용자 이름과 사용자가 가지고 있는 잠재적 역할을 나열합니다:
+
+[,text]
+----
+sts user-session roles
+
+user-dkzwh
+keycloakoidc_group://suse-observability-instance-troubleshooter
+keycloakoidc_group://suse-observability-instance-observer
+keycloakoidc_group://suse-observability-cluster-observer
+keycloakoidc_group://suse-observability-instance-admin
+keycloakoidc_group://suse-observability-observer
+----
+
+사용자에게 할당된 모든 주제를 `+api-token+`(관리자가 권한이 적은 사용자의 디버깅을 도울 수 있으므로 유용함)을 제공하여 나열합니다:
+
+[,text]
+----
+sts user-session roles --api-token [api-token]
+
+u-3p775e7w7l
+keycloakoidc_group://suse-observability-cluster-observer
+----
+
+=== 부여된 권한 표시
+
+특정 사용자 또는 역할에 부여된 권한을 표시합니다.
+
+[,text]
+----
+sts rbac describe-permissions --subject [role-name]
+
+PERMISSION   | RESOURCE
+get-topology | cluster-name:rbac-t2
+get-traces   | k8s.cluster.name:rbac-t2
+get-metrics  | k8s:rbac-t2:__any__
+----
+
+[NOTE]
+====
+`+--subject+` 는 다양한 RBAC 소스(구성, 통합 가시성, 쿠버네티스)에서 사용할 수 있는 모든 주제가 될 수 있습니다.
+====
+
+=== 권한 부여
+[NOTE]
+====
+`+--subject+` 는 관찰 가능성 주제가 될 수 있으며, 구성 및 쿠버네티스 주제는 읽기 전용입니다.
+====
+
+==== 사용자가 뷰를 열도록 허용
+
+피사체에게 보기를 열 수 있는 권한을 부여합니다:
+
+[,text]
+----
+sts rbac grant --subject [role-name] --permission get-views --resource [view-name]
+----
+
+==== 사용자가 보기를 만들 수 있도록 허용
+
+시스템에서 주체에 보기를 만들 수 있는 권한을 부여합니다:
+
+[,text]
+----
+sts rbac grant --subject [role-name] --permission create-views
+----
+
+==== 사용자가 SUSE Observability 설정을 확인할 수 있도록 허용하기
+
+시스템 권한이 있는 주체에게 SUSE 관찰 가능성 설정을 확인할 수 있는 권한을 부여합니다:
+
+[,text]
+----
+sts rbac grant --subject [role-name] --permission get-settings
+----
+
+=== 권한 취소
+[NOTE]
+====
+`+--subject+` 는 관찰 가능성 주제가 될 수 있으며, 구성 및 쿠버네티스 주제는 읽기 전용입니다.
+====
+
+주체가 보기를 열 수 있는 권한을 취소합니다:
+
+[,text]
+----
+sts rbac revoke --subject [role-name] --permission get-views --resource [view-name]
+----
+
+== 권한이 없는 SUSE Observability UI
+
+아래는 권한이 없는 사용자를 SUSE Observability UI에서 찾는 방법의 예시입니다:
+
+image::noperm.png[권한 없음]
