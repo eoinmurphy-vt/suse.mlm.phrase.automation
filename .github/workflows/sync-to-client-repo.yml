@@ -55,7 +55,7 @@ jobs:
              exit 1
           fi
 
-- name: Distribute Files (via Pull Request)
+      - name: Distribute Files (via Pull Request)
         env:
           EXT_PAT: ${{ secrets.SUSE_PHRASE_CLIENT_WRITE_PAT }}
           # The GitHub CLI needs the token passed as GH_TOKEN to authenticate the PR
