@@ -1,0 +1,120 @@
+= 認定CAPIプロバイダー
+:revdate: 2025-10-14
+:page-revdate: {revdate}
+
+== 認定プロバイダーとはどういう意味ですか？
+
+認定プロバイダとは、TurtlesチームのCIワークフローによって**積極的にテストさ**れ、Rancher用CAPIエクステンションで正しく動作することが確認されたCAPIプロバイダのことです。しかし、ほとんどのCAPIプロバイダーは、Kubernetesオープンコミュニティによって保守されているアップストリームプロジェクトであるため、新しいプロバイダーのバージョンがリリースされたときに問題が発生しないことを**保証することはできません**。
+
+== 認定プロバイダーのリスト
+
+[NOTE]
+====
+このリストは、プロジェクトの継続的な発展を反映するため、常に進化している。
+====
+
+
+これは、タートルズが公式に認定したCAPIプロバイダーのリストです。これらのプロバイダーは私たちのテストスイートでカバーされており、Rancher用のCAPIエクステンションで適切に動作することを積極的に確認しています。
+
+|===
+| プラットフォーム | コードネーム | プロバイダー・タイプ | 資料
+
+| *RKE2*
+| CAPRKE2
+| ブートストラップ／コントロールプレーン
+| https://rancher.github.io/cluster-api-provider-rke2[CAPRKE2 本]
+
+| *Kubeadm*
+| Kubeadm
+| ブートストラップ／コントロールプレーン
+| https://cluster-api.sigs.k8s.io/tasks/bootstrap/kubeadm-bootstrap[CABPKドキュメント]
+
+| *AWS*
+| CAPA
+| インフラ
+| https://cluster-api-aws.sigs.k8s.io[CAPAブック]
+
+| *Docker**
+| CAPD
+| インフラ
+| https://cluster-api.sigs.k8s.io[CAPIブック]
+
+| *vSphere*
+| CAPV
+| インフラ
+| https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/blob/main/docs/getting_started.md[CAPVドキュメント]
+
+| *Azure*
+| CAPZ
+| インフラ
+| https://capz.sigs.k8s.io/[CAPZブック]
+
+| *GCP*(GKE 管理クラスタのみ)
+| CAPG
+| インフラ
+| https://cluster-api-gcp.sigs.k8s.io/[CAPGブック]
+
+| *Addon Provider Fleet*
+| CAAPF
+| アドオン
+| https://rancher.github.io/cluster-api-addon-provider-fleet/[CAAPFブック]
+|===
+
+*開発目的でのみ推奨。
+
+== 実験モードのプロバイダー一覧
+
+これは、開発が進んでおり、間もなく認定を受けるプロバイダーのリストである。
+
+|===
+| プラットフォーム | コードネーム | プロバイダー・タイプ | 資料
+|===
+
+== 認定プロバイダー向けクラスタ・クラス・サポート
+
+以下は、各認証プロバイダーとクラスタ・トポロジー機能のサポート・マトリックスである：
+
+[tabs]
+======
+CAPZ::
++
+--
+- `+ClusterClass+` の**完全サポート**：マネージドクラスター（AKS）とアンマネージドクラスター（仮想マシン）の両方をトポロジー経由でプロビジョニングできる。
+--
+
+CAPA::
++
+--
+- `+ClusterClass+` の**完全サポート**：マネージド（EKS）クラスタとアンマネージド（EC2ベース）クラスタの両方を、トポロジー経由でプロビジョニングできる。
+--
+
+CAPG::
++
+--
+- `+ClusterClass+` の**完全サポート**：管理クラスタ（GKE）と非管理クラスタ（仮想マシン）の両方を、トポロジー経由でプロビジョニングできます。
+--
+
+CAPRKE2::
++
+--
+- `+ClusterClass+`**。**
+--
+
+CABPK::
++
+--
+- `+ClusterClass+`**。**
+--
+
+CAPV::
++
+--
+- `+ClusterClass+`**。**
+--
+
+CAPD::
++
+--
+- `+ClusterClass+`**。**
+--
+======
