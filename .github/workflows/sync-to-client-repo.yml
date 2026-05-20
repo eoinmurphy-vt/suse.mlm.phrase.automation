@@ -2,13 +2,18 @@ name: Sync Changes to External Repos
 
 on:
   # Listen for Postprocess to finish successfully
-  workflow_run:
-    workflows: ["Postprocess Translated Files"]
-    types:
-      - completed
+  # workflow_run:
+  #   workflows: ["Postprocess Translated Files"]
+  #   types:
+  #     - completed
   
   # OPTION 1: Manual Trigger (Active)
   workflow_dispatch:
+    inputs:
+      specific_repo_id:
+        description: "Run for a specific Client ID (leave empty for all)"
+        required: false
+        type: string
 
   # OPTION 2: Scheduled Trigger (Currently disabled for future projects)
   # To enable overnight batching, simply remove the '#' from the two lines below.

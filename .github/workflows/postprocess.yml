@@ -6,10 +6,14 @@ on:
   workflow_dispatch:
     inputs:
       force_all:
-        description: 'Force re-process ALL files (Ignore fail-safe)'
-        required: false
+        description: "Force re-process ALL files (Ignore fail-safe)"
         type: boolean
+        required: false
         default: false
+      specific_product:
+        description: "Specific Product ID (leave empty for all)"
+        type: string
+        required: false
 
   # OPTION 2: Scheduled Trigger (Currently disabled for future projects)
   # To enable overnight batching, simply remove the '#' from the two lines below.
@@ -35,6 +39,8 @@ jobs:
   postprocess:
     runs-on: ubuntu-latest
     env:
+      FORCE_ALL: ${{ inputs.force_all }}
+      SPECIFIC_PRODUCT: ${{ inputs.specific_product }}
       SRC_DIR: ${{ vars.TRANSLATED_DIR || 'translated' }}
       DST_DIR: ${{ vars.FINAL_DIR || 'final' }}
       CURRENT_REPO: ${{ github.repository }}

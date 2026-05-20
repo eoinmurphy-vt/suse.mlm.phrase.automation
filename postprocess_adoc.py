@@ -5,6 +5,7 @@ import chardet
 from pathlib import Path
 
 # --- CONFIGURATION ---
+TARGET_PRODUCT = os.getenv('SPECIFIC_PRODUCT', '').strip()
 SRC_DIR = os.getenv("SRC_DIR", "translated")
 DST_DIR = os.getenv("DST_DIR", "final")
 LOG_DIR = "logs"
@@ -141,6 +142,11 @@ def map_output_path(src_path: str, rel: str) -> str:
     # 1. Parse Structure
     lang_folder = parts[0]   # 'fr_fr' or 'zh_cn'
     repo_id = parts[1]       # 'suse-repo-b'
+    
+    # --- ADD THIS NEW CHECK ---
+    # If a specific product was typed in, and this file doesn't match it, skip it!
+    if TARGET_PRODUCT and repo_id != TARGET_PRODUCT:
+        continue
     
     # 2. Get Smart Language Code
     lang_code = get_target_lang(lang_folder)
