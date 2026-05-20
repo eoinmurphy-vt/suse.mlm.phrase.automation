@@ -1,0 +1,27 @@
+Starting preprocess: source/suse-repo-b/develop_test.adoc
+Saved processed file → processed/suse-repo-b/develop_test.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-05-20 14:51:03.388078
+Starting preprocess: source/suse-repo-b/pages/rbac_permissions_test.adoc
+Saved processed file → processed/suse-repo-b/pages/rbac_permissions_test.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-05-20 14:51:03.440447
+Starting preprocess: source/suse-repo-b/pages/self-signed-certificates_test.adoc
+Saved processed file → processed/suse-repo-b/pages/self-signed-certificates_test.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-05-20 14:51:03.492813
