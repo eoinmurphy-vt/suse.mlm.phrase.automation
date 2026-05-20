@@ -1,0 +1,530 @@
+= 자체 서명 인증서
+:revdate: 2025-07-29
+:page-revdate: {revdate}
+:description: SUSE Observability 자체 호스팅
+
+== SUSE 옵저버빌리티 서버
+
+=== 자체 서명된 인증서로 SUSE Observability Server 노출하기
+
+xref:k8s-suse-rancher-prime.adoc#_installation[SUSE Observability Server] 구성 요소는 자체적으로 SSL을 종료할 수 없으며 SSL로 보호되는 인그레스 컨트롤러 또는 로드밸런서를 사용하여 HTTPS로 서비스를 노출해야 합니다. 이 섹션에서는 자체 서명 인증서를 사용하여 인그레스 컨트롤러를 구성하는 방법에 대해 설명합니다.
+
+==== TLS와 함께 인그레스 컨트롤러 사용
+
+자체 서명된 인증서와 함께 https://kubernetes.github.io/ingress-nginx/[인그레스 컨트롤러를] Nginx 사용하여 SUSE 옵저버빌리티 서버를 노출하려면 다음을 수행해야 합니다:
+
+1. 서버 인증서와 키에서 Kubernetes TLS 비밀을 생성합니다.
+2. TLS 설정으로 인그레스 리소스 구성하기
+3. 인그레스를 활성화하여 SUSE Observability Server 배포하기
+
+===== TLS 비밀 만들기
+
+인증서 및 개인 키 파일에서 Kubernetes TLS 비밀 키를 만듭니다:
+
+[,bash]
+----
+# Create TLS secret for main SUSE Observability Server
+kubectl create secret tls tls-secret \
+  --cert=server.crt \
+  --key=server.key \
+  --namespace suse-observability
+
+# Create TLS secret for OTLP GRPC endpoint
+kubectl create secret tls otlp-tls-secret \
+  --cert=otlp-server.crt \
+  --key=otlp-server.key \
+  --namespace suse-observability
+
+# Create TLS secret for OTLP HTTP endpoint
+kubectl create secret tls otlp-http-tls-secret \
+  --cert=otlp-http-server.crt \
+  --key=otlp-http-server.key \
+  --namespace suse-observability
+----
+
+===== 헬름 값 구성
+
+인그레스 구성으로 값 파일(예: `+ingress-with-tls-values.yaml+`)을 만듭니다:
+
+[NOTE]
+====
+*참고:*
+이 구성은 https://kubernetes.github.io/ingress-nginx/[인그레스 컨트롤러에만] Nginx 적용됩니다. 다른 인그레스 컨트롤러를 사용하는 경우 그에 따라 어노테이션과 구성을 조정하세요.
+====
+
+[,yaml]
+----
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+  hosts:
+    - host: suse-observability.MY_DOMAIN
+  tls:
+    - hosts:
+        - suse-observability.MY_DOMAIN
+      secretName: tls-secret
+
+opentelemetry-collector:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+      nginx.ingress.kubernetes.io/backend-protocol: GRPC
+    hosts:
+      - host: otlp-suse-observability.MY_DOMAIN
+        paths:
+          - path: /
+            pathType: Prefix
+            port: 4317
+    tls:
+      - hosts:
+          - otlp-suse-observability.MY_DOMAIN
+        secretName: otlp-tls-secret
+    additionalIngresses:
+      - name: otlp-http
+        annotations:
+          nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+        hosts:
+          - host: otlp-http-suse-observability.MY_DOMAIN
+            paths:
+              - path: /
+                pathType: Prefix
+                port: 4318
+        tls:
+          - hosts:
+              - otlp-http-suse-observability.MY_DOMAIN
+            secretName: otlp-http-tls-secret
+----
+
+===== Ingress로 설치
+
+인그레스 구성을 사용하여 SUSE 옵저버빌리티 서버를 배포합니다:
+
+[,bash]
+----
+helm upgrade --install \
+  --namespace suse-observability \
+  --create-namespace \
+  --values ingress-with-tls-values.yaml \
+  suse-observability \
+  suse-observability/suse-observability
+----
+
+전체 설치 지침은 xref:k8s-suse-rancher-prime.adoc#_installation[설치를] 참조하세요.
+
+=== 자체 서명된 인증서로 외부 시스템에 연결하는 SUSE Observability Server
+
+[NOTE]
+====
+이 섹션에서는 자체 서명된 인증서를 사용하는 외부 시스템을 신뢰하도록 SUSE Observability Server를 구성하는 방법을 설명합니다. 이는 서버가 자체 서명 인증서로 보호되는 외부 서비스(예: 웹훅)에 나가는 연결을 해야 하는 경우에 적용됩니다.
+====
+
+SUSE Observability Server에는 외부 시스템과 상호 작용하는 여러 지점이 있습니다. 예를 들어 이벤트 핸들러는 다른 시스템의 웹훅을 호출할 수 있습니다. 기본 구성에서는 자체 서명된 인증서 또는 기본적으로 JVM에서 신뢰하지 않는 인증서를 사용하여 TLS로 보안이 설정된 경우 SUSE Observability Server가 이러한 시스템과 통신할 수 없습니다.
+
+이를 완화하기 위해 SUSE Observability Server에서는 사용자 지정 트러스트 저장소를 구성할 수 있습니다.
+
+=== 사용자 지정 트러스트 스토어 만들기
+
+사용자 지정 TLS 인증서를 사용할 수 있어야 합니다. 없는 경우 xref:/use/security/self-signed-certificates.adoc#_retrieve_certificate_via_the_browser[브라우저를 통해 검색]해야 합니다.
+
+키툴 도구와 JVM(Java 가상 머신) 설치에 포함된 `+cacerts+` 파일을 사용하여 기존 TLS 인증서 파일을 SUSE Observability Server에 필요한 형식으로 변환합니다. 운영 체제 유형에 관계없이 모든 컴퓨터에서 실행할 수 있습니다.
+
+컴퓨터에 JVM이 설치되어 있지 않은 경우 xref:/use/security/self-signed-certificates.adoc#_using_a_docker_jvm[JVM Docker 이미지를] 대신 xref:/use/security/self-signed-certificates.adoc#_using_a_docker_jvm[사용할] 수도 있습니다.
+
+==== 설치된 JVM 사용
+
+컴퓨터에 JVM이 설치되어 있고 인증서가 파일로 저장되어 있으면 `+site.cert+`, JVM의 신뢰 저장소를 가져와서 추가 인증서를 추가하여 새 신뢰 저장소를 만들 수 있습니다.
+
+. 작업 디렉터리 `+workdir+` 를 만들고 인증서 파일 `+site.cert+` 을 이 디렉터리에 복사합니다.
+. 디렉터리를 `+workdir+` 으로 변경하고 Java 설치에서 `+cacerts+` 파일의 복사본을 만듭니다. `+$JAVA_HOME+` 은 Java 설치 위치가 포함된 환경 변수입니다. 일반적으로 Java를 설치할 때 설정합니다.
++
+[,bash]
+----
+cd workdir
+cp $JAVA_HOME/lib/security/cacerts ./custom_cacerts
+----
+
+. 다음 keytool 명령을 실행하여 인증서를 추가합니다. 필수 비밀번호는 `+changeit+` 입니다. 별칭은 점 없이 도메인 이름 자체와 같은 인증서에 대한 고유한 별칭이어야 합니다.
++
+[,bash]
+----
+keytool -import -keystore custom_cacerts -alias <a-name-for-the-certificate>  -file site.cert
+----
+
+. 이제 `+custom_cacerts+` 스토어 파일에 `+site.cert+` 인증서가 포함됩니다. 의 출력에서 별칭을 검색하여 확인할 수 있습니다.
++
+[,bash]
+----
+keytool -list -keystore custom_cacerts
+----
+
+==== Docker JVM 사용
+
+컴퓨터에 JVM이 설치되어 있지 않은 경우 JVM Docker 이미지를 사용할 수 있습니다. 인증서를 검색하여 파일로 저장해야 합니다 `+site.cert+`.
+
+. 작업 디렉터리 `+workdir+` 를 만들고 인증서 파일 `+site.cert+` 을 이 디렉터리에 복사합니다.
+. `+workdir+` 을 볼륨으로 마운트하여 액세스할 수 있도록 Java Docker 컨테이너를 시작합니다:
++
+[,bash]
+----
+docker run -it -v `pwd`/workdir:/workdir  adoptopenjdk:11 bash
+----
+
+. 디렉터리를 `+workdir+` 로 변경하고 `+cacerts+` 파일의 복사본을 만듭니다:
++
+[,bash]
+----
+cd /workdir
+cp $JAVA_HOME/lib/security/cacerts ./custom_cacerts
+----
+
+. 다음 keytool 명령을 실행하여 인증서를 추가합니다. 필수 비밀번호는 `+changeit+` 입니다. 별칭은 점 없이 도메인 이름 자체와 같은 인증서에 대한 고유한 별칭이어야 합니다.
++
+[,bash]
+----
+keytool -import -keystore custom_cacerts -alias <a-name-for-the-certificate>  -file site.cert
+----
+
+. 이제 `+custom_cacerts+` 스토어 파일에 `+site.cert+` 인증서가 포함됩니다. 의 출력에서 별칭을 검색하여 확인할 수 있습니다.
++
+[,bash]
+----
+ keytool -list -keystore custom_cacerts
+----
+
+=== 사용자 지정 신뢰 저장소 사용
+
+신뢰 저장소와 비밀번호를 값으로 지정할 수 있습니다. 트러스트 저장소는 파일이기 때문에 헬름 명령줄에서만 지정할 수 있습니다. 비밀번호 값은 예시에서와 같은 방식으로 지정되지만 `+values.yaml+` 파일을 통해 제공할 수도 있습니다.
+
+[,bash]
+----
+helm upgrade \
+  --install \
+  --namespace suse-observability \
+  --values values.yaml \
+  --set-file 'stackstate.java.trustStore'=custom_cacerts \
+  --set 'stackstate.java.trustStorePassword'=changeit \
+suse-observability \
+suse-observability/suse-observability
+----
+
+[NOTE]
+====
+*참고:*
+
+* 헬름 업그레이드 명령을 처음 실행하면 파드가 다시 시작되어 가용성이 잠시 중단될 수 있다.
+* 모든 `+helm upgrade+` 실행에 이러한 인수를 포함하세요.
+* 비밀번호와 트러스트 스토어는 쿠버네티스 시크릿으로 저장됩니다.
+====
+
+
+[discrete]
+==== Base64로 인코딩된 트러스트 스토어
+
+필요한 경우 Base64로 인코딩된 문자열을 헬름 값으로 전달하여 Java 트러스트 저장소를 구성할 수도 있다.
+
+[tabs]
+====
+Linux::
++
+--
+
+base64로 인코딩된 신뢰 저장소를 사용하려면 다음 `+helm upgrade+` 명령을 실행합니다:
+
+[,bash]
+----
+helm upgrade \
+  --install \
+  --namespace suse-observability \
+  --values values.yaml \
+  --set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64 -w0) \
+  --set 'stackstate.java.trustStorePassword'=changeit \
+suse-observability \
+suse-observability/suse-observability
+----
+
+--
+MacO::
++
+--
+
+base64로 인코딩된 신뢰 저장소를 사용하려면 다음 `+helm upgrade+` 명령을 실행합니다:
+
+[,bash]
+----
+helm upgrade \
+  --install \
+  --namespace suse-observability \
+  --values values.yaml \
+  --set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64) \
+  --set 'stackstate.java.trustStorePassword'=changeit \
+suse-observability \
+suse-observability/suse-observability
+----
+
+--
+====
+
+=== 브라우저를 통해 인증서 검색
+
+인증서는 Chrome 브라우저에서 직접 다운로드할 수 있습니다. 관련 단계는 사용 중인 버전에 따라 약간 다를 수 있습니다:
+
+. 인증서가 필요한 URL로 이동합니다.
+. 위치 표시줄에서 자물쇠 아이콘을 클릭합니다.
+. *인증서를* 클릭합니다.
+. *세부 정보를* 선택합니다.
+. *내보내기를* 선택합니다.
+. 기본 내보내기 파일 유형(Base64 ASCII 인코딩)을 사용하여 저장합니다.
+
+== SUSE 옵저버빌리티 에이전트
+
+xref:k8s-suse-rancher-prime.adoc#_installing_the_suse_observability_agent[SUSE 옵저버빌리티 에이전트는] HTTPS를 통해 SUSE 옵저버빌리티 서버에 연결합니다. 서버에서 자체 서명된 인증서를 사용하는 경우 보안 연결을 설정하려면 이 인증서를 신뢰하도록 에이전트를 구성해야 합니다.
+
+[NOTE]
+====
+이 구성은 서버에서 사설 CA(인증 기관)가 서명한 인증서를 사용하는 경우에도 필요합니다. 이 경우 아래에 설명된 것과 동일한 방법을 사용하여 비공개 CA 인증서를 추가합니다.
+====
+
+=== 사용자 지정 인증서 구성
+
+이 두 가지 방법 중 하나를 사용하여 헬름 차트 값을 통해 사용자 지정 인증서를 구성한다:
+
+==== 방법 1: 직접 PEM 데이터
+
+인증서 데이터를 헬름 구성에 직접 임베드하세요:
+
+[,yaml]
+----
+global:
+  customCertificates:
+    enabled: true
+    pemData: |
+      -----BEGIN CERTIFICATE-----
+      MIIDrzCCApegAwIBAgIUDMPkLOLGJ12438MbI32eykbw2xowDQYJKoZIhvcNAQEL
+      BQAwKTEnMCUGA1UEAwwedmlsaWFrb3Yuc2FuZGJveC5zdGFja3N0YXRlLmlvMB4X
+      DTI1MDcxNzEzMjgzN1oXDTI2MDcxNzEzMjgzN1owKTEnMCUGA1UEAwwedmlsaWFr
+      b3Yuc2FuZGJveC5zdGFja3N0YXRlLmlvMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+      MIIBCgKCAQEA0MIdPOxrCpXB+F6P6NY7MyOimuViVWJGDW9ckz4mXZYCJD4iqrKS
+      Y4bP6ODO4BgWxKFElxNdwNIqhLmI7RR1MWSRo47oxwPLnqw3INlsX0t1rBp6k6zK
+      K4YY+wGdUH/keug03uMS7HxBXEmhCaMnGPj2BBfB4URc41DkFexGU/Fi1cyv0aCq
+      CgxbThN/fGSGN2evLuabk9mfw4AH3K8isQ+kS9i3O459BgDGH8yjbrWfBUdPXVx5
+      iFiYjGJjVM0pTP1dNriTc88lpajXRK++6O2gmjL9kbf0PGzRsvqqVgI07yR8uV1I
+      0MaUwM2/VJrVB6t80wBuC1Tiv+RiYmtJXwIDAQABo4HOMIHLMB0GA1UdDgQWBBSh
+      iKBCmrp8jHSCMvUnHv/Wgg7LyDAfBgNVHSMEGDAWgBShiKBCmrp8jHSCMvUnHv/W
+      gg7LyDAPBgNVHRMBAf8EBTADAQH/MHgGA1UdEQRxMG+CHnZpbGlha292LnNhbmRi
+      b3guc3RhY2tzdGF0ZS5pb4Ijb3RscC12aWxpYWtvdi5zYW5kYm94LnN0YWNrc3Rh
+      dGUuaW+CKG90bHAtaHR0cC12aWxpYWtvdi5zYW5kYm94LnN0YWNrc3RhdGUuaW8w
+      DQYJKoZIhvcNAQELBQADggEBAIuBFVqJsJImOB4thRk+FFd7UJlK1kQna9woKv23
+      ju+fpEWgZZQ0U/xGS9f3JvxCUJv8oj3HYkfPQQgtPmewATVBx2cTRpogV6JFcAo7
+      fPSLCzOuSt3c4SM1OtDnyToUaAf6YQQT4m+V4IKb6Qo0XWfCxhkuKJlOfmDtqNg/
+      uVYjfG7+KOZs+6CTJwqdIwpNDbLD+DNfo3b/c731Qa1b9o8Z8rIrNrYXj4kly3D1
+      97QiVJCL0u/fC+/KsUxq9ynAYSPgyd2CBnxnQDcq8aQATVTlAafSfk0shvucgQmJ
+      KIL9xaM3iTdvrWGtWeAiEQocsRBJM5xjqtnu0R5xDlLU/TQ=
+      -----END CERTIFICATE-----
+----
+
+==== 방법 2: 컨피그맵 참조
+
+인증서를 사용하여 Kubernetes 컨피그맵을 생성하고 헬름 구성에서 참조하세요:
+
+[,yaml]
+----
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tls-config
+data:
+  tls.crt: |
+    -----BEGIN CERTIFICATE-----
+    [Your certificate content here]
+    -----END CERTIFICATE-----
+----
+
+헬름 설정에서 컨피그맵을 참조하세요:
+
+[,yaml]
+----
+global:
+  customCertificates:
+    enabled: true
+    configMapName: "tls-config"
+----
+
+=== 사용자 지정 인증서로 배포
+
+==== 직접 PEM 데이터 사용
+
+직접 PEM 데이터 접근 방식의 경우, 먼저 인증서를 셸 변수에 저장합니다:
+
+[,bash]
+----
+export CERT_DATA=$(cat <<'EOF'
+-----BEGIN CERTIFICATE-----
+[Your certificate content here]
+-----END CERTIFICATE-----
+EOF
+)
+----
+
+인증서 구성으로 에이전트를 배포합니다:
+
+[,bash]
+----
+helm upgrade --install \
+  --namespace suse-observability \
+  --create-namespace \
+  --set-string 'stackstate.apiKey'='YOUR_API_KEY' \
+  --set-string 'stackstate.cluster.name'='YOUR_CLUSTER_NAME' \
+  --set-string 'stackstate.url'='YOUR_SUSE_OBSERVABILITY_URL' \
+  --set 'global.customCertificates.enabled'=true \
+  --set 'global.customCertificates.pemData'="$CERT_DATA" \
+  suse-observability-agent suse-observability/suse-observability-agent
+----
+
+==== 컨피그맵 참조 사용
+
+컨피그맵 접근 방식의 경우, 인증서가 포함된 컨피그맵을 만듭니다:
+
+[,bash]
+----
+kubectl create configmap tls-config \
+  --from-file=tls.crt=your-certificate.crt \
+  --namespace suse-observability
+----
+
+컨피그맵 참조를 사용하여 에이전트를 배포합니다:
+
+[,bash]
+----
+helm upgrade --install \
+  --namespace suse-observability \
+  --create-namespace \
+  --set-string 'stackstate.apiKey'='YOUR_API_KEY' \
+  --set-string 'stackstate.cluster.name'='YOUR_CLUSTER_NAME' \
+  --set-string 'stackstate.url'='YOUR_SUSE_OBSERVABILITY_URL' \
+  --set 'global.customCertificates.enabled'=true \
+  --set 'global.customCertificates.configMapName'='tls-config' \
+  suse-observability-agent suse-observability/suse-observability-agent
+----
+
+== SUSE Observability CLI
+
+xref:setup/cli/cli-sts.adoc[SUSE Observability CLI는] HTTPS를 통해 SUSE Observability 서버에 연결합니다. 서버에서 자체 서명 인증서 또는 사설 CA(인증 기관)의 인증서를 사용하는 경우, 이러한 인증서를 신뢰하도록 CLI를 구성합니다.
+
+=== 사용자 지정 CA 인증서 구성
+
+다음 방법 중 하나를 사용하여 사용자 지정 CA 인증서를 구성합니다:
+
+* **영구 구성**: `+sts context save+` 을 사용하여 향후 명령을 위해 인증서 구성을 저장합니다.
+* **일회성 사용**: 필요한 경우 개별 CLI 명령에 인증서 플래그를 추가합니다.
+
+==== 방법 1: CA 인증서 파일 경로
+
+PEM 인코딩된 CA 인증서 파일의 경로를 지정합니다:
+
+[,bash]
+----
+sts context save \
+  --name staging \
+  --url https://staging.internal \
+  --api-token YOUR_API_TOKEN \
+  --ca-cert-path /path/to/ca.crt
+----
+
+==== 방법 2: Base64로 인코딩된 CA 인증서 데이터
+
+CA 인증서 데이터를 Base64로 인코딩된 문자열로 입력합니다:
+
+[,bash]
+----
+sts context save \
+  --name staging \
+  --url https://staging.internal \
+  --api-token YOUR_API_TOKEN \
+  --ca-cert-base64-data BASE64_ENCODED_CERTIFICATE_DATA
+----
+
+==== 다른 명령과 함께 CA 인증서 사용
+
+일회성 인증서 유효성 검사를 위해 모든 CLI 명령과 함께 인증서 플래그를 사용합니다:
+
+[,bash]
+----
+# Using certificate file path
+sts agent list \
+  --url https://staging.internal \
+  --api-token YOUR_API_TOKEN \
+  --ca-cert-path /path/to/ca.crt
+
+# Using base64-encoded certificate data
+sts settings list \
+  --url https://staging.internal \
+  --api-token YOUR_API_TOKEN \
+  --ca-cert-base64-data BASE64_ENCODED_CERTIFICATE_DATA
+----
+
+=== 구성 우선 순위
+
+두 인증서 옵션이 모두 제공되면 파일 경로(`+--ca-cert-path+`)가 base64 데이터(`+--ca-cert-base64-data+`)보다 우선합니다.
+
+=== 스토리지
+
+인증서 구성은 다음에 저장됩니다: `+~/.config/stackstate-cli/config.yaml+`
+
+[NOTE]
+====
+**중요**: `+--skip-ssl+` 플래그는 모든 SSL 확인을 비활성화하고 인증서 구성을 무시합니다. 사용자 지정 인증서를 사용한 보안 연결에는 항상 CA 인증서 옵션을 사용하세요.
+====
+
+== SUSE Observability 오픈 원격 분석
+
+=== 사용자 지정 인증 기관에 대한 구성 맵 만들기
+
+----
+kubectl create configmap tls-config \
+  --namespace open-telemetry \
+  --from-file=tls.crt=<your-certificate>
+----
+
+. `+otel-collector.yaml+` 의 최상위 레벨에 다음을 추가하여 컨피그맵을 마운트합니다:
+
+----
+# Mounting volume for CA certificate
+extraVolumes: 
+  - name: tls-config
+    configMap:
+      items:
+        - key: tls.crt
+          path: tls.crt
+      name: tls-config
+extraVolumeMounts:
+  - mountPath: "/certs"
+    name: tls-config
+    readOnly: true
+----
+
+. `+tls.ca_file+` 키를 추가하여 인증서 *ca_file을* 사용하도록 `+otel-collector.yaml+` 에서 내보내기 구성을 업데이트합니다:
+
+----
+otlp/suse-observability:
+  auth:
+    authenticator: bearertokenauth
+  # Put in your own otlp endpoint, for example suse-observability.my.company.com:443
+  endpoint: <your-endpoint>
+  compression: snappy
+  tls:
+    ca_file: /certs/tls.crt
+----
+
+. 오픈 텔레메트리 수집기를 설치(또는 업그레이드)하세요.
+
+== SUSE Observability를 위한 Rancher UI 확장 기능
+
+SUSE Observability용 Rancher UI 확장 프로그램을 설치할 때( xref:/k8s-suse-rancher-prime.adoc#_installing_ui_extensions[UI 확장 프로그램 설치하기] 참조), 확장 프로그램은 SUSE Observability 서버와 통신해야 합니다. 서버에서 자체 서명된 인증서를 사용하는 경우 확장 프로그램 설치가 실패합니다.
+
+**솔루션**: 확장 프로그램을 설치하기 전에 사용자 지정 인증서를 Rancher에 추가하세요. 랜처 설명서( https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade/resources/custom-ca-root-certificates[사용자 지정 CA 루트 인증서 구성하기^])를 따르세요.
+
+Rancher에서 인증서를 구성하면 확장 프로그램이 SUSE Observability Server에 성공적으로 연결됩니다.
