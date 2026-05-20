@@ -1,0 +1,95 @@
+= 牧场主集群注册
+:revdate: 2026-03-06
+:page-revdate: {revdate}
+
+== 如何使用海龟自动导入功能在 Rancher 中注册 CAPI 集群
+
+使用 Turtles 在 Rancher 中注册 CAPI 群集的唯一支持工作流程是使用`+cluster-api.cattle.io/rancher-auto-import+` 标签：
+
+. 标记命名空间，以便导入其中包含的所有群集。
++
+[source,bash]
+----
+kubectl label namespace capi-clusters cluster-api.cattle.io/rancher-auto-import=true
+----
+. 为单个群集定义添加标签，以便导入。
++
+[source,bash]
+----
+kubectl label clusters.cluster.x-k8s.io cluster1 cluster-api.cattle.io/rancher-auto-import=true
+----
+
+使用自动导入标签时，Turtles 将等待 CAPI 集群将`+ControlPlaneAvailable+` 条件设置为`+True+` 。
+这种情况表明集群已完全初始化，可以处理请求。
+然后，Turtles 会自动在管理集群上创建 Rancher`+clusters.management.cattle.io+` 资源，从而在下游 CAPI 集群上安装`+cattle-cluster-agent+` 。
+如果代理部署成功，导入的群集应出现在 Rancher 控制面板上。
+
+[NOTE]
+====
+命名空间（或群集）可随时标记为自动导入：在创建群集之前或之后。
+====
+
+[CAUTION]
+====
+将群集标记为自动导入会触发 Turtles 控制器自动注册，不支持手动执行注册命令。
+====
+
+== 为 Rancher 集群添加自定义描述
+
+分配给导入的 Rancher 群集的默认描述是 "导入到 Rancher 的 CAPI 群集"。image:imported-cluster-default-description.png[带有默认描述的导入 Rancher 群集]
+
+要为导入的 Rancher 群集添加自定义描述，可为 CAPI 群集添加`+cluster-api.cattle.io/cluster-description+` 注释。
+
+[source,yaml]
+----
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: docker-kubeadm-quickstart
+  labels:
+    cni: calico
+  annotations:
+    cluster-api.cattle.io/cluster-description: "This is a custom description of Rancher Cluster"
+----
+
+image:imported-cluster-custom-description.png[带有自定义说明的进口 Rancher 簇]
+
+如果已导入 CAPI 群集，添加注释将不起任何作用。您可能需要删除已导入的 Rancher 集群，然后重新导入。
+
+== 从 Rancher 中删除导入的群集
+
+`+cluster-api.cattle.io/capi-cluster-owner+` 和`+cluster-api.cattle.io/capi-cluster-owner-ns+` 标签可用于删除 Rancher 群集：
+
+[source,bash]
+----
+kubectl delete clusters.management.cattle.io -l cluster-api.cattle.io/capi-cluster-owner=cluster1 -l cluster-api.cattle.io/capi-cluster-owner-ns=capi-clusters
+----
+
+一旦导入的群集被标记为删除：
+
+. 海龟控制器将通过`+imported: true+` 对 CAPI 集群进行注释。
+. 此注释可防止集群被 Rancher 自动重新导入。
+. 使用以下命令验证注释：
++
+[source,bash]
+----
+kubectl -n capi-clusters get clusters.cluster.x-k8s.io cluster1 -o json | jq .metadata.annotations
+{
+"imported": "true"
+...
+}
+----
+
+[NOTE]
+====
+删除 Rancher 集群只会删除`+clusters.management.cattle.io+` 资源，并禁用相关 CAPI 集群的自动导入功能。基本的 CAPI 集群本身保持不变。
+====
+
+== 重新导入群集
+
+如果需要将同一 CAPI 集群重新导入 Rancher，请通过以下命令删除`+imported: true+` 注释：
+
+[source, bash]
+----
+kubectl -n capi-clusters patch clusters.cluster.x-k8s.io <cluster-name> --type='json' -p='[{"op": "remove", "path": "/metadata/annotations/imported"}]'
+----
