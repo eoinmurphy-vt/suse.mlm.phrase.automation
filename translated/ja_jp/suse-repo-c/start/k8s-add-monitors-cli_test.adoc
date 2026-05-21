@@ -1,0 +1,224 @@
+= CLIを使ってコンポーネントに閾値モニターを追加する
+:revdate: 2025-07-10
+:page-revdate: {revdate}
+:description: SUSE Observability
+
+== 概要
+
+SUSE Observabilityは、Kubernetesクラスタで発生する可能性のある一般的な問題を監視するxref:/use/alerting/k8s-monitors.adoc[モニターをすぐに]提供します。SUSE Observabilityで収集したメトリクスや、xref:/use/metrics/k8s-prometheus-remote-write.adoc[Prometheusから]取り込んだアプリケーション・メトリクス用にカスタム・モニタを構成することも可能です。
+
+== ステップ
+
+モニターを作成する手順
+
+. <<_write_the_outline_of_the_monitor,モニターの概要を書く>>
+. <<_bind_the_results_of_the_monitor_to_the_correct_components,モニターの結果を正しいコンポーネントにバインドする>>
+. <<_write_the_remediation_hint,修復のヒントを書く>>
+. <<_create_or_update_the_monitor_in_suse_observability,SUSE Observabilityでメトリックバインディングを作成または更新する>>
+. <<_verifying_the_results_of_a_monitor,モニターが期待通りの結果を出すことを確認する>>
+. <<_common_issues,よくある問題>>
+
+例として、Kubernetesデプロイの`+Replica counts+` 。
+
+== モニターの概要を書く
+
+`+monitor.yaml+` という名前の新しい YAML ファイルを作成し、独自のモニターを作成するためにこの YAML テンプレートを追加します。お好きなコード・エディターで開いて、このガイド全体を通して変更してください。最後に、SUSE Observability CLIを使用して、SUSE Observabilityでモニタを作成および更新します。
+
+----
+nodes:
+- _type: Monitor
+  arguments:
+    metric:
+      query:
+      unit:
+      aliasTemplate:
+    comparator:
+    threshold:
+    failureState:
+    urnTemplate:
+    titleTemplate:
+  description:
+  function: {{ get "urn:stackpack:common:monitor-function:threshold"  }}
+  identifier: urn:custom:monitor:...
+  intervalSeconds: 30
+  name:
+  remediationHint:
+  status:
+  tags: {}
+----
+
+このテンプレートのフィールドは以下の通り：
+
+* `+_type+`:SUSE Observabilityはこれがモニタであることを認識する必要があるため、値は常に `+Monitor+`
+* `+query+`:PromQLクエリ。SUSE Observabilityインスタンスのxref:/use/metrics/k8sTs-explore-metrics.adoc[メトリックエクスプローラ]（http://your-instance/#/metrics, ）を使用して、目的のメトリックのクエリを作成します。
+* `+unit+`:チャートのY軸を表示するために使用される、クエリまたはクエリによって返される時系列の値の単位。すべてのユニットについては、xref:/develop/reference/k8sTs-chart-units.adoc[サポートされているユニットの]リファレンスを参照してください。
+* `+aliasTemplate+`:メトリックス・チャートにおける時系列の別名。これは、`+${my_label}+` プレースホルダーを使用して、時系列からラベルを置き換えることができるテンプレートです。
+* `+comparator+`:LTE/LT/GTE/GTのいずれかを選択し、メトリックに対する閾値を比較する。`+<metric> <comparator> <threshold>+` が真となる時系列は、故障状態を生み出す。
+* `+threshold+`:比較する数値のしきい値。
+* `+failureState+`:CRITICAL」か「DEVIATING」のどちらか。SUSEのObservabilityでは "CRITICAL "と表示され、"DEVIATING "はオレンジ色で表示されます。
+* `+urnTemplate+`:モニターの結果が<<_bind_the_results_of_the_monitor_to_the_correct_components,バインドさ>>れるコンポーネントのurnを構築するテンプレート。
+* `+titleTemplate+`:モニター結果のタイトル。複数のモニター結果が同じコンポーネントにバインドできるため、`+${my_label}+` プレースホルダーを使用して時系列ラベルを置き換えることが可能です。
+* `+description+`:モニターの説明。
+* `+function+`:モニターを実行するモニター関数への参照。現在のところ、`+{{ get "urn:stackpack:kubernetes-v2:shared:monitor-function:threshold"  }}+` にのみ対応している。
+* `+identifier+`:コンフィギュレーションを更新する際にモニターを一意に識別する`+urn:custom:monitor:....+` 形式の識別子。
+* `+intervalSeconds+`:モニターが実行される間隔。通常のリアルタイム測定では30秒を推奨する。より長時間の分析指標クエリーには、より大きな間隔を推奨する。
+* `+name+`:モニターの名前
+* `+remediationHint+`:モニターが故障したときにユーザーができることを説明したもの。フォーマットはマークダウンで、時系列やその他のデータに基づいてヒントをカスタマイズするために、オプションでハンドルバーの変数を使用することができる<<_write_the_remediation_hint,（詳細は後述>>）。
+* `+status+`:`+"DISABLED"+` もしくは`+"ENABLED"+` 。モニターを実行するかどうかを決定する。
+* `+tags+`:モニターにタグを追加して、SUSE Observabilityインスタンスのモニター概要（http://your-SUSE Observability-instance/#/monitors）で整理しやすくします。
+
+たとえば、これはデプロイの利用可能なレプリカを監視するモニタの開始点になる可能性があります：
+
+----
+nodes:
+- _type: Monitor
+  arguments:
+    metric:
+      query: "kubernetes_state_deployment_replicas_available"
+      unit: "short"
+      aliasTemplate: "Deployment replicas"
+    comparator: "LTE"
+    threshold: 0.0
+    failureState: "DEVIATING"
+    urnTemplate:
+  description: "Monitor whether a deployment has replicas.
+  function: {{ get "urn:stackpack:kubernetes-v2:shared:monitor-function:threshold"  }}
+  identifier: urn:custom:monitor:deployment-has-replicas
+  intervalSeconds: 30
+  name: Deployment has replicas
+  remediationHint:
+  status: "ENABLED"
+  tags:
+  - "deployments"
+----
+
+`+urnTemplate+` と`+remediationHint+` は次のステップで記入する。
+
+== モニターの結果を正しいコンポーネントにバインドする
+
+モニタの結果は、SUSE Observabilityのコンポーネントにバインドして可視化し、使用できるようにする必要があります。モニターの結果は、コンポーネント`+identifiers+` を使ってコンポーネントにバインドされる。SUSE Observabilityの各コンポーネントには、コンポーネントを一意に識別する1つ以上の識別子があります。モニターの結果をコンポーネントにバインドするには、`+urnTemplate+` 。`+urnTemplate+` は、モニター結果の時系列のラベルをテンプレートに置き換え、コンポーネントに一致する識別子を生成する。これは例で説明するのが一番わかりやすいだろう：
+
+この例で使われている指標は`+kubernetes_state_deployment_replicas_available+` 。メトリック・エクスプローラーでメトリックを実行し、時系列でどのようなラベルが利用可能かを観察する：
+
+image::k8s/available-replicas-metric-inspector.png[メトリックエクスプローラーで利用可能なレプリカ]
+
+上の表では、メトリックが`+cluster_name+` 、`+namespace+` 、`+deployment+` のようなラベルを持っていることが示されている。
+
+このメトリックはデプロイメントで観測されるため、モニタ結果をデプロイメント コンポーネントにバインドするのが最も論理的です。そのためには、デプロイメントの識別子がどのように構築されているかを理解する必要がある：
+
+. UI で`+deployments+` ビューに移動し、単一の配置を選択します。
+. `+Topology+` ビューを開き、配置コンポーネントをクリックします。
+. 画面右側のパネルで`+Properties+` を展開すると、以下のようにカーソルを合わせた後に識別子が表示される：
+
+image::k8s/component-identifier.png[コンポーネント識別子の検索]
+
+識別子は`+urn:kubernetes:/preprod-dev.preprod.stackstate.io:calico-system:deployment/calico-typha+` と表示される。これは、識別子がクラスタ名、ネームスペース、およびデプロイメント名に基づいて構築されることを示しています。これがわかれば、`+urnTemplate+` ：
+
+----
+  ...
+  urnTemplate: "urn:kubernetes:/${cluster_name}:${namespace}:deployment/${deployment}"
+  ...
+----
+
+`+urnTemplate+` が正しいかどうかを<<_verifying_the_results_of_a_monitor,確認する方法については>>、以下で詳しく説明する。
+
+== 修復のヒントを書く
+
+修復のヒントは、モニターが発火したときにユーザーが問題の原因を見つけるのを助けるためにある。改善ヒントはhttps://en.wikipedia.org/wiki/Markdown[マークダウンで]書かれている。次の例のように、ハンドルバー・テンプレートを使って、モニター結果の時系列にあるラベルを使用することも可能です：
+
+----
+  ...
+  remediationHint: |-
+    To remedy this issue with the deployment {{ labels.deployment }}, consider taking the following steps:
+
+    1. Look at the logs of the pods created by the deployment
+  ...
+----
+
+== SUSE Observabilityでモニタを作成または更新する
+
+`+monitor.yaml+` を完了したら、xref:/setup/cli/cli-sts.adoc[SUSE Observability CLIを]使用してモニタを作成または更新します：
+
+[,bash]
+----
+sts monitor apply -f monitor.yaml
+----
+
+<<_verifying_the_results_of_a_monitor,以下の>>手順で、モニターが期待通りの結果を出すかどうかを確認する。
+
+[CAUTION]
+====
+識別子はモニターのユニークキーとして使用される。識別子を変更すると、既存のモニターが更新されるのではなく、新しいモニターが作成されます。
+====
+
+
+`+sts monitor+` コマンドにはさらに多くのオプションがあり、例えばすべてのモニターをリストアップすることができる：
+
+[,bash]
+----
+sts monitor list
+----
+
+モニターを削除するには
+
+[,bash]
+----
+sts monitor delete --id <id>
+----
+
+モニターを編集するには、適用されたモニターのオリジナルを編集し、再度適用する。または、SUSE Observabilityインスタンスで設定されたモニタを直接編集する`+sts monitor edit+` コマンドがあります：
+
+[,bash]
+----
+sts monitor edit --id <id>
+----
+
+このコマンドの`+<id>+` は識別子ではなく、`+sts monitor list+` 出力の`+Id+` 列の番号である。
+
+== モニターを有効または無効にする
+
+モニターは有効にも無効にもできる。有効はモニターが結果を出すことを意味し、無効はすべての出力を抑制することを意味する。有効／無効を切り替えるには、以下のコマンドを使用する：
+
+[,bash]
+----
+sts monitor enable/disable --id <id>
+----
+
+== モニター結果の検証
+
+モニターを作ったら、それが期待通りの結果をもたらすかどうかを検証するのは良い習慣だ。次のような手順を踏むことができる：
+
+=== モニターの実行を確認する
+
+モニターの概要ページ（http://your-SUSE Observability-instance/#/monitors）にアクセスし、モニターを見つけます。
+
+. `+Status+` 、カラムが`+Enabled+` 。モニターが`+Disabled+` の状態であれば、<<_enable_or_disable_the_monitor,有効にする>>。ステータスが`+Error+` の場合は、以下の手順で<<_the_monitor_is_showing_an_error_in_the_monitor_status_overview,デバッグを行う>>。
+. `+Clear+`/`+Deviating+`/`+Critical+` 、予想される州数が表示されていることを確認する。もし状態の数が監視するコンポーネントの数よりかなり少ないか多い場合、PromQLクエリは多すぎる結果を与えている可能性があります。
+
+=== モニターのバインディングを確認する
+
+モニターが、そのモニターが意図するコンポーネントの1つについて結果を出しているかどうかを観察する。モニターが表示されない場合は、<<_the_result_of_the_monitor_isnt_showing_on_a_component,以下の>>手順に従ってください。
+
+== よくある問題
+
+=== モニターの結果がコンポーネントに表示されない
+
+まず、モニターが実際に<<_verify_the_execution_of_the_monitor,結果を出して>>いるかどうかをチェックする。もしそうであっても、モニター結果がコンポーネントに表示されない場合は、バインディングに問題がある可能性がある。まず、以下のコマンドで確認する：
+
+[,bash]
+----
+sts monitor status --id <id>
+----
+
+出力が`+Monitor health states with identifier which has no matching topology element (<nr>): ....+` 、これは`+urnTemplate+` 、トポロジーに一致する識別子が生成されない可能性があることを示している。この問題を解決するには、<<_bind_the_results_of_the_monitor_to_the_correct_components,urnTemplateをもう一度見直して>>ください。
+
+=== モニターのステータス概要にエラーが表示される
+
+CLIでモニターのステータスを取得する
+
+[,bash]
+----
+sts monitor status --id <id>
+----
+
+セクション`+Monitor Stream errors:+` 、モニター上で発生しているエラーを表示し、さらなるヘルプを提供します。

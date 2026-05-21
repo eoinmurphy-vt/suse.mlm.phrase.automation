@@ -1,0 +1,84 @@
+= デフォルト設定の上書き
+:revdate: 2025-07-10
+:page-revdate: {revdate}
+:description: {stackstate-product-name} セルフホスト
+
+https://github.com/StackVista/helm-charts/tree/master/stable/suse-observability[{stackstate-product-name} ヘルムチャートでは]、いくつかの値を設定することができる。例えば、各コンポーネントの`+tolerations+` と`+nodeSelectors+` をカスタマイズすることが可能です。また、カスタマイズした設定を追加したり、環境変数を含めることもできます。
+
+== カスタム設定 {stackstate-product-name} `+api+`
+
+{stackstate-product-name} `+api+` 、カスタム設定をHelmチャートに直接ドロップすることができます。これは、{stackstate-product-name} に同梱されているデフォルトの設定を上書きする方法であり、認証をカスタマイズする場合に特に便利です。この方法で設定されたコンフィギュレーションは、https://github.com/lightbend/config/blob/master/HOCON.md[HOCON]フォーマットの{stackstate-product-name} コンフィギュレーションファイルで利用できる。
+
+例えば、{stackstate-product-name} のログインページにカスタムの「パスワードを忘れたリンク」を設定することができます：
+
+[tabs]
+====
+values.yaml::
++
+--
+
+[,text]
+----
+stackstate:
+  components:
+    api:
+      config: |
+        stackstate.api.authentication.forgotPasswordLink =
+        "https://www.stackstate.com/forgotPassword.html"
+----
+
+--
+====
+
+[NOTE]
+====
+ここで設定されたカスタムコンフィギュレーションは、xref:/setup/install-stackstate/kubernetes_openshift/customize_config.adoc#_environment_variables[環境変数によって]上書きされることに注意。
+====
+
+
+== 環境変数
+
+すべての{stackstate-product-name} サービス（`+receiver+` 、`+k2es-*+` 、`+correlation+` 、`+api+` ）の設定は、環境変数を使用してカスタマイズできます。環境変数は`+values.yaml+` ファイルで指定し、`+secret+` （パスワードなど）または`+open+` （通常の値用）のいずれかを指定する。設定項目を環境変数名に変換するには、`+.+` を`+_+` に置き換え、接頭辞`+CONFIG_FORCE_+` を追加する。
+
+[,text]
+----
+# configuration item
+stackstate.api.authentication.forgotPasswordLink
+
+# environment variable name
+CONFIG_FORCE_stackstate_api_authentication_forgotPasswordLink
+----
+
+例えば、{stackstate-product-name} のログインページにカスタムの「パスワードを忘れたリンク」を設定することができます：
+
+[tabs]
+====
+values.yaml::
++
+--
+
+[,text]
+----
+stackstate:
+  components:
+    api:
+      extraEnv:
+        # The value for open env vars is defined on the deployment
+        open:
+          CONFIG_FORCE_stackstate_api_authentication_forgotPasswordLink: "https://www.stackstate.com/forgotPassword.html"
+        # The value for secret env vars is defined in a secret and referenced from the deployment
+        secret:
+          CONFIG_FORCE_some_config_with_sensitive_data: "data-stored-in-secret"
+----
+
+--
+====
+
+[NOTE]
+====
+{stackstate-product-name} `+api+` サービスでは、環境変数が<<_custom_configuration_for_suse_observability_api, `+config+` を使って設定したカスタム設定を>>上書きする。
+====
+
+
+* 各サービスの名称の詳細については、https://github.com/StackVista/helm-charts/tree/master/stable/suse-observability[{stackstate-product-name} Helm chart readmeを]ご覧ください。
+* xref:/setup/security/authentication/README.adoc[認証のカスタマイズの]詳細をご覧ください。
