@@ -1,0 +1,224 @@
+= CLI를 사용하여 컴포넌트에 임계값 모니터 추가하기
+:revdate: 2025-07-10
+:page-revdate: {revdate}
+:description: SUSE 관찰 가능성
+
+== 개요
+
+SUSE Observability는 xref:/use/alerting/k8s-monitors.adoc[즉시] 사용 가능한 xref:/use/alerting/k8s-monitors.adoc[모니터를] 제공하여 Kubernetes 클러스터에서 발생할 수 있는 일반적인 문제에 대한 모니터링을 제공합니다. 또한 SUSE Observability에서 수집한 메트릭 또는 xref:/use/metrics/k8s-prometheus-remote-write.adoc[Prometheus에서] 수집한 애플리케이션 메트릭에 대한 사용자 지정 모니터를 구성할 수도 있습니다.
+
+== 단계
+
+모니터를 만드는 단계
+
+. <<_write_the_outline_of_the_monitor,모니터의 개요를 작성합니다.>>
+. <<_bind_the_results_of_the_monitor_to_the_correct_components,모니터 결과를 올바른 컴포넌트에 바인딩하기>>
+. <<_write_the_remediation_hint,해결 힌트 작성>>
+. <<_create_or_update_the_monitor_in_suse_observability,SUSE Observability에서 메트릭 바인딩 생성 또는 업데이트>>
+. <<_verifying_the_results_of_a_monitor,모니터가 예상 결과를 표시하는지 확인합니다.>>
+. <<_common_issues,일반적인 문제>>
+
+예를 들어, 이 단계에서는 Kubernetes 배포의 `Replica counts` 에 대한 모니터를 추가합니다.
+
+== 모니터의 개요를 작성합니다.
+
+`monitor.yaml` 이라는 새 YAML 파일을 만들고 이 YAML 템플릿을 추가하여 자신만의 모니터를 만드세요. 자주 사용하는 코드 편집기에서 열어 이 가이드 전체에서 변경할 수 있습니다. 마지막에는 SUSE Observability CLI를 사용하여 SUSE Observability에서 모니터를 생성하고 업데이트합니다.
+
+----
+nodes:
+- _type: Monitor
+  arguments:
+    metric:
+      query:
+      unit:
+      aliasTemplate:
+    comparator:
+    threshold:
+    failureState:
+    urnTemplate:
+    titleTemplate:
+  description:
+  function: {{ get "urn:stackpack:common:monitor-function:threshold"  }}
+  identifier: urn:custom:monitor:...
+  intervalSeconds: 30
+  name:
+  remediationHint:
+  status:
+  tags: {}
+----
+
+이 템플릿의 필드는 다음과 같습니다:
+
+* `_type`: SUSE Observability는 이것이 모니터라는 것을 알아야 하므로 값은 항상 다음과 같아야 합니다. `Monitor`
+* `query`: PromQL 쿼리입니다. SUSE Observability 인스턴스의 xref:/use/metrics/k8sTs-explore-metrics.adoc[메트릭 탐색기] ( http://your-instance/#/metrics, )를 사용하여 관심 있는 메트릭에 대한 쿼리를 구성하세요.
+* `unit`: 쿼리에서 반환된 시계열 값의 단위로, 차트의 Y축을 렌더링하는 데 사용됩니다. 모든 단위는 xref:/develop/reference/k8sTs-chart-units.adoc[지원되는 단위] 참조를 참조하세요.
+* `aliasTemplate`: 메트릭 차트에서 시계열의 별칭입니다. `${my_label}` 자리 표시자를 사용하여 시계열의 레이블을 대체할 수 있는 템플릿입니다.
+* `comparator`: LTE/LT/GTE/GT 중 하나를 선택하여 기준값과 임계값을 비교합니다. `<metric> <comparator> <threshold>` 이 참인 시계열은 실패 상태를 생성합니다.
+* `threshold`: 비교할 수치 임계값입니다.
+* `failureState`: "중요" 또는 "일탈" 중 하나입니다. "심각"은 SUSE 관찰 가능성에서 읽은 대로 표시되고 "일탈"은 주황색으로 표시되어 서로 다른 심각도를 나타냅니다.
+* `urnTemplate`: 모니터의 결과물이 <<_bind_the_results_of_the_monitor_to_the_correct_components,바인딩될>> 컴포넌트의 유골함을 구성하는 템플릿입니다.
+* `titleTemplate`: 모니터 결과의 제목입니다. 여러 모니터 결과가 동일한 컴포넌트에 바인딩될 수 있으므로 `${my_label}` 자리 표시자를 사용하여 시계열 레이블을 대체할 수 있습니다.
+* `description`: 모니터에 대한 설명입니다.
+* `function`: 모니터를 실행할 모니터 함수에 대한 참조입니다. 현재는 `{{ get "urn:stackpack:kubernetes-v2:shared:monitor-function:threshold"  }}` 만 지원됩니다.
+* `identifier`: 모니터 구성을 업데이트할 때 모니터를 고유하게 식별하는 `urn:custom:monitor:....` 형식의 식별자입니다.
+* `intervalSeconds`: 모니터가 실행되는 간격입니다. 일반 실시간 지표의 경우 30초를 권장합니다. 더 오래 실행되는 분석 메트릭 쿼리의 경우 더 큰 간격을 권장합니다.
+* `name`: 모니터 이름
+* `remediationHint`: 모니터에 장애가 발생했을 때 사용자가 수행할 수 있는 작업에 대한 설명입니다. 형식은 마크다운이며, 선택적으로 핸들바 변수를 사용하여 시계열 또는 기타 데이터를 기반으로 힌트를 사용자 지정할 수 있습니다<<_write_the_remediation_hint,(자세한 설명은 아래>> 참조).
+* `status`: `"DISABLED"` 또는 `"ENABLED"`. 모니터를 실행할지 여부를 결정합니다.
+* `tags`: 모니터에 태그를 추가하여 SUSE Observability 인스턴스의 모니터 개요에서 모니터를 구성하는 데 도움이 되도록 합니다( http://your-SUSE Observability-instance/#/monitors).
+
+예를 들어, 배포의 사용 가능한 복제본을 모니터링하는 모니터의 시작이 될 수 있습니다:
+
+----
+nodes:
+- _type: Monitor
+  arguments:
+    metric:
+      query: "kubernetes_state_deployment_replicas_available"
+      unit: "short"
+      aliasTemplate: "Deployment replicas"
+    comparator: "LTE"
+    threshold: 0.0
+    failureState: "DEVIATING"
+    urnTemplate:
+  description: "Monitor whether a deployment has replicas.
+  function: {{ get "urn:stackpack:kubernetes-v2:shared:monitor-function:threshold"  }}
+  identifier: urn:custom:monitor:deployment-has-replicas
+  intervalSeconds: 30
+  name: Deployment has replicas
+  remediationHint:
+  status: "ENABLED"
+  tags:
+  - "deployments"
+----
+
+`urnTemplate` 및 `remediationHint` 은 다음 단계에서 채워질 것입니다.
+
+== 모니터 결과를 올바른 구성 요소에 바인딩하기
+
+모니터의 결과는 SUSE Observability의 구성 요소에 바인딩되어 표시되고 사용 가능해야 합니다. 모니터의 결과는 컴포넌트 `identifiers` 를 사용하여 컴포넌트에 바인딩됩니다. SUSE Observability의 각 구성 요소에는 구성 요소를 고유하게 식별하는 식별자가 하나 이상 있습니다. 모니터의 결과를 컴포넌트에 바인딩하려면 `urnTemplate` 을 제공해야 합니다. `urnTemplate` 은 모니터 결과의 시계열에 있는 레이블을 템플릿으로 대체하여 구성 요소와 일치하는 식별자를 생성합니다. 이 예시를 통해 이를 가장 잘 설명할 수 있습니다:
+
+이 예제에서 사용된 메트릭은 `kubernetes_state_deployment_replicas_available` 메트릭입니다. 메트릭 탐색기에서 메트릭을 실행하여 시계열에서 어떤 레이블을 사용할 수 있는지 관찰합니다:
+
+image::k8s/available-replicas-metric-inspector.png[메트릭 탐색기에서 사용 가능한 복제본]
+
+위 표에서 메트릭에 `cluster_name`, `namespace` 및 `deployment` 과 같은 레이블이 있는 것을 볼 수 있습니다.
+
+메트릭은 배포에서 관찰되므로 모니터 결과를 배포 구성 요소에 바인딩하는 것이 가장 논리적입니다. 이를 위해서는 배포를 위한 식별자가 어떻게 구성되는지 이해해야 합니다:
+
+. UI에서 `deployments` 보기로 이동하여 단일 배포를 선택합니다.
+. `Topology` 보기를 열고 배포 구성 요소를 클릭합니다.
+. 화면 오른쪽 패널에서 `Properties` 을 펼치면 아래와 같이 마우스를 가져가면 식별자가 표시됩니다:
+
+image::k8s/component-identifier.png[컴포넌트 식별자 찾기]
+
+식별자는 `urn:kubernetes:/preprod-dev.preprod.stackstate.io:calico-system:deployment/calico-typha` 로 표시됩니다. 이것은 식별자가 클러스터 이름, 네임스페이스 및 배포 이름을 기반으로 구성되었음을 보여줍니다. 이 사실을 알았으니 이제 `urnTemplate` 을 구성할 수 있습니다:
+
+----
+  ...
+  urnTemplate: "urn:kubernetes:/${cluster_name}:${namespace}:deployment/${deployment}"
+  ...
+----
+
+`urnTemplate` 이 올바른지 <<_verifying_the_results_of_a_monitor,확인하려면>> 아래에서 자세히 설명합니다.
+
+== 해결 힌트 작성
+
+해결 힌트는 모니터가 작동할 때 사용자가 문제의 원인을 찾는 데 도움을 주기 위한 것입니다. 수정 힌트는 https://en.wikipedia.org/wiki/Markdown[마크다운으로] 작성되어 있습니다. 다음 예제에서와 같이 핸들바 템플릿을 사용하여 모니터 결과의 시계열에 있는 레이블을 사용할 수도 있습니다:
+
+----
+  ...
+  remediationHint: |-
+    To remedy this issue with the deployment {{ labels.deployment }}, consider taking the following steps:
+
+    1. Look at the logs of the pods created by the deployment
+  ...
+----
+
+== SUSE Observability에서 모니터 생성 또는 업데이트
+
+`monitor.yaml` 를 완료한 후 xref:/setup/cli/cli-sts.adoc[SUSE Observability CLI를] 사용하여 모니터를 생성하거나 업데이트합니다:
+
+[,bash]
+----
+sts monitor apply -f monitor.yaml
+----
+
+<<_verifying_the_results_of_a_monitor,아래>> 단계에 따라 모니터가 예상한 결과를 표시하는지 확인합니다.
+
+[CAUTION]
+====
+식별자는 모니터의 고유 키로 사용됩니다. 식별자를 변경하면 기존 모니터가 업데이트되는 대신 새 모니터가 만들어집니다.
+====
+
+
+`sts monitor` 명령에는 모든 모니터를 나열할 수 있는 등 더 많은 옵션이 있습니다:
+
+[,bash]
+----
+sts monitor list
+----
+
+모니터를 삭제하려면 다음을 사용하세요.
+
+[,bash]
+----
+sts monitor delete --id <id>
+----
+
+모니터를 편집하려면 적용된 모니터의 원본을 편집한 후 다시 적용합니다. 또는 `sts monitor edit` 명령어를 사용하여 SUSE Observability 인스턴스에서 직접 구성된 모니터를 편집할 수 있습니다:
+
+[,bash]
+----
+sts monitor edit --id <id>
+----
+
+이 명령의 `<id>` 은 식별자가 아니라 `sts monitor list` 출력의 `Id` 열에 있는 숫자입니다.
+
+== 모니터 활성화 또는 비활성화
+
+모니터를 사용하거나 사용하지 않도록 설정할 수 있습니다. 활성화하면 모니터가 결과를 생성하고 비활성화하면 모든 출력을 억제합니다. 다음 명령을 사용하여 활성화/비활성화할 수 있습니다:
+
+[,bash]
+----
+sts monitor enable/disable --id <id>
+----
+
+== 모니터 결과 확인
+
+모니터를 만든 후에는 예상한 결과가 나오는지 검증하는 것이 좋습니다. 다음 단계를 수행할 수 있습니다:
+
+=== 모니터 실행 확인
+
+모니터 개요 페이지(http://your-SUSE 관찰 가능성 인스턴스/#/모니터)로 이동하여 모니터를 찾습니다.
+
+. `Status` 열이 `Enabled` 상태인지 확인합니다. 모니터가 `Disabled` 상태인 경우 <<_enable_or_disable_the_monitor,활성화합니다>>. 상태가 `Error` 상태인 경우 아래 단계에 따라 <<_the_monitor_is_showing_an_error_in_the_monitor_status_overview,디버깅합니다>>.
+. `Clear`/`Deviating`/`Critical` 열에 예상되는 상태 수가 표시되는지 확인합니다. 상태 수가 모니터링하려는 구성 요소의 양보다 현저히 적거나 많으면 PromQL 쿼리가 너무 많은 결과를 제공할 수 있습니다.
+
+=== 모니터 바인딩 확인
+
+모니터가 모니터링해야 하는 구성 요소 중 하나에 대한 결과를 생성하는지 관찰합니다. 모니터가 표시되지 않으면 <<_the_result_of_the_monitor_isnt_showing_on_a_component,다음 단계에>> 따라 문제를 해결하세요.
+
+== 일반적인 문제
+
+=== 모니터 결과가 컴포넌트에 표시되지 않습니다.
+
+먼저 모니터가 실제로 <<_verify_the_execution_of_the_monitor,결과를 생성하는지>> 확인합니다. 이 경우 모니터 결과가 컴포넌트에 표시되지 않으면 바인딩에 문제가 있는 것일 수 있습니다. 먼저 다음 명령을 사용하여 확인합니다:
+
+[,bash]
+----
+sts monitor status --id <id>
+----
+
+출력에 `Monitor health states with identifier which has no matching topology element (<nr>): ....` 이 있으면 `urnTemplate` 이 토폴로지와 일치하는 식별자를 생성하지 못할 수 있음을 나타냅니다. 이 문제를 해결하려면 <<_bind_the_results_of_the_monitor_to_the_correct_components,urnTemplate을 다시 방문하세요>>.
+
+=== 모니터 상태 개요에 오류가 표시됩니다.
+
+CLI를 통해 모니터 상태 확인하기
+
+[,bash]
+----
+sts monitor status --id <id>
+----
+
+`Monitor Stream errors:` 섹션에서 모니터에서 발생하는 오류를 표시하고 추가 도움말을 제공합니다.

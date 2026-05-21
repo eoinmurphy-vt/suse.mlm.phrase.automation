@@ -1,0 +1,8 @@
+Postprocess started: 2026-05-21 09:49:29.956582
+
+✓ Processed: ko_kr/suse-repo-c/customize_config_test.adoc -> final/suse-repo-c/ko/customize_config_test.adoc
+✓ Processed: ko_kr/suse-repo-c/start/k8s-add-monitors-cli_test.adoc -> final/suse-repo-c/ko/start/k8s-add-monitors-cli_test.adoc
+✓ Processed: ko_kr/suse-repo-c/start/k8s-service-tokens_test.adoc -> final/suse-repo-c/ko/start/k8s-service-tokens_test.adoc
+
+=== Test Complete ===
+Summary: Processed=3, Cleaned=3, Errors=0, Skipped=0
