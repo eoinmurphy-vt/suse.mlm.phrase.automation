@@ -1,0 +1,220 @@
+= 服务令牌
+:revdate: 2025-07-10
+:page-revdate: {revdate}
+:description: SUSE 可观察性
+
+== 概述
+
+使用服务令牌可以在没有相关用户账户的情况下验证 SUSE Observability。这对于希望从无头服务（如 CI 服务器）使用 SUSE Observability 的情况非常有用。在这种情况下，你通常不希望在身份供应商中提供用户账户。
+
+== 管理服务令牌
+
+服务令牌可通过xref:/setup/cli/cli-sts.adoc[`+sts+` CLI] 进行管理。可使用以下命令
+
+[,sh]
+----
+> sts service-token --help
+Manage service tokens.
+
+Usage:
+  sts service-token [command]
+
+Available Commands:
+  create      Create a service token
+  delete      Delete a service token
+  list        List service tokens
+
+Use "sts service-token [command] --help" for more information about a command.
+----
+
+还可以在安装{stackstate-product-name} 时<<_set_up_a_bootstrap_service_token,设置引导服务令牌>>。
+
+=== 创建服务令牌
+
+[NOTE]
+====
+Open Telemetry 和 Kubernetes StackPacks 可让您创建一个主题和服务令牌，并设置好所有必要的权限。
+====
+
+要为{stackstate-product-name} 创建服务令牌，可以使用`+sts+` CLI。
+
+[,sh]
+----
+sts service-token create
+----
+
+[NOTE]
+====
+请注意，服务令牌只会显示一次。不可能再看到令牌了。
+====
+
+
+该命令需要以下命令行参数：
+
+|===
+| 旗帜 | 说明
+
+| `+--name+`
+| 服务令牌的名称
+
+| `+--expiration+`
+| 服务令牌的到期日期，格式为 yyyy-MM-dd。过期是可选项。
+
+| `+--roles+`
+| 以逗号分隔的角色列表，用于为服务令牌分配角色
+|===
+
+例如，下面的命令将创建一个名称为`+my-service-token+` 、角色为`+stackstate-k8s-troubleshooter+` 的服务令牌：
+
+[,sh]
+----
+> sts service-token create --name my-service-token --roles stackstate-k8s-troubleshooter
+✅ Service token created: svctok-aaaaa-bbbb-ccccc-ddddd
+----
+
+=== 设置引导服务令牌
+
+在安装{stackstate-product-name} 时，可以使用（临时）服务令牌对其进行引导。这样就可以使用 CLI，而无需首先与{stackstate-product-name} 进行交互并从用户界面获取 API 令牌。要进行设置，请在{stackstate-product-name} 配置文件中添加以下代码段：
+
+要配置{stackstate-product-name} 在 Kubernetes 上创建引导服务令牌，需要在文件`+authentication.yaml+` 中添加以下值。例如
+
+[,yaml]
+----
+stackstate:
+  authentication:
+    serviceToken:
+      bootstrap:
+        token: <token>
+        roles:
+          - stackstate-admin
+        ttl: 24h
+----
+
+请按照以下步骤配置{stackstate-product-name} 以创建引导服务令牌：
+
+. `+authentication.yaml+` - 添加引导标记：
+ ** *token*- 在{stackstate-product-name} （初始）启动时创建的令牌。
+ ** *roles*- 分配给引导标记的角色数组。
+ ** *ttl*- 可选。服务令牌的有效时间，以持续时间字符串表示。
+. 将文件`+authentication.yaml+` 与{stackstate-product-name} 安装说明中的`+values.yaml+` 一起存储。
+. 运行 Helm 升级以应用更改。
++
+[,text]
+----
+ helm upgrade \
+   --install \
+   --namespace suse-observability \
+   --values values.yaml \
+   --values authentication.yaml \
+ suse-observability \
+ suse-observability/suse-observability
+----
+
+[NOTE]
+====
+* 首次运行 helm upgrade 命令会导致 pod 重新启动，这可能会造成短暂的可用性中断。
+* 在`+helm upgrade+` 的每次运行中都包含`+authentication.yaml+` 。
+* 身份验证配置存储为 Kubernetes 秘密。
+====
+
+
+==== 从外部秘密设置引导服务令牌
+
+您也可以从 Helm 图表之外创建和管理的密文（外部密文）中读取引导标记，而不是通过 Helm 值指定引导标记。要使用外部的 boostrap 令牌，请按照xref:/setup/security/external-secrets.adoc#_getting_authentication_data_from_an_external_secret[以下步骤]添加以下数据：
+
+[,yaml]
+----
+kind: Secret
+metadata:
+   name: "<custom-secret-name>"
+type: Opaque
+data:
+  bootstrap_token: <base64 of token>
+----
+
+这个标记可以添加到密文中已经存在的数据旁边。
+
+=== 列出服务令牌
+
+使用`+sts+` CLI 可以查看所有已创建服务令牌的 ID、名称、过期日期和角色。例如
+
+[,sh]
+----
+> sts service-token list
+ID              | NAME             | EXPIRATION | ROLES
+107484341630693 | my-service-token |            | [stackstate-admin]
+----
+
+=== 删除服务令牌
+
+可使用`+sts+` CLI 删除服务令牌。将服务令牌的 ID 作为参数传递。例如
+
+[,sh]
+----
+> sts service-token delete 107484341630693
+✅ Service token deleted: 107484341630693
+----
+
+== 使用服务令牌
+
+使用 SUSE Observability API 时，您需要使用服务令牌进行身份验证：* 使用 CLI 时 * 直接使用 HTTP API 时 * 接收遥测数据时
+
+=== SUSE Observability`+sts+` CLI
+
+服务令牌用于`+sts+` CLI 的身份验证。有关详细信息，请参阅xref:/setup/cli/cli-sts.adoc#_authentication[CLI 文档]。
+
+=== SUSE Observability API
+
+要使用服务令牌直接与 SUSE Observability API 对话，请通过以下方式之一将其添加到请求的标题中：
+
+* 在`+Authorization+` 标头中：
++
+[,sh]
+----
+  > curl -X GET -H "Authorization: ApiKey <TOKEN>" http://localhost:8080/api/server/status
+----
+
+* 在`+X-API-Key+` 标头中：
++
+[,sh]
+----
+  > curl -X GET -H "X-API-Key: <TOKEN>" http://localhost:8080/api/server/status
+----
+
+=== 遥测数据输入
+
+要创建用于遥测数据摄取的服务令牌，首先需要创建一个角色：
+[,sh]
+----
+> sts rbac create-subject --subject my-agent
+✅ Created subject 'my-agent'
+> sts rbac grant --subject my-agent --permission update-metrics
+✅ Granted permission 'update-metrics' on 'system' to subject 'my-agent'
+PERMISSION   | RESOURCE
+update-metrics | system
+----
+
+如果要使用服务令牌摄取 Kubernetes RBAC 数据，还需要授予`+update-scoped-permissions+` ：
+[,sh]
+----
+> sts rbac grant --subject my-agent --permission update-scoped-permissions --resource my-cluster
+✅ Granted permission 'update-scoped-permissions' on 'my-cluster' to subject 'my-agent'
+PERMISSION                | RESOURCE
+update-metrics            | system
+update-scoped-permissions | my-cluster
+----
+
+这将在 SUSE Observability 中创建一个名为`+my-agent+` 的新角色，并授予其`+update-metrics+` 权限。然后，您就可以为该角色创建一个 ServiceToken：
+
+[,sh]
+----
+> sts service-token create --name my-agent --roles my-agent
+✅ Service token created: svctok-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+----
+
+新创建的服务令牌可用作 api 密钥，用于验证遥测数据：
+
+* {stackstate-product-name} xref:k8s-suse-rancher-prime.adoc#_installing_the_suse_observability_agent[代理（包括 RBAC 代理）]
+* xref:setup/otel/getting-started/getting-started-k8s.adoc[OTel 收集器]
+
+
