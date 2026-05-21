@@ -1,0 +1,224 @@
+= 使用 CLI 为组件添加阈值监控器
+:revdate: 2025-07-10
+:page-revdate: {revdate}
+:description: SUSE 可观察性
+
+== 概述
+
+SUSE Observability 提供xref:/use/alerting/k8s-monitors.adoc[开箱即用的监控器]，可监控 Kubernetes 集群中可能出现的常见问题。还可以为 SUSE Observability 收集的指标或xref:/use/metrics/k8s-prometheus-remote-write.adoc[从 Prometheus] 获取的应用程序指标配置自定义监控器。
+
+== 步骤
+
+创建监视器的步骤：
+
+. <<_write_the_outline_of_the_monitor,撰写监控大纲>>
+. <<_bind_the_results_of_the_monitor_to_the_correct_components,将监控结果绑定到正确的组件上>>
+. <<_write_the_remediation_hint,编写补救提示>>
+. <<_create_or_update_the_monitor_in_suse_observability,在 SUSE Observability 中创建或更新度量绑定>>
+. <<_verifying_the_results_of_a_monitor,验证监视器是否产生预期结果>>
+. <<_common_issues,常见问题>>
+
+例如，该步骤将为`+Replica counts+` 的 Kubernetes 部署添加一个监控器。
+
+== 撰写监控大纲
+
+创建一个名为`+monitor.yaml+` 的新 YAML 文件，并将此 YAML 模板添加到该文件中，以创建自己的监视器。在您最喜欢的代码编辑器中打开它，在本指南中进行更改。最后，将使用 SUSE Observability CLI 在 SUSE Observability 中创建和更新监控器。
+
+----
+nodes:
+- _type: Monitor
+  arguments:
+    metric:
+      query:
+      unit:
+      aliasTemplate:
+    comparator:
+    threshold:
+    failureState:
+    urnTemplate:
+    titleTemplate:
+  description:
+  function: {{ get "urn:stackpack:common:monitor-function:threshold"  }}
+  identifier: urn:custom:monitor:...
+  intervalSeconds: 30
+  name:
+  remediationHint:
+  status:
+  tags: {}
+----
+
+该模板中的字段有
+
+* `+_type+`:SUSE Observability 需要知道这是一个监视器，因此值必须始终为 `+Monitor+`
+* `+query+`:PromQL 查询。使用 SUSE Observability 实例的xref:/use/metrics/k8sTs-explore-metrics.adoc[度量资源管理器] http://your-instance/#/metrics, ，并用它来构建相关度量的查询。
+* `+unit+`:查询返回的时间序列中数值的单位，用于渲染图表的 Y 轴。有关所有单位，请参阅xref:/develop/reference/k8sTs-chart-units.adoc[支持的单位]参考。
+* `+aliasTemplate+`:度量图表中时间序列的别名。这是一个模板，可以使用`+${my_label}+` 占位符替代时间序列中的标签。
+* `+comparator+`:从 LTE/LT/GTE/GT 中选择一个，将阈值与指标进行比较。`+<metric> <comparator> <threshold>+` 成立的时间序列将产生失效状态。
+* `+threshold+`:要与之比较的数字阈值。
+* `+failureState+`:要么是 "关键"，要么是 "偏离"。在 SUSE Observability 中，"CRITICAL "将显示为读取状态，而 "DEVIATING "则显示为橙色，以表示不同的严重程度。
+* `+urnTemplate+`:模板，用于构建监控结果将<<_bind_the_results_of_the_monitor_to_the_correct_components,绑定的>>组件的瓮。
+* `+titleTemplate+`:监测结果的标题。由于多个监控结果可以绑定到同一个组件，因此可以使用`+${my_label}+` 占位符替代时间序列标签。
+* `+description+`:监视器的说明。
+* `+function+`:执行监控的监控函数的引用。目前只支持`+{{ get "urn:stackpack:kubernetes-v2:shared:monitor-function:threshold"  }}+` 。
+* `+identifier+`:`+urn:custom:monitor:....+` 形式的标识符，用于在更新配置时唯一标识监视器。
+* `+intervalSeconds+`:监视器的执行间隔。对于常规实时指标，建议使用 30 秒。对于运行时间较长的分析指标查询，建议使用更大的时间间隔。
+* `+name+`:监视器名称
+* `+remediationHint+`:说明当监控器出现故障时，用户可以做些什么。格式为 markdown，可选择使用 handlebars 变量，根据时间序列或其他数据自定义提示<<_write_the_remediation_hint,（更多解释见下文>>）。
+* `+status+`:`+"DISABLED"+` 或`+"ENABLED"+` 。决定监视器是否运行。
+* `+tags+`:为监视器添加标签，以便在 SUSE Observability 实例的监视器概览中对其进行组织，http://your-SUSE Observability-instance/#/monitors
+
+例如，这可能是监控器的起始位置，监控器负责监控部署的可用副本：
+
+----
+nodes:
+- _type: Monitor
+  arguments:
+    metric:
+      query: "kubernetes_state_deployment_replicas_available"
+      unit: "short"
+      aliasTemplate: "Deployment replicas"
+    comparator: "LTE"
+    threshold: 0.0
+    failureState: "DEVIATING"
+    urnTemplate:
+  description: "Monitor whether a deployment has replicas.
+  function: {{ get "urn:stackpack:kubernetes-v2:shared:monitor-function:threshold"  }}
+  identifier: urn:custom:monitor:deployment-has-replicas
+  intervalSeconds: 30
+  name: Deployment has replicas
+  remediationHint:
+  status: "ENABLED"
+  tags:
+  - "deployments"
+----
+
+`+urnTemplate+` 和`+remediationHint+` 将在下一步中填写。
+
+== 将监控结果绑定到正确的组件上
+
+监视器的结果需要绑定到 SUSE Observability 中的组件，这样才能可见和可用。监控器的结果通过组件`+identifiers+` 与组件绑定。SUSE Observability 中的每个组件都有一个或多个唯一标识符。要将监视器的结果绑定到组件上，需要提供`+urnTemplate+`.NET。`+urnTemplate+` 将监测结果时间序列中的标签替换到模板中，生成一个与组件匹配的标识符。这个例子最能说明问题：
+
+本例中使用的指标是`+kubernetes_state_deployment_replicas_available+` 指标。在度量资源管理器中运行度量，观察时间序列上有哪些标签：
+
+image::k8s/available-replicas-metric-inspector.png[度量资源管理器中的可用副本]
+
+上表显示，度量指标的标签有`+cluster_name+`,`+namespace+` 和`+deployment+` 。
+
+由于该指标是在部署中观察到的，因此将监控结果与部署组件绑定是最合理的。为此，需要了解部署的标识符是如何构建的：
+
+. 在用户界面中，导航至`+deployments+` 视图并选择单个部署。
+. 打开`+Topology+` 视图，然后单击部署组件。
+. 在屏幕右侧面板中展开`+Properties+` 时，悬停后将显示标识符，如下图所示：
+
+image::k8s/component-identifier.png[查找组件标识符]
+
+标识符显示为`+urn:kubernetes:/preprod-dev.preprod.stackstate.io:calico-system:deployment/calico-typha+` 。这表明，标识符是根据群集名称、命名空间和部署名称构建的。了解了这一点，现在就可以构建`+urnTemplate+` ：
+
+----
+  ...
+  urnTemplate: "urn:kubernetes:/${cluster_name}:${namespace}:deployment/${deployment}"
+  ...
+----
+
+下面将进一步说明<<_verifying_the_results_of_a_monitor,如何验证>> `+urnTemplate+` 是否正确。
+
+== 编写补救提示
+
+当显示器发生故障时，修复提示可以帮助用户找到问题的原因。补救提示是用https://en.wikipedia.org/wiki/Markdown[markdown] 编写的。也可以使用监测结果时间序列上的标签，如下面的示例：
+
+----
+  ...
+  remediationHint: |-
+    To remedy this issue with the deployment {{ labels.deployment }}, consider taking the following steps:
+
+    1. Look at the logs of the pods created by the deployment
+  ...
+----
+
+== 在 SUSE Observability 中创建或更新监控器
+
+完成`+monitor.yaml+` 后，使用xref:/setup/cli/cli-sts.adoc[SUSE Observability CLI]创建或更新监控器：
+
+[,bash]
+----
+sts monitor apply -f monitor.yaml
+----
+
+使用<<_verifying_the_results_of_a_monitor,以下>>步骤验证监视器是否产生预期结果。
+
+[CAUTION]
+====
+标识符用作监视器的唯一密钥。更改标识符将创建一个新的监视器，而不是更新现有的监视器。
+====
+
+
+`+sts monitor+` 命令有更多选项，例如可以列出所有显示器：
+
+[,bash]
+----
+sts monitor list
+----
+
+要删除监视器，请使用
+
+[,bash]
+----
+sts monitor delete --id <id>
+----
+
+要编辑监视器，请编辑已应用的监视器原件，然后再次应用。或者使用`+sts monitor edit+` 命令直接编辑 SUSE Observability 实例中配置的监控器：
+
+[,bash]
+----
+sts monitor edit --id <id>
+----
+
+该命令中的`+<id>+` 不是标识符，而是`+sts monitor list+` 输出的`+Id+` 列中的数字。
+
+== 启用或禁用监视器
+
+可以启用或禁用监视器。启用表示监视器将产生结果，禁用表示将抑制所有输出。使用以下命令启用/禁用：
+
+[,bash]
+----
+sts monitor enable/disable --id <id>
+----
+
+== 验证监控结果
+
+好的做法是，在监控器制作完成后，验证它是否能产生预期的结果。可以采取以下步骤
+
+=== 验证监控器的执行情况
+
+进入监视器概览页面（http://your-SUSE Observability-instance/#/monitors），找到您的监视器。
+
+. 确认`+Status+` 栏处于`+Enabled+` 状态。如果监视器处于`+Disabled+` 状态，则<<_enable_or_disable_the_monitor,启用它>>。如果状态为`+Error+` ，请按照以下步骤<<_the_monitor_is_showing_an_error_in_the_monitor_status_overview,进行调试>>。
+. 确认`+Clear+`/`+Deviating+`/`+Critical+` 一栏中的预期状态数量。如果状态数明显少于或多于要监控的组件数，PromQL 查询可能会给出过多结果。
+
+=== 验证显示器的绑定
+
+观察监视器是否对其要监视的组件之一产生了结果。如果显示器没有显示，请按照<<_the_result_of_the_monitor_isnt_showing_on_a_component,以下步骤>>进行补救。
+
+== 常见问题
+
+=== 显示器的结果没有显示在组件上
+
+首先检查监视器是否真的<<_verify_the_execution_of_the_monitor,产生了效果>>。如果是这样，但监控结果没有显示在组件上，则可能是绑定出现了问题。首先使用以下命令进行验证：
+
+[,bash]
+----
+sts monitor status --id <id>
+----
+
+如果输出为`+Monitor health states with identifier which has no matching topology element (<nr>): ....+` ，则表明`+urnTemplate+` 可能无法生成与拓扑匹配的标识符。要解决这个问题，<<_bind_the_results_of_the_monitor_to_the_correct_components,请重新查看您的 urnTemplate>>。
+
+=== 监视器状态概览中显示错误
+
+通过 CLI 获取监控器的状态
+
+[,bash]
+----
+sts monitor status --id <id>
+----
+
+`+Monitor Stream errors:+` 部分将显示显示器上出现的错误，并提供进一步帮助。
