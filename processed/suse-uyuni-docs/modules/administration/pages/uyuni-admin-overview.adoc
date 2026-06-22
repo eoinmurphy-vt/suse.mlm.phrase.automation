@@ -1,0 +1,71 @@
+ifeval::[{mlm-content} == true]
+
+:noindex:
+:page-author: SUSE Product & Solution Documentation Team
+:page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
+:page-product-name: SUSE Multi-Linux Manager
+:page-product-version: 5.1
+endif::[]
+
+ifndef::backend-pdf[]
+[[uyuni-admin-overview]]
+= Administration Guide
+:description: Manage a SUSE Multi-Linux Manager server by performing administrative tasks such as maintenance, monitoring, and customization
+:revdate: 2025-05-21
+:page-revdate: {revdate}
+
+// HTML Publication date 
+**Publication Date:** {docdate}
+
+== Preface
+
+
+This guide covers administration tasks like maintaining, monitoring, and customizing a {productname} Server.
+
+endif::[]
+
+
+ifdef::backend-pdf[]
+
+<<<
+
+[preface]
+== Preface
+
+Administration Guide +
+{productname} {productnumber}
+
+This guide covers administration tasks like maintaining, monitoring, and customizing a {productname} Server.
+
+// PDF Publication
+
+**Publication Date:** {docdate}
+
+// PDF Copyright Space
+
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+
+<<<
+
+toc::[]
+
+endif::[]

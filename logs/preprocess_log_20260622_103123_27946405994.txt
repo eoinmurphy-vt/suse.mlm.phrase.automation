@@ -1,0 +1,153 @@
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-container-full-disk.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-container-full-disk.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.050624
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-mail.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-mail.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.122965
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-schema-upgrade-fails.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-schema-upgrade-fails.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.181809
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-rpctimeout.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-rpctimeout.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.243180
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-inactiveclients.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-inactiveclients.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.301293
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-delclients.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-delclients.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.358699
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-taskomatic.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-taskomatic.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.416438
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-mounting-vartmp-with-noexec.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-mounting-vartmp-with-noexec.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.475178
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-custom-channel.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-custom-channel.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.533862
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-registerclones.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-registerclones.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:23.591480
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-disabling-fqdns-grain.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-disabling-fqdns-grain.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.648279
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-notifications.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-notifications.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.704663
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-mass-duplication-machine_id.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-mass-duplication-machine_id.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.762528
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-logintimeout.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-logintimeout.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.820504
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-iss.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-iss.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:23.883182
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-localcert.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-localcert.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:23.941972
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-remote-root-on-micro.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-remote-root-on-micro.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.000750

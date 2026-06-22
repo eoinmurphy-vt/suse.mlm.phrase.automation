@@ -1,0 +1,153 @@
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/nav-client-configuration-guide.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/nav-client-configuration-guide.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:33.027443
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/_attributes.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/_attributes.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.086580
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-bootstrap-proxy-client.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-bootstrap-proxy-client.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.145172
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-ptf-loss-during-upgrade.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-ptf-loss-during-upgrade.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.203789
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-start-proxy.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-start-proxy.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.262227
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-generate_proxy_config.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-generate_proxy_config.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.321017
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-prepare-micro-host.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-prepare-micro-host.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.379986
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-register-proxy-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-register-proxy-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.438991
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-step-deploy-podman-certs.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-step-deploy-podman-certs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.497310
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-ensure-proxy-prerequisites.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-ensure-proxy-prerequisites.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.555846
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-note-deploy-certs.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-note-deploy-certs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.614162
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-hardened-tmpdir.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-hardened-tmpdir.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.672289
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-login-into-suse-registry.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-login-into-suse-registry.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.730703
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-prepare-sles-host.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-prepare-sles-host.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.788863
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-transfer_proxy_config.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-transfer_proxy_config.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.846483
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-check-rpmnew-rpmsave.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-check-rpmnew-rpmsave.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.904820
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-ssl-migration-certs.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-ssl-migration-certs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:33.963520

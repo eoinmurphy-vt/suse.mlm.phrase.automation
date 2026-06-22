@@ -1,0 +1,135 @@
+Starting preprocess: source/suse-uyuni-docs/modules/administration/_attributes.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/_attributes.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.161755
+Starting preprocess: source/suse-uyuni-docs/modules/administration/partials/install_scap_security_guide_package.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/partials/install_scap_security_guide_package.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.219448
+Starting preprocess: source/suse-uyuni-docs/modules/administration/partials/image-mgmt-container-inspection.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/partials/image-mgmt-container-inspection.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.276032
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/auth-methods-sso.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/auth-methods-sso.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.333965
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/confidential-computing.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/confidential-computing.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.395387
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/backup-restore-db.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/backup-restore-db.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.454773
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/subscription-matching.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/subscription-matching.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.514353
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/disconnected-setup.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/disconnected-setup.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.572360
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/live-patching-sles12.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/live-patching-sles12.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.630551
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/ssl-certs-imported.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/ssl-certs-imported.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.688837
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/removing-channels.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/removing-channels.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.747415
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/ptfs.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/ptfs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.806619
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/support.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/support.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.864137
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/actions.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/actions.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.927324
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/master-fingerprint.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/master-fingerprint.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:20.985961

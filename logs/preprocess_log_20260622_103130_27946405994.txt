@@ -1,0 +1,153 @@
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/vhm-aws.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/vhm-aws.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:30.006614
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/client-operations.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/client-operations.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:30.065704
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/client-proxy-cli.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/client-proxy-cli.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:30.126103
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/clients-amazon.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/clients-amazon.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:30.186187
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/supported-features-rh.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/supported-features-rh.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:30.245714
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/client-config-overview.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/client-config-overview.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:30.305855
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/supported-features-amazon.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/supported-features-amazon.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:30.365202
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/clients-rh-rhui.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/clients-rh-rhui.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:30.424577
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/clients-sle.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/clients-sle.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:30.483909
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/vhm-nutanix.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/vhm-nutanix.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:30.543001
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/autoinst-intro.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/autoinst-intro.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:30.602067
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/clients-opensuseleapmicro.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/clients-opensuseleapmicro.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:30.665172
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/autoinst-cdrom.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/autoinst-cdrom.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:30.725661
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/registration-cli.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/registration-cli.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:30.784855
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/power-management.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/power-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:30.844485
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/configuration-management.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/configuration-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:30.904115
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/system-set-manager.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/system-set-manager.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:30.963365

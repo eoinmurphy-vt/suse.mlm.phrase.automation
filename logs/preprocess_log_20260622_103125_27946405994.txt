@@ -1,0 +1,153 @@
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/live-patching-sles15.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/live-patching-sles15.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.007871
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/auth-methods-pam.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/auth-methods-pam.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.065962
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/auth-methods.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/auth-methods.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.129870
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/maintenance-windows.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/maintenance-windows.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:25.187772
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/third-party-channels.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/third-party-channels.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.245456
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/content-lifecycle-examples.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/content-lifecycle-examples.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.304541
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/ssl-certs-selfsigned.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/ssl-certs-selfsigned.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.362139
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/ansible-compliance-as-code.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/ansible-compliance-as-code.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.419836
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/auditing.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/auditing.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:25.478397
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/tuning-changelogs.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/tuning-changelogs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.536737
+Starting preprocess: source/suse-uyuni-docs/modules/administration/nav-administration-guide.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/nav-administration-guide.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.594325
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/_attributes.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/_attributes.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.651732
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/partials/check_sync_webui_uyuni.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/partials/check_sync_webui_uyuni.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.710048
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/partials/addchannels_novendor_cli.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/partials/addchannels_novendor_cli.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.769282
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/partials/manual_associate.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/partials/manual_associate.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.827455
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/partials/addchannels_vendor_webui.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/partials/addchannels_vendor_webui.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.888370
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/partials/managing_appstreams.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/partials/managing_appstreams.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:25.951083

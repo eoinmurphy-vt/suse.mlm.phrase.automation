@@ -1,0 +1,117 @@
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/proxy-deployment-vmdk-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/proxy-deployment-vmdk-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:36.014310
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/server-deployment-vmdk-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/server-deployment-vmdk-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:36.072511
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/proxy-conversion-from-client-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/proxy-conversion-from-client-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:36.130870
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/proxy-k3s-deployment-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/proxy-k3s-deployment-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:36.188781
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/server-deployment-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/server-deployment-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:36.248508
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/server-air-gapped-deployment-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/server-air-gapped-deployment-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:36.307628
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/server/server-mlm-43-51.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/server/server-mlm-43-51.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:36.367554
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/server/server-mlm-50-51.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/server/server-mlm-50-51.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:36.427119
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/proxy/proxy-mlm-50-51.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/proxy/proxy-mlm-50-51.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:36.486565
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/proxy/proxy-mlm-43-51.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/proxy/proxy-mlm-43-51.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:36.545858
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/proxy-deployment-vm-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/proxy-deployment-vm-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:36.603962
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/proxy-deployment-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/proxy-deployment-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:36.661895
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/nav-installation-and-upgrade-guide.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/nav-installation-and-upgrade-guide.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:36.720185

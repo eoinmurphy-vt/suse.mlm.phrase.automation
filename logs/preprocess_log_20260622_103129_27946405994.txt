@@ -1,0 +1,144 @@
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/vhm-file.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/vhm-file.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:29.050009
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/registration-overview-oes.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/registration-overview-oes.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:29.110189
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/autoinst-unattended.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/autoinst-unattended.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:29.170069
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/client-upgrades-major.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/client-upgrades-major.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:29.230401
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/registration-overview-oracle.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/registration-overview-oracle.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:29.290285
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-saltssh.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-saltssh.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:29.350512
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/vhm-azure.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/vhm-azure.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:29.410376
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/registration-overview-suse.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/registration-overview-suse.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:29.470014
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/vhm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/vhm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:29.529042
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/supported-features-sle-micro.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/supported-features-sle-micro.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:29.589853
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/clients-pubcloud.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/clients-pubcloud.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:29.649745
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/clients-rh-cdn.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/clients-rh-cdn.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:29.710920
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/vhm-vmware.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/vhm-vmware.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:29.770098
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-saltbundle.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-saltbundle.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:29.829420
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/products.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/products.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:29.888297
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/supported-features-sll.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/supported-features-sll.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:29.947736

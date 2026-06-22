@@ -1,0 +1,144 @@
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-firewalls.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-firewalls.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:24.060173
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-passing-grains-to-start-event.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-passing-grains-to-start-event.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.122981
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-bootstrap-repo-for-eol-products.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-bootstrap-repo-for-eol-products.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.182139
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-mounting-tmp-with-noexec.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-mounting-tmp-with-noexec.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.240933
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-packages.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-packages.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.298587
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-salt-clients-down-and-dns.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-salt-clients-down-and-dns.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.356831
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-cloned-salt-clients.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-cloned-salt-clients.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.414898
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-wicked-to-networkmanager.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-wicked-to-networkmanager.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.473811
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-highsynctimesoverwan.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-highsynctimesoverwan.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.532626
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/live-patching-channel-setup.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/live-patching-channel-setup.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.590741
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/admin-overview.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/admin-overview.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.650185
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/auth-methods-sso-example.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/auth-methods-sso-example.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:24.712945
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/ssl-certs.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/ssl-certs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-06-22 10:31:24.771688
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/task-schedules.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/task-schedules.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.831802
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/channel-management.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/channel-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.892331
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/infra-maintenance.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/infra-maintenance.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-06-22 10:31:24.949872
