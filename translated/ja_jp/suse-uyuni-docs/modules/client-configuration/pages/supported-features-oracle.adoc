@@ -1,0 +1,260 @@
+[[supported-features-oracle]]
+= サポートされているOracleの機能
+:description: Oracle Linuxクライアントで、オペレーティングシステムパッケージ、登録、インストールパッケージを含む、サポートされているOracle機能の包括的なリストにアクセスできます。
+:revdate: 2024-09-30
+:page-revdate: {revdate}
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
+:page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
+:page-product-name: SUSE Multi-Linux Manager
+:page-product-version: 5.1
+
+
+この表には、{oracle}クライアントのさまざまな機能の使用可否がリストされています。
+
+[IMPORTANT]
+====
+クライアントで実行しているオペレーティングシステムは、オペレーティングシステムを提供している組織によってサポートされています。{oracle}はOracleでサポートされています。
+====
+
+この表のアイコンの意味は次のとおりです。
+
+* {check}: 機能は使用できます
+* {cross}: 機能は使用できません
+* {question}: 機能は検討中であり、後日利用可能になるかどうかは未定です
+
+
+[cols="1,1,1,1,1", options="header"]
+.{oracle}オペレーティングシステムでサポートされている機能
+|===
+
+| 機能
+| {oracle}{nbsp}7
+| {oracle}{nbsp}8
+| {oracle}{nbsp}9
+| {oracle}{nbsp}10
+
+| [クライアント]
+| {check}
+| {check}
+| {check}
+| {check}
+
+| オペレーティングシステムパッケージ
+| {check}
+| {check}
+| {check}
+| {check}
+
+| 登録
+| {check}
+| {check}
+| {check}
+| {check}
+
+| パッケージのインストール
+| {check}
+| {check}
+| {check}
+| {check}
+
+| パッチを適用します（CVE IDが必要です）
+| {check}
+| {check}
+| {check}
+| {check}
+
+| リモートコマンド
+| {check}
+| {check}
+| {check}
+| {check}
+
+| システムパッケージの状態
+| {check}
+| {check}
+| {check}
+| {check}
+
+| システムカスタムの状態
+| {check}
+| {check}
+| {check}
+| {check}
+
+| グループカスタムの状態
+| {check}
+| {check}
+| {check}
+| {check}
+
+| 組織カスタムの状態
+| {check}
+| {check}
+| {check}
+| {check}
+
+| システムセットマネージャ（SSM）
+| {check}
+| {check}
+| {check}
+| {check}
+
+| 製品移行 {star}
+| {check}
+| {check}
+| {check}
+| {check}
+
+| システムデプロイメント（PXE/Kickstart）
+| {check}
+| {check}
+| {check}
+| {check}
+
+| システム再デプロイメント（Kickstart）
+| {check}
+| {check}
+| {check}
+| {check}
+
+| 連絡方法
+| {check} ZeroMQ、Salt-SSH
+| {check} ZeroMQ、Salt-SSH
+| {check} ZeroMQ、Salt-SSH
+| {check} ZeroMQ、Salt-SSH
+
+| {productname}プロキシと連携します
+| {check}
+| {check}
+| {check}
+| {check}
+
+| 動作チェーン
+| {check}
+| {check}
+| {check}
+| {check}
+
+| ステージング（パッケージの事前ダウンロード）
+| {check}
+| {check}
+| {check}
+| {check}
+
+| 重複パッケージの報告
+| {check}
+| {check}
+| {check}
+| {check}
+
+| CVE監査（CVE IDが必要）
+| {check}
+| {check}
+| {check}
+| {check}
+
+| SCAP監査
+| {check}
+| {check}
+| {check}
+| {check}
+
+| パッケージのロック
+| {check}
+| {check}
+| {check}
+| {check}
+
+| システムのロック
+| {cross}
+| {cross}
+| {cross}
+| {cross}
+
+| メンテナンスウィンドウ
+| {check}
+| {check}
+| {check}
+| {check}
+
+| システムスナップショット
+| {cross}
+| {cross}
+| {cross}
+| {cross}
+
+| 設定ファイル管理
+| {check}
+| {check}
+| {check}
+| {check}
+
+| スナップショットとプロファイル
+| {check} サポートされているプロファイル、syncはサポートされていません
+| {check} サポートされているプロファイル、syncはサポートされていません
+| {check} サポートされているプロファイル、syncはサポートされていません
+| {check} サポートされているプロファイル、syncはサポートされていません
+
+| 電源管理
+| {check}
+| {check}
+| {check}
+| {check}
+
+| モニタリングサーバ
+| {cross}
+| {cross}
+| {cross}
+| {cross}
+
+| 監視対象のクライアント
+| {check}
+| {check}
+| {check}
+| {check}
+
+| Dockerビルドホスト
+| {cross}
+| {cross}
+| {cross}
+| {cross}
+
+| OSを使用してDockerイメージをビルド
+| {cross}
+| {cross}
+| {cross}
+| {cross}
+
+| Kiwiビルドホスト
+| {cross}
+| {cross}
+| {cross}
+| {cross}
+
+| OSを使用してKiwiイメージをビルド
+| {cross}
+| {cross}
+| {cross}
+| {cross}
+
+| 定期的なアクション
+| {check}
+| {check}
+| {check}
+| {check}
+
+| AppStream
+| N/A
+| {check}
+| {check}
+| {check}
+
+| 読み
+| N/A
+| N/A
+| N/A
+| N/A
+
+|===
+
+{star} 製品移行：対応する {sll} バージョンへ
