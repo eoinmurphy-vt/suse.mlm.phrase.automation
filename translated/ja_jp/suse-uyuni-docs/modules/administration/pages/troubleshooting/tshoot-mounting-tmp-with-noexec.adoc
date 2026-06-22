@@ -1,0 +1,21 @@
+[[troubleshooting-mounting-tmp-with-noexec]]
+= noexecで/tmpをマウントする場合のトラブルシューティング
+:description: /tmpをnoexecでマウントする際のトラブルシューティング方法を学ぶには、TMPDIR環境変数を設定するか、systemdサービスファイルを修正してください。
+:revdate: 2022-10-18
+:page-revdate: {revdate}
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
+:page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
+:page-product-name: SUSE Multi-Linux Manager
+:page-product-version: 5.1
+
+Saltは、クライアントのファイルシステム上の[path]``+/tmp+``からリモートコマンドを実行します。
+したがって、[path]``+/tmp+``+を[option]+``+noexec+``オプションでマウントしてはいけません。
+この問題を解決する別の方法は、Saltサービス用に指定された[literal]``+TMPDIR+``+環境変数で一時ディレクトリのパスを上書きし、[option]+``+noexec+``オプションが設定されていないディレクトリを指すようにすることです。
+Salt Bundleが使用されている場合は、systemdドロップイン設定ファイル[path]``+/etc/systemd/system/venv-salt-minion.service.d/10-TMPDIR.conf+``+を使用することをお勧めします。また、クライアントで[package]+``+salt-minion+``が使用されている場合は、[path]+``+/etc/systemd/system/salt-minion.service.d/10-TMPDIR.conf+``+を使用してください。
+ドロップイン設定ファイルの内容の例:
+----
+[Service]
+Environment=TMPDIR=/var/tmp
+----
+
+
