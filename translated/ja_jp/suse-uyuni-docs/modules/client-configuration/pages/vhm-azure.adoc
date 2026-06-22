@@ -1,0 +1,90 @@
+[[vhm-azure]]
+= 仮想ホストマネージャおよびAzure
+:description: Azureの仮想ホストマネージャを構成し、SUSE® Multi-Linux Managerを使用してMicrosoft Azureからインスタンスを収集します。
+:revdate: 2025-02-06
+:page-revdate: {revdate}
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
+:page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
+:page-product-name: SUSE Multi-Linux Manager
+:page-product-version: 5.1
+
+// 2024-04-04 OM: It had been decided in the conversation with the mlm PO 
+// that this Public Cloud related file can stay in the Uyuni books
+
+
+仮想ホストマネージャ(VHM)を使用して、Microsoft Azureからインスタンスを収集できます。
+
+VHMは{productname}が仮想マシンに関する情報を取得し、報告することを可能にします。
+VHMに関する詳細については、xref:client-configuration:vhm.adoc[]を参照してください。
+
+
+== 前提条件
+
+
+作成したVHMは、Azure VMにアクセスするために、正しいパーミッションが割り当てられている必要があります。
+
+サブスクリプション管理者としてAzureアカウントにログインし、Azureユーザーアカウントとアプリケーションが正しいグループに属していることを確認してください。
+アプリケーションが属するグループが、その役割を決定し、したがって権限を決定します。
+
+== Azure VHMの作成
+Virtual Host Manager (VHM)は{productname}サーバ上で動作します。
+
+[systemitem]``+virtual-host-gatherer-libcloud+``パッケージが{productname}サーバにインストールされていることを確認してください。
+
+
+.プロシージャ:Azure VHMの作成
+
+. {productname} {webui}で、menu:Systems[Virtual Host Managers]に移動します。
+. btn:[作成]をクリックし、ドロップダウンメニューから[guimenu]``+Azure+``を選択します。
+. [guimenu]``+Azure仮想ホストマネージャの追加+``セクションで、次のパラメータを使用します：
+* [guimenu]``+ラベル+``フィールドにVHMのカスタム名を入力します。
+* [guimenu]``+サブスクリプションID+``+フィールドに、[path]+``+Azure portal > Services > Subscriptions+``ページにあるサブスクリプションIDを入力します。
+* [guimenu]``+アプリケーションID+``フィールドに、このアプリケーションを登録したときに収集したアプリケーションIDを入力します。
+* [guimenu]``+テナントID+``フィールドに、このアプリケーションを登録したときに収集したAzureが提供するテナントIDを入力します。
+* [guimenu]``+秘密鍵+``フィールドに、Azureインスタンスに関連付けられた秘密鍵を入力します。
+* [guimenu]``+ゾーン+``+フィールドに、VMが存在するゾーンを入力します。例えば、西ヨーロッパの場合は、[path]+``+westeurope+``を入力します。
+    これは、サブスクリプションマッチングを動作させるために必要です。
+. btn:[作成]をクリックして変更を保存し、VHMを作成します。
+. [guimenu]``+Virtual Host Managers+``ページで、新しいVHMを選択します。
+. [guimenu]``+Properties+``ページで、btn:[Refresh Data]をクリックして新しいVHMをインベントリします。
+
+インベントリされたオブジェクトおよびリソースを表示するには、menu:Systems[System List> Virtual Systems]に移動します。
+
+
+== パーミッションの割り当て
+// OM 2022-02-28: if the UI suggestion has been implemented (#1170298 via #1170514) we may eventually be able to remove this section
+権限が正しく設定されていない場合、[command]``+virtual-host-gatherer+``を実行すると次のようなエラーが発生する場合があります。
+
+----
+General error: [AuthorizationFailed] The client 'client_name' with object id 'object_ID' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/not-very-secret-subscription-id' or the scope is invalid. If access was recently granted, please refresh your credentials.
+----
+
+正しい資格情報を判断するには、{productname}サーバのプロンプトで次のコマンドを実行します。
+
+----
+virtual-host-gatherer -i input_azure.json -o out_azure.json -vvv
+----
+
+[path]``+input_azure.json+``ファイルには次の情報が含まれています。
+
+----
+[
+    {
+        "id": "azure_vhm",
+        "module": "Azure",
+        "subscription_id": "subscription-id",
+        "application_id": "application-id",
+        "tenant_id": "tenant-id",
+        "secret_key": "secret-key",
+        "zone": "zone"
+    }
+]
+----
+
+== Azure UUID
+
+Azureパブリッククラウドで実行されているインスタンスは、このUUIDを{productname}サーバに報告します。
+
+----
+13f56399-bd52-4150-9748-7190aae1ff21
+----
