@@ -1,0 +1,226 @@
+[[clients-sle]]
+= Registering {sle} Clients
+:description: Register SUSE Linux Enterprise clients with your SUSE Multi-Linux Manager Server by learning how to do so
+:revdate: 2025-05-19
+:page-revdate: {revdate}
+:page-author: SUSE Product & Solution Documentation Team
+:page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
+:page-product-name: SUSE Multi-Linux Manager
+:page-product-version: 5.1
+
+This section contains information about registering clients running {sle} operating systems.
+
+Use the instructions in this chapter for preparing all {sle} products, including:
+
+* {sles} for SAP
+* {sle} Desktop
+* {sle}
+* {sle} Real Time
+
+You can also use these instructions for older {sle} versions and service packs.
+
+
+
+== Add Software Channels
+
+
+ifndef::backend-pdf[]
+include::client-configuration:partial$arch-other-note.adoc[]
+endif::[]
+
+ifdef::backend-pdf[]
+include::../partials/arch-other-note.adoc[]
+endif::[]
+
+Before you register {sle} clients to your {productname} Server, you need to add the required software channels, and synchronize them.
+
+The products you need for this procedure are:
+
+[[sle-channels-wizard]]
+[cols="1,1", options="header"]
+.SLE Products - {webui}
+|===
+
+| OS Version
+| Product Name
+
+| {sles} 16.0
+| SUSE Linux Enterprise Server 16.0 x86_64
+
+| {sles} 15 SP7
+| SUSE Linux Enterprise Server 15 SP7 x86_64
+
+| {sles} 15 SP6
+| SUSE Linux Enterprise Server 15 SP6 x86_64
+
+| {sles} 15 SP5
+| SUSE Linux Enterprise Server 15 SP5 x86_64
+
+| {sles} 15 SP4
+| SUSE Linux Enterprise Server 15 SP4 x86_64
+
+| {sles} 15 SP3
+| SUSE Linux Enterprise Server 15 SP3 x86_64
+
+| {sles} 15 SP2
+| SUSE Linux Enterprise Server 15 SP2 x86_64
+
+| {sles} 15 SP1
+| SUSE Linux Enterprise Server 15 SP1 x86_64
+
+| {sles} 12 SP5
+| SUSE Linux Enterprise Server 12 SP5 x86_64
+|===
+
+
+ifndef::backend-pdf[]
+include::client-configuration:partial$addchannels_vendor_webui.adoc[]
+endif::[]
+
+ifdef::backend-pdf[]
+include::../partials/addchannels_vendor_webui.adoc[]
+endif::[]
+
+Alternatively, you can add channels at the command prompt.
+The channels you need for this procedure are:
+
+[[sle-channels-cli]]
+[cols="1,1", options="header"]
+.SLE Products - CLI
+|===
+
+| OS Version
+| Base Channel
+
+| {sles} 16.0
+| sle-product-sles-16.0-x86_64
+
+| {sles} 15 SP7
+| sle-product-sles15-sp7-pool-x86_64
+
+| {sles} 15 SP6
+| sle-product-sles15-sp6-pool-x86_64
+
+| {sles} 15 SP5
+| sle-product-sles15-sp5-pool-x86_64
+
+| {sles} 15 SP4
+| sle-product-sles15-sp4-pool-x86_64
+
+| {sles} 15 SP3
+| sle-product-sles15-sp3-pool-x86_64
+
+| {sles} 15 SP2
+| sle-product-sles15-sp2-pool-x86_64
+
+| {sles} 15 SP1
+| sle-product-sles15-sp1-pool-x86_64
+
+| {sles} 12 SP5
+| sle-product-sles15-sp5-pool-x86_64
+|===
+
+To find channel names of older products, at the command prompt on the {productname} Server, as root, use the [command]``mgr-sync`` command:
+
+----
+mgr-sync list --help
+----
+
+Then specify the argument you are interested in.
+For example, [literal]``channels``:
+
+----
+mgr-sync list channels [-c]
+----
+
+
+ifndef::backend-pdf[]
+include::client-configuration:partial$addchannels_vendor_cli.adoc[]
+endif::[]
+
+ifdef::backend-pdf[]
+include::../partials/addchannels_vendor_cli.adoc[]
+endif::[]
+
+
+
+
+== Check Synchronization Status
+
+ifeval::[{mlm-content} == true]
+
+ifndef::backend-pdf[]
+include::client-configuration:partial$check_sync_webui_mlm.adoc[]
+endif::[]
+
+ifdef::backend-pdf[]
+include::../partials/check_sync_webui_mlm.adoc[]
+endif::[]
+
+endif::[]
+
+
+ifeval::[{uyuni-content} == true]
+
+ifndef::backend-pdf[]
+include::client-configuration:partial$check_sync_webui_uyuni.adoc[]
+endif::[]
+
+ifdef::backend-pdf[]
+include::../partials/check_sync_webui_uyuni.adoc[]
+endif::[]
+
+endif::[]
+
+
+ifndef::backend-pdf[]
+include::client-configuration:partial$check_sync_cli.adoc[]
+endif::[]
+
+ifdef::backend-pdf[]
+include::../partials/check_sync_cli.adoc[]
+endif::[]
+
+
+[IMPORTANT]
+====
+{sle} channels can be very large.
+Synchronization can sometimes take several hours.
+====
+
+
+ifeval::[{uyuni-content} == true]
+
+== Manage GPG Keys
+
+Clients use GPG keys to check the authenticity of software packages before they are installed.
+Only trusted software can be installed on clients.
+
+[IMPORTANT]
+====
+Trusting a GPG key is important for security on clients.
+It is the task of the administrator to decide which keys are needed and can be trusted.
+Because a software channel cannot be used when the GPG key is not trusted, the decision of assigning a channel to a client depends on the decision of trusting the key.
+====
+
+For more information about GPG keys, see xref:client-configuration:gpg-keys.adoc[].
+
+[NOTE]
+====
+Use the same GPG key for both {sles}{nbsp}15 and {sles}{nbsp}12 clients.
+The correct key is called ``sle12-gpg-pubkey-39db7c82.key``.
+====
+
+endif::[]
+
+
+
+== Register Clients
+
+ifndef::backend-pdf[]
+include::client-configuration:partial$create_bootstrap_repo_register.adoc[]
+endif::[]
+
+ifdef::backend-pdf[]
+include::../partials/create_bootstrap_repo_register.adoc[]
+endif::[]

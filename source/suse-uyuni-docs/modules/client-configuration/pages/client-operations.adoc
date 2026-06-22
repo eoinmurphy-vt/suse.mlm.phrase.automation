@@ -1,0 +1,18 @@
+[[client.operations]]
+= Client Operations
+:description: Manage individual SUSE Multi-Linux Manager clients or groups of clients using the System Set Manager, configure advanced client options with Configuration
+:revdate: 2024-03-05
+:page-revdate: {revdate}
+:page-author: SUSE Product & Solution Documentation Team
+:page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
+:page-product-name: SUSE Multi-Linux Manager
+:page-product-version: 5.1
+
+In addition to registering, upgrading, installing software, or deleting clients other operations can be performed.
+{productname} clients can be managed individually or as a set of clients.
+A set of clients can grouped with System Set Manager for a one time action or permanently with System Groups.
+
+For advanced client configuratin options general Configuration Management is available.
+You can obtain Custom System Information, power on or off, and reboot clients using the {productname} {webui}.
+
+The following sections contain detailed descriptions for each of these operations.
