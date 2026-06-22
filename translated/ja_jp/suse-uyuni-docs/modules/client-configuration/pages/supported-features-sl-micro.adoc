@@ -1,0 +1,145 @@
+[[supported-features-sl-micro]]
+= サポートされている{sl-micro}クライアント機能
+:description: SL Micro Clientのサポートされている機能を探ります。これには、オペレーティングシステムパッケージ、登録、およびインストールオプションが含まれます。
+:revdate: 2024-07-18
+:page-revdate: {revdate}
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
+:page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
+:page-product-name: SUSE Multi-Linux Manager
+:page-product-version: 5.1
+
+
+[IMPORTANT]
+====
+クライアントで実行しているオペレーティングシステムは、オペレーティングシステムを提供している組織によってサポートされています。{sl-micro}は{suse}でサポートされています。
+====
+
+[IMPORTANT]
+====
+{sl-micro}は、現時点では通常のミニオン（[systemitem]``+default+``+接続方法）としてのみサポートされています。私たちは、Salt SSHクライアント（[systemitem]+``+salt-ssh+``接続方法）として管理する作業も進めています。
+====
+
+この表のアイコンの意味は次のとおりです。
+
+* {check}: 機能は使用可能です
+* {cross}: 機能は使用できません
+* {question}: 機能は検討中であり、後日利用可能になるかどうかは未定です
+
+
+[cols="1,1", options="header"]
+.オペレーティングシステム{sl-micro}でサポートされている機能
+|===
+
+| 機能
+| {sl-micro}
+
+| [クライアント]
+| {check}
+
+| オペレーティングシステムパッケージ
+| {check}
+
+| 登録
+| {check}
+
+| パッケージのインストール
+| {check}
+
+| パッチを適用します（CVE IDが必要です）
+| {check}
+
+| リモートコマンド
+| {check}
+
+| システムパッケージの状態
+| {check}
+
+| システムカスタム状態
+| {check}
+
+| グループカスタム状態
+| {check}
+
+| 組織カスタム状態
+| {check}
+
+| システムセットマネージャ（SSM）
+| {check}
+
+| 製品の移行
+| {check}
+
+| システムデプロイメント（PXE/{ay}）
+| {question}
+
+| システム再デプロイメント（{ay}）
+| {question}
+
+| 接続方法
+| {check} ZeroMQ
+
+| 動作チェーン
+| {check}
+
+| ステージング（パッケージの事前ダウンロード）
+| {question}
+
+| 重複パッケージの報告
+| {check}
+
+| CVE監査（CVE IDが必要）
+| {check}
+
+| SCAP監査
+| {question}
+
+| パッケージのロック
+| {check}
+
+| システムのロック
+| {cross}
+
+| メンテナンスウィンドウ
+| {question}
+
+| システムスナップショット
+| {cross}
+
+| 設定ファイル管理
+| {check}
+
+| スナップショットとプロファイル
+| {check} プロファイルはサポートされていますが、syncはサポートされていません。
+
+| 電源管理
+| {check}
+
+| モニタリングサーバ
+| {cross}
+
+| 監視対象クライアント {star}{star}
+| {check}
+
+| Dockerビルドホスト
+| {cross}
+
+| OSを使用してDockerイメージをビルド
+| {cross}
+
+| Kiwiビルドホスト
+| {cross}
+
+| OSを使用してKiwiイメージをビルド
+| {check}
+
+| 定期的なアクション
+| {check}
+
+| AppStream
+| N/A
+
+| 読み
+| {cross}
+|===
+
+{star}{star} {sl-micro}では、Node exporterとBlackbox exporterのみが利用できます。
