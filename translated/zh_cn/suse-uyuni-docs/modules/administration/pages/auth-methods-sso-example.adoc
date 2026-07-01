@@ -1,0 +1,187 @@
+[[auth-methods-sso-example]]
+= 示例 SSO 实现
+:description: 通过公开 SUSE® Multi-Linux Manager 的端点并使用 Keycloak 作为其身份服务提供者，实现安全的单点登录
+:revdate: 2025-02-06
+:page-revdate: {revdate}
+:page-author: SUSE 产品与解决方案文档团队
+:page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
+:page-product-name: SUSE Multi-Linux Manager
+:page-product-version: 5.1
+
+在此示例中，SSO 是通过在 {productname} 中公开三个端点，并使用 Keycloak 21.0.1 或更高版本作为身份服务提供者 (IdP) 来实现的。
+
+首先安装 Keycloak IdP，然后设置 {productname} 服务器。
+然后可以将端点添加为 Keycloak 客户端，并创建用户。
+
+
+[WARNING]
+====
+此示例仅用于说明目的。{suse} 不建议也不支持第三方身份服务提供者，并且与 Keycloak 不存在从属关系。
+有关 Keycloak 支持，请参见 https://www.keycloak.org/.
+====
+
+
+您可以直接在您的机器上安装 Keycloak，或在容器中运行它。
+在此示例中，我们在 Podman 容器中运行 Keycloak。
+有关安装 Keycloak 的更多信息，请参见 https://www.keycloak.org/guides#getting-started. 的 Keycloak 文档。
+
+
+.过程：升级设置身份服务提供者
+. 根据 Keycloak 文档所述在 Podman 容器中安装 Keycloak。
+. 使用 ``+-td+`` 参数运行容器，以确保进程保持运行：
++
+----
+podman run -td --name keycloak -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay.io/keycloak/keycloak:21.0.1
+----
+. 以 ``+admin+`` 用户身份登录到 Keycloak {webui}，然后使用以下细节创建领域：
++
+* 在 ``+名称+`` 字段中输入领域的名称。
+    例如，``+MLM+``。
+* 在 ``+端点+`` 字段中，单击 ``+SAML 2.0 身份提供者元数据+`` 链接。
+    这将引导您到一个页面，您将在其中看到要复制到 {productname} 配置文件中的端点和证书。
+
+
+安装 Keycloak 并创建领域后，您可以准备 {productname} 服务器。
+
+.过程：升级设置 {productname} 服务器
+. 在 {productname} 服务器上，打开 [path]``+/etc/rhn/rhn.conf+`` 配置文件并编辑这些参数。
+    将 ``+<FQDN_MLM>+`` 替换为您的 {productname} 安装的完全限定的域名：
++
+----
+java.sso.onelogin.saml2.sp.entityid                       = https://<FQDN_MLM>/rhn/manager/sso/metadata
+java.sso.onelogin.saml2.sp.assertion_consumer_service.url = https://<FQDN_MLM>/rhn/manager/sso/acs
+java.sso.onelogin.saml2.sp.single_logout_service.url      = https://<FQDN_MLM>/rhn/manager/sso/sls
+----
+. 在配置文件中，将 ``+<FQDN_IDP>+`` 替换为您的 Keycloak 服务器的完全限定的域名。
+    将 ``+<REALM>+``+ 替换为您的领域，例如 +``+MLM+``：
++
+----
+java.sso.onelogin.saml2.idp.entityid                   = http://<FQDN_IDP>:8080/realms/<REALM>
+java.sso.onelogin.saml2.idp.single_sign_on_service.url = http://<FQDN_IDP>:8080/realms/<REALM>/protocol/saml
+java.sso.onelogin.saml2.idp.single_logout_service.url  = http://<FQDN_IDP>:8080/realms/<REALM>/protocol/saml
+----
+. 在 IdP 元数据中，找到公共 x509 证书。
+    它使用以下格式： ``+http://<FQDN_IDP>:8080/realms/<REALM>/protocol/saml/descriptor+``。
+    在配置文件中，指定 IdP 的公共 x509 证书：
++
+----
+java.sso.onelogin.saml2.idp.x509cert = -----BEGIN CERTIFICATE----- <CERTIFICATE>  -----END CERTIFICATE-----
+----
+
+
+这是在启用 SSO 后 [path]``+rhn.conf+`` 在 {productname} 上的示例：
+//+
+----
+java.sso = true
+
+
+# This is the configuration file for Single Sign-On (SSO) via SAMLv2 protocol
+# To enable SSO, set java.sso = true in /etc/rhn/rhn.conf
+#
+# Mandatory changes: search this file for:
+# - YOUR-PRODUCT
+# - YOUR-IDP-ENTITY
+#
+# See product documentation and the comments inline in this file for more
+# information about every parameter.
+#
+#
+#
+#
+# If 'strict' is True, then the Java Toolkit will reject unsigned
+# or unencrypted messages if it expects them signed or encrypted
+# Also will reject the messages if not strictly follow the SAML
+#
+# WARNING: In production, this parameter setting parameter MUST be set as "true".
+# Otherwise your environment is not secure and will be exposed to attacks.
+# Enable debug mode (to print errors)
+# Identifier of the SP entity (must be a URI)
+java.sso.onelogin.saml2.sp.entityid = https://MLMserver.example.org/rhn/manager/sso/metadata
+
+# Specifies info about where and how the <AuthnResponse> message MUST be
+# returned to the requester, in this case our SP.
+# URL Location where the <Response> from the IdP will be returned
+java.sso.onelogin.saml2.sp.assertion_consumer_service.url = https://MLMserver.example.org/rhn/manager/sso/acs
+
+# Specifies info about where and how the <Logout Response> message MUST be
+# returned to the requester, in this case our SP.
+java.sso.onelogin.saml2.sp.single_logout_service.url = https://MLMserver.example.org/rhn/manager/sso/sls
+
+# Identifier of the IdP entity (must be a URI)
+java.sso.onelogin.saml2.idp.entityid = http://idp.example.org:8080/realms/MLM
+
+# SSO endpoint info of the IdP. (Authentication Request protocol)
+# URL Target of the IdP where the SP will send the Authentication Request Message
+java.sso.onelogin.saml2.idp.single_sign_on_service.url = http://idp.example.org:8080/realms/MLM/protocol/saml
+
+# SLO endpoint info of the IdP.
+# URL Location of the IdP where the SP will send the SLO Request
+java.sso.onelogin.saml2.idp.single_logout_service.url = http://idp.example.org:8080/realms/MLM/protocol/saml
+
+# Public x509 certificate of the IdP
+java.sso.onelogin.saml2.idp.x509cert = -----BEGIN CERTIFICATE----- MIIClzCCAX8CBgGC+tPbVjANBgkqhkiG9w0BAQsFADAPMQ0wCwYDVQQDDARTVU1BMB4XDTIyMDkwMTIwNTEwNFoXDTMyMDkwMTIwNTI0NFowDzENMAsG
+A1UEAwwEU1VNQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMNSWJAalB5mShTkMBO5mrsOosyheEL8/A37WvuqDPwwEfm4x0cG7gmMHvONxYXZk+LRyzoQl2sBrNFrbMuwu5dnah5ZSMxQyUu697S280m4vIiegGaFdbgH+g4FGBu
+eSis1ssMzTcES+NUuI7pLkMLNmSQtncESnoL9q2SyeQSwYtr5dz1ydl6IzjwtaWeyQ9EGJNtJtLk3U4+arLPCpHAwqFAnLO9NeYcRDNUKhNBs1v5mHP+L066PZu1/DkE0mSgy/+qXaS0CgZVKqz8qB+bvHVuAq9W60g1CjqZKbwvPu72p/7+d8z
+9DxXPIZ1uxdqn19q/kLEP2TYLtgQobSHECAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAga+raLMJDo/P/yN1Z6SGGocK227WFqovBiE/mLYlp5Ff0+0jS1US1plSppJ94xOr8j0m7HW0Wu5xCz6oOhzXTEtnfIbeRyr1Rms3BWdxyXgQ9bWUeZMWZ
+HfDkTbhgRRmjDEwSSfEXRKQNvw41CpnlB36I0++ejgGnjDvH7BbkCaoW55JF5j6DT/WYR0n7MkEl2Ova9CH0e9X7Gny8iOAg26oziy06uy3P/lx9Z9RmHnvpvN/Q34SGEq9z/HlQVuP12UPj//iT21Jc17OOZFsZQXlGFTG6bXKmO42W8FdUDJU
+ONoXZgjMb3eC7U691YyeowoqTY7mJKxNPprYY/lL0w== -----END CERTIFICATE-----
+
+
+# Organization
+java.sso.onelogin.saml2.organization.name = SUSE Manager admin
+java.sso.onelogin.saml2.organization.displayname = SUSE Manager admin
+java.sso.onelogin.saml2.organization.url = https://MLMserver.example.org
+java.sso.onelogin.saml2.organization.lang =
+
+# Contacts
+java.sso.onelogin.saml2.contacts.technical.given_name = SUSE Manager admin
+java.sso.onelogin.saml2.contacts.technical.email_address = MLM@example.org
+java.sso.onelogin.saml2.contacts.support.given_name = SUSE Manager admin
+java.sso.onelogin.saml2.contacts.support.email_address = MLM@example.org
+----
+
+
+您可以将 {productname} 端点添加到 Keycloak。
+Keycloak 将端点称为客户端。
+
+
+.过程：升级将端点添加为客户端
+. 在 Keycloak {webui} 中，使用以下细节创建新客户端：
++
+* 在 ``+客户端类型+``+ 字段中，选择 +``+SAML+``。
+* 在 ``+客户端 ID+``+ 字段中，输入服务器配置文件中指定的端点，形式为 +``+java.sso.onelogin.saml2.idp.entityid+``。
+    例如，``+https://<FQDN_MLM>/rhn/manager/sso/metadata+``。
+. 在 ``+设置+`` 选项卡中，使用以下细节对客户端进行精细调整：
++
+* 将 ``+签名断言+`` 开关切换为 +``+开+``.
+* 在 ``+签名算法+``+ 字段中，选择 +``+RSA_SHA1+``。
+* 在 ``+SAML 签名密钥名称+``+ 字段中，选择 +``+密钥 ID+``。
+. 在 ``+密钥+`` 选项卡中：
++
+* 将 ``+需要客户端签名+``+ 切换为 +``+关+``。
+. 在 ``+高级+``+ 选项卡中，在 +``+精细 SAML 端点配置+`` 部分，使用以下细节添加两个端点：
++
+* 在两个 ``+断言消费者服务+`` 字段中，输入服务器配置文件中指定的端点，形式为 +``+java.sso.onelogin.saml2.sp.assertion_consumer_service.url+``.
+    例如，``+https://<FQDN_MLM>/rhn/manager/sso/acs+``.
+* 在两个 ``+注销服务+`` 字段中，输入服务器配置文件中指定的端点，形式为 +``+java.sso.onelogin.saml2.sp.single_logout_service.url+``.
+    例如，``+https://<FQDN_MLM>/rhn/manager/sso/sls+``.
+
+
+当您将端点添加为客户端后，可以配置客户端范围，并在 Keycloak 和 {productname} 之间映射用户。
+
+
+.过程：升级配置客户端范围和映射程序
+. 在 Keycloak {webui} 中，导航到 menu:Clients[Client scopes] 选项卡，并将 ``+role_list+`` 指定为默认客户端范围.
+. 导航到 menu:Client_scopes[Mappers] 选项卡，并使用默认值为用户属性 ``+uid+`` 添加一个映射程序.
+    此 SAML 属性是 {productname} 所期望的。
+. 导航到 menu:Client_scopes[Mappers] 选项卡，并单击 ``+role_list+`` 映射程序.将 ++Single Role Attribute++ 设置为 ``+On+``.
+. 导航到 menu:用户[管理员] 部分，并创建一个管理用户。
+    此用户不需要与 {productname} 管理用户匹配。
+. 导航到 menu:用户[角色映射] 选项卡，添加一个名为 ``+uid+`` 的属性，其值与 {productname} 管理用户的用户名匹配。
+. 导航到 menu:用户[凭据] 选项卡，并设置与 {productname} 管理用户使用的相同密码。
+. 保存更改。
+
+
+完成配置后，您可以测试安装是否按预期工作。
+重启 {productname} 服务器以应用您的更改，并导航到 {productname} {webui}。
+如果您的安装正常工作，您将被重定向到 Keycloak SSO 页面，在那里您可以成功进行身份验证。
