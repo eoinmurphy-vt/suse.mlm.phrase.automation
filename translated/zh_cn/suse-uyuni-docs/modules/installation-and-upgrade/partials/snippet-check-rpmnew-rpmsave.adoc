@@ -1,0 +1,22 @@
+. 检查容器内的 [filename]`+*.rpmnew+` 和 [filename]`+*.rpmsave+` 文件：
+
++
+
+[source,shell]
+----
+mgrctl exec 'find /etc/ -name "*.rpmnew" -o -name "*.rpmsave"'
+----
+
++
+
+[NOTE]
+====
+如果升级包含对默认配置文件的更改，而该文件在软件包安装后已被修改，则不会直接覆盖该文件，而是创建以下其中一种文件类型：
+
+* [filename]`+*.rpmnew+`：包含新的默认配置文件，并保持您已修改的配置文件不变。
+* [filename]`+*.rpmsave+`：您已修改的配置文件的副本，已被新的默认配置文件替换。
+====
+
++
+
+. 如果您发现任何 [filename]`+*.rpmnew+` 或 [filename]`+*.rpmsave+` 文件，请检查其内容并合并所需的更改。
