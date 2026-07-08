@@ -31,9 +31,9 @@
 |===
 
 | 기능
-| {almalinux}{nbsp}10
-| {almalinux}{nbsp}9
 | {almalinux}{nbsp}8
+| {almalinux}{nbsp}9
+| {almalinux}{nbsp}10
 
 | 클라이언트
 | {check} (일반 {almalinux})
