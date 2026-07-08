@@ -63,9 +63,9 @@ spacecmd system_delete FQDN
 ----
 ____
 
-[command]``+spacecmd system_delete+``는 {salt} 키도 삭제합니다.
+`+spacecmd system_delete+`은(는) {salt} 키도 삭제합니다.
 
-[command]``+system_delete+``에서 제공되는 옵션은 다음과 같습니다.
+`+system_delete+`은(는) 다음과 같은 옵션을 제공합니다:
 
 
 ----
@@ -104,7 +104,7 @@ rm /var/cache/salt/master/thin/thin.tgz
 [WARNING]
 ====
 {rhel}, {debian} 또는 클론을 실행 중인 클라이언트에서 다음 절차를 실행해서는 안 됩니다.
-[command]``+zypper+`` 대신 [command]+``+yum+``+, [command]+``+dnf+``+ 또는 [command]+``+apt+``와 같은 동등한 패키지 관리자 명령을 사용하십시오.
+`+zypper+` 대신 `+yum+`, `+dnf+` 또는 `+apt+`과 같은 동등한 패키지 명령을 사용하십시오.
 ====
 
 .절차 SLES 12 및 15 클라이언트 삭제
