@@ -8,8 +8,8 @@
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
 
-Salt SSH는 [path]``+/var/tmp+``를 사용하여 Salt 번들을 배포하고 클라이언트에서 번들된 Python으로 Salt 명령을 실행합니다.
-따라서 [path]``+/var/tmp+``+을 [option]+``+noexec+`` 옵션과 함께 마운트해서는 안 됩니다.
-부팅 프로세스가 Salt SSH를 사용하여 클라이언트에 도달하기 때문에, [option]+``+noexec+`` 옵션으로 [path]``+/var/tmp+``+이 마운트된 클라이언트를 {webui}와 함께 부팅하는 것은 불가능합니다.
+Salt SSH는 `+/var/tmp+`를 사용하여 Salt 번들을 배포하고 클라이언트에서 번들된 Python으로 Salt 명령을 실행합니다.
+따라서 `+/var/tmp+`를 `+noexec+` 옵션으로 마운트해서는 안 됩니다.
+`+noexec+` 옵션으로 `+/var/tmp+`이 마운트된 클라이언트는 Salt SSH를 사용하여 클라이언트에 접근하는 부팅 프로세스 때문에 {webui}로 부팅할 수 없습니다.
 
 
