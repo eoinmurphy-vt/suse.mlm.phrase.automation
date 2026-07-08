@@ -9,7 +9,7 @@ ____
 
 . https://www.suse.com/download/sle-micro/,にある{sl-micro} {microversion}インストールメディアを見つけて、適切なメディアファイルをダウンロードします。
 
-. インストール用にダウンロードした[filename]``+.iso+``イメージを含むDVDまたはUSBフラッシュドライブを準備します。
+. インストール用にダウンロードした`+.iso+`イメージを含むDVDまたはUSB フラッシュ ドライブを準備します。
 
 ____
 
@@ -18,36 +18,36 @@ ____
 
 マシン（仮想または物理）の準備に関する詳細は、link:https://documentation.suse.com/sle-micro/6.1[{sl-micro}デプロイメントガイド]を参照してください。
 
-.プロシージャ:{sl-micro} {microversion}のインストール中
+.プロシージャ:{sl-micro} {microversion}をインストール中です。
 [role=procedure]
 ____
 
-. {sle-micro} {microversion}のインストールイメージを含むDVDまたはUSBフラッシュドライブ（USBディスクまたはキー）を挿入します。
+. {sle-micro} {microversion}のインストールイメージを含むDVDまたはUSBフラッシュ ドライブ（USBディスクまたはキー）を挿入します。
 
 . システムをブートまたは再起動します。
 
-. 矢印キーを使用して[systemitem]``+インストール+``を選択します。
+. 矢印キーを使用して`+Installation+`を選択します。
 
 . キーボードと言語を調整します。
 
-. ライセンス契約に同意するには、[systemitem]``+チェックボックス+``をクリックします。
+. `+checkbox+`をクリックして、ライセンス契約を受け入れます。
 
-. 続行するには[systemitem]``+次へ+``をクリックします。
+. `+Next+`をクリックして続行します。
 
 . プロキシの登録{sl-micro} {microversion}エンタイトルメントは{productname}エンタイトルメント内に含まれているため、別途登録コードは必要ありません。
 
-. 続行するにはbtn:[次へ]をクリックします。
+. 継続するにはbtn:[次へ]をクリックしてください。
 
-. [systemitem]``+NTP構成+``ページでbtn:[次へ]をクリックします。
+. `+NTP Configuration+`ページで、btn:[Next]をクリックします。
 
-. [systemitem]``+システムの認証+``ページで、ルートユーザのパスワードを入力します。
+. `+Authentication for the System+`ページで、ルートユーザのパスワードを入力します。
   btn:[次へ]をクリックします。
 
-. [systemitem]``+インストール設定+``ページでbtn:[インストール]をクリックします。
+. `+Installation Settings+`ページで、btn:[Install]をクリックします。
 
 ____
 
-これで、{sl-micro} {microversion}のインストールおよび、拡張機能としての{productname} {productnumber}のインストールが完了しました。
+これで{sl-micro} {microversion}と{productname} {productnumber}の拡張機能のインストールが完了しました。
 
 
 === システムの更新
@@ -73,9 +73,9 @@ ____
 
 [IMPORTANT]
 ====
-{sl-micro}はデフォルトで自動的に更新するように設計されており、更新を適用した後に再起動します。
+{sl-micro}はデフォルトで自動的に更新されるように設計されており、更新を適用した後に再起動します。
 しかし、この動作は{productname}環境では望ましくありません。
-サーバーでの自動更新を防ぐために、{productname}は起動プロセス中にトランザクション更新タイマーを無効にします。
+サーバーで自動更新を防ぐために、{productname}は起動プロセス中にトランザクション更新タイマーを無効にします。
 
 {sl-micro}のデフォルトの動作を使用したい場合は、次のコマンドを実行してタイマーを有効にします。
 
