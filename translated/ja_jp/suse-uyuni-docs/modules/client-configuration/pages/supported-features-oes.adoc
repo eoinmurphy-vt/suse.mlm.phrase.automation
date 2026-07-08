@@ -3,7 +3,7 @@
 :description: Open Enterprise Serverクライアントで利用可能な機能を見つけ、Micro FocusまたはOpenTextによってサポートされている機能を特定します
 :revdate: 2026-04-20
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメントチーム
+:page-author: SUSE 製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -28,9 +28,9 @@
 |===
 
 | 機能
-| {oes}{nbsp}25.4
-| {oes}{nbsp}24.4
 | {oes}{nbsp}23.4
+| {oes}{nbsp}24.4
+| {oes}{nbsp}25.4
 
 | [クライアント]
 | {check}
@@ -142,7 +142,7 @@
 | {check}
 | {check}
 
-| システムロック
+| システムのロック
 | {cross}
 | {cross}
 | {cross}
@@ -164,8 +164,8 @@
 
 | パッケージプロファイル
 | {check} プロファイルがサポートされていますが、syncはサポートされていません
-| {check} プロファイルがサポートされていますが、syncはサポートされていません
-| {check} プロファイルがサポートされていますが、syncはサポートされていません
+| {check} プロファイルはサポートされていますが、syncはサポートされていません。
+| {check} プロファイルはサポートされていますが、syncはサポートされていません。
 
 | 電源管理
 | {check}
