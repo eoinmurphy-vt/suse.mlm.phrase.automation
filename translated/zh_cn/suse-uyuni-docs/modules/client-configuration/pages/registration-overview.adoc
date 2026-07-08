@@ -34,7 +34,7 @@
 请勿将 {productname} 服务器基础操作系统注册到 {productname} 自身。
 {productname} 服务器基础操作系统必须单独管理，或通过另一台单独的 {productname} 服务器进行管理。
 
-要管理 {productname} 服务器容器，请使用 [literal]``+mgradm+`` 工具。
+要管理{productname}服务器容器，请使用`+mgradm+`工具。
 
 ====
 
@@ -43,7 +43,7 @@ ifeval::[{mlm-content} == true]
 
 [IMPORTANT]
 ====
-从旧版 {productname} 迁移到新版本后，我们强烈建议在注册新系统之前重新生成启动脚本，以防出现任何潜在问题。
+从旧版 {productname} 迁移到新版本后，我们强烈建议在引入新系统之前重新生成启动脚本，以防出现任何潜在问题。
 ====
 
 endif::[]
