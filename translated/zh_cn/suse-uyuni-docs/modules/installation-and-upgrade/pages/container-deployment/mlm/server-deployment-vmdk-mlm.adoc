@@ -73,18 +73,18 @@ __* s390x 有两个可用存储选项：CDL DASD 和 FBA.__
 
 .过程：升级创建 VMware 虚拟机
 
-. 下载 {productname} 服务器 [filename]``+.vmdk+`` 文件，然后将副本传输到您的 VMware 存储。
+. 下载 {productname} 服务器 `+.vmdk+` 文件，然后将副本传输到您的 VMware 存储。
 
-. 使用 VMware Web 界面复制上传的 [filename]``+.vmdk+`` 文件。
-  这将把提供的 [filename]``+.vmdk+`` 文件转换为适合 vSphere 超级管理程序的格式。
+. 使用VMware Web界面复制上传的`+.vmdk+`文件。
+  这将把提供的`+.vmdk+`文件转换为适合vSphere超级管理程序的格式。
 
-. 创建一个新的虚拟机，并根据 Guest 操作系统系列 [systemitem]``+Linux+`` 和 Guest 操作系统版本 {sle} 15（64 位）为其命名。
+. 创建并命名一个新的虚拟机，基于Guest OS Family `+Linux+`和Guest OS Version {sle} 15（64位）。
 
 // FIXME: do we want to keep this size here? \/
 
 +
 
-. 额外添加一个 [systemitem]``+硬盘 2+``，容量为 500 GB（或更多）。
+. 添加一个额外的 `+Hard Disk 2+`（500 GB 或更多）。
 
 . 配置 RAM 和 CPU 数量（至少 16 GB RAM，4 个 CPU）。
 
@@ -147,11 +147,11 @@ transactional-update
 . 如果已应用更新，请重引导。
 
 . 该步骤可选。
-  但是，如果您的基础架构需要自定义的永久性存储，请使用 [command]``+mgr-storage-server+`` 工具。
+  但是，如果您的基础设施需要自定义的永久性存储，请使用 `+mgr-storage-server+` 工具。
 
 +
 
-有关更多信息，请参见 [command]``+mgr-storage-server --帮助+``。
+有关详细信息，请访问 `+mgr-storage-server --help+`。
 有关详细信息，请参见 [command]\\``mgr-storage-server \--help``。此工具可以简化容器存储和数据库卷的创建。
 如下所示使用命令：
 
@@ -172,7 +172,7 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 +
 [NOTE]
 ====
-此命令将在 [path]``+/var/lib/containers/storage/volumes+`` 中创建持久存储卷。
+此命令将在 `+/var/lib/containers/storage/volumes+` 处创建持久存储卷。
 
 有关详细信息，请参见
 
