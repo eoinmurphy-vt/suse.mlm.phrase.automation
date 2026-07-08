@@ -30,10 +30,10 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 スペース管理の詳細については、xref:administration:space-management.adoc[]を参照してください。
 
 一般的に、コンテナボリュームはホストファイルシステムとスペースを共有します。
-[systemitem]``+btrfs+``ファイルシステムが満杯になると、ファイルを削除できなくなることがあります。
-これを解決するために、[command]``+btrfs device add+``コマンドを使用して、ファイルシステムに一時的に少量のストレージを追加できます。
+`+btrfs+`ファイルシステムが満杯になると、ファイルを削除できなくなることがあります。
+これを解決するために、`+btrfs device add+`コマンドを使用して、ファイルシステムに一時的に少量のストレージを追加できます。
 これにより、さらなるファイルシステムのメンテナンスのためにスペースを確保するためにファイルを削除できるようになります。
-メンテナンスが完了したら、[command]``+btrfs device delete+``を使用して一時的なストレージを削除できます。
+メンテナンスが完了したら、`+btrfs device delete+`を使用して一時的なストレージを削除できます。
 このトピックの詳細については、https://www.suse.com/support/kb/doc/?id=000018779.を参照してください。
 
 使用されていないソフトウェアチャンネルを削除することにより、ディスク容量を回復できます。
@@ -50,17 +50,17 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 
 .プロシージャ:冗長なデータベースエントリの解決
-. [command]``+spacewalk-data-fsck+``コマンドを使用して、冗長なデータベースエントリを一覧にします。
-. [command]``+spacewalk-data-fsck --remove+``コマンドを使用して削除します。
+. `+spacewalk-data-fsck+`コマンドを使用して、冗長なデータベースエントリを一覧表示します。
+. `+spacewalk-data-fsck --remove+`コマンドを使用して、それらを削除します。
 
 
 
 == ディスクチェックの警告: 存在しないディレクトリ
 
 5.0からコンテナ化されたデプロイメントに移行した後、またはカスタムディスクチェック構成を使用している場合、もはや存在しないディレクトリに対する警告が表示されることがあります。
-これは、[systemitem]``+DISKCHECKDIRS+``+ 環境変数が [path]+``+/var/lib/pgsql+`` またはそのサブディレクトリを参照している場合に一般的に発生します。
+これは通常、`+DISKCHECKDIRS+`環境変数が`+/var/lib/pgsql+`またはそのサブディレクトリを参照している場合に発生します。
 
-コンテナ化されたデプロイメントでは、PostgreSQLデータベースは独自のコンテナ内で実行され、[path]``+/var/lib/pgsql+`` ディレクトリはサーバーコンテナ内には存在しなくなります。
+コンテナ化されたデプロイメントでは、PostgreSQLデータベースは独自のコンテナ内で実行され、`+/var/lib/pgsql+`ディレクトリはサーバーコンテナ内には存在しなくなります。
 データベースファイルは、別のデータベースコンテナボリュームに保存されます。
 
 ログや通知にこのような警告が表示された場合：
@@ -75,19 +75,19 @@ DISKCHECK: Directory /var/lib/pgsql/data does not exist
 
 === 原因
 
-コンテナ化の前は、顧客は [systemitem]``+spacecheck_dirs+``+ パラメータを [path]+``+/etc/rhn/rhn.conf+`` に設定することで監視するカスタムディレクトリを構成できました。
-一般的な構成には、データベースのディスクスペースを監視するために [path]``+/var/lib/pgsql+`` が含まれていました。
+コンテナ化以前は、顧客は`+spacecheck_dirs+`の`+/etc/rhn/rhn.conf+`パラメータを設定することで、監視するカスタムディレクトリを設定できました。
+一般的な構成には、データベースのディスクスペースを監視するために`+/var/lib/pgsql+`が含まれていました。
 
 コンテナ化されたデプロイメントでは：
 
-* [systemitem]``+spacecheck_dirs+``+ パラメータは [path]+``+/etc/rhn/rhn.conf+``+ でまだ読み取られますが、設定されている場合は [systemitem]+``+DISKCHECKDIRS+`` 環境変数によって上書きされます。
-* [systemitem]``+DISKCHECKDIRS+``+ が設定されていない場合、システムは設定ファイルから [systemitem]+``+spacecheck_dirs+`` にフォールバックします。
+* `+spacecheck_dirs+`内の`+/etc/rhn/rhn.conf+`パラメータは引き続き読み取られますが、`+DISKCHECKDIRS+`環境変数が設定されている場合は、そちらが優先されます。
+* `+DISKCHECKDIRS+`が設定されていない場合、システムは設定ファイルの`+spacecheck_dirs+`にフォールバックします。
 * データベースは別のコンテナ内で実行され、専用のディスクチェックがあります。
 
 
 === Fix
 
-[systemitem]``+DISKCHECKDIRS+`` 環境変数から古いディレクトリ参照を削除してください。
+`+DISKCHECKDIRS+`環境変数から古いディレクトリ参照を削除してください。
 
 .プロシージャ:古いディレクトリ参照の削除
 
@@ -97,7 +97,7 @@ DISKCHECK: Directory /var/lib/pgsql/data does not exist
 cat /etc/systemd/system/uyuni-server.service.d/diskcheck.conf
 ----
 
-. ファイルに [path]``+/var/lib/pgsql+`` または他の存在しないディレクトリが含まれている場合、有効なディレクトリのみを使用するように更新してください：
+. ファイルに`+/var/lib/pgsql+`または他の存在しないディレクトリが含まれている場合、有効なディレクトリのみを使用するように更新してください：
 +
 ----
 cat > /etc/systemd/system/uyuni-server.service.d/diskcheck.conf << 'EOF'
@@ -118,7 +118,7 @@ mgradm restart
 存在しないディレクトリに関するディスクチェックの警告はもはや表示されません。
 サーバーコンテナは、コンテナ内に存在するディレクトリのみを監視します。
 
-データベースコンテナには、データベースコンテナ内のPostgreSQLデータディレクトリ（[path]``+/var/lib/pgsql/data+``）を監視する独自のディスクチェックがあります。
+データベースコンテナには、データベースコンテナ内のPostgreSQLデータディレクトリ（`+/var/lib/pgsql/data+`）を監視する独自のディスクチェックがあります。
 このチェックは自動的に設定され、手動での介入は必要ありません。
 
 コンテナ化されたデプロイメントにおけるディスクスペース管理に関する詳細情報は、xref:administration:space-management.adoc[]を参照してください。
