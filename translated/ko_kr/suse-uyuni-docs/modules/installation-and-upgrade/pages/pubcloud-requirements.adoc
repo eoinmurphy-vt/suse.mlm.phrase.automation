@@ -43,7 +43,7 @@
 이것은 {productname} {webui}에 액세스할 수 있게 해줍니다.
 
 EC2와 Azure에서 새 보안 그룹을 생성하고 HTTPS에 대한 인바운드 및 아웃바운드 규칙을 추가하십시오.
-GCE에서는 +``+방화벽+`` 섹션 아래의 ``+HTTPS 트래픽 허용+``+ 상자를 확인하십시오.
+GCE에서는 `+Firewall+` 섹션 아래에 있는 `+Allow HTTPS traffic+` 확인란을 선택하십시오.
 
 
 
@@ -75,11 +75,11 @@ GCE에서는 +``+방화벽+`` 섹션 아래의 ``+HTTPS 트래픽 허용+``+ 상
 hwinfo --disk | grep -E "Device File:"
 ----
 
-어떤 장치를 선택해야 할지 확실하지 않은 경우 [command]``+lsblk+`` 명령을 사용하여 각 장치의 이름과 크기를 확인하십시오.
+어떤 장치를 선택해야 할지 확실하지 않은 경우 `+lsblk+` 명령을 사용하여 각 장치의 이름과 크기를 확인하십시오.
 찾고 있는 가상 디스크의 크기와 일치하는 이름을 선택하십시오.
 
-[command]``+mgr-storage-server+`` 명령으로 외부 디스크를 설정할 수 있습니다.
-이 명령은 ``+/manager_storage+``에 마운트된 XFS 파티션을 생성하고 이를 데이터베이스와 저장소의 위치로 사용합니다:
+`+mgr-storage-server+` 명령을 사용하여 외부 디스크를 설정할 수 있습니다.
+`+/manager_storage+`에 마운트된 XFS 파티션을 생성하고 이를 데이터베이스와 저장소의 위치로 사용합니다:
 
 ----
 /usr/bin/mgr-storage-server <devicename>
