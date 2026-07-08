@@ -25,29 +25,29 @@ VHM에 대한 자세한 내용은 xref:client-configuration:vhm.adoc[]를 참조
 
 가상 호스트 관리자(VHM)는 {productname} 서버에서 실행됩니다.
 
-{productname} 서버에 [systemitem]``+virtual-host-gatherer-libcloud+`` 패키지를 설치했는지 확인하십시오.
+`+virtual-host-gatherer-libcloud+` 패키지를 {productname} 서버에 설치했는지 확인하십시오.
 
 
 .절차 Amazon EC2 VHM 생성
 
-. {productname} {webui}에서 menu:시스템[가상 호스트 관리자]로 이동합니다.
-. btn:[생성]을 클릭하고 드롭다운 메뉴에서 [guimenu]``+Amazon EC2+``를 선택합니다.
-. [guimenu]``+Amazon EC2 가상 호스트 관리자 추가+`` 섹션에서 다음과 같은 파라미터를 사용합니다:
-* [guimenu]``+레이블+`` 필드에 VHM의 사용자 정의 이름을 입력합니다.
-* [guimenu]``+액세스 키 ID+`` 필드에 Amazon이 제공하는 액세스 키 ID를 입력합니다.
-* [guimenu]``+비밀 액세스 키+`` 필드에 Amazon 인스턴스에 연결된 비밀 액세스 키를 입력합니다.
-* [guimenu]``+지역+`` 필드에 사용할 지역을 입력합니다.
-* [guimenu]``+영역+`` 필드에 VM이 있는 영역을 입력합니다.
+. {productname} {webui}에서 menu:Systems[Virtual Host Managers]로 이동합니다.
+. btn:[Create]를 클릭하고 드롭다운 메뉴에서 `+Amazon EC2+`를 선택합니다.
+. `+Add an Amazon EC2 Virtual Host Manager+` 섹션에서 다음 매개변수를 사용합니다:
+* `+Label+` 필드에 VHM의 사용자 지정 이름을 입력합니다.
+* `+Access Key ID+` 필드에 Amazon이 제공하는 액세스 키 ID를 입력합니다.
+* `+Secret Access Key+` 필드에 Amazon 인스턴스에 연결된 비밀 액세스 키를 입력합니다.
+* `+Region+` 필드에 사용할 지역을 입력합니다.
+* `+Zone+` 필드에 VM이 있는 영역을 입력합니다.
   이 키는 작업과 일치하는 등록을 위해 필요합니다.
   지역 및 영역 설정에 대한 자세한 내용은 <<susesupport_and_vm_zones>>를 참조하십시오.
-. btn:[생성]을 클릭하여 변경 사항을 저장하고 VHM을 생성합니다.
-. [guimenu]``+가상 호스트 관리자+`` 페이지에서 새 VHM을 선택합니다.
-. [guimenu]``+속성+`` 페이지에서 btn:[데이터 새로 고침]을 클릭하여 새 VHM을 목록에 포함합니다.
+. btn:[Create]를 클릭하여 변경 사항을 저장하고 VHM을 생성합니다.
+. `+Virtual Host Managers+` 페이지에서 새 VHM을 선택합니다.
+. `+Properties+` 페이지에서 btn:[데이터 새로 고침]을 클릭하여 새 VHM을 목록에 추가합니다.
 
 어떤 객체 및 리소스가 목록에 포함되었는지 확인하려면 menu:시스템[시스템 목록> 가상 시스템]으로 이동하십시오.
 
 
-Amazon 공용 클라우드에서 실행되는 인스턴스는 {productname} 서버에 UUID를 ``+i+`` 뒤에 17개의 16진 숫자가 나오는 형식으로 보고합니다:
+Amazon 공용 클라우드에서 실행 중인 인스턴스는 UUID를 {productname} 서버에 보고하며, 그 형식은 `+i+` 뒤에 17자리의 16진수가 이어진 형태입니다:
 
 ----
 I1234567890abcdef0
@@ -59,15 +59,15 @@ ifeval::[{mlm-content} == true]
 == SUSE 지원 및 VM 영역
 
 공용 클라우드 공급자는 가상 머신을 제공하는 데이터센터의 물리적 및 지리적 위치를 정의하기 위해 지역을 사용합니다.
-예를 들어, [systemitem]``+미국 동부+``+, 또는 [systemitem]+``+아시아+``.
+예를 들어, `+US-East+` 또는 `+Asia+`입니다.
 
 지역은 이후에 영역으로 더 세분화됩니다.
-예를 들어, [systemitem]``+미국 동부+``+ 지역에는 [systemitem]+``+us-east-2a+``+ 및 [systemitem]+``+us-east-2b+``와 같은 영역이 포함될 수 있습니다.
+예를 들어, `+US-East+` 지역에는 `+us-east-2a+` 및 `+us-east-2b+` 등의 영역이 포함될 수 있습니다.
 
 {suse}은 가상 머신의 영역을 사용하여 제공할 적절한 구독을 결정합니다.
-모든 VM이 동일한 영역에서 제공되는 경우, ``+1-2 가상 머신+`` 구독의 약관을 준수하게 됩니다.
+모든 VM이 동일한 영역에서 제공되는 경우, `+1-2 Virtual Machines+` 구독의 약관을 준수하게 됩니다.
 
-VM이 서로 다른 영역에서 제공되는 경우, 동일한 지역 내에 있더라도 ``+1-2 가상 머신+`` 구독의 약관을 충족하지 못할 수 있습니다.
+VM이 서로 다른 영역에서 제공되는 경우, 동일한 지역 내에 있더라도 `+1-2 Virtual Machines+` 구독의 약관을 충족하지 못할 수 있습니다.
 이 경우 구독을 주의 깊게 확인하십시오.
 
 [NOTE]
