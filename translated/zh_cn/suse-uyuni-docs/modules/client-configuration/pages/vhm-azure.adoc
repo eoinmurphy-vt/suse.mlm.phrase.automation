@@ -29,31 +29,31 @@ VHM 允许 {productname} 获取和报告有关您的虚拟机的信息。
 == 创建 Azure VHM
 虚拟主机管理器 (VHM) 在 {productname} 服务器上运行。
 
-确保您已在 {productname} 服务器上安装软件包 [systemitem]``+virtual-host-gatherer-libcloud+``。
+确保您已在 {productname} 服务器上安装了 `+virtual-host-gatherer-libcloud+` 软件包。
 
 
 .过程：升级创建 Azure VHM
 
 . 在 {productname} {webui} 中，导航到 menu:系统[虚拟主机管理器]。
-. 单击 btn:[创建] 并从下拉菜单中选择 [guimenu]``+Azure+``。
-. 在 [guimenu]``+添加 Azure 虚拟主机管理器+`` 部分，使用以下参数：
-* 在 [guimenu]``+标签+`` 字段中，为您的 VHM 输入自定义名称。
-* 在 [guimenu]``+订阅 ID+``+ 字段中，键入在 [path]+``+Azure 门户 > 服务 > 订阅+`` 页面中找到的订阅 ID。
-* 在 [guimenu]``+应用程序 ID+`` 字段中，键入您在注册应用程序时获得的应用程序 ID。
-* 在 [guimenu]``+租户 ID+`` 字段中，键入您在注册应用程序时获得的、由 Azure 提供的租户 ID。
-* 在 [guimenu]``+机密密钥+`` 字段中，键入与 Azure 实例关联的机密密钥。
-* 在 [guimenu]``+可用区+``+ 字段中，输入您的 VM 所在的可用区。例如，对于西欧，输入 [path]+``+westeurope+``。
+. 单击 btn:[创建] 并从下拉菜单中选择 `+Azure+`。
+. 在 `+Add an Azure Virtual Host Manager+` 部分中，使用以下参数：
+* 在 `+Label+` 字段中，为您的 VHM 输入自定义名称。
+* 在 `+Subscription ID+` 字段中，键入在 `+Azure portal > Services > Subscriptions+` 页面中找到的订阅 ID。
+* 在 `+Application ID+` 字段中，键入您在注册应用程序时获得的应用程序 ID。
+* 在 `+Tenant ID+` 字段中，键入您在注册应用程序时获得的、由 Azure 提供的租户 ID。
+* 在 `+Secret Key+` 字段中，键入与 Azure 实例关联的机密密钥。
+* 在 `+Zone+` 字段中，输入您的 VM 所在的可用区。例如，对于西欧，请输入 `+westeurope+`。
     要使订阅匹配功能正常工作，就必须提供此信息。
 . 单击 btn:[创建] 以保存更改并创建 VHM。
-. 在 [guimenu]``+虚拟主机管理器+`` 页面中，选择新 VHM。
-. 在 [guimenu]``+属性+`` 页面中，单击 btn:[刷新数据] 以清点新 VHM。
+. 在 `+Virtual Host Managers+` 页面中，选择新 VHM。
+. 在 `+Properties+` 页面中，单击 btn:[刷新数据] 以清点新 VHM。
 
 要查看已清点的对象和资源，请导航到 menu:系统[系统列表> 虚拟系统]。
 
 
 == 指派权限
 // OM 2022-02-28: if the UI suggestion has been implemented (#1170298 via #1170514) we may eventually be able to remove this section
-如果未正确设置权限，您在运行 [command]``+virtual-host-gatherer+`` 时可能会收到如下所示的错误：
+如果未正确设置权限，您在运行 `+virtual-host-gatherer+` 时可能会收到如下所示的错误：
 
 ----
 General error: [AuthorizationFailed] The client 'client_name' with object id 'object_ID' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/not-very-secret-subscription-id' or the scope is invalid. If access was recently granted, please refresh your credentials.
@@ -65,7 +65,7 @@ General error: [AuthorizationFailed] The client 'client_name' with object id 'ob
 virtual-host-gatherer -i input_azure.json -o out_azure.json -vvv
 ----
 
-[path]``+input_azure.json+`` 文件应包含以下信息：
+`+input_azure.json+` 文件应包含以下信息：
 
 ----
 [
