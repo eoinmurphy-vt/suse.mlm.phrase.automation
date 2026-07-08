@@ -10,21 +10,21 @@
 다음 명령을 사용하여 {productname} {productnumber} 서버 컨테이너를 재시작, 시작 및 중지할 수 있습니다:
 
 
-다음 명령을 실행하여 {productname} {productnumber} 서버를 [command]``+재시작+``하십시오:
+`+restart+` {productname} {productnumber} 서버를 다음 명령으로 실행하십시오:
 ----
 # mgradm restart
 5:23PM INF Welcome to mgradm
 5:23PM INF Executing command: restart
 ----
 
-다음 명령을 실행하여 서버를 [command]``+시작+``하십시오:
+서버를 `+start+`하시려면 다음 명령을 실행하십시오:
 ----
 # mgradm start
 5:21PM INF Welcome to mgradm
 5:21PM INF Executing command: start
 ----
 
-다음 명령을 실행하여 서버를 [command]``+중지+``하십시오:
+서버를 `+stop+`하시려면 다음 명령을 실행하십시오:
 ----
 # mgradm stop
 5:21PM INF Welcome to mgradm
