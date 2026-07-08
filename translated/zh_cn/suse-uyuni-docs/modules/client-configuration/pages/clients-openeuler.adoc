@@ -127,7 +127,7 @@ endif::[]
 
 [NOTE]
 ====
-由 [command]``+spacewalk-common-channels+`` 提供的客户端工具通道来自 {uyuni} 而非 {suse}。
+`+spacewalk-common-channels+` 提供的客户端工具频道源自 {uyuni}，而非 {suse}。
 ====
 
 endif::[]
