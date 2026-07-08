@@ -18,8 +18,8 @@ endif::[]
 
 [IMPORTANT]
 ====
-현재 {sl-micro}은 일반 미니언([systemitem]``+default+`` 연락 방법)으로만 지원됩니다.
-우리는 또한 Salt SSH 클라이언트([systemitem]``+salt-ssh+`` 연락 방법)로 관리하는 작업을 진행 중입니다.
+현재로서는 {sl-micro}이(가) 일반 미니언(`+default+` 연락 방법)으로만 지원됩니다.
+또한 Salt SSH 클라이언트(`+salt-ssh+` 연락 방법)로 관리하는 작업도 진행 중입니다.
 ====
 
 [NOTE]
@@ -44,7 +44,7 @@ _____
 
 . 프록시 확장 프로그램으로 {salt} 활성화 키를 생성합니다.
 
-. [systemitem]``+default+`` 연결 방법을 사용하여 프록시를 클라이언트로 부팅합니다.
+. `+default+`연결 방법을 사용하여 프록시를 클라이언트로 부팅합니다.
 
 . 프록시 구성을 생성합니다.
 
@@ -80,7 +80,7 @@ _____
 
 이 섹션은 서버의 {webui}에서 menu:관리자[설정 마법사> 조직 자격 증명] 아래에 조직 자격 증명을 이미 입력했다고 가정합니다.
 제품은 menu:관리자[설정 마법사> 제품] 페이지에 나열됩니다.
-이 채널은 서버에서 완전히 동기화되어야 하며, 하위 채널 [systemitem]``+프록시+``이 확장 프로그램 옵션으로 선택되어야 합니다.
+이 채널은 서버에서 완전히 동기화되어야 하며, 하위 채널 `+Proxy+`이 확장 프로그램 옵션으로 선택되어야 합니다.
 
 
 .절차 상위 채널 및 프록시 확장 프로그램 동기화
@@ -94,7 +94,7 @@ _____
 . 다음으로 드롭다운을 사용하여 필요한 아키텍처를 선택합니다.
   이 예제의 경우 {x86_64}입니다.
 
-. [systemitem]``+제품 설명+``+ 필드에서 {sl-micro} {microversion} 또는 {sles} {bci-mlm} 체크박스를 선택한 다음 드롭다운을 사용하여 [systemitem]+``+{productname} 프록시 확장 프로그램 5.1 x86_64+`` 확장을 선택합니다.
+. `+Product Description+` 필드에서 {sl-micro} {microversion} 또는 {sles} {bci-mlm} 체크박스를 선택한 다음 드롭다운을 사용하여 `+{productname} Proxy Extension 5.1 x86_64+` 확장 프로그램을 선택하십시오.
 
 . btn:[제품 추가] 버튼을 클릭합니다.
 
@@ -138,9 +138,9 @@ endif::[]
 == 사용자 정의 영구 스토리지 구성
 
 영구 스토리지를 구성하는 것은 선택 사항이지만, 이는 컨테이너의 디스크 가득 차는 문제를 피하는 유일한 방법입니다.
-인프라에 사용자 정의 영구 스토리지가 필요한 경우 [command]``+mgr-storage-proxy+`` 도구를 사용하십시오.
+인프라에 사용자 정의 영구 저장소가 필요한 경우 `+mgr-storage-proxy+` 도구를 사용하십시오.
 
-* 자세한 내용은 [command]``+mgr-storage-proxy --help+``를 참조하십시오.
+* 자세한 내용은 `+mgr-storage-proxy --help+`을 참조하십시오.
 이 도구는 컨테이너 스토리지 및 Squid 캐시 볼륨 생성을 간소화합니다.
 
 다음 방법으로 명령 사용:
@@ -161,7 +161,7 @@ mgr-storage-proxy /dev/nvme1n1
 
 [NOTE]
 ====
-이 명령은 [path]``+/var/lib/containers/storage/volumes+``에 영구 스토리지 볼륨을 생성합니다.
+이 명령은 `+/var/lib/containers/storage/volumes+`에 영구 스토리지 볼륨을 생성합니다.
 
 자세한 내용은 다음을 참조하십시오.
 
@@ -218,7 +218,7 @@ endif::[]
 [[proxy-setup-containers-transfer-start]]
 == {productname} 프록시 시작
 
-이제 [literal]`+mgrpxy+` 명령으로 컨테이너를 시작할 수 있습니다:
+이제 `+mgrpxy+` 명령으로 컨테이너를 시작할 수 있습니다:
 
 [[proc-setup-containers-setup-start]]
 .절차 프록시 시작 및 상태 확인
@@ -243,7 +243,7 @@ mgrpxy status
 
 +
 
-5개의 {productname} 프록시 컨테이너가 있어야 하며, [literal]``+proxy-pod+`` 컨테이너 Pod의 일부여야 합니다.
+5개의 {productname} 프록시 컨테이너가 있어야 하며, `+proxy-pod+` 컨테이너 파드의 일부여야 합니다:
 
 * proxy-salt-broker
 * proxy-httpd
@@ -258,7 +258,7 @@ _____
 == 서비스에 사용자 정의 컨테이너 이미지 사용
 
 기본적으로 {productname} 프록시 스위트는 각 서비스에 대해 동일한 이미지 버전과 레지스트리 경로를 사용하도록 구성되어 있습니다.
-그러나 [literal]``+-tag+``+ 및 [literal]+``+-image+``로 끝나는 설치 매개변수를 사용하여 특정 서비스에 대한 기본값을 재정의할 수 있습니다.
+그러나 `+-tag+` 및 `+-image+`으로 끝나는 설치 매개변수를 사용하여 특정 서비스에 대한 기본값을 재정의할 수 있습니다.
 
 예:
 
@@ -267,7 +267,7 @@ _____
 mgrpxy install podman --httpd-tag 0.1.0 --httpd-image registry.opensuse.org/uyuni/proxy-httpd /path/to/config.tar.gz
 ----
 
-이는 서비스를 재시작하기 전에 httpd 서비스의 구성 파일을 조정하여, [path]``+registry.opensuse.org/uyuni/proxy-httpds+``+가 사용할 이미지와 [literal]+``+0.1.0+``이 버전 태그임을 설정합니다.
+httpd 서비스에 대한 구성 파일을 조정하며, 여기서 `+registry.opensuse.org/uyuni/proxy-httpds+`은(는) 사용할 이미지이고 `+0.1.0+`은(는) 버전 태그이며, 그 후 서비스를 다시 시작합니다.
 
 값을 기본값으로 재설정하려면 해당 파라미터 없이 설치 명령을 다시 실행합니다.
 
