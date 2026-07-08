@@ -59,7 +59,7 @@ endif::[]
 フラッシュモード::
 デフォルトでは、既存のリポジトリは最新のパッケージでのみ更新されます。
 代わりに、常に空のリポジトリから開始するように構成できます。
-この動作を有効にするには、[path]``+/etc/rhn/rhn.conf+``にこの値を追加または編集してください。
+この動作を有効にするには、`+/etc/rhn/rhn.conf+`にこの値を追加または編集してください。
 +
 ----
 server.susemanager.bootstrap_repo_flush = 1
@@ -68,7 +68,7 @@ server.susemanager.bootstrap_repo_flush = 1
 自動モード::
 
 デフォルトでは、ブートストラップリポジトリの自動再生成が有効になっています。
-これを無効にするには、[path]``+/etc/rhn/rhn.conf+``にこの値を追加または編集してください。
+これを無効にするには、`+/etc/rhn/rhn.conf+`にこの値を追加または編集してください。
 +
 ----
 server.susemanager.auto_generate_bootstrap_repo = 0
@@ -79,7 +79,7 @@ server.susemanager.auto_generate_bootstrap_repo = 0
 === ブートストラップデータファイルの設定
 
 このツールは、各ディストリビューションに必要なパッケージに関する情報を含むデータファイルを使用します。
-データファイルは[path]``+/usr/share/susemanager/mgr_bootstrap_data.py+``に保存されています。{suse}はこのファイルを定期的に更新します。
+データファイルは`+/usr/share/susemanager/mgr_bootstrap_data.py+`に保存されます。{suse}はこのファイルを定期的に更新します。
 このファイルに変更を加えたい場合は、直接編集しないでください。
 代わりに、永続ディレクトリにコピーを作成し、そのコピーを編集してください。
 
@@ -88,7 +88,7 @@ cp /usr/share/susemanager/mgr_bootstrap_data.py /srv/susemanager/my_data.py
 ----
 
 変更を加えたら、{productname}に新しいファイルを使用するように構成してください。
-[path]``+/etc/rhn/rhn.conf+``にこの値を追加または編集してください。
+`+/etc/rhn/rhn.conf+`にこの値を追加または編集してください。
 
 ----
 server.susemanager.bootstrap_repo_datamodule = my_data
@@ -135,7 +135,7 @@ mgr-create-bootstrap-repo -c SLE-version-x86_64
 
 _____
 
-クライアントリポジトリは[path]``+/srv/www/htdocs/pub/repositories/+``にあります。
+クライアントリポジトリは`+/srv/www/htdocs/pub/repositories/+`にあります。
 
 
 
@@ -178,10 +178,10 @@ _____
 
 
 異なるアーキテクチャを含むブートストラップリポジトリを作成する場合は、すべてのアーキテクチャが正しく更新されるように注意する必要があります。
-たとえば、{x86_64}および{ibmz}アーキテクチャは、{slea}のために``+/srv/www/htdocs/pub/repositories/sle/15/2/bootstrap/+``で同じブートストラップリポジトリURLを使用します。
+例えば、{slea}の{x86_64}および{ibmz}アーキテクチャは、`+/srv/www/htdocs/pub/repositories/sle/15/2/bootstrap/+`にある同じ起動するリポジトリのURLを使用します。
 
-``+flush+``オプションが有効な場合、複数のアーキテクチャのブートストラップリポジトリを生成しようとすると、1つのアーキテクチャのみが生成されます。
-これを避けるために、追加のアーキテクチャを作成する際には、コマンドプロンプトで``+--no-flush+``オプションを使用してください。
+`+flush+`オプションが有効な場合、複数のアーキテクチャのために起動するリポジトリを生成しようとすると、1つのアーキテクチャのみが生成されます。
+これを避けるために、追加のアーキテクチャを作成する際には、コマンドプロンプトで`+--no-flush+`オプションを使用してください。
 例:
 
 ----
@@ -193,7 +193,7 @@ mgr-create-bootstrap-repo --no-flush -c SLE-15-SP2-s390x
 
 == ブートストラップとカスタムチャンネル
 
-カスタムチャンネルを使用している場合は、[option]``+--with-custom-channels+``+ オプションを [command]+``+mgr-create-bootstrap-repo+`` コマンドと共に使用できます。
+カスタムチャネルを使用している場合は、`+mgr-create-bootstrap-repo+`コマンドで`+--with-custom-channels+`オプションを使用できます。
 この場合、使用する親チャンネルも指定する必要があります。
 
 カスタムチャンネルを使用している場合、ブートストラップリポジトリの自動作成が失敗することがあります。
