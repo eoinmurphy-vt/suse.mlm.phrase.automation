@@ -3,7 +3,7 @@
 :description: コンテナ内のディスクが満杯になった場合は、ストレージのサイズを変更するために以下の手順に従ってトラブルシュートしてください。
 :revdate: 2025-03-10
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメントチーム
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -31,14 +31,14 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 コンテナの永続ストレージメディアとしてマウントされた専用ディスクのストレージ領域が不足した場合は、緊急アクションが必要になります。
 
 ストレージメディアのサイズ変更に関する問題を解決するには、次の手順に従います。
-コンテナホスト上で、すべてのコマンドを[literal]``+root+``として実行してください。
+コンテナホスト上で、すべてのコマンドを`+root+`として実行してください。
 
 .プロシージャ:ストレージメディアのサイズを変更する
 
 . ディスクサイズを増やします。
   取るべき対応はインストールシナリオによって異なります。
 
-. ディスクがパーティション設定されている場合（たとえば、ディスク[path]+``+/dev/vdb+``に[path]``+/dev/vdb1+``がある場合）、次のコマンドを実行します：
+. ディスクにパーティションが設定されている場合（たとえば、ディスク`+/dev/vdb1+`に`+/dev/vdb+`がある場合）、次のコマンドを実行してください。
 
 +
 
@@ -47,10 +47,10 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 +
 
 --
-.. [command]``+parted /dev/vdb+``
-.. [literal]``+(parted)+``+ [command]+``+print+``
-.. [literal]``+(parted)+``+ [command]+``+resizepart NUMBER 100%+``+ ここで、[literal]+``+NUMBER+``+は[command]+``+print+``+コマンドによって表示されるパーティション番号です（たとえば、[literal]+``+1+``+の場合、[literal]+``+/dev/vdb1+``）
-.. [literal]``+(parted)+``+ [command]+``+quit+``
+.. `+parted /dev/vdb+`
+.. `+(parted)+` `+print+`
+.. `+(parted)+` `+resizepart NUMBER 100%+`。ここで、`+NUMBER+`は`+print+`コマンドによって表示されるパーティション番号です（たとえば、`+1+`の場合は`+/dev/vdb1+`）。
+.. `+(parted)+` `+quit+`
 --
 
 . ファイルシステムのサイズを変更してください。
