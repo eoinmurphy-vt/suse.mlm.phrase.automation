@@ -4,7 +4,7 @@
 
 [NOTE]
 ====
-VMイメージを移行ターゲットとして使用する場合、最後のステップとして、コマンド[command]``+mgradm migrate+``を、コマンド``+mgradm install+``の代わりに実行してください。
+VMイメージを移行先として使用する場合は、最後のステップとして、`+mgradm migrate+`の代わりに`+mgradm install+`コマンドを実行してください。
 ====
 
 +
@@ -43,6 +43,6 @@ mgradm install podman <FQDN> \
 
 +
 
-詳細については、[command]``+mgradm install podman --help+``を参照してください。
+詳細については、`+mgradm install podman --help+`を参照してください。
 
 --
