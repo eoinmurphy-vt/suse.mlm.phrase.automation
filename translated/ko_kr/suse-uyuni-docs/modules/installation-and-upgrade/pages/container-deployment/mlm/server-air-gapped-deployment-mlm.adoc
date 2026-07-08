@@ -63,7 +63,7 @@ transactional-update pkg install mgradm* mgrctl* suse-multi-linux-manager-5.1-$A
 
 . 재부팅합니다.
 
-. [command]``+mgradm+``을(를) 사용하여 {productname}을(를) 배포합니다.
+. {productname}을(를) 사용하여 `+mgradm+`을(를) 배포합니다.
 
 ____
 
@@ -75,12 +75,12 @@ ____
 == PTF
 
 PTF 이미지는 패키지로 제공되지 않습니다.
-즉, 인터넷에 액세스할 수 있는 머신에서 [command]``+podman+``을(를) 사용하여 가져온 다음 아카이브에 저장하고 에어갭 머신으로 전송한 후 해당 위치에서 로드해야 합니다.
+즉, 인터넷에 액세스할 수 있는 머신에서 `+podman+`을(를) 사용하여 가져온 다음 아카이브에 저장하고 에어갭 머신으로 전송한 후 해당 위치에서 로드해야 합니다.
 
 .절차 인터넷에 액세스할 수 있는 머신에서 이미지를 가져옵니다.
 [role=procedure]
 ____
-. [command]``+podman+``를 설치합니다.
+. `+podman+`을(를) 설치합니다.
 
 . SCC 자격 증명을 사용하여 {suse} 레지스트리에 대해 인증합니다:
 
@@ -102,7 +102,7 @@ endif::[]
 
 [NOTE]
 ====
-이 예제는 PTF가 [path]``+server+`` 이미지에 대한 것이라고 가정하며, PTF가 다른 이미지와 관련된 경우 예제를 조정하십시오.
+이 예제는 PTF가 `+server+` 이미지에 대한 것이라고 가정하며, PTF가 다른 이미지와 관련된 경우 예제를 조정하십시오.
 ====
 
 +
@@ -132,14 +132,14 @@ for image in `cat /tmp/ptf-images`; do
 done
 podman save -o /tmp/ptf-images.tar $(cat /tmp/ptf-images)
 ----
-. 패치할 서버로 [path]``+/tmp/ptf-images.tar+`` 이미지 아카이브를 전송합니다.
+. 서버에 있는 `+/tmp/ptf-images.tar+` 이미지 아카이브를 패치로 전송합니다.
 
 ____
 
 .절차 패치할 서버에 이미지를 로드합니다.
 [role=procedure]
 ____
-. 서버에서 [path]``+ptf-images.tar+`` 파일을 사용할 수 있는지 확인합니다.
+. `+ptf-images.tar+` 파일이 서버에서 사용 가능한지 확인합니다.
 
 . 이미지를 아카이브에서 로드:
 
