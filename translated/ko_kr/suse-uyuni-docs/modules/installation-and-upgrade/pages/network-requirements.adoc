@@ -39,10 +39,10 @@ DNS 서버 설정에 대한 자세한 내용은 {sles-base-os-documentation}/cha
 
 == 라우터 알림 재활성화
 
-{productname}이 [command]``+mgradm install podman+``+ 또는 [command]+``+mgrpxy install podman+``를 사용하여 설치되면, IPv4 및 IPv6 포워딩을 활성화하는 Podman을 설정합니다.
+{productname}이(가) `+mgradm install podman+` 또는 `+mgrpxy install podman+`을(를) 사용하여 설치되면, IPv4 및 IPv6 포워딩을 활성화하는 Podman이 설정됩니다.
 이는 컨테이너 외부와의 통신에 필요합니다.
 
-그러나 시스템에서 이전에 [literal]``+/proc/sys/net/ipv6/conf/eth0/accept_ra+``+가 [literal]+``+1+``로 설정되어 있었다면, 라우터 광고 사용을 중지합니다.
+그러나 시스템에서 `+/proc/sys/net/ipv6/conf/eth0/accept_ra+`이(가) `+1+`(으)로 설정되어 있었다면, 라우터 광고 사용이 중단됩니다.
 그 결과, 라우터 광고를 통해 더 이상 경로를 얻지 못하고 기본 IPv6 경로가 누락됩니다.
 
 IPv6 라우팅이 올바르게 작동하도록 복원하려면 다음 여부에 따라 절차를 따르십시오.
@@ -55,7 +55,7 @@ IPv6 라우팅이 올바르게 작동하도록 복원하려면 다음 여부에 
 .절차 네트워크 관리자가 없는 라우터 광고 재활성화
 [role=procedure]
 ____
-. [path]``+/etc/sysctl.d+``에 파일을 생성합니다. 예를 들어, [literal]``+99-ipv6-ras.conf+``입니다.
+. `+/etc/sysctl.d+`에 파일(예: `+99-ipv6-ras.conf+`)을 생성합니다.
 . 다음 파라미터와 값을 파일에 추가:
 
 +
@@ -76,9 +76,9 @@ ____
 .절차 네트워크 관리자를 통한 라우터 광고 재활성화
 [role=procedure]
 ____
-. [command]``+nmcli connection show+``로 연결을 나열합니다.
+. `+nmcli connection show+`로 연결 목록을 확인합니다.
 
-. 이 설정을 추가하려면 [path]``+/etc/NetworkManager/system-connections/<name of connection>.nmconnection+`` 파일을 생성하거나 수정합니다:
+. `+/etc/NetworkManager/system-connections/<name of connection>.nmconnection+` 파일을 생성하거나 수정하여 이 설정을 추가합니다:
 
 +
 
@@ -122,7 +122,7 @@ ____
 
 .절차 HTTP 또는 HTTPS OSI 레벨 7 프록시 구성
 
-. 운영 체제 인터넷 액세스를 위해 [path]``+/etc/sysconfig/proxy+``를 필요에 따라 수정합니다:
+. 운영 체제 인터넷 액세스를 위해 `+/etc/sysconfig/proxy+`를 필요에 따라 수정합니다:
 
 +
 
@@ -134,7 +134,7 @@ HTTPS_PROXY=""
 NO_PROXY="localhost, 127.0.0.1"
 ----
 
-. ``+Podman+`` 컨테이너 인터넷 액세스를 위해 [path]+``+/etc/systemd/system/uyuni-server.service.d/custom.conf+``를 필요에 따라 수정합니다.
+. `+Podman+` 컨테이너 인터넷 액세스를 위해 `+/etc/systemd/system/uyuni-server.service.d/custom.conf+`를 필요에 따라 수정합니다.
   예를 들어, 다음을 설정합니다:
 
 +
@@ -147,14 +147,14 @@ Environment="PODMAN_EXTRA_ARGS="
 Environment="https_proxy=user:password@http://192.168.10.1:3128"
 ----
 
-. Java 응용 프로그램 인터넷 액세스를 위해 [path]``+/etc/rhn/rhn.conf+``를 필요에 따라 수정합니다.
-  컨테이너 호스트에서 [literal]``+mgrctl term+``를 실행하여 서버 컨테이너 내의 명령줄을 엽니다:
+. Java 응용 프로그램 인터넷 액세스를 위해 `+/etc/rhn/rhn.conf+`를 필요에 따라 수정합니다.
+  컨테이너 호스트에서 `+mgrctl term+`를 실행하여 서버 컨테이너 내의 명령줄을 엽니다:
 
 +
 
 --
 
-.. 필요에 따라 [path]``+/etc/rhn/rhn.conf+``를 수정합니다.
+.. 필요에 따라 `+/etc/rhn/rhn.conf+`를 수정합니다.
    예를 들어, 다음을 설정합니다:
 
 +
@@ -231,7 +231,7 @@ image::ports_proxy_diagram.png[]
 | 67          | TCP/UDP  | DHCP       | 클라이언트가 서버에서 IP 주소를 요청하는 경우에만 필요합니다.
 | 69          | TCP/UDP  | TFTP       | 서버가 자동 클라이언트 설치를 위한 PXE 부팅 서버로 사용되는 경우 필요합니다.
 | 80          | TCP      | HTTP       | 일부 부팅 리포지토리 및 자동 설치를 위해 일시적으로 필요합니다.
-| 443         | TCP      | HTTPS      | {webui}, 클라이언트, 서버 및 프록시 (``+tftpsync+``) 요청을 처리합니다.
+| 443         | TCP      | HTTPS      | {webui}, 클라이언트, 서버 및 프록시 (`+tftpsync+`) 요청을 처리합니다.
 | 4505        | TCP      | salt       | 클라이언트로부터의 통신 요청을 수락하기 위해 필요합니다.
 클라이언트가 연결을 시작하고, Salt 마스터로부터 명령을 받기 위해 열려 있습니다.
 | 4506        | TCP      | salt       | 클라이언트로부터의 통신 요청을 수락하기 위해 필요합니다.
@@ -266,7 +266,7 @@ image::ports_proxy_diagram.png[]
 === 내부 서버 포트
 
 내부 포트는 {productname} 서버에서 내부적으로 사용됩니다.
-내부 포트는 [literal]``+localhost+``에서만 접근할 수 있습니다.
+내부 포트는 `+localhost+`에서만 접근할 수 있습니다.
 
 대부분의 경우에는 이러한 포트를 조정할 필요가 없습니다.
 
@@ -309,7 +309,7 @@ cat /proc/sys/net/ipv4/ip_local_port_range
 | 22          |          |         | 사용자가 {salt} SSH로 프록시 호스트를 관리하려는 경우에만 필요합니다.
 | 67          | TCP/UDP  | DHCP    | 클라이언트가 서버에서 IP 주소를 요청하는 경우에만 필요합니다.
 | 69          | TCP/UDP  | TFTP    | 서버가 자동 클라이언트 설치를 위한 PXE 부팅 서버로 사용되는 경우 필요합니다.
-| 443         | TCP      | HTTPS   | {webui}, 클라이언트, 서버 및 프록시 (``+tftpsync+``) 요청입니다.
+| 443         | TCP      | HTTPS   | {webui}, 클라이언트, 서버 및 프록시 (`+tftpsync+`) 요청입니다.
 | 4505        | TCP      | salt    | 클라이언트로부터의 통신 요청을 수락하기 위해 필요합니다.
 클라이언트가 연결을 시작하고, Salt 마스터로부터 명령을 받기 위해 열려 있습니다.
 | 4506        | TCP      | salt    | 클라이언트로부터의 통신 요청을 수락하기 위해 필요합니다.
@@ -366,18 +366,18 @@ cat /proc/sys/net/ipv4/ip_local_port_range
 클라이언트를 등록하고 업데이트를 수행하기 위해 {productname}이(가) 액세스할 수 있어야 하는 URL이 있습니다.
 대부분의 경우 이러한 URL에 대한 액세스를 허용하는 것으로 충분합니다:
 
-* [literal]``+scc.suse.com+``
-* [literal]``+updates.suse.com+``
-* [literal]``+installer-updates.suse.com+``
-* [literal]``+registry.suse.com+``
-* [literal]``+registry-storage.suse.com+``
-* [literal]``+opensuse.org+``
+* `+scc.suse.com+`
+* `+updates.suse.com+`
+* `+installer-updates.suse.com+`
+* `+registry.suse.com+`
+* `+registry-storage.suse.com+`
+* `+opensuse.org+`
 
 또한 SUSE 제품이 아닌 제품의 경우 다음 URL에 액세스해야 할 수도 있습니다.
 
-* [literal]``+download.nvidia.com+``
-* [literal]``+public.dhe.ibm.com+``
-* [literal]``+nu.novell.com+``
+* `+download.nvidia.com+`
+* `+public.dhe.ibm.com+`
+* `+nu.novell.com+`
 
 지정된 URL 및 관련 IP 주소를 허용 목록에 추가하는 자세한 내용은 이 문서에서 확인할 수 있습니다: https://support.scc.suse.com/s/kb/SUSE-Customer-Center-and-SUSE-registry-URLs-for-access-behind-a-firewall-and-or-through-a-proxy[방화벽 뒤에서 및/또는 프록시를 통해 {scclongform} 및 SUSE 레지스트리에 액세스].
 
