@@ -9,7 +9,7 @@
 :page-product-version: 5.1
 
 この章には、バックアップする必要があるファイルに関する情報が含まれています。
-組み込みのバックアップおよび復元ソリューション（[command]``+mgradm backup+``）を使用すると、{productname}のバックアップを作成できます。
+ビルトインのバックアップおよび復元ソリューション（`+mgradm backup+`）を使用すると、{productname}のバックアップを作成できます。
 システムエラー発生時のバックアップからの復元に関する情報で、この章を締めくくります。
 
 {productname}は、データベース、インストールされたプログラム、および設定に依存しているため、インストール全体のすべてのコンポーネントのバックアップを取ることが重要です。
@@ -30,11 +30,11 @@
 
 [NOTE]
 ====
-組み込みソリューションの登場により、[command]``+smdba+``バックアップツールを使用した古い方法は廃止されました。
-古いシステムから[command]``+smdba+``に移行した場合は、古い機能を無効にし、古いバックアップアーカイブを削除する必要があります。
+ビルトインソリューションの登場により、`+smdba+`バックアップツールを使用した古い方法は廃止されました。
+古いシステムから`+smdba+`に移行した場合は、古い機能を無効にし、古いバックアップアーカイブを削除する必要があります。
 ====
 
-移行前に[command]``+smdba+``を無効にする（推奨）か、移行後の{productname} {productnumber}システムで無効にしてください。
+移行前に`+smdba+`を無効にする（推奨）か、移行後の{productname} {productnumber}システムで無効にしてください。
 
 
 .プロシージャ:移行前にインストール済みのsmdbaを使用した古い方法を無効にする
@@ -79,7 +79,7 @@ mgrctl exec -- smdba backup-hot --enable=off
 endif::[]
 
 
-これにより、[option]``+archive_command+``が[path]+``+/var/lib/pgsql/data/postgresql.conf``に次のように変更されます。
+これにより、`+/var/lib/pgsql/data/postgresql.conf+`内の`+archive_command+`が次のように変更されます。
 
 ----
 archive_command = '/bin/true'
@@ -95,7 +95,7 @@ ____
 ____
 smdbaが利用できなくなっている場合は、移行後にこのプロシージャを使用します。
 
-. コンテナホストで、rootとして[path]``+/var/lib/containers/storage/volumes/var-pgsql/_data/postgresql.conf+``を編集し、これらのオプションを設定します。
+. コンテナホスト上でルートとして`+/var/lib/containers/storage/volumes/var-pgsql/_data/postgresql.conf+`を編集し、これらのオプションを設定します。
 +
 ----
 archive_mode = off
@@ -115,15 +115,15 @@ ____
 [[backup-product]]
 == バックアップ {productname}
 
-[command]``+mgradm backup create+`` コマンドを使用することが、あなたの {productname} インストールをバックアップするための最も包括的な方法です。
+{productname}インストールをバックアップするための最も包括的な方法は、`+mgradm backup create+`コマンドを使用することです。
 これにより、バックアップの管理にかかる時間を節約でき、エラーが発生した場合の再インストールと再同期が迅速に行えます。
 ただし、この方法はかなりのディスクスペースを必要とし、バックアップを実行するのに長時間かかる可能性があります。
 
-[command]``+mgradm backup create+`` コマンドは、ディレクトリにバックアップを実行します。
+`+mgradm backup create+`コマンドは、ディレクトリへのバックアップを実行します。
 このディレクトリは、ローカルまたはマウントされたリモートストレージの両方である可能性があります。
 
-[command]``+mgradm backup create+`` コマンドは、バックアップの内容にさまざまなカスタマイズを許可します。
-利用可能なすべてのオプションについては、[command]``+mgradm backup create --help+``を参照してください。
+`+mgradm backup create+`コマンドは、バックアップの内容にさまざまなカスタマイズを許可します。
+利用可能なすべてのオプションについては、`+mgradm backup create --help+`を参照してください。
 
 
 === {productname}のフルバックアップ
@@ -144,7 +144,7 @@ ____
 バックアップが完了した後、サービスは自動的に再起動されます。
 ====
 
-.プロシージャ:[command]``+mgradm backup create+`` を使用してフルバックアップを作成しています。
+.プロシージャ:`+mgradm backup create+`を使用したフルバックアップの作成
 [role=procedure]
 ____
 . コンテナホストで、rootとして、次のコマンドでバックアップを作成します。
@@ -158,13 +158,13 @@ mgradm backup create $path
 
 +
 
-[literal]``+$path+`` をバックアップ場所へのパスで置き換えます。
+`+$path+`をバックアップ場所へのパスで置き換えます。
 ____
 
 
 === {productname}の部分バックアップ
 
-[command]``+mgradm backup create+`` ツールは部分バックアップを作成することを許可します。
+`+mgradm backup create+`ツールを使用すると、部分的なバックアップを作成できます。
 個々のボリュームまたはすべてのボリュームをスキップし、データベースバックアップやイメージをスキップすることが可能です。
 
 特にデータベースのバックアップがスキップされた場合、{productname}サービスを停止せずにバックアップが作成され、2段階バックアップ手順の1段階として機能します。
@@ -186,7 +186,7 @@ ____
 mgradm backup create --skipdatabase $path
 ----
 +
-[literal]``+$path+`` をバックアップ場所へのパスで置き換えます。
+`+$path+`をバックアップ場所へのパスで置き換えます。
 ____
 
 
@@ -205,22 +205,22 @@ mgradm backup create --skipvolumes $volumes $path
 
 +
 
-[literal]``+$path+`` をバックアップ場所へのパスで置き換えます。
+`+$path+`をバックアップ場所へのパスで置き換えます。
 
 +
 
-[literal]``+$volumes+``を、バックアップから除外するボリュームの名前、または除外するボリュームのカンマ区切りのリストで置き換えます。
+`+$volumes+`を、バックアップから除外するボリュームの名前、または除外するボリュームのカンマ区切りのリストで置き換えます。
 
 +
 
-[literal]``+all+``を使用すると、データベースボリュームを除くすべてのボリュームをスキップします。
+`+all+`を使用すると、データベースボリュームを除くすべてのボリュームをスキップします。
 ____
 
 
 === 追加ボリュームのバックアップ
 
-[command]``+mgradm backup+`` コマンドは、{productname} ボリュームの内部リストを使用します。
-インストール中に追加のボリュームが構成された場合、またはバックアップに追加のボリュームを追加する必要がある場合は、[command]``+--extravolumes $volumes+``を使用して指定する必要があります。
+`+mgradm backup+`コマンドは、{productname}ボリュームの内部リストを使用します。
+インストール中に追加のボリュームが構成された場合、またはバックアップに追加のボリュームを追加する必要がある場合は、`+--extravolumes $volumes+`を使用して指定する必要があります。
 
 .プロシージャ:追加のカスタムボリュームを使用したバックアップの作成
 [role=procedure]
@@ -236,11 +236,11 @@ mgradm backup create --extravolumes $volume $path
 
 +
 
-[literal]``+$path+`` をバックアップ場所へのパスで置き換えます。
+`+$path+`をバックアップ場所へのパスで置き換えます。
 
 +
 
-[literal]``+$volumes+``を、バックアップに含めるボリュームの名前、または含めるボリュームのカンマ区切りのリストで置き換えます。
+`+$volumes+`を、バックアップに含めるボリュームの名前、または含めるボリュームのカンマ区切りのリストで置き換えます。
 
 ____
 
@@ -293,13 +293,13 @@ mgradm start
 
 +
 
-[literal]``+$path+`` をバックアップ場所へのパスで置き換えます。
+`+$path+`をバックアップ場所へのパスで置き換えます。
 ____
 
 
-バックアップの検証は、時間がかかる操作になる可能性があります。バックアップの整合性が他の手段によって確保されている場合、[command]``+--skipverify+``オプションを使用して検証をスキップできます。
+バックアップの検証は、時間がかかる操作になる可能性があります。バックアップの整合性が他の手段によって確保されている場合、`+--skipverify+`オプションを使用して検証をスキップできます。
 
-何らかの理由でバックアップに存在するボリュームの復元をスキップする必要がある場合は、[command]``+--skipvolumes $volumes+``オプションを使用できます。
+何らかの理由でバックアップに存在するボリュームの復元をスキップする必要がある場合は、`+--skipvolumes $volumes+`オプションを使用できます。
 
 
 
@@ -308,12 +308,12 @@ ____
 .プロシージャ:{productname}の復元後の推奨手順
 [role=procedure]
 ____
-. {productname} {webui}を使用するか、コンテナ内のコマンドプロンプトで[command]``+mgr-sync+``ツールを使用して、{productname}リポジトリを再同期してください。
+. {productname} {webui}を使用するか、コンテナ内のコマンドプロンプトで`+mgr-sync+`ツールを使用して、{productname}リポジトリを再同期してください。
   製品を再登録するか、登録セクションおよびSSL証明書生成セクションをスキップすることができます。
 
-. コンテナホストで、[path]``+/var/lib/containers/storage/volumes/var-spacewalk/_data/packages/+``を復元する必要があるかどうかを確認してください。
-  もし[path]``+/var/lib/containers/storage/volumes/var-spacewalk/_data/packages/+``がバックアップに含まれていなかった場合は、それを復元する必要があります。
-  ソースリポジトリが利用可能な場合、完全なチャネル同期を行って[path]``+/var/lib/containers/storage/volumes/var-spacewalk/_data/packages/+``を復元できます。
+. コンテナホスト上で、`+/var/lib/containers/storage/volumes/var-spacewalk/_data/packages/+`の復元が必要かどうか確認します。
+  `+/var/lib/containers/storage/volumes/var-spacewalk/_data/packages/+`がバックアップに含まれていなかった場合は、復元する必要があります。
+  ソースリポジトリが利用可能な場合は、完全なチャネル同期を使用して`+/var/lib/containers/storage/volumes/var-spacewalk/_data/packages/+`を復元できます。
 
 +
 
@@ -322,7 +322,7 @@ ____
 mgrctl exec -ti -- mgr-sync refresh --refresh-channels
 ----
 
-. 次回[command]``+rhn-search+``サービスを開始するときに検索インデックスの再作成をスケジュールします。
+. 次回`+rhn-search+`サービスを開始するときに検索インデックスの再作成をスケジュールします。
 
 +
 
