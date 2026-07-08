@@ -15,7 +15,7 @@
 
 要将客户端配置为 Ansible 控制节点，必须在该系统上安装 Ansible 软件包。
 通常，Ansible 软件包应从操作系统供应商的官方软件库中获取。
-例如，在 {sle} 15 SP6 和 SP7 上，Ansible 可通过 [literal]``+系统管理模块+`` 获得。
+例如，在 {sle} 15 SP6 和 SP7 上，Ansible 可通过 `+Systems Management Module.+` 获得。
 ====
 
 
@@ -23,22 +23,22 @@
 .过程：升级在 {sle} 15 SP6 或 SP7 系统上设置 Ansible 控制节点
 [role=procedure]
 ____
-. 在 {productname} {webui} 中，导航到 menu:管理[安装向导> 产品]，验证是否已选择并同步 [literal]``+SUSE Linux Enterprise Server 15 SP6 x86_64+``+（或更高版本）以及 [literal]+``+系统管理模块+``+ 和所需的 [literal]+``+Python 3 模块+`` 渠道。
+. 在 {productname} {webui} 中，导航到 menu:管理[设置向导> 产品]，验证是否已选择并同步了 `+SUSE Linux Enterprise Server 15 SP6 x86_64+`（或更高版本）以及 `+Systems Management Module+` 和所需的 `+Python 3 Module+`。
 
 . 部署 {sle} 15 SP6（或更高版本）客户端。
 
 . 在 {productname} {webui} 中，导航到客户端的 menu:系统[概览] 页面。
-  选择 menu:软件[软件频道] 并将客户端订阅到 [literal]``+SUSE Linux Enterprise Server 15 SP6 x86_64+``+（或更高版本 SP）、[literal]+``+系统管理模块+``+ 和 [literal]+``+Python 3 模块+`` 渠道。
+  选择 menu:软件[软件频道]，并将客户端订阅到 `+SUSE Linux Enterprise Server 15 SP6 x86_64+`（或更高 SP 版本）、`+Systems Management Module+` 和 `+Python 3 Module+` 频道。
 
 . 选择 menu:详细信息[属性]。
-  从 [literal]``+附加系统类型+``+ 列表中启用 [guimenu]+``+Ansible 控制节点+`` 并单击 btn:[更新属性]。
+  从 `+Add-On System Types+` 列表中启用 `+Ansible Control Node+` 并单击 btn:[更新属性]。
 
 . 导航到客户端概览页面，选择 menu:状态[Highstate]，然后单击 btn:[应用 Highstate]。
 
 . 选择 menu:事件[] 选项卡并验证 Highstate 的状态。
 ____
 ====
-如果您想在 {sle} 15 SP4 或 SP5 客户端上安装更新版本的 Ansible，必须启用 [literal]``+Python 3 模块+``。
+如果您想在 {sle} 15 SP4 或 SP5 客户端上安装更新版本的 Ansible，必须启用 `+Python 3 Module+`。
 ====
 
 [NOTE]
@@ -62,7 +62,7 @@ Ansible 集成工具将剧本部署为清单文件。
 [role=procedure]
 ____
 . 创建并将您的主机添加到由 Ansible 管理的清单文件中。
-  Ansible 清单的默认路径是 [path]``+/etc/ansible/hosts+``。
+  Ansible 清单的默认路径是 `+/etc/ansible/hosts+`。
 +
 
 .清单示例
@@ -85,11 +85,11 @@ ansible_ssh_public_key_file=/etc/ansible/my_ansible_private_key
 
 
 
-. 在 {productname} {webui} 中，从 [guimenu]``+Ansible+`` 选项卡导航到 menu:Ansible[控制节点] 以将清单文件添加到控制节点。
+. 在 {productname} {webui} 中，从 `+Ansible+` 选项卡导航到 menu:Ansible[控制节点] 以将清单文件添加到控制节点。
 
-. 在 [literal]``+剧本目录+``+ 部分下，将 [literal]+``+/usr/share/scap-security-guide/ansible+``+ 添加到 [literal]+``+添加剧本目录+`` 字段中，然后单击 btn:[保存]。
+. 在 `+Playbook Directories+` 部分下，将 `+/usr/share/scap-security-guide/ansible+` 添加到 `+Add a Playbook Directories+` 字段，然后单击 btn:[保存]。
 
-. 在 [literal]``+清单文件+``+ 下，将您的清单文件位置添加到 [literal]+``+添加清单文件+`` 字段中，然后单击 btn:[保存]。
+. 在 `+Inventory Files+` 下，将您的清单文件位置添加到 `+Add an Inventory file+` 字段，然后单击 btn:[保存]。
 +
 .示例
 ----
@@ -117,7 +117,7 @@ ssh-keygen -f /etc/ansible/my_ansible_private_key
 ssh-copy-id -i /etc/ansible/my_ansible_public_key root@client240.mgr.example.org
 ----
 
-. 如下所示在 [path]``+/etc/ansible/ansible.cfg+`` 中声明私钥：
+. 按如下方式在 `+/etc/ansible/ansible.cfg+` 中声明私钥：
 +
 
 ----
@@ -125,7 +125,7 @@ private_key_file = /etc/ansible/my_ansible_private_key
 ----
 +
 
-请将 [path]``+my_ansible_private_key+`` 替换为包含私钥的文件的文件名。
+将 `+my_ansible_private_key+` 替换为包含私钥的文件名。
 
 . 通过从控制节点执行以下命令来测试 Ansible 是否正常运行：
 +
