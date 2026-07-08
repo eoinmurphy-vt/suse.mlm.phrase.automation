@@ -32,7 +32,7 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 新しいリポジトリデータファイルを使用すれば、更新は期待通りに動作するはずです。
 
 .プロシージャ:破損したリポジトリデータの修復方法
-. [path]``+/var/cache/rhn/repodata/<channel-label>+``からすべてのファイルを削除します。
+. `+/var/cache/rhn/repodata/<channel-label>+`からすべてのファイルを削除してください。
     チャンネルラベルが分からない場合は、{productname} {webui}で確認できます。menu:ソフトウェア[チャンネル> チャンネルラベル]に移動してください。
 . コンテナホストで、コマンドラインから、次のコマンドを実行してコンテナ内のファイルを再生成します。
 +
