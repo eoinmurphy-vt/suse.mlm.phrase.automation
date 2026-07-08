@@ -55,8 +55,8 @@ systemctl disable regionsrv-enabler-azure.timer
 
 == クライアントの登録
 
-{productname} {webui}で、menu:システム[ブートストラッピング]に移動し、``+ホスト+``、+``+SSHポート+``+、+``+ユーザー+``+、および+``+パスワード+``フィールドを入力してください。
-``+ホスト+``フィールドには安定したFQDNを使用してください。そうしないと、パブリッククラウドが異なる短命のFQDNを提供したときに{productname}がホストを見つけられません。
+{productname} {webui}で、menu:Systems[起動する]に移動し、`+Host+`、`+SSH Port+`、`+User+`、および`+Password+`フィールドに入力します。
+`+Host+`フィールドには安定したFQDNsを使用してください。そうしないと、パブリッククラウドが異なる短命のFQDNsを提供したときに{productname}がホストを見つけられません。
 
 パブリッククラウドイメージは通常、ユーザー名とパスワードでのSSHログインを許可せず、証明書を使用したSSHのみを許可します。
 {webui}からブートストラップを使用したい場合は、ユーザー名とSSHキーでのSSHログインを有効にする必要があります。
@@ -64,7 +64,7 @@ systemctl disable regionsrv-enabler-azure.timer
 
 クラウドプロバイダーがMicrosoft Azureの場合、ユーザー名とパスワードでログインできます。
 これを行うには、AzureUserがパスワードなしでルートとしてコマンドを実行できるようにする必要があります。
-これを行うには、[path]``+/etc/sudoers.d/waagent+``ファイルを開き、この行を追加または編集します:
+これを行うには、`+/etc/sudoers.d/waagent+`ファイルを開き、次の行を追加または編集します。
 
 ----
 AzureUser ALL=(ALL) NOPASSWD: ALL
