@@ -30,15 +30,15 @@ If more detailed instructions are required, put them in a "Resolving" procedure.
 
 
 
-WebUIまたはAPIコールを介して配布またはシステム設定に対して実行される変更に応じて、[command]``+cobbler sync+``コマンドが{productname}サーバから{productname}プロキシシステムにファイルを転送するために必要になる場合があります。
-これを達成するために、{cobbler}は[literal]``+/etc/cobbler/settings+``に指定されたプロキシのリストを使用します。
+WebUIまたはAPIコールを通じて配布またはシステム設定で行われる変更に応じて、`+cobbler sync+` コマンドが {productname}サーバから {productname}プロキシへファイルを転送するために必要となる場合があります。
+これを達成するために、{cobbler} は`+/etc/cobbler/settings+`に指定されたプロキシのリストを使用します。
 
-その設計上、[command]``+cobbler sync+``は変更されたファイルや最近追加されたファイルのみをsyncすることはできません。
+その設計上、`+cobbler sync+` は変更されたファイルや最近追加されたファイルのみを同期することはできません。
 
-代わりに、[command]``+cobbler sync+``+を実行すると、[literal]+``+/srv/tftpboot+``+ディレクトリの完全なsyncが、[literal]+``+/etc/cobbler/settings+``に設定されたすべてのプロキシに対してトリガーされます。
+その代わりに、`+cobbler sync+` を実行すると、`+/etc/cobbler/settings+`で構成されたすべての指定プロキシに対して`+/srv/tftpboot+`ディレクトリの完全同期がトリガーされます。
 また、関与するシステム間のWAN接続のレイテンシにも影響されます。
 
-syncのプロセスが完了するまでにかなりの時間がかかる場合があります。これは[literal]``+/var/log/cobbler/+``のログによるものです。
+のログによると、同期のプロセスが完了するまでにかなりの時間がかかる場合があります。`+/var/log/cobbler/+`
 
 たとえば、次の日時に開始したとします。
 
@@ -57,17 +57,17 @@ Thu Jun  3 15:18:49 2021 - DEBUG | shell triggers finished successfully
 転送量は約1.8 GBでした。
 転送にはほぼ30分かかりました。
 
-比較すると、[literal]``+/srv/tftboot+``と同じサイズの大きな単一ファイルのコピーは、数分以内に完了します。
+比較すると、`+/srv/tftboot+` と同じサイズの大きな単一ファイルのコピーは、数分以内に完了します。
 
 
 //== Resolution and analysis
 
-[literal]``+rsync+``-ベースのアプローチに切り替えて、{productname}サーバとプロキシ間でファイルをコピーすることで、転送時間と待機時間を短縮できる場合があります。
+{productname} サーバとプロキシ間でファイルをコピーするために`+rsync+`ベースのアプローチに切り替えると、転送時間と待機時間を短縮できる場合があります。
 
 このタスクを達成するためのスクリプトは、https://suse.my.salesforce.com/sfc/p/1i000000gLOd/a/1i000000ll5B/B2AmvIJN2_JsAyjTQzCVP_x5ioVgd0bYN9X9NpMugS8.からダウンロード可能です。
 
 スクリプトはコマンドラインオプションを受け付けません。
-スクリプトを実行する前に、手動で編集し、[literal]``+MLMHOSTNAME+``、[literal]+``+MLMIP+``+、および[literal]+``+MLMPROXY1+``変数を正しく設定する必要があります。
+スクリプトを実行する前に、手動で編集し、`+MLMHOSTNAME+`、`+MLMIP+`、および`+MLMPROXY1+`変数を正しく設定する必要があります。
 
 [WARNING]
 ====
@@ -80,8 +80,8 @@ Thu Jun  3 15:18:49 2021 - DEBUG | shell triggers finished successfully
 スクリプトを使用した提案されるアプローチは、次の環境で役立ちます。
 
 * {productname}プロキシシステムがWAN接続を介して接続されています。
-* [literal]``+/srv/tftboot+``には、ディストリビューション用ファイルおよびクライアントPXEブートファイルが多数含まれており、合計で数千ファイルがあります。
-* [literal]``+/etc/cobbler/settings+``の任意のプロキシは無効になっており、それ以外の場合、{productname}は引き続きプロキシとコンテンツをsyncします。
+* `+/srv/tftboot+` には、ディストリビューション用ファイルおよびクライアントPXEブートファイルが多数含まれており、合計で数千ファイルあります。
+* `+/etc/cobbler/settings+` 内のプロキシはすべて無効化されており、そうでなければ {productname} は引き続きプロキシにコンテンツを同期します。
 +
 ----
 #proxies:
@@ -108,19 +108,19 @@ tcpdump -i ethX -s 200 host <ip-address-of-susemanager> and not ssh
 * これにより、分析を実行するのに十分な200のパッケージサイズのみがキャプチャされます。
 * プロキシと通信するために{productname}が使用するネットワークインタフェースに対して、ethXを調整してください。
 * 最後に、さらにパッケージ数を削減するため、ssh通信はキャプチャされません。
-. [command]``+cobbler sync+``を開始します。
-* syncを強制するため、最初に{cobbler}のjsonキャッシュファイルを削除してから、[command]``+cobbler sync+``を実行します。
+. `+cobbler sync+` を開始します。
+* 同期を強制するため、最初に{cobbler} のjsonキャッシュファイルを削除してから、`+cobbler sync+`を実行します。
 +
 ----
 rm /var/lib/cobbler/pxe_cache.json
 cobbler sync
 ----
 +
-. {command]``+cobbler sync+``が終了したら、TCPdumpを停止します。
-. Wiresharkを使用してTCPダンプを開き、[guimenu]``+Statistics > Conversations+``に移動して、ダンプが分析されるのを待ちます。
+. \{command}`+cobbler sync+` が終了したら、TCPdumpsを停止します。
+. Wiresharkを使用してTCPダンプを開き、`+Statistics > Conversations+` に移動して、ダンプが分析されるのを待ちます。
 . TCPタブに切り替えます。
   このタブに表示される数値は、{productname}サーバーと{productname}プロキシ間でキャプチャされた会話の総数を示します。
-. 列[guimenu]``+Duration+``を探します。
+. `+Duration+`列を探します。
 * 昇順にソートして開始し、ファイルの転送にかかった最小時間を確認します。
 * 降順にソートして続行し、カーネルやinitrdの転送など、大きなファイルの最大値を確認します。
 +
