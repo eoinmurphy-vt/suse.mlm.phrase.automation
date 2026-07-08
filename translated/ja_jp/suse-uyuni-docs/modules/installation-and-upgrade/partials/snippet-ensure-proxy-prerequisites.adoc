@@ -1,7 +1,7 @@
 :description: プロキシとして使用するホストの準備方法を学ぶ
 == [package]\``podman``をインストールおよび有効にする
 
-プロキシを使用する前に、いくつかのパッケージがホスト上に存在し、[package]``+podman+``が実行されている必要があります。
+プロキシを使用する前に、いくつかのパッケージがホスト上に存在し、`+podman+`が実行されている必要があります。
 
 
 .プロシージャ:前提条件の準備
@@ -10,13 +10,13 @@ _____
 
 . プロキシホストで、次のコマンドを使用してプロキシをインストールします。
 
-* [package]``+podman+``
-* [package]``+mgrpxy-bash-completion+``
-* [package]``+suse-multi-linux-manager-5.1-x86_64-proxy-httpd-image+``
-* [package]``+suse-multi-linux-manager-5.1-x86_64-proxy-salt-broker-image+``
-* [package]``+suse-multi-linux-manager-5.1-x86_64-proxy-squid-image+``
-* [package]``+suse-multi-linux-manager-5.1-x86_64-proxy-ssh-image+``
-* [package]``+suse-multi-linux-manager-5.1-x86_64-proxy-tftpd-image+``
+* `+podman+`
+* `+mgrpxy-bash-completion+`
+* `+suse-multi-linux-manager-5.1-x86_64-proxy-httpd-image+`
+* `+suse-multi-linux-manager-5.1-x86_64-proxy-salt-broker-image+`
+* `+suse-multi-linux-manager-5.1-x86_64-proxy-squid-image+`
+* `+suse-multi-linux-manager-5.1-x86_64-proxy-ssh-image+`
+* `+suse-multi-linux-manager-5.1-x86_64-proxy-tftpd-image+`
 
 +
 

@@ -12,15 +12,15 @@
 [role=procedure]
 ____
 
-. https://www.suse.com/download/sles/.で{sles} {bci-mlm} [literal]``+.iso+``を見つけてダウンロードします。
+. {sles} {bci-mlm} `+.iso+`をhttps://www.suse.com/download/sles/.で見つけてダウンロードします。
 
 . ホストオペレーティングシステム({sles} {bci-mlm})と拡張機能の両方の登録コードがあることを確認します。
 
 . {sles} {bci-mlm}のインストールを開始します。
 
-  .. [literal]``+言語、キーボードおよび製品の選択+``で、インストールする製品を選択します。
+  .. `+Language, keyboard and product selection+`で、インストールする製品を選択します。
 
-  .. [literal]``+ライセンス契約+``で契約を読み、[guimenu]+``+ライセンス条項に同意します+``にチェックを付けます。
+  .. `+License agreement+`で、契約書を読み、`+I Agree to the License Terms+`をオンにします。
 
 . 登録方法を選択します。この例では、SUSEカスタマーセンターにサーバーを登録します。
 
@@ -28,7 +28,7 @@ ____
 
 . {sles} {bci-mlm}の登録コードを入力します。
 
-. 継続するには[systemitem]``+次へ+``をクリックしてください。
+. `+Next+`をクリックして続行します。
 
 +
 
@@ -38,7 +38,7 @@ ____
 以下に{productname}拡張機能の登録コードを入力する必要があります。
 ====
 
-. [literal]``+拡張とモジュールの選択+``の画面で、以下にチェックを付けます。
+. 画面`+Extensions and Modules Selection+`で、以下を確認します。
 
 +
 
@@ -46,7 +46,7 @@ ____
   * ベースシステムモジュール
   * Containersモジュール
 
-. 継続するには[systemitem]``+次へ+``をクリックしてください。
+. `+Next+`をクリックして続行します。
 
 . {productname} {productnumber}拡張機能の登録コードを入力します。
 
@@ -133,9 +133,9 @@ ____
 
 
 
-=== [package]``+podman+``をインストールおよび有効にします。
+=== `+podman+`をインストールおよび有効にします。
 
-.プロシージャ:[package]``+podman+``のインストール
+.プロシージャ:`+podman+`のインストール
 [role=procedure]
 ____
 
@@ -167,8 +167,8 @@ zypper in -t product Multi-Linux-Manager-Proxy-SLE
 
 [IMPORTANT]
 ====
-パッケージ[package]``+podman+``がインストールされていることを確認してください。
-さらに、サーバーでは[package]``+mgradm+``+および[package]+``+mgradm-bash-completion+``+、またはプロキシでは[package]+``+mgrpxy+``+および[package]+``+mgrpxy-bash-completion+``もインストールする必要があります。
+パッケージ`+podman+`がインストールされていることを確認してください。
+さらに、サーバー`+mgradm+`および`+mgradm-bash-completion+`、またはプロキシ上で、`+mgrpxy+`および`+mgrpxy-bash-completion+`もインストールする必要があります。
 ====
 
 +
