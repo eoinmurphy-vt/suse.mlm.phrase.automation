@@ -22,7 +22,7 @@ endif::[]
 
 === 一般要求
 
-* 要将 {productname} 4.3 服务器迁移到容器，您需要一台安装了 {sl-micro} {microversion} 或 {sles} {bci-mlm} 和 [literal]``+mgradm+`` 的新机器。
+* 要将 {productname} 4.3 服务器迁移到容器，您需要一台安装了 {sl-micro} {microversion} 或 {sles} {bci-mlm} 和 `+mgradm+` 的新机器。
 
 * 不支持从 {productname} 4.3 进行就地迁移到 {productnumber}，无论所选的主机操作系统是 {sl-micro} {microversion} 还是 {sles} {bci-mlm}。
 
@@ -35,7 +35,7 @@ endif::[]
 ====
 本指南仅涵盖从 {productname} 4.3 迁移到 {productnumber}。
 
-在切换主机操作系统从 {sl-micro} {microversion} 到 {sles} {bci-mlm} 或反之时，迁移现有的 {productname} {productnumber} 实例到相同版本不受 [command]``+mgradm migrate+`` 命令处理。
+在切换主机操作系统从 {sl-micro} {microversion} 到 {sles} {bci-mlm} 或反之时，迁移现有的 {productname} {productnumber} 实例到相同版本不受 `+mgradm migrate+` 命令处理。
 ====
 
 
@@ -57,7 +57,7 @@ endif::[]
 
 * 自信任 GPG 密钥不会被迁移。
 * 仅在 RPM 数据库中受信任的 GPG 密钥不会被迁移。
-  因此，与 [command]``+spacewalk-repo-sync+`` 同步通道可能会失败。
+  因此，使用 `+spacewalk-repo-sync+` 同步通道可能会失败。
 * 在完成服务器的实际迁移后，管理员必须手动将这些密钥从所安装的 4.3 系统迁移到容器主机。
 +
 .过程：升级将 4.3 GPG 密钥手动迁移到新服务器
@@ -65,7 +65,7 @@ endif::[]
 ____
 . 将 4.3 服务器中的密钥复制到新服务器的容器主机。
 
-. 稍后，使用命令 [command]``+mgradm gpg add <PATH_TO_KEY_FILE>+`` 将每个密钥添加到迁移的服务器。
+. 稍后，使用命令 `+mgradm gpg add <PATH_TO_KEY_FILE>+` 将每个密钥添加到迁移的服务器。
 ____
 
 
@@ -105,7 +105,7 @@ endif::[]
 请勿在准备好的 {sl-micro} {microversion} 或 {sles} {bci-mlm} 系统上预安装 {productname}。
 
 迁移过程旨在自动执行服务器安装。
-运行 [command]``+mgradm install+``+，然后运行 [命令]+``+mgradm migrate+`` 是不被支持的，这将导致系统处于不受支持的状态。
+运行 `+mgradm install+` 然后运行 `+mgradm migrate+` 是不受支持的，并将导致系统处于不受支持的状态。
 
 在以下步骤中，我们只会准备主机系统，而不实际安装 {productname} {productnumber} 服务器。
 ====
@@ -123,7 +123,7 @@ endif::[]
 
 * xref:installation-and-upgrade:container-deployment/mlm/server-deployment-vmdk-mlm.adoc[].
 
-但请注意，最后一步需要执行命令 [command]``+mgradm migrate <FQDN>+``，而非命令 [command]``+mgradm install <FQDN>+``。
+但是，最后一步是执行命令 `+mgradm migrate <FQDN>+` 而不是 `+mgradm install <FQDN>+`。
 
 
 
@@ -155,7 +155,7 @@ endif::[]
 .过程：升级准备 SSH 连接
 [role=procedure]
 ____
-. 确保在新的 {productnumber} 服务器上为 [systemitem]``+root+`` 存在 SSH 密钥。
+. 确保在新 `+root+` 服务器上为 {productnumber} 配置了 SSH 密钥。
   如果密钥不存在，请使用以下命令创建：
 
 +
@@ -177,29 +177,29 @@ eval $(ssh-agent); ssh-add
 [NOTE]
 ====
 为了建立一个不提示输入密码的连接，迁移脚本依赖于在新服务器上运行的 SSH 代理。
-如果代理尚未激活，请通过运行 [command]``+eval $(ssh-agent)+`` 来启动它。
-然后使用 [command]``+ssh-add+`` 将 SSH 密钥添加到正在运行的代理中，后面跟上私钥的路径。
+如果代理尚未激活，请通过运行 `+eval $(ssh-agent)+` 来启动它。
+然后使用 `+ssh-add+` 将 SSH 密钥添加到正在运行的代理中，后面跟上私钥的路径。
 在此过程中，系统会提示您输入私钥的密码。
 ====
 
-. 使用 [command]+``+ssh-copy-id+`` 将公钥复制到 {productname} 4.3 服务器 ([literal]``+<oldserver.fqdn>+``+)。
-  将 [literal]``+<oldserver.fqdn>+`` 替换为 4.3 服务器的 FQDN：
+. 使用 将公钥复制到 {productname} 4.3 服务器 (`+<oldserver.fqdn>+`)`+ssh-copy-id+`。
+  将 `+<oldserver.fqdn>+` 替换为 4.3 服务器的 FQDN：
 +
 ----
 ssh-copy-id <old server.fqdn>
 ----
 +
-SSH 密钥将被复制到旧服务器的 [path]``+~/.ssh/authorized_keys+`` 文件中。
-有关更多信息，请参见 [literal]``+ssh-copy-id+`` 手册。
+SSH 密钥将被复制到旧服务器的 `+~/.ssh/authorized_keys+` 文件中。
+有关更多信息，请参见 `+ssh-copy-id+` 手册页。
 +
 // . This step is optional:
 //   The migration script only uses the 4.3 server's FQDN in the SSH command.
-//   This means that every other configuration required to connect, needs to be defined in the [path]``+~/.ssh/config+`` file.
+//   This means that every other configuration required to connect, needs to be defined in the `+~/.ssh/config+` file.
 . 从新服务器建立与旧 {productname} 服务器的 SSH 连接，以检查是否需要密码。
   此外，主机指纹也不能有任何问题。
-  如遇问题，请从 [path]``+~/.ssh/known_hosts+`` 文件中删除旧指纹。
+  如果出现问题，请从 `+~/.ssh/known_hosts+` 文件中删除旧指纹。
   然后再试一次。
-  指纹将存储在本地 [path]``+~/.ssh/known_hosts+`` 文件中。
+  指纹将存储在本地 `+~/.ssh/known_hosts+` 文件中。
 
 ____
 
@@ -222,7 +222,7 @@ endif::[]
 
 [IMPORTANT]
 ====
-在从 SUSE Manager 4.3 迁移时，系统会提示您输入 [guimenu]``+生成 CA 密钥的密码+``。
+从 SUSE Manager 4.3 迁移时，系统会提示您输入 `+Password for the CA key to generate+`。
 输入在您的 SUSE Manager 4.3 安装中使用的相同 CA 密码是至关重要的。
 
 输入错误口令会导致数据库证书生成失败，进而使迁移中止并显示以下错误：
@@ -239,11 +239,11 @@ Error: cannot configure db container: Cannot generate database certificate: CA v
 [role=procedure]
 ____
 . 该步骤可选。
-  如果您的基础架构需要自定义的永久性存储，请使用 [command]``+mgr-storage-server+`` 工具。
-  有关 [command]``+mgr-storage-server+`` 的更多信息，请参见 xref:installation-and-upgrade:hardware-requirements.adoc#install-hardware-requirements-storage[]。
+  如果您的基础设施需要自定义永久性存储，请使用 `+mgr-storage-server+` 工具。
+  有关 `+mgr-storage-server+` 的详细信息，请参见 xref:installation-and-upgrade:hardware-requirements.adoc#install-hardware-requirements-storage[]。
 
 . 执行以下命令以迁移并设置新的 {productname} {productnumber} 服务器。
-  将 [literal]``+<oldserver.fqdn>+`` 替换为 4.3 服务器的 FQDN：
+  将 `+<oldserver.fqdn>+` 替换为 4.3 服务器的 FQDN：
 
 +
 
@@ -262,7 +262,7 @@ ____
 
 只有在最终迁移期间才需要停止旧服务器上的进程。
 
-对于所有非最终复制，请添加参数 [command]``+--prepare+``，以防止自动停止旧 4.3 服务器上的服务。
+对于所有非最终复制，请添加参数 `+--prepare+`，以防止自动停止旧 4.3 服务器上的服务。
 ====
 + 
 
@@ -270,22 +270,22 @@ ____
 
 [IMPORTANT]
 ====
-重新运行失败的迁移会创建多个大型备份目录，这些目录会不断累积并占用大量空间，因为每次迁移失败都会在 [path]``+/var/lib/containers/storage/volumes+`` 中创建新的备份目录。
+重新运行失败的迁移会创建多个大型备份目录，这些目录会不断累积并占用大量空间，因为每次迁移失败都会在 `+/var/lib/containers/storage/volumes+` 中创建新的备份目录。
 
 这些备份不会被迁移工具自动删除。
 如果迁移失败，您必须手动检查并清理旧的备份目录，以确保为下一次尝试提供足够的空间。
 
 若未妥善管理此空间，可能导致下次迁移尝试失败。
 
-迁移完成且所有功能验证通过后，可以去除 [path]``+var-pgsql-backup+`` 卷。
+迁移完成且所有功能验证通过后，可以去除 `+var-pgsql-backup+` 卷。
 ====
 
 +
 
 [WARNING]
 ====
-* 仅当最终迁移尚未启动时，[command]``+--prepare+`` 步骤才可多次运行。
-* 一旦最终迁移启动并进入数据库升级阶段，切勿再次运行 [command]``+--prepare+`` 命令，否则可能导致数据损坏。
+* 仅当最终迁移尚未启动时，`+--prepare+` 步骤才可多次运行。
+* 一旦最终迁移启动并进入数据库升级阶段，切勿再次运行 `+--prepare+` 命令，否则可能导致数据损坏。
 ====
 
 +
@@ -330,14 +330,14 @@ ____
 
 ==== 证书的迁移
 
-作为 RPM 安装的一部分并存储在 {productname} 4.3 的 [path]``+/usr/share/pki/trust/anchors/+`` 目录中的受信任 SSL CA 证书将不会被迁移。
+作为 RPM 安装的一部分并存储在 {productname} 4.3 的 `+/usr/share/pki/trust/anchors/+` 目录中的受信任 SSL CA 证书将不会被迁移。
 因为 {suse} 不会在容器中安装 RPM 包，管理员必须在迁移后手动从 SUSE Manager 4.3 服务器迁移这些证书文件。
 
 .过程：升级迁移证书
 [role=procedure]
 ____
 . 将文件从 SUSE Manager 4.3 服务器复制到新的 {productname} {productnumber} 服务器。
-   例如，[path]``+/local/ca.file+``。
+   例如，作为 `+/local/ca.file+`。
 
 . 使用以下命令将文件复制到容器中：
 
@@ -351,7 +351,7 @@ ____
 
 [IMPORTANT]
 ====
-成功运行 [command]``+mgradm migrate+`` 命令后，所有客户端上的 {salt} 设置仍会指向旧的 4.3 服务器。
+成功运行 `+mgradm migrate+` 命令后，所有客户端上的 {salt} 设置仍会指向旧的 4.3 服务器。
 
 要将其重定向到 {productnumber} 服务器，需要在基础架构级别（DHCP 和 DNS）重命名新服务器，以使用与 4.3 服务器相同的 FQDN 和 IP 地址。
 
@@ -367,18 +367,18 @@ ____
 
 == 客户端工具品牌更新
 
-{productname} {productnumber} 推出了全新品牌的客户端工具，适用于所有受支持的操作系统。
-此过渡是无缝的，执行新产品同步的用户只会注意到更新的通道名称。
+{productname} {productnumber} 引入了一套重新品牌的客户端工具，适用于所有受支持的操作系统。
+此过渡过程无缝，进行新产品同步的用户只会注意到更新的通道名称。
 
-此前注册到 4.3 或 5.0 的客户端所使用的 [literal]``+SUSE Manager Client Tools for XYZ+``{productname} 通道在 5.1 中已不再提供，且不会在 5.1 中继续接收更新。
+名为 `+SUSE Manager Client Tools for XYZ+` 的通道，之前注册到 {productname} 4.3 或 5.0 的客户端，在 5.1 版本中已不再可用，并且将不再接收更新。
 
 尽管迁移后旧版通道仍会分配给现有客户端，但对应的储存库已被去除。
 
 为确保客户端能持续接收更新，用户必须执行以下操作：
 
-* 为相关产品镜像新的 [literal]``+SUSE Multi-Linux Manager Client Tools for XYZ+`` 通道，并将其分配给相应的客户端。
+* 镜像相关产品的新 `+SUSE Multi-Linux Manager Client Tools for XYZ+` 通道，并将其分配给相应的客户端。
 
-* 取消分配过时的 [literal]``+SUSE Manager Client Tools for XYZ+`` 通道。
+* 取消分配过时的 `+SUSE Manager Client Tools for XYZ+` 通道。
 
 这也意味着，任何基于旧客户端工具的 CLM 项目都必须相应调整。
 
