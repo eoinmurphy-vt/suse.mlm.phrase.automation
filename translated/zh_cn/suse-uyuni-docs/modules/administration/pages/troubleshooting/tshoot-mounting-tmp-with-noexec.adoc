@@ -8,10 +8,10 @@
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
 
-Salt在客户端的文件系统[path]``+/tmp+``上运行远程命令。
-因此，您不能以[option]+``+noexec+``选项挂载[path]``+/tmp+``+。
-解决此问题的另一种方法是通过为Salt服务指定的[literal]``+TMPDIR+``+环境变量覆盖临时目录路径，使其指向未设置[option]+``+noexec+``选项的目录。
-建议使用systemd的drop-in配置文件[path]``+/etc/systemd/system/venv-salt-minion.service.d/10-TMPDIR.conf+``+，如果使用Salt Bundle，或者[path]+``+/etc/systemd/system/salt-minion.service.d/10-TMPDIR.conf+``+，如果在客户端使用[package]+``+salt-minion+``。
+Salt 在客户端文件系统上的 `+/tmp+` 中运行远程命令。
+因此，您不得使用`+/tmp+`选项挂载`+noexec+`。
+解决此问题的另一种方法是通过为 Salt 服务指定的 `+TMPDIR+` 环境变量覆盖临时目录路径，使其指向未设置 `+noexec+` 选项的目录。
+如果使用 Salt Bundle，建议使用 systemd drop-in 配置文件 `+/etc/systemd/system/venv-salt-minion.service.d/10-TMPDIR.conf+`；如果客户端上使用 `+/etc/systemd/system/salt-minion.service.d/10-TMPDIR.conf+`，则建议使用 `+salt-minion+` 配置文件。
 drop-in配置文件内容的示例：
 ----
 [Service]
