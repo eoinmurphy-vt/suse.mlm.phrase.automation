@@ -17,13 +17,13 @@
 +
 . 登录至 {productname} Server。
 +
-. 转到 [guimenu]``+管理 > 设置向导 > 组织身份凭证+``。
+. 其网址为 `+Admin > Setup Wizard > Organization Credentials+`。
 +
 . 确保您已拥有 {productname} 的 SUSE 身份凭证。
 +
 . 选择用于添加新身份凭证的选项，然后键入 Microfocus 身份凭证。
 +
-. 转到 [guimenu]``+管理 > 设置向导 > 组织身份凭证+``，然后等待刷新操作完成。
+. 前往 `+Admin > Setup Wizard > Organization Credentials+` 并等待刷新操作完成。
 +
 . 在刷新后的产品列表中应该可以看到 OES。
   您现在可以像启用其他产品一样启用它。

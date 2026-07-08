@@ -34,8 +34,8 @@
 有关创建发行套件的信息，请参见 xref:client-configuration:autoinst-distributions.adoc[可自动安装的发行套件]。
 有关创建控制文件的信息，请参见 xref:client-configuration:autoinst-profiles.adoc[自动安装控制文件]。
 
-{cobbler} [command]``+buildiso+`` 命令接受用于定义引导 ISO 的名称和输出位置的参数。
-运行 [command]+``+buildiso+`` 命令时，必须使用 [option]``+--distro+``+ 指定发行套件。[option]``+--iso+`` 是输出位置：
+{cobbler} `+buildiso+` 命令接受用于定义引导 ISO 映像的名称和输出位置的参数。
+运行 `+buildiso+` 命令时，必须使用 `+--distro+` 指定发行版。`+--iso+` 是输出位置：
 
 ----
 mgrctl exec -- cobbler buildiso --iso=/path/to/boot.iso --distro=<your-distro-label>
@@ -50,7 +50,7 @@ mgrctl exec -- cobbler profile list
 ----
 
 引导 ISO 默认包含所有控制文件和系统。
-您可以使用 [option]``+--控制文件+``+ 和 [option]+``+--系统+`` 选项限制使用的控制文件和系统：
+您可以使用 `+--profiles+` 和 `+--systems+` 选项限制使用的控制文件和系统：
 
 ----
 mgrctl exec -- cobbler buildiso --systems="system1 system2 system3" \
@@ -59,7 +59,7 @@ mgrctl exec -- cobbler buildiso --systems="system1 system2 system3" \
 ----
 
 
-使用 [option]``+--esp+``，您可以启用带有安全启动的构建引导 ISO。
+使用 `+--esp+`，您可以启用带有安全启动的引导 ISO 映像。
 您明确指定 EFI 系统分区 (ESP)。
 默认情况下，{cobbler} 会生成 ESP 分区，这会禁用安全启动。
 
@@ -71,17 +71,17 @@ mgrctl exec -- cobbler buildiso \
 
 
 
-.过程：升级查找 [literal]``+efi+``
+.过程：升级查找 `+efi+`
 
-. 在容器主机上执行以下命令以获取 [option]``+distro+`` 名称：
+. 在容器主机上执行以下命令以获取 `+distro+` 名称：
 +
 ----
 mgrctl exec -- cobbler distro list
 ----
 +
-此命令会输出类似 [literal]``+sles15-sp6:1:SUSE+`` 的字符串。
+此命令输出诸如 `+sles15-sp6:1:SUSE+` 之类的字符串。
 
-. 在容器主机上执行以下命令，以获取 [option]``+distro+`` 文件位置的相关信息：
+. 在容器主机上执行以下命令，以获取 `+distro+` 文件位置的相关信息：
 +
 ----
 mgrctl exec -- cobbler distro report --name sles15-sp6:1:SUSE
@@ -99,13 +99,13 @@ Kernel                : /usr/share/tftpboot-installation/SLE-15-SP6-x86_64/boot/
 ----
 
 . 查看引导目录的内容。
-  在上例中，引导分区为 [path]``+/usr/share/tftpboot-installation/SLE-15-SP6-x86_64/boot/x86_64/efi+`` 文件，但这可能会因 ISO 发行商而异。
+  在上面的示例中，引导分区是 `+/usr/share/tftpboot-installation/SLE-15-SP6-x86_64/boot/x86_64/efi+` 文件，但这可能会根据 ISO 发行商而有所不同。
 
 
 
 [NOTE]
 ====
-如果您无法将 ISO 映像写入公共 [path]``+tmp+``+ 目录，请检查 [path]+``+/usr/lib/systemd/system/cobblerd.service+`` 中的 systemd 设置。
+如果您无法将 ISO 映像写入公共 `+tmp+` 目录，请检查 `+/usr/lib/systemd/system/cobblerd.service+` 中的 systemd 设置。
 ====
 
 
@@ -117,7 +117,7 @@ KIWI 是一个映像创建系统。
 您可以使用 KIWI 创建可由目标系统用于安装 {suse} 系统的可启动 ISO 映像。
 当系统重启或开机时，它会从映像启动，从您的 {ay} 加载 {productname} 配置，并根据 {ay} 控制文件安装 {sles}。
 
-要使用 ISO 映像，请启动系统并在提示符下输入 `+autoyast+`（假设您将 {ay} 启动的标签保留为 ``+autoyast+``）。
+要使用 ISO 映像，请启动系统并在提示符下输入 `+autoyast+`（假设您将 {ay} 启动的标签保留为 `+autoyast+`）。
 按 kbd:[Enter] 开始 {ay} 安装。
 
 ////
@@ -139,14 +139,14 @@ we would love a bit more details - ebischoff
 [[build-iso-with-mkisofs]]
 == Build a RedHat ISO Image With mkisofs
 
-You can use [command]``+mkisofs+`` to create a bootable ISO image to be used by the target system for installation of a {redhat} system.
+You can use `+mkisofs+` to create a bootable ISO image to be used by the target system for installation of a {redhat} system.
 When the system is rebooted or switched on, it boots from the image, loads the {kickstart} configuration from your {productname}, and installs {rhel} according to the {kickstart} profile.
 
 
 
 .Procedure: Building a Bootable ISO With mkisofs
-. Copy the contents of [path]``+/isolinux+`` from the first CD-ROM of the target distribution.
-. Edit the [path]``+isolinux.cfg+`` file to default to 'ks'.
+. Copy the contents of `+/isolinux+` from the first CD-ROM of the target distribution.
+. Edit the `+isolinux.cfg+` file to default to 'ks'.
   Change the 'ks' section to read:
 +
 ----
@@ -163,7 +163,7 @@ http://`my.manager.server`/kickstart/ks/mode/ip_range
 ----
 +
 The {kickstart} distribution defined via the IP range should match the distribution from which you are building, to prevent errors occurring.
-. OPTIONAL: If you want to use the [replaceable]``+ksdevice+``, it looks like this:
+. OPTIONAL: If you want to use the `+ksdevice+`, it looks like this:
 +
 ----
 ksdevice=eth0
@@ -171,7 +171,7 @@ ksdevice=eth0
 +
 It is possible to change the distribution for a Kickstart profile within a family, such as {rhel} AS 4 to {rhel} ES 4, by specifying the new distribution label.
 Note that you cannot move between versions (4 to 5) or between updates (U1 to U2).
-. Customize [path]``+isolinux.cfg+`` further as required.
+. Customize `+isolinux.cfg+` further as required.
   For example, you can add multiple options, different boot messages, or shorter timeout periods.
 . Create the ISO with this command:
 +
@@ -180,9 +180,9 @@ mkisofs -o file.iso -b isolinux.bin -c boot.cat -no-emul-boot \
   -boot-load-size 4 -boot-info-table -R -J -v -T isolinux/
 ----
 +
-Note that [path]``+isolinux/+``+ is the relative path to the directory containing the modified isolinux files copied from the distribution CD, while [path]+``+file.iso+`` is the output ISO file, which is placed into the current directory.
+Note that `+isolinux/+` is the relative path to the directory containing the modified isolinux files copied from the distribution CD, while `+file.iso+` is the output ISO file, which is placed into the current directory.
 . Burn the ISO to CD-ROM and insert the disk.
   Alternatively prepare an USB key and insert it.
-. Boot the system and type [command]``+ks+`` at the prompt (if you left the label for the Kickstart boot as 'ks').
+. Boot the system and type `+ks+` at the prompt (if you left the label for the Kickstart boot as 'ks').
 . Press kbd:[Enter] to start {kickstart}.
 ////
