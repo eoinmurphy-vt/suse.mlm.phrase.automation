@@ -47,13 +47,13 @@ ifeval::[{mlm-content} == true]
 | {ibmz}
 | {aarch64}
 
-| {sle} 16、15、12
+| {sle} 12、15、16
 | {check}
 | {check}
 | {check}
 | {check}
 
-| {sles} for SAP 16、15、12
+| {sles} for SAP 12、15、16
 | {check}
 | {check}
 | {cross}
@@ -65,7 +65,7 @@ ifeval::[{mlm-content} == true]
 | {cross}
 | {check}
 
-| {sl-micro} 6.2、6.1、6.0
+| {sl-micro} 6.0、6.1、6.2
 | {check}
 | {check}
 | {check}
@@ -77,31 +77,31 @@ ifeval::[{mlm-content} == true]
 | {cross}
 | {check}
 
-| {opensuse} Leap 15
+| {opensuse} Leap 15.6
 | {check}
 | {check}
 | {check}
 | {check}
 
-| {sll} 10、9、8、7
+| {sll} 7、8、9、9.6 EMS、10
 | {check}
 | {cross}
 | {cross}
 | {cross}
 
-| {sles} ES 8、7
+| {sles} ES 7、8
 | {check}
 | {cross}
 | {cross}
 | {cross}
 
-| {almalinux} 10、9、8
+| {almalinux} 8、9、10
 | {check}
 | {cross}
 | {cross}
 | {check}
 
-| {amazon} 2023, 2
+| {amazon} 2, 2023
 | {check}
 | {cross}
 | {cross}
@@ -119,31 +119,31 @@ ifeval::[{mlm-content} == true]
 | {cross}
 | {cross}
 
-| {oes} 25.4、24.4、23.4
+| {oes} 23.4、24.4、25.4
 | {check}
 | {cross}
 | {cross}
 | {cross}
 
-| {oracle} 10、9、8、7
+| {oracle} 8、9、10
 | {check}
 | {cross}
 | {cross}
 | {check}
 
-| {rhel} 10、9、8、7
+| {rhel} 7、8、9、10
 | {check}
 | {cross}
 | {cross}
 | {cross}
 
-| {rocky} 10、9、8
+| {rocky} 8、9、10
 | {check}
 | {cross}
 | {cross}
 | {check}
 
-| {ubuntu} 24.04, 22.04 (*)
+| {ubuntu} 22.04, 24.04 (*)
 | {check}
 | {cross}
 | {cross}
@@ -167,14 +167,14 @@ ifeval::[{uyuni-content} == true]
 | {aarch64}
 | {arm64} / {armhf}
 
-| {sle} 16、15、12
+| {sle} 12、15、16
 | {check}
 | {check}
 | {check}
 | {check}
 | {cross}
 
-| {sles} for SAP 16、15、12
+| {sles} for SAP 12、15、16
 | {check}
 | {check}
 | {cross}
@@ -216,7 +216,7 @@ ifeval::[{uyuni-content} == true]
 | {check}
 | {cross}
 
-| {leap} 15
+| {leap} 15.6
 | {check}
 | {check}
 | {check}
@@ -230,14 +230,14 @@ ifeval::[{uyuni-content} == true]
 | {check}
 | {cross}
 
-| {almalinux} 10、9、8
+| {almalinux} 8、9、10
 | {check}
 | {cross}
 | {cross}
 | {check}
 | {cross}
 
-| {amazon} 2003, 2
+| {amazon} 2, 2023
 | {check}
 | {cross}
 | {cross}
@@ -265,14 +265,14 @@ ifeval::[{uyuni-content} == true]
 | {cross}
 | {cross}
 
-| {oes} 24.4、23.4
+| {oes} 23.4、24.4、25.4
 | {check}
 | {cross}
 | {cross}
 | {cross}
 | {cross}
 
-| {oracle} 10、9、8、7
+| {oracle} 8、9、10
 | {check}
 | {cross}
 | {cross}
@@ -286,21 +286,21 @@ ifeval::[{uyuni-content} == true]
 | {cross}
 | {check}
 
-| {rhel} 10、9、8、7
+| {rhel} 7、8、9、10
 | {check}
 | {cross}
 | {cross}
 | {cross}
 | {cross}
 
-| {rocky} 10、9、8
+| {rocky} 8、9、10
 | {check}
 | {cross}
 | {cross}
 | {check}
 | {cross}
 
-| {ubuntu} 24.04, 22.04
+| {ubuntu} 22.04, 24.04
 | {check}
 | {cross}
 | {cross}
@@ -337,10 +337,10 @@ endif::[]
 
 == 追加のツールパッケージ
 
-``+spacewalk-utils+``+ および +``+spacewalk-utils-extras+`` パッケージは、追加のサービスおよび機能を提供できます。ユーザーは、廃止されたツールの使用を停止し、ドキュメントで推奨されている代替品に切り替えることをお勧めします。
+`+spacewalk-utils+` パッケージおよび `+spacewalk-utils-extras+` パッケージは、追加のサービスや機能を提供できます。ユーザーは、廃止されたツールの使用を停止し、ドキュメントで推奨されている代替品に切り替えることをお勧めします。
 
 ifeval::[{mlm-content} == true]
-``+spacewalk-utils+`` パッケージは {productname} で完全にサポートされており{suse}、次のツールが含まれています：
+`+spacewalk-utils+` パッケージは {productname} で {suse} によって完全にサポートされており、次のツールが含まれています：
 endif::[]
 
 [[spacewalk-utils]]
@@ -352,28 +352,28 @@ endif::[]
 | 説明
 | 非推奨ですか？
 
-| ``+spacewalk-common-channels+``
+| `+spacewalk-common-channels+`
 | {scclongform}が提供していないチャネルを追加します。
 |
 
-| ``+spacewalk-hostname-rename+``
+| `+spacewalk-hostname-rename+`
 | {productname}サーバのホスト名を変更します。
 |
 
-| ``+spacewalk-clone-by-date+``
+| `+spacewalk-clone-by-date+`
 | 特定の日付でチャネルをクローンします。これは廃止されたツールであり、ユーザーはCLM APIに切り替えるべきです。
 | {check}
 
-| ``+spacewalk-sync-setup+``
+| `+spacewalk-sync-setup+`
 | ISSのマスターおよびスレーブ組織のマッピングを設定します。
 | {check}
 
-| ``+spacewalk-manage-channel-lifecycle+``
+| `+spacewalk-manage-channel-lifecycle+`
 | チャネルのライフサイクルを管理します。これは廃止されたツールであり、ユーザーはCLM APIに切り替えるべきです。
 | {check}
 
 |===
 
 ifeval::[{mlm-content} == true]
-{productname}の``+spacewalk-utils-extras+``パッケージは{suse}によって限定的にサポートされています。
+`+spacewalk-utils-extras+` パッケージは {productname} で {suse} による限定的なサポートが提供されています。
 endif::[]
