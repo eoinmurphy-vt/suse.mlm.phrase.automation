@@ -16,7 +16,7 @@
 
 [IMPORTANT]
 ====
-目前仅支持将 {sle-micro} 作为常规 minion（使用 [systemitem]``+default+`` 作为联系方式）。我们也在努力将其管理为 Salt SSH 客户端 ([systemitem]+``+salt-ssh+`` 联系方法)。
+目前仅支持将 {sle-micro} 作为常规 minion（`+default+` 联系方式）使用。我们也在努力将其作为 Salt SSH 客户端（`+salt-ssh+` 联系方式）进行管理。
 ====
 
 此表中图标的含意如下：
