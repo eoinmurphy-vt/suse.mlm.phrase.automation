@@ -28,7 +28,7 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 
 
-보안 메일 통신을 위해 인증을 활성화하고, 사용자 이름과 비밀번호를 정의한 후, [literal]``+SSL+``+ 또는 [literal]+``+STARTLS+``+를 [path]+``+/etc/rhn/rhn.conf+``에서 활성화할 수 있습니다.
+보안 메일 통신을 위해 인증을 활성화하고, 사용자 이름과 비밀번호를 정의하며, `+/etc/rhn/rhn.conf+`에서 `+SSL+` 또는 `+STARTLS+`를 활성화할 수 있습니다.
 
 ----
 java.smtp_server = string (default: localhost)
@@ -40,7 +40,7 @@ java.smtp_user = string (default: null)
 java.smtp_pass = string (default: null)
 ----
 
-SMTP 서버 통신의 연결 시간 제한을 늘리려면 [path]``+/etc/rhn/rhn.conf+``에서 다음 파라미터를 설정할 수 있습니다:
+SMTP 서버 통신의 연결 시간 제한을 늘리려면 `+/etc/rhn/rhn.conf+`에서 다음 파라미터를 설정할 수 있습니다.
 
 ----
 java.smtp_timeout = integer (default: 5000)
