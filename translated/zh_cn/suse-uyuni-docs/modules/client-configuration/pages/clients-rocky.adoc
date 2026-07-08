@@ -33,7 +33,7 @@ endif::[]
 
 [NOTE]
 ====
-将 {rocky} 客户端注册到 {productname} 的测试是在 ``+enforcing+``+ 的默认 SELinux 配置下进行的，使用 +``+targeted+`` 策略。
+将 {rocky} 客户端注册到 {productname} 的测试是在 `+enforcing+` 的默认 SELinux 配置和 `+targeted+` 策略下进行的。
 您无需禁用 SELinux 即可将 {rocky} 客户端注册到 {productname}。
 ====
 
@@ -44,7 +44,7 @@ endif::[]
 
 在将 {rocky} 客户端注册到您的 {productname} 服务器之前，您需要添加所需的软件通道，并同步这些通道。
 
-当前支持的架构包括：`+x86_64+` 和 `+aarch64+`，在版本 9 中还包括 {ppc64le} 和 {s390x}。
+当前支持的架构有：`+x86_64+` 和 `+aarch64+`，在 9 版本中额外支持 {ppc64le} 和 {s390x}。
 有关支持的产品和架构的完整列表，请参见 xref:client-configuration:supported-features.adoc[]。
 
 ifndef::backend-pdf[]
@@ -57,7 +57,7 @@ endif::[]
 
 ifeval::[{mlm-content} == true]
 
-例如，使用 `+x86_64+` 架构时，您需要如下产品：
+例如，使用 `+x86_64+` 体系结构时，您需要如下产品：
 
 [[rocky-channels-wizard]]
 [cols="1,1", options="header"]
@@ -111,7 +111,7 @@ ifeval::[{uyuni-content} == true]
 .{rocky} 通道 - CLI
 |===
 
-| 操作系统版本  | 基础通道  | 客户端通道            | AppStream 通道
+| 操作系统版本  | 基础通道  | 客户端通道            | 应用流通道
 | {rocky} 10  | rockylinux10  | rockylinux10-uyuni-client | rockylinux10-appstream
 | {rocky} 9   | rockylinux9   | rockylinux9-uyuni-client  | rockylinux9-appstream
 | {rocky} 8   | rockylinux8   | rockylinux8-uyuni-client  | rockylinux8-appstream
@@ -127,7 +127,7 @@ endif::[]
 
 [NOTE]
 ====
-由 [command]``+spacewalk-common-channels+`` 提供的客户端工具通道来自 {uyuni} 而非 {suse}。
+`+spacewalk-common-channels+` 提供的客户端工具通道源自 {uyuni}，而非 {suse}。
 ====
 
 endif::[]
@@ -150,7 +150,7 @@ endif::[]
 ====
 
 如果您使用的是 {rocky} 8 的模块化通道，您必须在客户端上启用 Python 3.6 模块流。
-如果您不提供 Python 3.6，[package]``+spacecmd+`` 软件包的安装将失败。
+如果您不提供 Python 3.6，则 `+spacecmd+` 软件包的安装将失败。
 
 
 == 检查同步状态
