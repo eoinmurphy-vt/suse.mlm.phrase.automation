@@ -1,7 +1,7 @@
 == 准备 {sles} {bci-mlm} 主机
 
 
-或者，您可以 {productname}在 {sles} {bci-mlm}上部署。
+或者，您可以在 {sles} {bci-mlm} 上部署 {productname}。
 
 下面的过程介绍安装过程的主要步骤。
 
@@ -12,15 +12,15 @@
 [role=procedure]
 ____
 
-. 在 找到并下载 {sles} {bci-mlm} [literal]``+.iso 映像+`` https://www.suse.com/download/sles/.。
+. 在 处找到并下载 {sles} {bci-mlm} `+.iso+` https://www.suse.com/download/sles/.。
 
-. 确保您拥有宿主操作系统 ({sles} {bci-mlm}) 和扩展的注册代码。
+. 确保您拥有宿主操作系统 ({sles} {bci-mlm}) 和扩展的注册代码
 
 . 开始安装 {sles} {bci-mlm}。
 
-  .. 在 [literal]``+语言、键盘和产品选择+`` 中选择要安装的产品。
+  .. 在 `+Language, keyboard and product selection+` 上选择要安装的产品。
 
-  .. 在 [literal]``+许可协议+`` 中，阅读协议并选中 [guimenu]+``+我同意许可条款+``。
+  .. 在 `+License agreement+` 上阅读协议并勾选 `+I Agree to the License Terms+`。
 
 . 选择注册方法。在本示例中，我们将使用 SUSE Customer Center 注册服务器。
 
@@ -28,7 +28,7 @@ ____
 
 . 输入您的 {sles} {bci-mlm} 注册代码。
 
-. 单击 [systemitem]``+下一步+`` 继续。
+. 单击 `+Next+` 以继续。
 
 +
 
@@ -38,7 +38,7 @@ ____
 您需要在下面输入 {productname} 扩展的注册代码。
 ====
 
-. 在 [literal]``+扩展和模块选择+`` 页面上，检查以下内容：
+. 在屏幕 `+Extensions and Modules Selection+` 中检查以下内容：
 
 +
 
@@ -46,7 +46,7 @@ ____
   * \{sles} Basesystem 模块
   * 容器主机
 
-. 单击 [systemitem]``+下一步+`` 继续。
+. 单击 `+Next+` 以继续。
 
 . 输入您的 {productname} {productnumber} 扩展注册代码。
 
@@ -133,9 +133,9 @@ ____
 
 
 
-=== 安装并启用 [package]``+podman+``
+=== 安装并启用 `+podman+`
 
-.过程：升级正在安装 [package]``+podman+``
+.过程：升级安装 `+podman+`
 [role=procedure]
 ____
 
@@ -167,8 +167,8 @@ zypper in -t product Multi-Linux-Manager-Proxy-SLE
 
 [IMPORTANT]
 ====
-确保已安装软件包 [package]``+podman+``。
-此外，在服务器上 [package]``+mgradm+``+ 和 [package]+``+mgradm-bash-completion+``+ 或在代理上，[package]+``+mgrpxy+``+ 和 [package]+``+mgrpxy-bash-completion+`` 也需要安装。
+确保已安装软件包 `+podman+`。
+此外，在服务器 `+mgradm+` 和 `+mgradm-bash-completion+` 上，或者在代理上，也需要安装 `+mgrpxy+` 和 `+mgrpxy-bash-completion+`。
 ====
 
 +
