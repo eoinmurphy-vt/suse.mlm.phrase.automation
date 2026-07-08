@@ -12,9 +12,9 @@ ifeval::[{mlm-content} == true]
 endif::[]
 
 容器化代理现在由一组 systemd 服务进行管理。
-要管理容器化代理，请使用 [command]``+mgrpxy+`` 工具。
+要管理容器化代理，请使用 `+mgrpxy+` 工具。
 
-本节将帮助您使用 [command]+``+mgrpxy+`` 工具从旧版 [systemitem]``+systemd+``+ 代理迁移。
+本节将帮助您使用 `+mgrpxy+` 工具从旧版 `+systemd+` 代理进行迁移。
 
 [IMPORTANT]
 ====
@@ -100,7 +100,7 @@ proxy-ssh
 ----
 transactional-update --continue
 ----
-. 安装 [command]``+mgrpxy+``+，并根据需要安装 [command]+``+mgrpxy-bash-completion+``：
+. 安装 `+mgrpxy+`，并可选择安装 `+mgrpxy-bash-completion+`：
 +
 ----
 transactional-update pkg install mgrpxy mgrpxy-bash-completion 
@@ -108,28 +108,28 @@ transactional-update pkg install mgrpxy mgrpxy-bash-completion
 +
 . 重引导。
 
-. 将您的 [literal]``+tar.gz+`` 代理配置复制到主机。
+. 将您的 `+tar.gz+` 代理配置复制到主机。
 
 
 
 == 使用 {webui} 安装软件包
 
-在受控端已启动并注册到服务器后，还可以通过 Web UI 安装 [package]``+mgrpxy+``+ 和 [package]+``+mgrpxy-bash-completion+`` 软件包。
+在受控端已启动并注册到服务器后，还可以通过 Web UI 安装 `+mgrpxy+` 和 `+mgrpxy-bash-completion+` 软件包。
 
 .过程：升级使用 {webui} 安装软件包
 . 安装后，确保在 menu:管理[安装向导 -> 产品] 页面中添加并同步 {sle-micro} {microversion} 父通道和代理子通道。
 . 在 {webui} 中，转到 menu:系统[激活密钥] 并创建一个与同步的 {sle-micro} {microversion} 通道关联的激活密钥。
 . 使用 menu:系统[启动] 页面将系统作为受控端进行启动。
 . 在新机器已入网并显示在系统列表中后，选择系统并导航到 menu:系统详情[安装软件包] 页面。
-. 安装软件包 [package]``+mgrpxy+``+ 和 [package]+``+mgrpxy-bash-completion+``。
+. 安装 `+mgrpxy+` 和 `+mgrpxy-bash-completion+` 软件包。
 . 重引导系统。
 
 
-== 使用 [literal]``+spacecmd+`` 和自签名证书生成代理配置
+== 使用 `+spacecmd+` 和自签名证书生成代理配置
 
 可以使用 spacecmd 生成代理配置。
 
-.过程：升级使用 [literal]``+spacecmd+`` 和自签名证书生成代理配置
+.过程：升级使用 `+spacecmd+` 和自签名证书生成代理配置
 . 通过 SSH 连接到您的容器主机。
 . 执行以下命令（替换其中的服务器和代理 FQDN）：
 +
@@ -148,9 +148,9 @@ mgrpxy install podman config.tar.gz
 ----
 
 
-== 使用 [literal]``+spacecmd+`` 和自定义证书生成代理配置
+== 使用 `+spacecmd+` 和自定义证书生成代理配置
 
-可以使用 [literal]``+spacecmd+`` 为自定义证书（而不是默认的自签名证书）生成代理配置。
+可以使用 `+spacecmd+` 为自定义证书（而不是默认的自签名证书）生成代理配置。
 
 [NOTE]
 ====
@@ -158,7 +158,7 @@ mgrpxy install podman config.tar.gz
 这需要根据您的环境进行调整。
 ====
 
-.过程：升级使用 [literal]``+spacecmd+`` 和自定义证书生成代理配置
+.过程：升级使用 `+spacecmd+` 和自定义证书生成代理配置
 . 通过 SSH 连接到您的服务器容器主机。
 . 执行以下命令（替换其中的服务器和代理 FQDN）：
 +
