@@ -17,7 +17,7 @@ HTTP Strict Transport Security(https://developer.mozilla.org/en-US/docs/Web/HTTP
 .절차 서버에서 HSTS 비활성화
 [role=procedure]
 _____
-. 서버 컨테이너 호스트에서 루트 사용자로 다음 명령을 실행하여 설정 [literal]``+max-age=0+``이 포함된 새 구성 파일을 생성합니다.
+. 서버 컨테이너 호스트에서 루트 사용자로 다음 명령을 실행하여 `+max-age=0+` 설정이 포함된 새 구성 파일을 생성합니다.
 
 +
 
@@ -44,7 +44,7 @@ _____
 .절차 프록시에서 HSTS 비활성화
 [role=procedure]
 _____
-. 서버 컨테이너 호스트에서 루트 사용자로 다음 명령을 실행하여 설정 [literal]``+max-age=0+``이 포함된 새 구성 파일을 생성합니다.
+. 서버 컨테이너 호스트에서 루트 사용자로 다음 명령을 실행하여 `+max-age=0+` 설정이 포함된 새 구성 파일을 생성합니다.
 
 +
 
@@ -68,8 +68,8 @@ _____
 
 [WARNING]
 ====
-새 구성 파일 [literal]``+<filename>.conf+``의 이름을 지정할 때 적절한 시점에 로드되도록 해야 합니다.
-예를 들어, [literal]``+spacewalk-www.conf+``에 정의된 내용을 덮어쓰려면 새 파일이 이 파일보다 알파벳 순으로 뒤에 와야 합니다.
+새 구성 파일 `+<filename>.conf+`의 이름을 지정할 때 적절한 시점에 로드되도록 해야 합니다.
+예를 들어, `+spacewalk-www.conf+`에 정의된 내용을 덮어쓰려면 새 파일이 이 파일보다 알파벳 순으로 뒤에 와야 합니다.
 Apache가 파일을 로드하는 방법에 대한 자세한 정보는 https://httpd.apache.org/docs.를 참조하십시오.
 ====
 
