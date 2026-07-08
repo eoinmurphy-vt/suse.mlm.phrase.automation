@@ -101,6 +101,9 @@ endif::[]
 | {sll} 10
 | RHEL 또는 SLES ES 및 Liberty 10 x86_64
 
+| {sll} 9.6 EMS
+| SUSE Liberty Linux 9.6 EMS x86_64
+
 | {sll} 9
 | RHEL 또는 SLES ES 및 Liberty 9 x86_64
 
@@ -129,6 +132,7 @@ endif::[]
 
 | 운영 체제 버전 | 기본 채널                     | 도구 채널
 | {sll} 10    | RHEL 및 Liberty 10 베이스         | x86_64용 ManagerTools-EL10-Pool 및 x86_64용 ManagerTools-EL10-Updates
+| {sll} 9.6 EMS | RHEL 및 Liberty 9.6 EMS 베이스  | x86_64용 ManagerTools-EL9-Pool 및 x86_64용 ManagerTools-EL9-Updates
 | {sll} 9     | RHEL 및 Liberty 9 베이스          | x86_64용 ManagerTools-EL9-Pool 및 x86_64용 ManagerTools-EL9-Updates
 | {sll} 8     | RHEL 또는 SLES ES 또는 CentOS 8 베이스 | x86_64용 RES8-Manager-Tools-Pool 및 x86_64용 RES8-Manager-Tools-Updates
 | {sll} 7     | RHEL Expanded Support 7          | RES7-SUSE-Manager-Tools x86_64
@@ -167,6 +171,11 @@ ifeval::[{mlm-content} == true]
 | el10-pool-x86_64
 | -
 | managertools-el10-pool-x86_64
+
+| {sll} 9.6 EMS
+| el9-pool-x86_64
+| -
+| managertools-el9-pool-x86_64
 
 | {sll} 9
 | el9-pool-x86_64
@@ -267,7 +276,7 @@ endif::[]
 ====
 
 모듈형 채널을 사용하는 경우 클라이언트에서 Python 3.6 모듈 스트림을 활성화해야 합니다.
-Python 3.6을 제공하지 않으면 [package]``+spacecmd+`` 패키지 설치가 실패합니다.
+Python 3.6을 제공하지 않으면 `+spacecmd+` 패키지 설치가 실패합니다.
 
 
 .절차 사용자 정의 채널에 기본 미디어 추가(RHEL 7.0 예시)
@@ -278,7 +287,7 @@ ____
 {redhat}의 원본 설치 미디어를 사용해야 합니다.
 주 버전 릴리스를 사용해야 하며(예: `+7+`), 부 버전 릴리스(예: `+7.9+`)는 사용하지 않아야 합니다.
 ====
-. 기본 미디어 이미지를 {productname} 서버 컨테이너 호스트의 [path]``+/tmp/+`` 디렉토리에 복사합니다.
+. 기본 미디어 이미지를 {productname} 서버 컨테이너 호스트의 `+/tmp/+` 디렉토리에 복사합니다.
 
 . 기본 미디어 이미지를 {productname} 서버 컨테이너로 가져오려면 다음을 사용합니다:
 
@@ -288,7 +297,7 @@ mgradm distribution copy /tmp/rhel-server-7.0-x86_64-dvd.iso rhel-server-7.0
 ----
 
 +
-컨테이너의 대상은 [path]``+/srv/www/distributions/rhel-server-7.0+``입니다.
+컨테이너 내의 목적지는 `+/srv/www/distributions/rhel-server-7.0+`입니다.
 
 . 다음과 같이 패키지를 앞서 생성한 하위 채널로 임포트합니다.
 
@@ -332,9 +341,9 @@ mgrctl exec -- spacewalk-repo-sync -c <channel-label> -u file:///srv/www/distrib
 | 옵션                 | 파라미터
 | 리포지토리 URL         | {redhat} CDN이나 {centos}가 제공하는 콘텐츠 URL
 | 서명된 메타데이터가 있습니까?   | 모든 {redhat} 엔터프라이즈 리포지토리의 선택을 해제하십시오.
-| SSL CA 인증서     | [systemitem]``+redhat-uep+`` ({redhat} 전용)
-| SSL 클라이언트 인증서 | [systemitem]``+Entitlement-Cert-date+`` ({redhat} 전용)
-| SSL 클라이언트 키         | ``+Entitlement-Key-date+`` ({redhat} 전용)
+| SSL CA 인증서     | `+redhat-uep+` ({redhat}만)
+| SSL 클라이언트 인증서 | `+Entitlement-Cert-date+` ({redhat}만)
+| SSL 클라이언트 키         | `+Entitlement-Key-date+` ({redhat}만)
 
 |===
 
@@ -430,7 +439,7 @@ endif::[]
 REACTIVATION_KEY=<KEY> ./bootstrap_liberate9.sh
 ----
 
-또 다른 방법은 {salt} 클라이언트 구성 파일(위치는 [path]``+/etc/venv-salt-minon/minion.d/susemanager.conf+``+ 또는 [path]+``+/etc/salt-minon/minion.d/susemanager.conf+``)에 이미 존재하는 내용과 합쳐 아래의 특수 플래그들을 추가하는 것입니다:
+다른 방법은 `+/etc/venv-salt-minon/minion.d/susemanager.conf+`(또는 `+/etc/salt-minon/minion.d/susemanager.conf+`)에 위치한 {salt} 클라이언트 구성 파일에 몇 가지 특수 플래그를 추가하는 것입니다 (이 내용을 기존 내용과 결합하십시오):
 
 ----
 grains:
@@ -439,7 +448,7 @@ grains:
         management_key: "MINION_REACTIVATION_KEY"
 ----
 
-[path]``+susemanager.conf+``+ 파일을 변경한 후 {salt} 서버에서 [systemitem]+``+salt-minion+`` 서비스를 다시 시작해야 합니다.  기본적으로는:
+`+susemanager.conf+` 파일을 변경한 후, {salt} 서버에서 `+salt-minion+` 서비스를 다시 시작해야 합니다.  기본적으로는:
 
 ----
 systemctl restart venv-salt-minon
@@ -454,7 +463,7 @@ systemctl restart salt-minon
 
 
 
-=== [systemitem]``+liberate+`` 공식
+=== `+liberate+` 공식
 
-[systemitem]``+liberate+`` 공식을 사용하여 Enterprise Linux (EL) 클라이언트를 {sll}로 마이그레이션합니다.
+{sll} 공식을 사용하여 Enterprise Linux (EL) 클라이언트를 `+liberate+`로 마이그레이션합니다.
 자세한 내용은 xref:specialized-guides:salt/salt-formula-liberate.adoc[]을 참조하십시오.
