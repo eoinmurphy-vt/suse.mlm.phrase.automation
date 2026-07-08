@@ -18,7 +18,7 @@
 == 客户端上的系统锁
 
 
-当客户端被锁定或进入黑屏模式时，无法安排任何操作，执行命令被禁用，并且在[guimenu]``+系统详细信息+``页面上显示黄色横幅。
+当客户端被锁定或进入黑屏模式时，无法安排任何操作，执行命令被禁用，并且在 `+System Details+` 页面上显示黄色横幅。
 在此模式下，可以使用{webui}或API为锁定的客户端安排操作，但操作会失败。
 
 
@@ -30,9 +30,9 @@
 
 
 .过程：升级客户端系统锁定
-. 在{productname} {webui}中，导航到您想要锁定的客户端的[guimenu]``+系统详细信息+``页面。
-. 导航到[guimenu]``+公式+``选项卡，选中系统锁定公式，然后单击btn:[保存]。
-. 导航到menu:公式[系统锁定]选项卡，选中[guimenu]``+锁定系统+``，然后单击btn:[保存]。
+. 在 {productname} {webui} 中，导航到您想要锁定的客户端的 `+System Details+` 页面。
+. 导航到 `+Formulas+` 选项卡，选中系统锁定公式，然后单击 btn:[保存]。
+. 导航到 menu:公式[系统锁定] 选项卡，选中 `+Lock system+`，然后单击 btn:[保存]。
     在此页面上，您也可以在客户端处于锁定状态时启用特定的 Salt 模块。
 . 进行更改后，您可能需要应用 highstate。
     在这种情况下，{webui}中的横幅会通知您。
@@ -86,8 +86,8 @@
 
 
 .过程：升级使用软件包锁定
-. 在 {rhel} 7 系统上，安装 [package]``+yum-plugin-versionlock+``，在 {rhel} 8 或 9 系统上，安装 [package]+``+python3-dnf-plugin-versionlock+``+ 作为 [systemitem]+``+root+``。
-  在 {debian} 系统上，``+apt+`` 工具包含锁定功能。
+. 在 {rhel} 的 7 个系统上安装 `+yum-plugin-versionlock+`，在 {rhel} 的 8 或 9 个系统上将 `+python3-dnf-plugin-versionlock+` 安装为 `+root+`。
+  在 {debian} 系统上，`+apt+` 工具包含锁定功能。
 . 在受管系统上导航到 menu:软件[软件包> 锁定]选项卡以查看所有可用软件包的列表。
 . 选择要锁定的软件包，然后单击 btn:[请求锁定]。
   选择锁定生效的日期和时间。
