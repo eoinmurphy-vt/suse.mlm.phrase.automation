@@ -33,8 +33,8 @@
 .过程：升级使用 {webui} 识别通道标签
 [role=procedure]
 . 在 {productname} {webui} 中，导航到 menu:软件[通道列表> 全部]。
-. 此页面显示 [label]``+通道名称+``。
-  如果您选择通道名称的链接，将会看到 [literal]``+通道标签+`` 的字段。
+. 此页面显示 `+Channel Name+`。
+  如果您选择通道名称的链接，将会看到 `+Channel Label+` 的字段。
 . 识别要去除的通道和子通道。
 
 
@@ -53,8 +53,8 @@ mgrctl exec -ti -- spacewalk-remove-channel -l
 .过程：升级使用 {webui} 校验通道系统订阅
 
 . 在 {productname} {webui} 中，导航到 menu:软件[通道列表> 全部]。
-. 在右侧找到 [literal]``+系统+`` 列。
-. 检查要移除的通道或任何子通道对应的 [literal]``+系统+`` 列。
+. 找到右侧的 `+Systems+` 列。
+. 检查要去除的通道或任何子通道对应的 `+Systems+` 列。
 
 
 .过程：升级使用命令行校验通道系统订阅
@@ -70,7 +70,7 @@ mgrctl exec -ti -- 'spacecmd -- softwarechannel_listsystems <Channel Label>'
 == 去除通道
 
 通道及其元数据只能通过命令行工具移除。
-[command]``+spacewalk-remove-channel+`` 命令会自动移除软件包，如果它们不再被其他通道引用。
+`+spacewalk-remove-channel+` 命令会自动去除软件包，如果它们不再被其他通道引用。
 因此，它会从数据库中移除元数据，并从存储介质中移除文件。
 
 
@@ -85,7 +85,7 @@ mgrctl exec -ti -- 'spacecmd -- softwarechannel_listsystems <Channel Label>'
 mgrctl exec -ti -- spacewalk-remove-channel -c channel-label
 ----
 +
-. 要同时去除多个通道，请对每个通道使用 [literal]``+-c+`` 标志，后接 [literal]``+channel-label+``。
+. 要同时去除多个通道，请对每个通道使用 `+-c+` 标志，后接 `+channel-label+`。
   例如：
 +
 ----
@@ -96,7 +96,7 @@ mgrctl exec -ti -- spacewalk-remove-channel -c channel-label1 -c channel-label2
 === 去除父通道及其所有子通道
 
 .过程：升级去除父通道及其所有子通道
-. 要移除父通道及其所有子通道，请运行 [command]``+spacewalk-remove-channel+`` 并指定 [option]+``+-a`` 选项，同时将 [literal]+``+parent-channel-label+``+ 替换为通道标签，例如 [literal]``+sles12-sp5-pool-x86_64+``：
+. 要去除父通道及其所有子通道，请运行 `+spacewalk-remove-channel+` 并使用 `+-a+` 选项，并将 `+parent-channel-label+` 替换为通道标签，例如 `+sles12-sp5-pool-x86_64+`：
 +
 ----
 mgrctl exec -ti -- spacewalk-remove-channel -a parent-channel-label
