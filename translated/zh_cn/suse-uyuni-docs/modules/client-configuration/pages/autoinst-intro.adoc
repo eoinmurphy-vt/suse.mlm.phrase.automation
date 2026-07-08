@@ -62,6 +62,6 @@ endif::[]
 [NOTE]
 ====
 {suse} 仅支持 {cobbler} 在 {productname} {webui} 中可用的 功能，或通过 {productname} API。
-Cobbler 唯一支持的命令行命令是 [command]``+buildiso+``。
+Cobbler 唯一支持的命令是 `+buildiso+`。
 这里只记录了受支持的功能。
 ====
