@@ -49,16 +49,16 @@ endif::[]
 
 == 클라이언트 도구 리브랜딩
 
-{productname} {productnumber}는 모든 지원되는 운영 체제를 위한 리브랜딩된 클라이언트 도구 세트를 도입합니다. 이 전환은 원활하며, 새로운 제품 동기화를 수행하는 사용자는 업데이트된 채널 이름만 인식해야 합니다.
+{productname} {productnumber}는 모든 지원되는 운영 체제를 위한 리브랜딩된 클라이언트 도구 세트를 소개합니다. 이 전환은 원활하며, 새로운 제품 동기화를 수행하는 사용자는 업데이트된 채널 이름만 보게 될 것입니다.
 
-이전 {productname} 4.3 또는 5.0에 등록된 클라이언트에서 사용되던 [literal]``+SUSE Manager Client Tools for XYZ+`` 채널은 버전 5.1에서 더 이상 사용할 수 없으며, 5.1에서는 더 이상 업데이트를 수신하지 않습니다.
+`+SUSE Manager Client Tools for XYZ+` 4.3 또는 5.0에 이전에 등록된 클라이언트가 사용하던 {productname} 채널은 버전 5.1에서 더 이상 사용할 수 없으며, 5.1에서는 더 이상 업데이트를 받지 않습니다.
 
 이전 채널은 마이그레이션 후에도 기존 고객에게 할당된 상태로 유지되지만, 해당 리포지토리는 제거되었습니다.
 
 지속적인 업데이트를 보장하기 위해 사용자는 다음을 수행해야 합니다.
 
-* 관련 제품의 새 [literal]``+SUSE Multi-Linux Manager Client Tools for XYZ+`` 채널을 미러링하고 적절한 클라이언트에 할당합니다.
-* 사용 중지된 [literal]``+SUSE Manager Client Tools for XYZ+`` 채널의 할당을 해제합니다.
+* 관련 제품에 대한 새 `+SUSE Multi-Linux Manager Client Tools for XYZ+` 채널을 미러링하고 적절한 클라이언트에 할당하십시오.
+* 구식 `+SUSE Manager Client Tools for XYZ+` 채널의 할당을 해제하십시오.
 
 이는 또한 기존 클라이언트 도구를 기반으로 한 모든 CLM 프로젝트도 이에 맞춰 조정되어야 함을 의미합니다.
 
@@ -178,9 +178,9 @@ SUSEConnect --status-text
 
 다음을 참조해야 합니다.
 
-* [literal]``+PRETTY_NAME="SUSE Linux Micro 6.1"+``
+* `+PRETTY_NAME="SUSE Linux Micro 6.1"+`
 
-* [literal]``+SUSE Multi-Linux Manager Server 5.1 Extension+``
+* `+SUSE Multi-Linux Manager Server 5.1 Extension+`
 
 +
 
@@ -230,9 +230,9 @@ mgradm --version
 
 +
 
-* 버전 [literal]``+5.1.11+`` 이상
+* 버전 `+5.1.11+` 이상
 
-* 참조 [literal]``+5.1.0+`` 이상
+* 참조 `+5.1.0+` 이상
 
 . 컨테이너 업데이트
 
@@ -272,16 +272,16 @@ podman ps
 
 다음을 참조해야 합니다.
 
-* [literal]``+server:5.1.0+`` 이상
+* `+server:5.1.0+` 이상
 
-* [literal]``+server-postgresql:5.1.0+`` 이상
+* `+server-postgresql:5.1.0+` 이상
 
 ____
 
 
 [NOTE]
 ====
-업그레이드 중 [literal]``+uyuni-db+`` 또는 [litarl]+``+saline+``와 같은 누락된 서비스에 대한 오류는 이전에 설치되지 않은 경우 무시할 수 있습니다.
+업그레이드 중 `+uyuni-db+` 또는 `+saline+`와 같은 누락된 서비스에 대한 오류는 이전에 설치되지 않은 경우 무시할 수 있습니다.
 ====
 
 
@@ -337,9 +337,9 @@ SUSEConnect --status-text
 
 +
 
-* 기본 OS: [literal]``+SUSE Linux Enterprise Server 15 SP6+``
+* Base OS: `+SUSE Linux Enterprise Server 15 SP6+`
 
-* 확장 프로그램: [literal]``+SUSE Manager Server 5.0 Extension+``
+* 확장 프로그램: `+SUSE Manager Server 5.0 Extension+`
 
 +
 
@@ -412,9 +412,9 @@ SUSEConnect --status-text
 
 다음을 참조해야 합니다.
 
-* [literal]``+VERSION="15-SP7"+``
+* `+VERSION="15-SP7"+`
 
-* [literal]``+SUSE Multi-Linux Manager Server 5.1 Extension for SLE+``
+* `+SUSE Multi-Linux Manager Server 5.1 Extension for SLE+`
 
 +
 
@@ -431,9 +431,9 @@ mgradm --version
 
 예상 출력:
 
-* 버전 [literal]``+5.1.11+`` 이상
+* 버전 `+5.1.11+` 이상
 
-* 이미지 태그 [literal]``+5.1.0+`` 이상
+* 이미지 태그 `+5.1.0+` 이상
 
 +
 
@@ -476,9 +476,9 @@ podman ps
 
 필요한 컨테이너:
 
-* [literal]``+server:5.1.0+`` 이상
+* `+server:5.1.0+` 이상
 
-* [literal]``+server-postgresql:5.1.0+`` 이상
+* `+server-postgresql:5.1.0+` 이상
 
 ____
 
