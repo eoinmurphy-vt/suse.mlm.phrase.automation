@@ -32,7 +32,7 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 使用新的储存库数据文件后，更新应该按预期进行。
 
 .过程：升级解决储存库数据损坏的问题
-. 从 [path]``+/var/cache/rhn/repodata/<channel-label>+`` 中删除所有文件。
+. 去除 `+/var/cache/rhn/repodata/<channel-label>+` 中的所有文件。
     如果您不知道通道标签，可以在 {productname} {webui} 中找到它，导航到 menu:软件[通道> 通道标签]。
 . 在容器主机上的命令行中执行以下命令，以在容器中重新生成文件：
 +
