@@ -13,7 +13,7 @@ endif::[]
 
 == 要求和注意事项
 
-要将 SUSE Manager 4.3 代理迁移到 {productname} {productnumber}，您需要一台新机器，配备 {sl-micro} {microversion} 或 {sles} {bci-mlm} 和安装 [literal]``+mgrpxy+``。
+要将 SUSE Manager 4.3 代理迁移到 {productname} {productnumber}，您需要一台新机器，配备 {sl-micro} {microversion} 或 {sles} {bci-mlm} 并安装 `+mgrpxy+`。
 
 从 SUSE Manager 4.3 就地迁移到 {productnumber} 需要重新安装主机操作系统，无论所选主机操作系统是 {sl-micro} {microversion} 还是 {sles} {bci-mlm}。
 
@@ -33,7 +33,7 @@ endif::[]
 * 基于 k3s 运行的容器化部署
 
 在 {productname} {productnumber} 中，已移除基于 RPM 的支持，仅支持使用 podman 或 k3s 运行的容器化版本。
-使用 Podman 运行的容器化代理的管理是通过 [command]``+mgrpxy+`` 工具完成的。
+使用 Podman 运行的容器化代理的管理是通过 `+mgrpxy+` 工具完成的。
 
 image::43-proxy-migration.mmaid.svg[scalewidth=80%]
 
@@ -47,7 +47,7 @@ image::43-proxy-migration.mmaid.svg[scalewidth=80%]
 
 * 调用 API
 +
-将 [literal]``+$proxyid+`` 替换为分支代理的服务器 ID，或用逗号分隔的多个服务器 ID。
+将 `+$proxyid+` 替换为分支代理的服务器 ID，或用逗号分隔的多个服务器 ID。
 +
 [code]
 ----
@@ -56,7 +56,7 @@ mgrctl api post proxy/backupConfiguration '{\"sids\":[$proxyid]}'
 ----
 * {salt} 调用
 +
-在下面的命令中将 [literal]``+$proxy+`` 替换为分支代理从属 ID，或使用 [literal]+``+-L proxyminionid1,proxyminionid2,...+`` 来处理多个分支代理。
+将下方命令中的 `+$proxy+` 替换为分支代理 minion ID，或在寻址多个分支代理时替换为 `+-L proxyminionid1,proxyminionid2,...+`。
 +
 [code]
 ----
@@ -84,7 +84,7 @@ salt $proxy proxy.backup
 ==== 准备基于 {sles} 15 SP7 的自动安装发行版
 
 - 将 {sles} 15 SP7 安装 ISO 下载或放置到服务器主机中
-- 使用 [command]``+mgradm distribution copy $path_to_the_iso+`` 将安装文件复制到容器中
+- 使用 `+mgradm distribution copy $path_to_the_iso+` 将安装文件复制到容器中
 - 注册自动安装发行版，参见 xref:client-configuration:autoinst-distributions.adoc[]。
 
 ==== 能够访问安装媒体
@@ -93,7 +93,7 @@ salt $proxy proxy.backup
 
 - 创建基于先前创建的发行版的自动安装控制文件。
 作为控制文件使用在 https://github.com/SUSE/manager-build-profiles/blob/master/AutoYaST/SUSE-Multi-Linux-Manager/SUSE%20Multi-Linux%20Manager%20Proxy/MLM_Proxy-51-SLES-Install.xml 提供的控制文件
-- 配置文件创建完毕后，切换至 [menuitem]``+变量+`` 选项卡，填写所需变量：
+- 控制文件创建完毕后，切换至 `+Variables+` 选项卡，填写所需变量：
 +
 [code]
 ----
@@ -102,14 +102,14 @@ distrotree='上一步中的自动安装发行套件标签'
 channel_prefix='clm_通道前缀'（如果使用 SCC 通道，则留空）
 registration_key='升级后的激活密钥'
 ----
-- 在 [menuitem]``+自动安装文件+`` 选项卡中，您可以查看完整的渲染控制文件以进行进一步检查
+- 在 `+Autoinstallation File+` 选项卡中，您可以查看完整的渲染控制文件以进行进一步检查。
 
 ==== 置备代理的自动安装
 
 使用上一步创建的控制文件，在旧 {susemgr} SUSE Manager 4.3 代理上安排自动安装。
 
-- 通过 Web UI 界面，在迁移分支服务器的 [menuitem]+``+系统+`` 视图中的 [menuitem]``+置备+`` 选项卡中操作
-- 或使用 API 调用 [command]``+system/provisionSystem+`` 来安排迁移。例如，从 {productname} 主机执行以下代码片段：
+- 使用迁移分支服务器的 `+Provisioning+` 视图中的 Web UI 界面 `+System+` 选项卡
+- 或者使用 API 调用 `+system/provisionSystem+` 来安排迁移。例如，从 {productname} 主机执行以下代码片段：
 +
 [code]
 ----
@@ -152,7 +152,7 @@ mgrpxy install podman config.tar.gz
 ----
 mgrpxy start
 ----
-. 一旦代理正常运行，{productname} 服务器将在下一个 [literal]``+硬件更新+`` 步骤中自动部署备份的配置。
+. 一旦代理正常运行，{productname} 服务器将在下一个 `+Hardware Refresh+` 步骤中自动部署备份的配置。
 
 ____
 
@@ -160,7 +160,7 @@ ____
 
 == 验证代理容器
 
-迁移完成且 \{salt} 首次启动后，备份的代理配置会在 [literal]``+硬件更新+`` 步骤中自动部署。
+迁移完成且 salt 首次启动后，备份的代理配置会在 `+Hardware refresh+` 步骤中自动部署。
 
 完成所有初始配置步骤后，验证代理的必要功能
 
@@ -170,7 +170,7 @@ ____
 容器化代理不使用 tftpsync 机制来传输 tftproot 文件。
 相反，这些文件会根据需要透明地下载和缓存。
 
-为避免在 [command]``+cobbler sync+`` 运行期间出现误报错误，需要将迁移后的 4.3 代理从 tftpsync 机制中去除。
+为避免在 `+cobbler sync+` 运行期间出现误报错误，需要将迁移后的 4.3 代理从 tftpsync 机制中去除。
 
 如果您之前已将 4.3 代理配置为接收 TFTP 文件，则需要选择以下配置选项之一：
 
@@ -182,8 +182,8 @@ mgrctl term
 ----
 ====
 
-在 {productname} {productnumber} 服务器容器中，运行 [command]``+configure-tftpsync.sh+``，并将剩余的 4.3 代理列表作为参数。
-如果没有剩余的 4.3 代理，请运行 [command]``+configure-tftpsync.sh+``，不带参数。
+在 {productname} {productnumber} 服务器容器中，运行 `+configure-tftpsync.sh+`，并将剩余的 4.3 代理列表作为参数。
+如果没有剩余的 4.3 代理，请运行 `+configure-tftpsync.sh+` 且不带任何参数。
 
-在 {productname} {productnumber} 服务器容器中，手动从 [path]+``+/etc/cobbler/settings.yaml+`` 文件中的 [option]``+proxies+``+ 设置中去除相关代理。
-如果没有剩余的 4.3 代理，则手动完全去除 [option]``+proxies+`` 列表。
+在 {productname} {productnumber} 服务器容器中，手动从 `+proxies+` 文件的 `+/etc/cobbler/settings.yaml+` 设置中删除相关代理。
+如果没有剩余的 4.3 代理，则手动完全去除 `+proxies+` 列表。
