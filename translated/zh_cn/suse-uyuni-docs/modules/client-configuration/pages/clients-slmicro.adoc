@@ -184,6 +184,9 @@ ifeval::[{uyuni-content} == true]
 | 操作系统版本
 | 客户端通道
 
+| {sl-micro} 6.2
+| sl-microos-6.2-uyuni-client
+
 | {sl-micro} 6.1
 | sl-microos-6.1-uyuni-client
 
@@ -281,24 +284,24 @@ mgrctl exec -ti -- mgr-bootstrap --script=bootstrap-sl-micro.sh \
 
 {sl-micro} 是一个事务型系统。
 事务更新通常支持多种重引导方法。
-建议在由 {productname} 管理的系统中使用 [systemitem]``+systemd+`` 进行重引导。
+建议在由 `+systemd+` 管理的系统中使用 {productname} 进行重启。
 使用其他方法可能会导致不希望的行为。
 
-在 {productname} 上启动事务型系统时，如果系统处于默认配置，[systemitem]``+systemd+``+ 将被配置为重引导方法（[literal]+``+REBOOT_METHOD+``）。
+在 {productname} 上启动事务型系统时，如果系统处于默认配置下，`+systemd+` 将被配置为重启方法（`+REBOOT_METHOD+`）。
 这样的配置允许 {productname} 控制重引导操作，重引导可以立即执行或根据需要与 {productname} 安排。
 
 
 === 背景信息
 
-默认情况下，客户端安装期间的重引导方法设置为 [option]``+auto+``。
-使用 [option]``+auto+``+ 启动方法时，如果服务正在运行，[command]+``+rebootmgrd+`` 将根据配置的策略重引导系统。
+默认情况下，客户端安装期间的重启方法设置为 `+auto+`。
+使用 `+auto+` 启动方法时，如果服务正在运行，`+rebootmgrd+` 将根据配置的策略重启系统。
 策略可以立即重引导或在维护窗口期间进行重引导。
-有关详细信息，请参见 [command]``+rebootmgrd+``(8) 手册页。
-否则，如果 [command]``+rebootmgrd+``+ 未在运行，{productname} 将调用 [command]+``+systemctl reboot+``。
+有关更多信息，请参见 `+rebootmgrd+` (8) 手册页。
+否则，如果 `+rebootmgrd+` 未运行，{productname} 将调用 `+systemctl reboot+`。
 
 [NOTE]
 ====
-使用任何不同于 [command]``+systemd+`` 的方法可能会导致不希望的行为。
+使用任何不同于 `+systemd+` 的方法可能会导致意外行为。
 ====
 
 // 2023-05-23, ke: The rest is commented and the user will not see the
