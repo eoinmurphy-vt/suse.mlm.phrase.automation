@@ -3,7 +3,7 @@
 :description: コンテンツライフサイクルマネージャーの自動処理を使用して、SUSE Linux Enterprise Serverクライアントをアップグレードします。
 :revdate: 2024-11-21
 :page-revdate: {revdate}
-:page-author: SUSE 製品＆ソリューション ドキュメンテーション チーム
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -52,7 +52,7 @@
 
 . コンテンツライフサイクルプロジェクトの名前を表すディストリビューションラベルを付けます。
 
-. 「``+インストーラ生成+``」フィールドで、使用しているSLESのバージョンを選択します。
+. 使用しているSLESのバージョンを`+Installer Generation+`フィールドで選択します。
 
 
 
@@ -101,7 +101,7 @@ distro_label=15sp1-demo-test
 
 . {productname}の{webui}で、menu:システム[システム一覧]に移動し、プロビジョニングするクライアントを選択してシステムセットマネージャに追加します。
 
-. menu:システム[システムセットマネージャ> 概要]に移動し、[guimenu]``+プロビジョニング+``タブをクリックします。
+. menu:システム[システムセットマネージャ> 概要]に移動し、`+Provisioning+`タブをクリックします。
 
 . 使用する自動インストールプロファイルを選択します。
 
