@@ -74,14 +74,14 @@ Raw 이미지 준비에 대한 자세한 내용은 https://documentation.suse.co
 
 .절차 VMware 가상 머신 생성
 
-. {productname} 프록시 [filename]``+.vmdk+`` 파일을 다운로드한 후 복사본을 VMware 스토리지로 전송합니다.
+. {productname} 프록시 파일 `+.vmdk+`을(를) 다운로드한 후 복사본을 VMware 스토리지로 전송합니다.
 
-. VMware 웹 인터페이스를 사용하여 업로드된 [filename]``+.vmdk+`` 파일의 복사본을 만듭니다.
-  이 작업은 제공된 [filename]``+.vmdk+`` 파일을 vSphere 하이퍼바이저에 적합한 형식으로 변환합니다.
+. VMware 웹 인터페이스를 사용하여 업로드된 `+.vmdk+` 파일의 복사본을 만듭니다.
+  이 작업은 제공된 `+.vmdk+` 파일을 vSphere 하이퍼바이저에 적합한 형식으로 변환합니다.
 
-. 게스트 OS 제품군 [systemitem]``+Linux+`` 및 게스트 OS 버전 {sle} 15(64비트)를 기반으로 새 가상 머신을 생성하고 이름을 지정합니다.
+. 게스트 OS 제품군 `+Linux+` 및 게스트 OS 버전 {sle} 15(64비트)를 기반으로 새 가상 머신을 생성하고 이름을 지정합니다.
 
-. 100 GB(또는 그 이상)의 [systemitem]``+하드 디스크 2+``를 추가합니다.
+. 100 GB(또는 그 이상)의 `+Hard Disk 2+`을(를) 추가합니다.
 
 . RAM 및 CPU 수(RAM 16GB 및 CPU 4개 이상)를 구성합니다.
 
@@ -144,7 +144,7 @@ endif::[]
 === 서비스에 사용자 정의 컨테이너 이미지 사용
 
 기본적으로 {productname} 프록시 스위트는 각 서비스에 대해 동일한 이미지 버전과 레지스트리 경로를 사용하도록 설정되어 있습니다.
-그러나 특정 서비스에 대해 [literal]``+-tag+``+ 및 [literal]+``+-image+``로 끝나는 설치 매개변수를 사용하여 기본값을 재정의할 수 있습니다.
+그러나 `+-tag+` 및 `+-image+`으로 끝나는 설치 매개변수를 사용하여 특정 서비스에 대한 기본값을 재정의할 수 있습니다.
 
 예를 들어, 다음과 같이 사용합니다.
 
@@ -152,7 +152,7 @@ endif::[]
 mgrpxy install podman --httpd-tag 0.1.0 --httpd-image registry.opensuse.org/uyuni/proxy-httpd /path/to/config.tar.gz
 ----
 
-이는 다시 시작하기 전에 [path]``+registry.opensuse.org/uyuni/proxy-httpds+``+가 사용할 이미지이고 [literal]+``+0.1.0+``이 버전 태그인 httpd 서비스의 구성 파일을 조정합니다.
+httpd 서비스에 대한 구성 파일을 조정하며, 여기서 `+registry.opensuse.org/uyuni/proxy-httpds+`은(는) 사용할 이미지이고 `+0.1.0+`는 버전 태그이며, 그 후 서비스를 다시 시작합니다.
 
 값을 기본값으로 재설정하려면 해당 파라미터 없이 설치 명령을 다시 실행합니다.
 
