@@ -38,7 +38,7 @@ ifeval::[{uyuni-content} == true]
 .GPG 密钥和 Uyuni 客户端工具
 ====
 Uyuni 客户端工具使用的 GPG 密钥默认不被信任。
-创建启动脚本时，请使用 [systemitem]``+ORG_GPG_KEY+`` 参数添加指向包含公钥指纹的文件的路径。
+创建启动脚本时，请使用 `+ORG_GPG_KEY+` 参数添加指向包含公钥指纹的文件的路径。
 ====
 
 endif::[]
@@ -55,20 +55,20 @@ endif::[]
 
 [IMPORTANT]
 ====
-要在服务器容器内访问外壳，请在容器主机上运行 [literal]``+mgrctl term+``。
+要在服务器容器内访问外壳，请在容器主机上运行 `+mgrctl term+`。
 从那里，可以像往常一样运行 CLI 工具。
 ====
 
 
 [[registering.clients.bootstrap.mgr-bootstrap]]
-== 使用 [command]``+mgr-bootstrap+`` 创建启动脚本
+== 使用 `+mgr-bootstrap+` 创建启动脚本
 
-[command]``+mgr-bootstrap+`` 命令生成自定义启动脚本。
+`+mgr-bootstrap+` 命令用于生成自定义启动脚本。
 启动脚本用于 {productname} 客户端系统，以简化其初始注册和配置。
 
-参数 [option]``+--activation-keys+``+ 和 [option]+``+--script+`` 是唯一的必需参数。
+`+--activation-keys+` 和 `+--script+` 是唯一必需的参数。
 在 {productname} 服务器上，以 root 身份在命令行中执行它，并提供必需的参数。
-将 [systemitem]``+<ACTIVATION_KEY+``+ 和 [systemitem]+``+<EDITED_NAME>+`` 替换为您的值：
+将 `+<ACTIVATION_KEY+` 和 `+<EDITED_NAME>+` 替换为您的值：
 
 . 在 {productname} 容器主机的命令提示符下，以 root 用户身份运行以下命令以进入服务器容器：
 
@@ -83,7 +83,7 @@ mgrctl term
 mgr-bootstrap --activation-keys=<ACTIVATION_KEY> --script=bootstrap-<EDITED_NAME>.sh
 ----
 
-[command]``+mgr-bootstrap+`` 命令提供了几个其他选项，包括设置特定主机名、特定 GPG 密钥和注册方法（salt-minion 或 salt-bundle）。
+`+mgr-bootstrap+` 命令提供了几个其他选项，包括设置特定主机名、特定 GPG 密钥和注册方法（salt-minion 或 salt-bundle）的功能。
 
 [NOTE]
 ====
@@ -98,7 +98,7 @@ mgr-boostrap --hostname <PROXY_FQDN>
 
 + 
 
-此命令将创建一个默认名称为 [literal]``+bootstrap.sh+``+ 的新启动脚本，并将覆盖当前服务器使用的现有 [literal]+``+bootstrap.sh+`` 文件。
+此命令将创建一个默认名称为 `+bootstrap.sh+` 的新启动脚本，并将覆盖当前服务器使用的现有 `+bootstrap.sh+` 文件。
 
 
 * 要指定不同脚本，请运行以下命令：
@@ -111,7 +111,7 @@ mgr-bootstrap --hostname <PROXY_FQDN> --script=boostrap-<PROXY-SCRIPT>.sh
 
 ====
 
-有关更多信息，请参见 [literal]``+mgr-bootstrap+``+ 手册页，或运行 [command]+``+mgr-bootstrap --help+``。
+有关详细信息，请参见 `+mgr-bootstrap+` 手册页，或运行 `+mgr-bootstrap --help+`。
 
 
 
@@ -132,9 +132,9 @@ _____
 
 . 单击 btn:[更新] 创建脚本。
 
-. 启动脚本在服务器上的 [path]``+/srv/www/htdocs/pub/bootstrap+`` 目录中生成并存储。
+. 启动脚本生成后，会存储在服务器的 `+/srv/www/htdocs/pub/bootstrap+` 目录中。
   或者，您可以通过 HTTPS 访问启动脚本。
-  将 [literal]``+<example.com>+`` 替换为您的 {productname} 服务器的主机名：
+  将 `+<example.com>+` 替换为您的 {productname} 服务器的主机名：
 
 +
 
@@ -148,7 +148,7 @@ _____
 [IMPORTANT]
 ====
 请勿在启动脚本中禁用 SSL。
-确保在 {webui} 中勾选 [guimenu]``+启用 SSL+``，或者在启动脚本中存在设置 +`USING_SSL=1`。
+确保在 `+Enable SSL+` 中选中了 {webui}，或者启动脚本中存在 `+USING_SSL=1+` 设置。
 如果您禁用 SSL，注册过程将需要自定义 SSL 证书。
 
 有关自定义证书的详细信息，请参见 xref:administration:ssl-certs.adoc[]。
@@ -164,7 +164,7 @@ _____
 大多数软件包都使用 GPG 签名，因此您还需要在系统上拥有受信任的 GPG 密钥才能安装它们。
 
 在此过程中，您需要知道激活密钥的确切名称。
-导航到 menu:首页[概述]，在 [guimenu]``+任务+``+ 框中，单击 [guimenu]+``+管理激活密钥+``。
+导航至 menu:Home[Overview]，然后在 `+Tasks+` 框中，单击 `+Manage Activation Keys+`。
 为频道创建的所有密钥都列在此页面上。
 您必须准确输入您希望在启动脚本中使用的密钥的全名，格式与密钥字段中显示的一致。
 有关激活密钥的更多信息，请参见 xref:client-configuration:activation-keys.adoc[]。
@@ -200,11 +200,11 @@ cp bootstrap.sh bootstrap-sles12.sh
 cp bootstrap.sh bootstrap-sles15.sh
 ----
 
-. 打开 [path]``+bootstrap-sles15.sh+`` 进行修改。
+. 打开 `+bootstrap-sles15.sh+` 进行修改。
     向下滚动，直到您可以看到下面显示的文本。
-    如果文件中存在 ``+exit 1+``，请在行首添加井号（&#35;）以将其注释掉。
+    如果文件中存在 `+exit 1+`，请在行首添加井号（&#35;）以将其注释掉。
     这将激活脚本。
-    在 ``+ACTIVATION_KEYS=+`` 字段中输入此脚本的密钥名称：
+    在 `+ACTIVATION_KEYS=+` 字段中输入此脚本的密钥名称：
 
 +
 
@@ -243,8 +243,8 @@ _____
 
 [NOTE]
 ====
-默认情况下，引导脚本将尝试安装 [package]``+venv-salt-minion+``+（如果在引导存储库中可用），如果引导存储库中没有 {salt} 包，则安装 [package]+``+salt-minion+``。
-如果出于某种原因需要，您可以选择不安装 {salt} 包，并继续使用 [package]``+salt-minion+``。
+默认情况下，启动脚本将尝试安装 `+venv-salt-minion+`（如果在启动储存库中可用），如果启动储存库中没有 `+salt-minion+` 包，则安装 {salt}。
+如果出于某种原因需要，您可以选择不安装 {salt} 包，并继续使用 `+salt-minion+`。
 
 有关更多信息，请参见 xref:client-configuration:contact-methods-saltbundle.adoc[Salt Bundle]。
 ====
@@ -279,7 +279,7 @@ cd /srv/www/htdocs/pub/bootstrap/
 
 +
 
-. 运行以下命令在客户端上执行启动脚本；将 [systemitem]``+EXAMPLE.COM+`` 替换为客户端的主机名：
+. 运行以下命令在客户端上执行启动脚本；将 `+EXAMPLE.COM+` 替换为客户端的主机名：
 
 +
 
@@ -315,7 +315,7 @@ curl -Sks https://server_hostname/pub/bootstrap/bootstrap.sh | /bin/bash
 
 [IMPORTANT]
 ====
-为避免出现问题，请确保启动脚本是使用 [command]``+bash+`` 执行的。
+为避免出现问题，请确保启动脚本是使用 `+bash+` 执行的。
 ====
 
 +
