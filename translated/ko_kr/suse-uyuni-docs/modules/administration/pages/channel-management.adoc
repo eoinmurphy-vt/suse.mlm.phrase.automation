@@ -39,9 +39,9 @@
 
 .절차 채널에 대한 구독자 액세스 제한
 . {productname} {webui}에서 menu:소프트웨어[채널 목록]으로 이동하여 편집할 채널을 선택합니다.
-. [guimenu]``+사용자별 구독 제한 사항+``+ 섹션을 찾아 [guimenu]+``+조직 내에서 선택된 사용자만 이 채널을 구독할 수 있도록+``+ 체크합니다.
+. `+Per-User Subscription Restrictions+` 섹션을 찾아서 `+Only selected users within your organization may subscribe to this channel+`을(를) 확인하세요.
   btn:[업데이트]를 클릭하여 변경 사항을 저장합니다.
-. [guimenu]``+구독자+`` 탭으로 이동하여 필요에 따라 사용자를 선택하거나 선택을 해제합니다.
+. `+Subscribers+` 탭으로 이동하여 필요에 따라 사용자를 선택하거나 선택을 해제하세요.
 
 
 
