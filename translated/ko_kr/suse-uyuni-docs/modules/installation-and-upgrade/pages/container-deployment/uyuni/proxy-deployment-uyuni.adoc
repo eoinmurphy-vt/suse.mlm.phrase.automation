@@ -36,7 +36,7 @@ endif::[]
 ====
 컨테이너 호스트에 지원되는 운영 체제는 {leapmicro} {microversion}입니다.
 
-컨테이너 호스트:: 컨테이너 호스트는 Podman과 같은 컨테이너 엔진이 장착된 서버로, 컨테이너를 관리하고 배포할 수 있게 해줍니다. 이 컨테이너는 애플리케이션과 라이브러리와 같은 필수 구성 요소를 포함하지만 전체 운영 체제는 포함하지 않아 경량입니다. 이 설정은 애플리케이션이 서로 다른 환경에서 동일하게 실행되도록 보장합니다. 컨테이너 호스트는 이러한 컨테이너에 필요한 CPU, 메모리 및 저장소와 같은 자원을 제공합니다.
+컨테이너 호스트:: 컨테이너 호스트는 Podman과 같은 컨테이너 엔진이 장착된 서버로, 컨테이너를 관리하고 배포할 수 있게 해줍니다. 이 컨테이너는 응용 프로그램과 라이브러리와 같은 필수 구성 요소를 포함하지만 전체 운영 체제는 포함하지 않아 경량입니다. 이 설정은 응용 프로그램이 서로 다른 환경에서도 동일하게 실행되도록 보장합니다. 컨테이너 호스트는 이러한 컨테이너에 필요한 CPU, 메모리 및 저장소와 같은 자원을 제공합니다.
 ====
 
 
@@ -66,11 +66,11 @@ endif::[]
 | 8 GB
 
 | 디스크 공간
-| [path]``+/+`` (루트 디렉토리)
+| `+/+` (루트 디렉토리)
 | 최소 40 GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes+``
+| `+/var/lib/containers/storage/volumes+`
 | 최소 100 GB, 스토리지 요구사항은 사용할 .iso 배포 이미지, 컨테이너 및 부트스트랩 리포지토리 수에 따라 계산해야 합니다.
 
 |===
@@ -81,7 +81,7 @@ endif::[]
 
 일반 요구사항은 xref:installation-and-upgrade:general-requirements.adoc[일반 요구사항]을 참조하십시오.
 
-설치 미디어에서 {leapmicro} {microversion} 서버를 설치해야 합니다.
+{leapmicro} {microversion} 서버는 설치 미디어에서 설치해야 합니다.
 이 절차는 아래에 설명되어 있습니다.
 
 
@@ -89,12 +89,12 @@ endif::[]
 [[installation-proxy-containers-requirements]]
 == 컨테이너 호스트 요구사항
 
-CPU, RAM 및 스토리지 요구사항은 xref:installation-and-upgrade:hardware-requirements.adoc[하드웨어 요구사항]을 참조하십시오.
+CPU, RAM 및 스토리지 요구 사항은 xref:installation-and-upgrade:hardware-requirements.adoc[하드웨어 요구사항]을 참조하십시오.
 
 
 [IMPORTANT]
 ====
-클라이언트가 FQDN 도메인 이름을 확인할 수 있도록 보장하려면, 컨테이너화된 서버와 호스트 머신 모두 기능하는 DNS 서버에 연결되어야 합니다. 또한, 역 조회의 올바른 구성을 보장하는 것이 필수적입니다.
+클라이언트가 FQDN 도메인 이름을 확인할 수 있도록 보장하려면, 컨테이너화된 서버와 호스트 머신들 모두 정상적으로 동작하는 DNS 서버에 연결되어야 합니다. 또한, 역 조회의 올바른 구성을 보장하는 것이 필수적입니다.
 ====
 
 
@@ -106,7 +106,7 @@ CPU, RAM 및 스토리지 요구사항은 xref:installation-and-upgrade:hardware
 
 . 루트로 로그인합니다.
 
-. [command]``+트랜잭션 업데이트 셸+``을 입력합니다:
+. `+transactional-update shell+`을(를) 입력하십시오:
 +
 ----
 transactional-update shell
@@ -135,7 +135,7 @@ zypper in mgrpxy mgrpxy-bash-completion uyuni-storage-setup-proxy
 +
 [NOTE]
 ====
-대신, [systemitem]``+mgrpxy-zsh-completion+``+ 또는 [systemitem]+``+mgrpxy-FISH-completion+``을 설치할 수도 있습니다.
+또는 `+mgrpxy-zsh-completion+` 아니면 `+mgrpxy-fish-completion+`를 설치할 수 있습니다.
 ====
 
 . 트랜잭션 셸을 종료합니다.
@@ -166,21 +166,21 @@ transactional-update pkg install mgrpxy mgrpxy-bash-completion uyuni-storage-set
 
 [NOTE]
 ====
-Alternatively you may install [systemitem]``+mgrpxy-zsh-completion+``+ or [systemitem]+``+mgrpxy-fish-completion+``.
+Alternatively you may install `+mgrpxy-zsh-completion+` or `+mgrpxy-fish-completion+`.
 ====
 
 ////
 
-Uyuni 컨테이너 유틸리티에 대한 자세한 내용은 link:https://build.opensuse.org/repositories/systemsmanagement:Uyuni:Stable:ContainerUtils[Uyuni 컨테이너 유틸리티]을 참조하십시오.
+Uyuni 컨테이너 유틸리티에 대한 자세한 내용은 link:https://build.opensuse.org/repositories/systemsmanagement:Uyuni:Stable:ContainerUtils[Uyuni 컨테이너 유틸리티]를 참조하십시오.
 
 
 == 사용자 정의 영구 스토리지 구성
 
 이 단계는 선택 사항입니다.
-그러나 인프라에 사용자 정의 영구 스토리지가 필요한 경우 [command]``+mgr-storage-proxy+`` 도구를 사용하십시오.
+그러나 인프라에 사용자 정의 영구 스토리지가 필요한 경우 `+mgr-storage-proxy+` 도구를 사용하십시오.
 
-* 자세한 내용은 [command]``+mgr-storage-proxy --help+``을 참조하십시오.
-이 도구는 컨테이너 스토리지와 Squid 캐시 볼륨의 생성을 간소화합니다.
+* 자세한 내용은 `+mgr-storage-proxy --help+`을 참조하십시오.
+이 도구는 컨테이너 스토리지 및 Squid 캐시 볼륨 생성을 간소화합니다.
 
 다음 방법으로 명령 사용:
 
@@ -197,7 +197,7 @@ mgr-storage-proxy /dev/nvme1n1
 
 [NOTE]
 ====
-이 명령은 [path]``+/var/lib/containers/storage/volumes+``에 영구 스토리지 볼륨을 생성합니다.
+이 명령은 `+/var/lib/containers/storage/volumes+`에 영구 스토리지 볼륨을 생성합니다.
 
 자세한 내용은 다음을 참조하십시오.
 
@@ -243,22 +243,22 @@ mgr-storage-proxy /dev/nvme1n1
 .절차
 . 프록시 구성 파일을 생성합니다.
 . 구성을 프록시로 전송합니다.
-. [literal]``+mgrpxy+`` 명령어로 프록시를 시작합니다.
+. `+mgrpxy+` 명령으로 프록시를 시작합니다.
 
 [[proc-proxy-containers-setup-webui]]
 .작업: 웹 UI를 사용하여 프록시 컨테이너 구성 생성
 
 . {webui}에서 menu:시스템[프록시 구성]으로 이동하여 필요한 데이터를 입력합니다:
-. [guimenu]``+프록시 FQDN+`` 필드에 프록시의 정규화된 도메인 이름을 입력합니다.
-. [guimenu]``+상위 FQDN+`` 필드에 {productname} 서버 또는 다른 {productname} 프록시의 정규화된 도메인 이름을 입력합니다.
-. [guimenu]``+프록시 SSH 포트+`` 필드에 {productname} 프록시에서 SSH 서비스가 수신 대기하는 SSH 포트를 입력합니다. 기본값 8022를 유지하는 것이 권장됩니다.
-. [guimenu]``+최대 스쿼드 캐시 크기 [MB]+`` 필드에 스쿼드 캐시의 최대 허용 크기를 입력합니다. 일반적으로 이는 컨테이너의 사용 가능한 저장소의 최대 60%여야 합니다.
-. [guimenu]``+SSL 인증서+`` 선택 목록에서 {productname} 프록시에 대해 새 서버 인증서를 생성할지 기존 인증서를 사용할지 선택합니다.
-생성된 인증서를 {productname} 내장(자체 서명) 인증서로 간주할 수 있습니다.
+. `+Proxy FQDN+` 필드에 프록시의 정규화된 도메인 이름을 입력합니다.
+. `+Parent FQDN+` 필드에 {productname} 서버 또는 다른 {productname} 프록시의 정규화된 도메인 이름을 입력합니다.
+. `+Proxy SSH port+` 필드에 {productname} 프록시에서 SSH 서비스가 수신 대기하는 SSH 포트를 입력합니다. 기본값인 8022를 유지하는 것이 좋습니다.
+. `+Max Squid cache size [MB]+` 필드에 Squid 캐시에 대해 허용되는 최대 크기를 입력합니다. 일반적으로 이는 컨테이너의 사용 가능한 저장소의 최대 60%여야 합니다.
+. `+SSL certificate+` 선택 목록에서 {productname} 프록시에 대해 새 서버 인증서를 생성할지 기존 인증서를 사용할지 선택합니다.
+생성된 인증서는 {productname} 내장(자체 서명) 인증서로 간주할 수 있습니다.
 +
 선택에 따라 새 인증서를 생성하기 위해 CA 인증서에 서명할 경로 또는 프록시 인증서로 사용할 기존 인증서 및 해당 키에 대한 경로를 입력하십시오.
 +
-서버에서 생성된 CA 인증서는 [path]``+/var/lib/containers/storage/volumes/root/ssl-build+`` 디렉토리에 저장됩니다.
+서버에서 생성된 CA 인증서는 `+/var/lib/containers/storage/volumes/root/ssl-build+` 디렉토리에 저장됩니다.
 +
 기존 또는 사용자 정의 인증서와 기업 및 중간 인증서의 개념에 대한 자세한 내용은 xref:administration:ssl-certs-imported.adoc[]에서 확인하십시오.
 
@@ -298,7 +298,7 @@ mgrpxy install podman config.tar.gz
 [[proxy-deploy-containers-transfer-start]]
 == {productname} {productnumber} 프록시 시작
 
-이제 [literal]`+mgrpxy+` 명령으로 컨테이너를 시작할 수 있습니다:
+이제 `+mgrpxy+` 명령으로 컨테이너를 시작할 수 있습니다:
 
 [[proc-install-containers-setup-start]]
 .작업: 프록시 상태 시작 및 확인
@@ -318,7 +318,7 @@ mgrpxy status
 ----
 +
 
-5개의 {productname} 프록시 컨테이너가 있어야 하며, [literal]``+proxy-pod+`` 컨테이너 Pod의 일부여야 합니다.
+5개의 {productname} 프록시 컨테이너가 있어야 하며, `+proxy-pod+` 컨테이너 파드의 일부여야 합니다:
 
 * proxy-salt-broker
 * proxy-httpd
@@ -331,7 +331,7 @@ mgrpxy status
 === 서비스에 사용자 정의 컨테이너 이미지 사용
 
 기본적으로 {productname} 프록시 스위트는 각 서비스에 대해 동일한 이미지 버전과 레지스트리 경로를 사용하도록 설정되어 있습니다.
-그러나 특정 서비스에 대해 [literal]``+-tag+``+ 및 [literal]+``+-image+``로 끝나는 설치 매개변수를 사용하여 기본값을 재정의할 수 있습니다.
+그러나 `+-tag+` 및 `+-image+`으로 끝나는 설치 매개변수를 사용하여 특정 서비스에 대한 기본값을 재정의할 수 있습니다.
 
 예를 들어, 다음과 같이 사용합니다.
 
@@ -339,7 +339,7 @@ mgrpxy status
 mgrpxy install podman --httpd-tag 0.1.0 --httpd-image registry.opensuse.org/uyuni/proxy-httpd /path/to/config.tar.gz
 ----
 
-이는 다시 시작하기 전에 [path]``+registry.opensuse.org/uyuni/proxy-httpds+``+가 사용할 이미지이고 [literal]+``+0.1.0+``이 버전 태그인 httpd 서비스의 구성 파일을 조정합니다.
+httpd 서비스에 대한 구성 파일을 조정하며, 여기서 `+registry.opensuse.org/uyuni/proxy-httpds+`은(는) 사용할 이미지이고 `+0.1.0+`는 버전 태그이며, 그 후 서비스를 다시 시작합니다.
 
 값을 기본값으로 재설정하려면 해당 파라미터 없이 설치 명령을 다시 실행합니다.
 
