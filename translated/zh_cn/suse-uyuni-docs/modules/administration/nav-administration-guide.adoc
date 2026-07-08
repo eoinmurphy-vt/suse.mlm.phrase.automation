@@ -58,6 +58,7 @@ endif::[]
 ** xref:patch-management.adoc[补丁管理]
 ** xref:ptfs.adoc[程序临时修复]
 ** xref:reports.adoc[报告生成]
+*** xref:reporting-database.adoc[Reporting 数据库]
 ** 安全
 *** xref:auditing.adoc[审计软件包]
 *** xref:master-fingerprint.adoc[主指纹]
