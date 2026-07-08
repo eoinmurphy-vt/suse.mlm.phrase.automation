@@ -31,10 +31,10 @@ Result: NetworkManager manages the network and the system is in a supported conf
  
 以下症状确认系统受到影响：
  
-* [command]``+systemctl status wicked+``+ 显示 [literal]+``+active (exited)+``
-* [command]``+systemctl status NetworkManager+``+ 显示 [literal]+``+找不到单元 NetworkManager.service+``
-* [command]``+systemctl show -p Id network.service+``+ 返回 [literal]+``+Id=wicked.service+``
-* [command]``+sudo zypper se -s wicked+``+ 显示 wicked 列在 [literal]+``+(系统软件包)+`` 中没有储存库
+* `+systemctl status wicked+` 显示 `+active (exited)+`
+* `+systemctl status NetworkManager+` 显示 `+Unit NetworkManager.service could not be found+`
+* `+systemctl show -p Id network.service+` 返回 `+Id=wicked.service+`
+* `+sudo zypper se -s wicked+` 显示 wicked 列在 `+(System Packages)+` 下，且没有储存库
  
 [WARNING]
 ====
@@ -147,7 +147,7 @@ zypper in NetworkManager
 
 +
  
-当提示时，请确认 [literal]``+y+``。
+当提示时，请确认 `+y+`。
 NetworkManager 及其依赖项是从 SL Micro-6.1 储存库中安装的。
 
 +
@@ -162,7 +162,7 @@ zypper rm wicked wicked-service cockpit-wicked
 
 +
  
-当提示时，请确认 [literal]``+y+``。
+当提示时，请确认 `+y+`。
 
 +
  
@@ -232,7 +232,7 @@ sudo reboot
 
 +
  
-确认 [literal]``+network.service+`` 现在指向 NetworkManager：
+确认 `+network.service+` 现在指向 NetworkManager：
 
 +
  
@@ -298,7 +298,7 @@ ip route show
 [NOTE]
 ====
 如果在启动后有任何路由缺失，请等待90秒后再检查。
-[literal]``+cloud-netconfig+``服务在60秒的定时器上运行，并自动恢复任何缺失的云提供商特定路由。
+`+cloud-netconfig+` 服务在 60 秒的计时器上运行，并自动恢复任何缺失的云提供商特定路由。
 ====
 
 +
@@ -313,7 +313,7 @@ sudo podman ps
 
 +
  
-容器在启动后几分钟内应显示状态 [literal]``+healthy+``。
+容器在启动后几分钟内应显示状态 `+healthy+`。
 
 ____
 
@@ -331,12 +331,12 @@ NetworkManager通过DHCP获取相同的地址。
  
 | 从属或绑定接口
 | 从属接口仍然存在并附加到其主接口。
-它们不再出现在[command]``+ip addr show+``中，因为NetworkManager不在此处显示从属接口。
-使用[command]``+ip link show <interface>+``确认它们存在。
+它们不再出现在 `+ip addr show+` 中，因为 NetworkManager 不在此处显示从属接口。
+使用 `+ip link show <interface>+` 来确认它们存在。
 这是预期的行为，对网络性能没有影响。
  
 | 云提供商特定路由
-| 由[literal]``+cloud-netconfig+``管理，该服务独立于网络管理器运行，并在切换后继续如此。
+| 由 `+cloud-netconfig+` 管理，该服务独立于 NetworkManager 运行，并在切换后继续如此。
 如果在启动后缺失，路由将在60秒内恢复。
  
 | IPv6链路本地地址
@@ -344,13 +344,13 @@ NetworkManager通过DHCP获取相同的地址。
 这对使用IPv4的标准 {productname} 部署没有影响。
  
 | 默认路由度量
-| NetworkManager在默认路由中添加了一个显式的[literal]``+metric 100+``。
+| NetworkManager 在默认路由中添加了一个显式的 `+metric 100+`。
 这是正确的行为，没有负面影响。
  
 | NetworkManager连接文件
-| NetworkManager在[literal]``+/var/run/NetworkManager/system-connections/+``中自动生成连接定义，这是一个tmpfs位置。
+| NetworkManager 在 `+/var/run/NetworkManager/system-connections/+` 中自动生成连接定义，这是一个 tmpfs 位置。
 这些在每次启动时从DHCP重新生成。
-原始的wicked配置在[literal]``+/etc/sysconfig/network/ifcfg-*+``中保留，但NetworkManager不会读取。
+原始的 wicked 配置在 `+/etc/sysconfig/network/ifcfg-*+` 中保留，但 NetworkManager 不会读取。
  
 | {productname} 容器
 | 不受影响。
