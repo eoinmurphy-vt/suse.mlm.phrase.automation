@@ -95,8 +95,8 @@ endif::[]
 //     of Jsch (0.2.9 or higher) this limitation is gone and the note can be removed
 [NOTE]
 ====
-需要为 {redhat} 9 实例配置加密策略 [literal]``+LEGACY+`` 才能连接。
-执行 [command]``+sudo update-crypto-policies --set LEGACY+`` 以相应地进行配置。
+请为 {redhat} 9 实例配置加密策略 `+LEGACY+` 以便能够连接。
+请执行 `+sudo update-crypto-policies --set LEGACY+` 以进行相应配置。
 ====
 
 
@@ -106,15 +106,15 @@ endif::[]
 .过程：升级连接新的 {redhat} 实例
 [role=procedure]
 . 在 {productname} {webui} 中，导航到 menu:管理员[安装向导> {payg}]，然后点击 btn:[添加 {payg}]。
-. 从页面的 [guimenu]``+{payg} 连接说明+`` 部分开始。
-. 在 [guimenu]``+说明+`` 字段中添加说明。
-. 转移到页面的 [guimenu]``+实例 SSH 连接数据+`` 部分。
-. 在 [guimenu]``+主机+`` 字段中，输入要从 {productname} 连接的实例 DNS 或 IP 地址。
-. 在 [guimenu]``+SSH 端口+`` 字段中输入端口号或使用默认值 22。
-. 在 [guimenu]``+用户+`` 字段中输入云中指定的用户名。
-. 在 [guimenu]``+密码+`` 字段中，输入密码。
-. 在 [guimenu]``+SSH 私用密钥+`` 字段中输入实例密钥。
-. 在 [guimenu]``+SSH 私用密钥通行口令+`` 字段中输入密钥通行口令。
+. 从页面部分 `+{payg} connection Description+` 开始。
+. 在 `+Description+` 字段中，添加描述。
+. 移动至页面部分 `+Instance SSH connection data+`。
+. 在 `+Host+` 字段中，输入要从 {productname} 连接的实例 DNS 或 IP 地址。
+. 在 `+SSH Port+` 字段中，输入端口号或使用默认值 22。
+. 在 `+User+` 字段中，输入云中指定的用户名。
+. 在 `+Password+` 字段中，输入密码。
+. 在 `+SSH Private Key+` 字段中，输入实例密钥。
+. 在 `+SSH Private Key Passphrase+` 字段中，输入密钥密码短语。
 
 
 [IMPORTANT]
@@ -131,13 +131,13 @@ endif::[]
 [[proc-adding-ssh-bastion-connection-data]]
 .过程：升级添加 SSH 堡垒连接数据
 [role=procedure]
-. 导航到页面的 [guimenu]``+堡垒 SSH 连接数据+`` 部分。
-. 在 [guimenu]``+主机+`` 字段中输入堡垒主机名。
-. 在 [guimenu]``+SSH 端口+`` 字段中输入堡垒端口号。
-. 在 [guimenu]``+用户+`` 字段中输入堡垒用户名。
-. 在 [guimenu]``+密码+`` 字段中输入堡垒密码。
-. 在 [guimenu]``+SSH 私用密钥+`` 字段中输入堡垒密钥。
-. 在 [guimenu]``+SSH 私用密钥通行口令+`` 字段中输入堡垒密钥通行口令。
+. 导航至页面部分 `+Bastion SSH connection data+`。
+. 在 `+Host+` 字段中，输入堡垒主机名。
+. 在 `+SSH Port+` 字段中，输入堡垒端口号。
+. 在 `+User+` 字段中，输入堡垒用户名。
+. 在 `+Password+` 字段中，输入堡垒密码。
+. 在 `+SSH Private Key+` 字段中，输入堡垒密钥。
+. 在 `+SSH Private Key Passphrase+` 字段中，输入堡垒密钥密码短语。
 
 完成<<proc-finishing-rhui-connecting>>的设置。
 
@@ -146,26 +146,26 @@ endif::[]
 .过程：升级完成{redhat}连接。
 [role=procedure]
 . 要完成添加新 {redhat} 连接数据，请点击 btn:[Create]。
-. 返回 {payg} 连接数据 [guimenu]``+详细信息+`` 页面。
-    更新的连接状态显示在名为[guimenu]``+信息+``的顶部部分。
-. 连接状态也显示在 [guimenu]``+管理 > 安装向导 > 随用随付+`` 屏幕中。
-. 如果实例的身份验证数据正确，[guimenu]``+状态+``列会显示[literal]+``+已成功更新凭证+``。
+. 返回 {payg} 连接数据 `+Details+` 页面。
+    更新的连接状态显示在名为 `+Information+` 的顶部部分。
+. 连接状态也会显示在 `+Admin > Setup Wizard > Pay-as-you-go+` 屏幕中。
+. 如果实例的身份验证数据正确，`+Status+` 列会显示 `+Credentials successfully updated.+`
 
 
 [IMPORTANT]
 ====
-如果在任何时间输入了无效数据，新创建的实例会显示在[guimenu]``+管理 > 安装向导 > {payg}+``+中，同时[guimenu]+``+状态+``列会显示错误消息。
+如果在任何时候输入无效数据，新创建的实例会显示在 `+Admin > Setup Wizard > {payg}+` 中，同时 `+Status+` 列会显示错误消息。
 ====
 
 
 一旦身份验证数据在服务器上可用，所有可用的储存库将被添加到连接的实例中。
-可以在[guimenu]``+软件 > 管理 > 储存库+``中查看储存库。
+可以在 `+Software > Manage > Repositories+` 中查看存储库
 
 
 [IMPORTANT]
 ====
 {redhat}连接将创建默认由组织1拥有的自定义储存库。
-如果其他组织应该拥有自动生成的储存库，请在+``+/etc/rhn/rhn.conf+``中配置[systemitem]``+java.rhui_default_org_id+``。
+如果需要由其他组织拥有自动生成的存储库，请在 `+java.rhui_default_org_id+` 中配置 `+/etc/rhn/rhn.conf+`。
 ====
 
 此设置仅可定义和更新储存库。
@@ -274,7 +274,7 @@ endif::[]
 
 [NOTE]
 ====
-由 [command]``+spacewalk-common-channels+`` 提供的客户端工具通道来自 {uyuni} 而非 {suse}。
+`+spacewalk-common-channels+` 提供的客户端工具通道源自 {uyuni}，而非 {suse}。
 ====
 
 endif::[]
