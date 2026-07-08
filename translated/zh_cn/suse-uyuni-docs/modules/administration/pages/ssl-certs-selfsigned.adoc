@@ -43,10 +43,10 @@ mgrctl exec -ti -- 'rhn-ssl-tool --gen-server --dir="/root/ssl-build" --set-coun
 
 +
 
-确保 [systemitem]``+set-cname+`` 参数是您的 {productname} 服务器的完全限定的域名。
-如果需要多个别名，您可以多次使用 [systemitem]``+set-cname+`` 参数。
+确保`+set-cname+`参数是您的{productname}服务器的完全限定的域名。
+如果需要多个别名，您可以多次使用`+set-cname+`参数。
 
-私钥和服务器证书可以在服务器容器内的目录 [path]``+/root/ssl-build/susemanager/+``+ 中找到，分别为 +`server.key`+ 和 +`server.crt`。
+私钥和服务器证书位于服务器容器内的`+/root/ssl-build/susemanager/+`目录中，分别为`+server.key+`和`+server.crt+`。
 最后一个目录的名称取决于与 `+--set-hostname+` 选项一起使用的主机名。
 
 通过更新容器的主机 podman 密钥来部署或导入新证书和密钥。
@@ -102,7 +102,7 @@ mgrctl exec -ti -- 'rhn-ssl-tool --gen-server --dir="/root/ssl-build" --set-coun
 
 +
 
-确保 [systemitem]``+set-cname+`` 参数是您的 {productname} 服务器的完全限定的域名。
-如果需要多个别名，您可以多次使用 [systemitem]``+set-cname+`` 参数。
+确保`+set-cname+`参数是您的{productname}服务器的完全限定的域名。
+如果需要多个别名，您可以多次使用`+set-cname+`参数。
 +
 还需要使用代理的主机名和 cname 为每个代理生成服务器证书。
