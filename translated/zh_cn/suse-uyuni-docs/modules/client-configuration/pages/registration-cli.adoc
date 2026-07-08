@@ -22,32 +22,32 @@
  
 * 使用服务器的入站端口 4505 和 4506。
 * 除了确保这些端口是开放的之外，不需要在 {productname} 服务器上进行任何配置。
-* 在注册之前，要求您已在 Salt 客户端上安装了 [package]``+venv-salt-minion+``+（Salt 捆绑包）或 [package]+``+salt-minion+`` 软件包。
+* 在注册之前，要求您已在 Salt 客户端上安装 `+venv-salt-minion+`（Salt 捆绑包）或 `+salt-minion+` 软件包。
   两者使用不同位置的配置文件，文件名保持不变。
-  [literal]``+systemd+`` 服务文件名是不同的。
+  `+systemd+` 服务文件名是不同的。
 
 [WARNING]
 ====
-只有在您使用属于客户端工具通道或官方 {suse} 发行版一部分的 [package]``+salt-minion+`` 时，才能以这种方式启动。
+只有当您使用作为客户端工具通道或官方 `+salt-minion+` 发行版一部分的 {suse} 时，才能通过这种方式启动。
 ====
 
 == {salt} 捆绑包配置
 
-{salt} 捆绑包（[package]``+venv-salt-minion+``）::
+{salt} 捆绑包 (`+venv-salt-minion+`)::
 
 +
 
-* [path]``+/etc/venv-salt-minion/+``
-* [path]``+/etc/venv-salt-minion/minion+``
-* [path]``+/etc/venv-salt-minion/minion.d/NAME.conf+``
-* systemd 服务文件：[path]``+venv-salt-minion.service+``
+* `+/etc/venv-salt-minion/+`
+* `+/etc/venv-salt-minion/minion+`
+* `+/etc/venv-salt-minion/minion.d/NAME.conf+`
+* systemd 服务文件：`+venv-salt-minion.service+`
 
 +
 
 有关 Salt 捆绑包的更多信息，请参见 xref:client-configuration:contact-methods-saltbundle.adoc[Salt Bundle]。
 
 .过程：升级使用 Salt 捆绑包配置文件注册客户端
-. 在 Salt 客户端上，打开 [literal]``+minion+`` 配置文件。
+. 在 Salt 客户端上，打开 `+minion+` 配置文件。
   配置文件位于以下位置：
 
 +
@@ -88,7 +88,7 @@ enable_fqdns_grains: False
 ----
 
 
-. 重启 [systemitem]``+venv-salt-minion+`` 服务：
+. 重启动 `+venv-salt-minion+` 服务：
 
 +
 
@@ -97,7 +97,7 @@ enable_fqdns_grains: False
 systemctl restart venv-salt-minion
 ----
 
-. 在 {productname} 服务器上，接受新客户端密钥；将 [systemitem]``+<client>+`` 替换为您客户端的名称：
+. 在 {productname} 服务器上，接受新的客户端密钥；并将 `+<client>+` 替换为您的客户端名称：
 
 +
 
@@ -108,15 +108,15 @@ salt-key -a '<client>'
 
 == 客户端配置
 
-客户端 ([package]``+salt-minion+``)::
+客户端 (`+salt-minion+`)::
 +
-* [path]``+/etc/salt/+``
-* [path]``+/etc/salt/minion+``
-* [path]``+/etc/salt/minion.d/NAME.conf+``
-* systemd 服务文件：[path]``+salt-minion.service+``
+* `+/etc/salt/+`
+* `+/etc/salt/minion+`
+* `+/etc/salt/minion.d/NAME.conf+`
+* systemd 服务文件：`+salt-minion.service+`
 
 .过程：升级使用 Salt 受控端配置文件注册客户端
-. 在 Salt 客户端上，打开 [literal]``+minion+`` 配置文件。
+. 在 Salt 客户端上，打开 `+minion+` 配置文件。
   配置文件位于以下位置：
 
 +
@@ -155,7 +155,7 @@ enable_legacy_startup_events: False
 enable_fqdns_grains: False
 ----
 
-. 重启 [systemitem]``+salt-minion+`` 服务：
+. 重启动 `+salt-minion+` 服务：
 
 +
 
@@ -164,7 +164,7 @@ enable_fqdns_grains: False
 systemctl restart salt-minion
 ----
 
-. 在 {productname} 服务器上，接受新客户端密钥；将 [systemitem]``+<client>+`` 替换为您客户端的名称：
+. 在 {productname} 服务器上，接受新的客户端密钥；并将 `+<client>+` 替换为您的客户端名称：
 
 +
 
