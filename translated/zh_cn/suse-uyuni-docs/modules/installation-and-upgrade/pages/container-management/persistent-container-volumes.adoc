@@ -12,7 +12,7 @@
 在持久卷之外所做的任何更改将被丢弃。
 以下是 {productname} {productnumber} 的持久卷列表。
 
-要自定义默认卷位置，请确保在首次启动 Pod 之前使用 [command]``+podman volume create+`` 命令创建必要的卷。
+要自定义默认卷位置，请确保在首次启动 Pod 之前使用 `+podman volume create+` 命令创建必要的卷。
 
 [NOTE]
 ====
@@ -31,7 +31,7 @@
 |卷名 | 卷目录
 
 | **Podman 存储**
-| [path]``+/var/lib/containers/storage/volumes/+``
+| `+/var/lib/containers/storage/volumes/+`
 |===
 
 .持久卷：**root**
@@ -40,7 +40,7 @@
 |卷名 | 卷目录
 
 | **root**
-| [path]``+/root+``
+| `+/root+`
 |===
 
 
@@ -50,25 +50,25 @@
 |卷名 | 卷目录
 
 | **var-cobbler**
-| [path]``+/var/lib/cobbler+``
+| `+/var/lib/cobbler+`
 
 | **var-salt**
-| [path]``+/var/lib/salt+``
+| `+/var/lib/salt+`
 
 | **var-pgsql**
-| [path]``+/var/lib/pgsql/data+``
+| `+/var/lib/pgsql/data+`
 
 | **var-pgsql-backup**
-| [path]``+/var/lib/pgsql-backup+``
+| `+/var/lib/pgsql-backup+`
 
 | **var-cache**
-| [path]``+/var/cache+``
+| `+/var/cache+`
 
 | **var-spacewalk**
-| [path]``+/var/spacewalk+``
+| `+/var/spacewalk+`
 
 | **var-log**
-| [path]``+/var/log+``
+| `+/var/log+`
 |===
 
 
@@ -79,25 +79,25 @@
 | 卷名 | 卷目录
 
 | **srv-salt**
-| [path]``+/srv/salt+``
+| `+/srv/salt+`
 
 | **srv-www**
-| [path]``+/srv/www/+``
+| `+/srv/www/+`
 
 | **srv-tftpboot**
-| [path]``+/srv/tftpboot+``
+| `+/srv/tftpboot+`
 
 | **srv-formulametadata**
-| [path]``+/srv/formula_metadata+``
+| `+/srv/formula_metadata+`
 
 | **srv-pillar**
-| [path]``+/srv/pillar+``
+| `+/srv/pillar+`
 
 | **srv-susemanager**
-| [path]``+/srv/susemanager+``
+| `+/srv/susemanager+`
 
 | **srv-spacewalk**
-| [path]``+/srv/spacewalk+``
+| `+/srv/spacewalk+`
 |===
 
 
@@ -108,40 +108,40 @@
 |卷名 | 卷目录
 
 | **etc-apache2**
-| [path]``+/etc/apache2+``
+| `+/etc/apache2+`
 
 | **etc-rhn**
-| [path]``+/etc/rhn+``
+| `+/etc/rhn+`
 
 | **etc-systemd-multi**
-| [path]``+/etc/systemd/system/multi-user.target.wants+``
+| `+/etc/systemd/system/multi-user.target.wants+`
 
 | **etc-systemd-sockets**
-| [path]``+/etc/systemd/system/sockets.target.wants+``
+| `+/etc/systemd/system/sockets.target.wants+`
 
 | **etc-salt**
-| [path]``+/etc/salt+``
+| `+/etc/salt+`
 
 | **etc-sssd**
-| [path]``+/etc/sssd+``
+| `+/etc/sssd+`
 
 | **etc-tomcat**
-| [path]``+/etc/tomcat+``
+| `+/etc/tomcat+`
 
 | **etc-cobbler**
-| [path]``+/etc/cobbler+``
+| `+/etc/cobbler+`
 
 | **etc-sysconfig**
-| [path]``+/etc/sysconfig+``
+| `+/etc/sysconfig+`
 
 | **etc-tls**
-| [path]``+/etc/pki/tls+``
+| `+/etc/pki/tls+`
 
 | **etc-postfix**
-| [path]``+/etc/postfix+``
+| `+/etc/postfix+`
 
 | **ca-cert**
-| [path]``+/etc/pki/trust/anchors+``
+| `+/etc/pki/trust/anchors+`
 
 |===
 
@@ -152,7 +152,7 @@
 |卷名 | 卷目录
 
 | **run-salt-master**
-| [path]``+/run/salt/master+``
+| `+/run/salt/master+`
 
 |===
 
@@ -168,7 +168,7 @@
 |卷名 | 卷目录
 
 | **Podman 存储**
-| [path]``+/var/lib/containers/storage/volumes/+``
+| `+/var/lib/containers/storage/volumes/+`
 |===
 
 .持久卷：**srv/**
@@ -177,7 +177,7 @@
 |卷名 | 卷目录
 
 | **uyuni-proxy-tftpboot**
-| [path]``+/srv/tftpboot+``
+| `+/srv/tftpboot+`
 |===
 
 
@@ -187,9 +187,9 @@
 |卷名 | 卷目录
 
 | **uyuni-proxy-rhn-cache**
-| [path]``+/var/cache/rhn+``
+| `+/var/cache/rhn+`
 
 
 | **uyuni-proxy-squid-cache**
-| [path]``+/var/cache/squid+``
+| `+/var/cache/squid+`
 |===
