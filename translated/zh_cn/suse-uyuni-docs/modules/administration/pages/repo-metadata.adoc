@@ -12,25 +12,25 @@
 
 [IMPORTANT]
 ====
-要在服务器容器内访问外壳，请在容器主机上运行 [literal]``+mgrctl term+``。
+要在服务器容器内访问外壳，请在容器主机上运行 `+mgrctl term+`。
 ====
 
 .过程：升级生成自定义 GPG 密钥
 [role=procedure]
 ____
-. 以 root 用户身份使用 [command]``+gpg+`` 命令生成新密钥：
+. 以 root 用户身份使用 `+gpg+` 命令生成新密钥：
 
 +
 ----
 mgrctl exec -it -- gpg --full-generate-key
 ----
 
-. 根据提示选择 [systemitem]``+RSA+`` 作为密钥类型，将大小指定为 2048 位，并为密钥选择适当的失效日期。
-    检查新密钥的细节，然后键入 [systemitem]``+y+`` 以确认。
+. 根据提示选择 `+RSA+` 作为密钥类型，将大小指定为 2048 位，并为密钥选择适当的失效日期。
+    检查新密钥的细节，然后键入 `+y+` 以确认。
 
 . 根据提示输入要与该密钥关联的名称和电子邮件地址。
     如果需要，您还可以添加注释以帮助您识别密钥。
-    当您对用户身份满意时，键入 [systemitem]``+O+`` 以确认。
+    当您对用户身份满意时，键入 `+O+` 以确认。
 
 . 根据提示输入通行口令以保护您的密钥。
 
@@ -42,7 +42,7 @@ mgrctl exec -it -- gpg --full-generate-key
 mgrctl exec -- gpg --list-keys
 ----
 
-. 在文本编辑器中打开 [filename]``+/etc/rhn/signing.conf+`` 配置文件并添加下面一行内容，将密钥环的口令添加到该文件：
+. 通过在文本编辑器中打开 `+/etc/rhn/signing.conf+` 配置文件并添加以下一行，将密钥环的口令添加到该配置文件中：
 
 +
 ----
@@ -53,7 +53,7 @@ ____
 有关续订 GPG 密钥的信息，请参见 xref:administration:troubleshooting/tshoot-sync.adoc[]。
 
 
-可以在命令行中使用 [command]``+mgr-sign-metadata-ctl+`` 命令来管理元数据签名。
+可以在命令行中使用 `+mgr-sign-metadata-ctl+` 命令来管理元数据签名。
 
 
 .过程：升级启用元数据签名
@@ -72,7 +72,7 @@ uid         [ultimate] SUSE Manager
 sub   rsa4096/118DE7FF 2019-04-02 [E] [expires: 2029-04-01]
 ----
 
-. 使用 [command]``+mgr-sign-metadata-ctl+`` 命令启用元数据签名：
+. 使用 `+mgr-sign-metadata-ctl+` 命令启用元数据签名：
 
 +
 ----
@@ -108,8 +108,8 @@ mgrctl exec -- mgr-sign-metadata-ctl regen-metadata
 ----
 ____
 
-您还可以使用 [command]``+mgr-sign-metadata-ctl+`` 命令执行其他任务。
-使用 [command]``+mgr-sign-metadata-ctl --help+`` 查看完整列表。
+您还可以使用 `+mgr-sign-metadata-ctl+` 命令执行其他任务。
+使用 `+mgr-sign-metadata-ctl --help+` 查看完整列表。
 
 储存库元数据签名是一个全局选项。
 启用后，它将在服务器上的所有软件通道上启用。
