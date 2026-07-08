@@ -8,7 +8,7 @@
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
 
-如果您用于自动安装的储存库包含未签名的元数据，您通常必须使用 [option]``+insecure=1+``+ 内核参数作为可自动安装的发行版的选项，并在 {ay} 安装文件中使用 [path]+``+spacewalk/sles_no_signature_checks+`` 代码段。
+如果您用于自动安装的仓库包含未签名的元数据，通常必须将 `+insecure=1+` 内核参数作为可自动安装发行版的选项，并在 `+spacewalk/sles_no_signature_checks+` 安装文件中使用 {ay} 代码段。
 
 更为安全的替代方案是提供您自己的 GPG 密钥。
 
@@ -21,9 +21,9 @@
 . 创建 GPG 密钥。
 . 使用它对软件包的元数据签名。
 . 将其添加到安装媒体的初始 RAM 磁盘中。
-. 要将 GPG 密钥复制到容器中，请使用 [command]``+mgradm gpg add+``。
+. 要将 GPG 密钥复制到容器中，请使用 `+mgradm gpg add+`。
   此命令复制 GPG 密钥并将其添加到客户密钥环中。
-. 运行命令 [command]``+mgradm restart+``。
+. 运行命令 `+mgradm restart+`。
   此命令使用 SUSE 和客户密钥环创建一个唯一的密钥环。
 
 [NOTE]
