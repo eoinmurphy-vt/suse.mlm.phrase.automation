@@ -37,13 +37,13 @@ image::provision-config-keys.png[scaledwidth=80%]
 .过程：升级创建激活密钥
 . 在{productname} {webui}中，作为管理员，导航到menu:系统[激活密钥]。
 . 单击btn:[创建密钥]按钮。
-. 在[guimenu]``+激活密钥细节+``+页面的[guimenu]+``+说明+``字段中，输入激活密钥的说明。
-. 在[guimenu]``+密钥+``字段中，输入激活密钥的名称。
-  例如，``+SLES15-{sp-version}+``用于{sles}{nbsp}15{nbsp}{sp-version}。
+. 在 `+Activation Key Details+` 页面上，在 `+Description+` 字段中，输入激活密钥的描述。
+. 在 `+Key+` 字段中，输入激活密钥的名称。
+  例如，`+SLES15-{sp-version}+` 用于 {sles}{nbsp}15{nbsp}{sp-version}。
 +
 [IMPORTANT]
 ====
-* 在[guimenu]``+密钥+``字段中，不要对任何{suse}产品使用逗号或双引号。
+* 在 `+Key+` 字段中，不要对任何 {suse} 产品使用逗号或双引号。
 但是，您*必须*对红帽产品使用逗号。
 
 * 所有其他字符均可使用，不过系统会自动去除`+<> (){}+`（包括空格）。
@@ -51,17 +51,17 @@ image::provision-config-keys.png[scaledwidth=80%]
 * 如果将字段留空，系统会生成一个随机字符串。
 ====
 +
-. 在[guimenu]``+使用+``中，添加密钥可使用的次数，或将其留空以无限制使用。
-. 在[guimenu]``+基础通道+``下拉框中，选择适当的基础软件通道，并允许相关子通道填充。
+. 在 `+Usage+` 中，输入密钥可使用的次数，或者留空表示不限使用次数。
+. 在 `+Base Channels+` 下拉框中，选择适当的基础软件通道，并允许相关子通道自动加载。
   有关更多信息，请参见xref:reference:admin/setup-wizard.adoc[]和xref:administration:custom-channels.adoc[]。
-. 选择所需的[guimenu]``+子通道+``（例如，必需的{susemgr}工具和更新通道）。
-. 如果需要启用任何选项，请选中[guimenu]``+附加系统类型+``复选框。
+. 选择所需的 `+Child Channels+`（例如，必需的 {susemgr} 工具和更新通道）。
+. 如果您需要启用任何选项，请勾选 `+Add-On System Types+` 复选框。
   有关系统类型的更多信息，请参见xref:client-configuration:system-types.adoc[]。
-. 建议您将[guimenu]``+联系方法+``设置为[guimenu]+``+默认+``。
+. 我们建议您将 `+Contact Method+` 设置为 `+Default+`。
   有关联系方法的更多信息，请参见xref:client-configuration:contact-methods-intro.adoc[]。
-. 建议您保持[guimenu]``+统一默认+``选项未勾选。
+. 我们建议您将 `+Universal Default+` 设置为未选中状态。
 . 单击btn:[创建激活密钥]以创建激活密钥。
-. 激活密钥创建后，页面将在[guimenu]+``+附加系统类型+``列表下方显示额外的复选框[guimenu]``+配置文件部署+``。
+. 创建激活密钥后，页面会在 `+Configuration File Deployment+` 列表下方显示额外的复选框 `+Add-On System Types+`。
   要启用在注册时将配置文件部署到系统，请选中此复选框。
 . 单击btn:[更新激活密钥]以保存更改。
 
@@ -69,11 +69,11 @@ image::provision-config-keys.png[scaledwidth=80%]
 使用它们查看和设置其他功能。
 这些选项卡为：
 
-* [guimenu]``+软件包+``
-* [guimenu]``+配置+``
-* [guimenu]``+组+``
-* [guimenu]``+已激活的系统+``
-* [guimenu]``+AppStreams+``（只要有模块化通道与该激活密钥关联，此选项卡即会显示）
+* `+Packages+`
+* `+Configuration+`
+* `+Groups+`
+* `+Activated Systems+`
+* `+AppStreams+`（只要有模块化通道与该激活密钥关联，此选项卡即会显示）
 
 
 [[activation-keys-reactivation]]
@@ -83,12 +83,12 @@ image::provision-config-keys.png[scaledwidth=80%]
 重新激活密钥只能使用一次，以重新注册客户端并恢复所有 {productname} 设置。
 重新激活密钥是特定于客户端的，包括系统 ID、历史记录、组和通道。
 
-要创建重新激活密钥，请导航到 [guimenu]``+系统+``，点击要为其创建重新激活密钥的客户端，然后导航到 menu:详细信息[重新激活] 选项卡。
+要创建重新激活密钥，请导航到 `+Systems+`，点击要为其创建重新激活密钥的客户端，然后导航到 menu:详细信息[重新激活] 选项卡。
 点击 btn:[生成新密钥] 来创建重新激活密钥。
 记录密钥的详细信息以备后用。
 与典型的激活密钥不同，后者不与特定的系统 ID 关联，此处创建的密钥不会出现在 menu:系统[激活密钥] 页面上。
 
-在您创建重新激活密钥后，可以在 [path]+``+/etc/salt/minion.d/susemanager.conf+`` 中将其作为 ``+management_key+``+ grain 使用。
+创建重新激活密钥后，您可以将其作为 `+management_key+` 的粒度在 `+/etc/salt/minion.d/susemanager.conf+` 中使用。
 例如：
 
 ----
@@ -97,7 +97,7 @@ grains:
         management_key: "re-1-daf44db90c0853edbb5db03f2b37986e"
 ----
 
-重启 [command]``+venv-salt-minion+``+ 或 [command]+``+salt-minion+`` 进程以应用重新激活密钥。
+重启 `+venv-salt-minion+` 或 `+salt-minion+` 处理以应用重新激活密钥。
 
 您可以将重新激活密钥与启动脚本一起使用。
 有关启动脚本的更多信息，请参见 xref:client-configuration:registration-bootstrap.adoc[]。
@@ -115,7 +115,7 @@ grains:
 
 默认父通道::
 
-避免使用 [systemitem]``+{productname} 默认+`` 父通道。
+避免使用 `+{productname} Default+` 父通道。
 此设置强制 {productname} 选择与已安装操作系统最相符的父通道，这有时会导致意外行为。
 相反，我们建议您为每个发行版和架构创建特定的激活密钥。
 
@@ -136,8 +136,8 @@ grains:
 下列选择会产生带宽用量：
 
 * 指派 SUSE Product Pool 通道会导致自动安装相应的产品描述符软件包。
-* 安装 [guimenu]``+软件包+`` 部分中的任何软件包。
-* [guimenu]``+配置+``部分中的任何Salt状态都可能会根据其内容触发下载。
+* 安装 `+Packages+` 部分中的任何软件包。
+* `+Configuration+` 部分中的任何 Salt 状态都可能会触发下载，具体视其内容而定。
 
 密钥标签命名::
 
