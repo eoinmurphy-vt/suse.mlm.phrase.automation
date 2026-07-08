@@ -12,7 +12,7 @@
 
 您可以使用命令行将客户端注册到代理，而不是使用 {webui}。
 此过程要求在注册之前已在客户端上安装 Salt 软件包。
-对于基于 SLE 12 的客户端，还必须激活 [systemitem]``+高级系统管理+`` 模块。
+对于基于SLE 12的客户端，您还必须激活 `+Advanced Systems Management+` 模块。
 
 
 
@@ -37,12 +37,12 @@
 master: PROXY123.EXAMPLE.COM
 ----
 
-. 重启 [systemitem]``+salt-minion+`` 服务：
+. 重启动 `+salt-minion+` 服务：
 +
 ----
 systemctl restart salt-minion
 ----
-. 在服务器上，接受新客户端密钥；将 [systemitem]``+<client>+`` 替换为您的客户端名称：
+. 在服务器上，接受新的客户端密钥；将 `+<client>+` 替换为您的客户端名称：
 +
 ----
 salt-key -a '<client>'
