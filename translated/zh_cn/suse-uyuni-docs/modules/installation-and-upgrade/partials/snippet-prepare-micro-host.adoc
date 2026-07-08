@@ -9,7 +9,7 @@ ____
 
 . 在 {sl-micro} {microversion} 找到 安装媒体 https://www.suse.com/download/sle-micro/, 并下载相应的媒体文件。
 
-. 准备 DVD 或 USB U盘，并将下载的 [filename]``+.iso+`` 映像烧录到其上以进行安装。
+. 准备 DVD 或 USB U 盘，并将下载的 `+.iso+` 映像烧录到其上以进行安装。
 
 ____
 
@@ -24,13 +24,13 @@ ____
 
 . 引导或重引导您的系统。
 
-. 使用箭头键选择 [systemitem]``+安装+``。
+. 使用箭头键选择 `+Installation+`。
 
 . 调整键盘和语言。
 
-. 单击 [systemitem]``+复选框+`` 接受许可协议。
+. 单击 `+checkbox+` 以接受许可协议。
 
-. 单击 [systemitem]``+下一步+`` 继续。
+. 单击 `+Next+` 以继续。
 
 . 选择注册方法。
   在本示例中，我们将使用 {scclongform} 注册服务器。
@@ -58,22 +58,22 @@ ____
 
 . 输入您的 {sl-micro} {microversion} 注册代码。
 
-. 单击 [systemitem]``+下一步+`` 继续。
+. 单击 `+Next+` 以继续。
 
-. 要安装代理，请选择 {productname} {productnumber} 代理扩展；要安装服务器，请选择 {productname} {productnumber} 服务器扩展 ``+复选框+``。
+. 要安装代理，请选择 {productname} {productnumber} 代理扩展；要安装服务器，请选择 {productname} {productnumber} 服务器扩展 `+Checkbox+`。
 
-. 单击 [systemitem]``+下一步+`` 继续。
+. 单击 `+Next+` 以继续。
 
 . 输入您的 {productname} {productnumber} 扩展注册代码。
 
 . 单击 btn:[下一步] 继续。
 
-. 在 [systemitem]``+NTP 配置+`` 页面上单击 btn:[下一步]。
+. 在 `+NTP Configuration+` 页面上，单击 btn:[下一步]。
 
-. 在 [systemitem]``+系统身份验证+`` 页面上输入 root 用户的密码。
+. 在 `+Authentication for the System+` 页面上，输入 root 用户的密码。
   单击 btn:[下一步]。
 
-. 在 [systemitem]``+安装设置+`` 页面上单击 btn:[安装]。
+. 在 `+Installation Settings+` 页面上，单击 btn:[安装]。
 
 ____
 
