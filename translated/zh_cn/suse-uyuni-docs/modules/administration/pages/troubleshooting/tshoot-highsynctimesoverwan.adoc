@@ -30,15 +30,15 @@ If more detailed instructions are required, put them in a "Resolving" procedure.
 
 
 
-根据在 WebUI 中执行的更改或通过 API 调用到分发或系统设置的内容，可能需要执行 [command]``+cobbler sync+`` 命令将文件从 {productname} Server 传输到 {productname} 代理系统。
-为此，{cobbler} 使用在 [literal]``+/etc/cobbler/settings+`` 中指定的代理列表。
+根据在 WebUI 中执行的更改或通过 API 调用到分发或系统设置的内容，可能需要执行 `+cobbler sync+` 命令将文件从 {productname} Server 传输到 {productname} 代理系统。
+为此，{cobbler} 使用在 `+/etc/cobbler/settings+` 中指定的代理列表。
 
-由于其设计，[command]``+cobbler sync+`` 无法仅同步已更改的或最近添加的文件。
+由于其设计，`+cobbler sync+` 无法仅同步已更改的或最近添加的文件。
 
-相反，执行 [command]``+cobbler sync+``+ 会触发将 [literal]+``+/srv/tftpboot+``+ 目录的完整同步到在 [literal]+``+/etc/cobbler/settings+`` 中配置的所有指定代理。
+相反，执行 `+cobbler sync+` 会触发将 `+/srv/tftpboot+` 目录完整同步到 `+/etc/cobbler/settings+` 中配置的所有指定代理。
 这也受到参与系统之间 WAN 连接延迟的影响。
 
-根据 [literal]``+/var/log/cobbler/+`` 中的日志，同步过程可能需要很长时间才能完成。
+根据 `+/var/log/cobbler/+` 中的日志，同步过程可能需要很长时间才能完成。
 
 例如，该过程开始时间为：
 
@@ -57,17 +57,17 @@ Thu Jun  3 15:18:49 2021 - DEBUG | shell triggers finished successfully
 传输量大约为 1.8 GB。
 传输花费了将近 30 分钟。
 
-相比之下，复制一个与 [literal]``+/srv/tftboot+`` 大小相同的大文件只需几分钟即可完成。
+相比之下，复制一个与 `+/srv/tftboot+` 大小相同的大文件只需几分钟即可完成。
 
 
 //== Resolution and analysis
 
-改用基于 [literal]``+rsync+`` 的方法在 {productname} Server 与代理之间复制文件可能有助于缩短传输时间和等待时间.
+改用基于 `+rsync+` 的方法在 {productname} Server 与代理之间复制文件可能有助于缩短传输时间和等待时间。
 
 用于完成此任务的脚本可在 https://suse.my.salesforce.com/sfc/p/1i000000gLOd/a/1i000000ll5B/B2AmvIJN2_JsAyjTQzCVP_x5ioVgd0bYN9X9NpMugS8. 下载。
 
 该脚本不接受命令行选项。
-在运行脚本之前，您需要手动编辑它并正确设置 [literal]``+MLMHOSTNAME+``+、[literal]+``+MLMIP+``+ 和 [literal]+``+MLMPROXY1+`` 变量，以使其正常工作。
+在运行脚本之前，您需要手动编辑它并正确设置 `+MLMHOSTNAME+`、`+MLMIP+` 和 `+MLMPROXY1+` 变量，以便其正常工作。
 
 [WARNING]
 ====
@@ -80,8 +80,8 @@ Thu Jun  3 15:18:49 2021 - DEBUG | shell triggers finished successfully
 对于以下情况，最好使用建议的脚本用法：
 
 * {productname} 代理系统是通过 WAN 连接的；
-* [literal]``+/srv/tftboot+`` 包含大量用于各发行版和客户端 PXE 引导的文件，总计数千个文件；
-* 已禁用 [literal]``+/etc/cobbler/settings+`` 中的任一代理，否则 {productname} 会继续将内容同步到代理。
+* `+/srv/tftboot+` 包含大量用于各发行版和客户端 PXE 引导的文件，总计数千个文件；
+* 已禁用 `+/etc/cobbler/settings+` 中的任一代理，否则 {productname} 会继续将内容同步到代理。
 +
 ----
 #proxies:
@@ -108,19 +108,19 @@ tcpdump -i ethX -s 200 host <ip-address-of-susemanager> and not ssh
 * 这样就只会捕获大小为 200 的软件包，但足以运行分析。
 * 将 ethX 调整为由 {productname} 用来与代理通信的相应网络接口。
 * 最后，不会捕获 ssh 通信，从而进一步减少了软件包的数量。
-. 开始 [command]``+cobbler sync+``。
-* 要强制同步，请先删除 {cobbler} json 缓存文件，然后发出 [command]``+cobbler sync+``：
+. 启动 `+cobbler sync+`。
+* 要强制同步，请先删除 {cobbler} json 缓存文件，然后发出 `+cobbler sync+`：
 +
 ----
 rm /var/lib/cobbler/pxe_cache.json
 cobbler sync
 ----
 +
-. 当 \{command}``+cobbler sync+`` 完成后，停止 TCPdumps。
-. 使用 Wireshark 打开 TCPdumps，转到 [guimenu]``+Statistics（统计信息） > Conversations（对话）+``，并等待分析转储。
+. 当 {command]`+cobbler sync+` 完成后，停止 TCPdumps。
+. 使用 Wireshark 打开 TCPdumps，转到 `+Statistics > Conversations+`，并等待转储被分析。
 . 切换到 TCP 选项卡。
   此选项卡上显示的数字表示在 {productname} 服务器和 {productname} 代理之间捕获的对话总数。
-. 查找列 [guimenu]``+Duration（持续时间）+``。
+. 查找 `+Duration+` 列。
 * 首先按升序排序，找出传输文件所花费的最短时间。
 * 继续按降序排序，找出大文件传输时间的最大值，例如内核和 initrd 传输。
 +
