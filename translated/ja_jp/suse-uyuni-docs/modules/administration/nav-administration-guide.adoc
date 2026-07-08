@@ -58,6 +58,7 @@ endif::[]
 ** xref:patch-management.adoc[パッチ管理]
 ** xref:ptfs.adoc[プログラムの一時的修正]
 ** xref:reports.adoc[レポート生成]
+*** xref:reporting-database.adoc[Reportingデータベース]
 ** セキュリティ
 *** xref:auditing.adoc[パッケージの監査]
 *** xref:master-fingerprint.adoc[マスターフィンガープリント]
