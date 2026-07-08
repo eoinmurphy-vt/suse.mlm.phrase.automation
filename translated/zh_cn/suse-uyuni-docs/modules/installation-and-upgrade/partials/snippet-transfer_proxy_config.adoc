@@ -11,7 +11,7 @@
 [role=procedure]
 _____
 
-. 如果还未执行此操作，请将上一步生成的配置归档（[literal]``+config.tar.gz+``）从服务器容器复制到服务器主机：
+. 如果还未执行此操作，请将上一步生成的配置归档（`+config.tar.gz+`）从服务器容器复制到服务器主机：
 +
 ----
 mgrctl cp server:/root/config.tar.gz .
