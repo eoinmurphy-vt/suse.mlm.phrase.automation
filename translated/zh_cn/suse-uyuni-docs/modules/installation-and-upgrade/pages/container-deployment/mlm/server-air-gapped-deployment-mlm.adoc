@@ -63,7 +63,7 @@ transactional-update pkg install mgradm* mgrctl* suse-multi-linux-manager-5.1-$A
 
 . 重引导。
 
-. 使用 [command]``+mgradm+`` 部署 {productname}。
+. 使用 {productname} 部署 `+mgradm+`。
 
 ____
 
@@ -75,12 +75,12 @@ ____
 == PTF
 
 PTF 映像不以软件包形式提供。
-这意味着需在连接到互联网的计算机上使用 [command]``+podman+`` 拉取映像，然后将其保存为存档文件，传输至隔离的计算机并在该计算机上加载。
+这意味着需在连接到互联网的计算机上使用 `+podman+` 拉取映像，然后将其保存为存档文件，传输至隔离的计算机并在该计算机上加载。
 
 .过程：升级在连接到互联网的计算机上拉取映像
 [role=procedure]
 ____
-. 安装 [command]``+podman+``。
+. 安装 `+podman+`。
 
 . 使用 SCC 身份凭证向 {suse} 注册表进行身份验证：
 
@@ -102,7 +102,7 @@ endif::[]
 
 [NOTE]
 ====
-此示例假设 PTF 是针对 [path]``+server+`` 映像的，如果 PTF 涉及其他映像，请调整示例。
+此示例假设 PTF 是针对 `+server+` 映像的，如果 PTF 涉及其他映像，请调整示例。
 ====
 
 +
@@ -132,14 +132,14 @@ for image in `cat /tmp/ptf-images`; do
 done
 podman save -o /tmp/ptf-images.tar $(cat /tmp/ptf-images)
 ----
-. 将 [path]``+/tmp/ptf-images.tar+`` 映像存档传输到要修补的服务器上。
+. 将服务器上的 `+/tmp/ptf-images.tar+` 映像存档传输至补丁服务器。
 
 ____
 
 .过程：升级在要修补的服务器上加载映像。
 [role=procedure]
 ____
-. 确保 [path]``+ptf-images.tar+`` 文件在服务器上可用。
+. 确保 `+ptf-images.tar+` 文件在服务器上可用。
 
 . 从存档中加载映像：
 
