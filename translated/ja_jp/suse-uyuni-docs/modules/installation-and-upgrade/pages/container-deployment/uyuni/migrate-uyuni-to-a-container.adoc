@@ -38,13 +38,13 @@ endif::[]
 
 * 自己信頼GPGキーは移行されません。
 * RPMデータベースでのみ信頼されているGPGキーは移行されません。
-  したがって、[command]``+spacewalk-repo-sync+``でチャンネルを同期すると失敗する可能性があります。
+  そのため、`+spacewalk-repo-sync+`とのチャネルの同期が失敗する可能性があります。
 * 管理者は、実際のサーバ移行後にこれらのキーをレガシー {productname} インストールからコンテナホストに手動で移行する必要があります。
 
 
 .プロシージャ:新しいサーバへのGPGキーの手動移行
 . レガシUyuniサーバから新しいサーバのコンテナホストにキーをコピーします。
-. その後、コマンド[command]``+mgradm gpg add <PATH_TO_KEY_FILE>+``を使用して、移行したサーバに各キーを追加します。
+. その後、`+mgradm gpg add <PATH_TO_KEY_FILE>+`コマンドを使用して、移行したサーバーに各キーを追加します。
 
 
 
@@ -56,7 +56,7 @@ endif::[]
 
 最終的な移行中にのみ、レガシサーバ上のプロセスを停止する必要があります。
 
-最終複製以外のすべてに対して、パラメータ[command]``+--prepare+``を追加し、レガシーサーバ上のサービスが自動的に停止するのを防止します。
+最終複製以外のすべてに対して、パラメータ`+--prepare+`を追加し、レガシーサーバー上のサービスが自動的に停止しないようにします。
 例:
 
 [source,shell]
@@ -82,7 +82,7 @@ systemctl stop postgresql
 === SSH接続の準備
 
 .プロシージャ:SSH接続の準備
-. 新しい{productnumber}サーバに対して[systemitem]``+ルート+``のSSHキーが存在することを確認してください。
+. 新しい`+root+`サーバー上の{productnumber}にはSSHキーが存在することを確認してください。
   キーが存在しない場合は、次のコマンドで作成します:
 +
 ----
@@ -97,25 +97,25 @@ eval $(ssh-agent); ssh-add
 [NOTE]
 ====
 パスワードの入力を促されずに接続を確立するために、移行スクリプトは新しいサーバ上で実行されているSSHエージェントに依存しています。
-エージェントがまだアクティブでない場合は、[command]``+eval $(ssh-agent)+``を実行して開始します。
-次に、実行中のエージェントにSSHキーを追加し、プライベートキーへのパスを指定します。
-このプロセス中に、プライベートキーのパスワードを入力するように求められます。
+エージェントがまだアクティブでない場合は、`+eval $(ssh-agent)+`を実行して開始します。
+次に、`+ssh-add+`を使用して実行中のエージェントにSSHキーを追加し、プライベートキーへのパスを続けて入力します。
+このプロセス中にプライベートキーのパスワードを入力するように求められます。
 ====
 
-. 公開SSHキーをレガシー {productname} サーバ（[literal]``+<oldserver.fqdn>+``+）に[command]+``+ssh-copy-id+``を使用してコピーします。
-  [literal]``+<oldserver.fqdn>+``をレガシーサーバーのFQDNに置き換えます。
+. 公開SSHキーをレガシー{productname}サーバー（`+<oldserver.fqdn>+`）に`+ssh-copy-id+`を使用してコピーします。
+  `+<oldserver.fqdn>+`をレガシーサーバーのFQDNに置き換えます：
 +
 ----
 ssh-copy-id <oldserver.fqdn>
 ----
 +
-SSHキーはレガシーサーバーの[path]``+~/.ssh/authorized_keys+``ファイルにコピーされます。
-詳細については、[literal]``+ssh-copy-id+``のマニュアルページを参照してください。
+SSHキーはレガシーサーバーの`+~/.ssh/authorized_keys+`ファイルにコピーされます。
+詳細については、`+ssh-copy-id+`のマニュアルページを参照してください。
 . 新しいサーバーからレガシー{productname}サーバーへのSSH接続を確立し、パスワードが不要であることを確認します。
-  ホストのフィンガープリントに問題がないことも確認してください。
-  問題が発生した場合は、[path]``+~/.ssh/known_hosts+``ファイルから古いフィンガープリントを削除してください。
+  ホストフィンガープリントに問題がないことも確認してください。
+  問題が発生した場合は、`+~/.ssh/known_hosts+`ファイルから古いフィンガープリントを削除してください。
   もう一度やり直してください。
-  フィンガープリントはローカルの[path]``+~/.ssh/known_hosts+``ファイルに保存されます。
+  フィンガープリントはローカルの`+~/.ssh/known_hosts+`ファイルに保存されます。
 
 
 
@@ -137,10 +137,10 @@ endif::[]
 
 ==== カスタム永続ストレージの設定
 
-永続ストレージの設定はオプションですが、コンテナのディスクフル状態による深刻な問題を回避する唯一の方法です。
-[command]``+mgr-storage-server+``ツールを使用してカスタム永続ストレージを設定することを強くお勧めします。
+永続ストレージの設定は任意ですが、コンテナのディスクが満杯になる問題を避ける唯一の方法です。
+`+mgr-storage-server+`ツールを使用してカスタム永続ストレージを設定することを強くお勧めします。
 
-詳細については、[command]``+mgr-storage-server --help+``を参照してください。
+詳細については、`+mgr-storage-server --help+`を参照してください。
 詳細については、[command]\``mgr-storage-server \--help``を参照してください。このツールを使用すると、コンテナストレージとデータベースボリュームの作成が容易になります。
 
 このコマンドは次のように使用します。
@@ -165,7 +165,7 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 
 [NOTE]
 ====
-このコマンドは、[path]``+/var/lib/containers/storage/volumes+``に永続ストレージボリュームを作成します。
+このコマンドは、`+/var/lib/containers/storage/volumes+`に永続ストレージボリュームを作成します。
 
 詳細については、以下を参照してください。
 
@@ -178,7 +178,7 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 
 
 . 新しい{productname}サーバーをインストールするには、次のコマンドを実行してください。
-  [literal]``+<oldserver.fqdn>+``をレガシーサーバーのFQDNに置き換えます。
+  `+<oldserver.fqdn>+`をレガシーサーバーのFQDNに置き換えます：
 +
 ----
 mgradm migrate podman <oldserver.fqdn>
@@ -188,12 +188,12 @@ mgradm migrate podman <oldserver.fqdn>
 
 ==== 証明書の移行
 
-RPMの一部としてインストールされ、レガシー{productname}の[path]``+/usr/share/pki/trust/anchors/+``ディレクトリに保存された信頼されたSSL CA証明書は移行されません。
+RPMの一部としてインストールされ、レガシーの{productname}にある`+/usr/share/pki/trust/anchors/+`ディレクトリに保存された信頼されたSSL CA証明書は移行されません。
 {suse}はコンテナ内にRPMパッケージをインストールしないため、管理者は移行後にレガシーインストールからこれらの証明書ファイルを手動で移行する必要があります。
 
 .プロシージャ:証明書の移行
 . ファイルをレガシサーバから新しいサーバにコピーします。
-   たとえば、[path]``+/local/ca.file+``のように。
+   例えば、`+/local/ca.file+`などです。
 . 次のコマンドを使用してファイルをコンテナにコピーします。
 +
 ----
@@ -207,7 +207,7 @@ mgrctl cp /local/ca.file server:/etc/pki/trust/anchors/
 
 [IMPORTANT]
 ====
-[command]``+mgradm migrate+``コマンドを正常に実行した後、すべてのクライアントの{salt}セットアップは依然としてレガシーサーバーを指します。
+`+mgradm migrate+`コマンドを正常に実行した後、すべてのクライアントの{salt}セットアップは依然としてレガシーサーバーを指します。
 
 新しい{productnumber}サーバーにリダイレクトするには、新しいサーバーの名前をインフラストラクチャレベル(DHCPおよびDNS)で変更して、レガシーサーバーと同じFQDNとIPアドレスを使用する必要があります。
 ====
@@ -231,7 +231,7 @@ spacewalk-service start
 // FIXME: check the following!  Partially probably already covered above.!
 == Kubernetesの準備
 
-[command]``+mgradm migrate+``コマンドを使用して移行を実行する前に、特に移行ジョブがコンテナを最初から開始することを考慮して、**永続ボリューム**を事前定義することが重要です。
+`+mgradm migrate+`コマンドを使用して移行を実行する前に、特に移行ジョブがコンテナを最初から開始することを考慮して、**永続ボリューム**を事前定義することが重要です。
 
 詳細については、xref:installation-and-upgrade:container-management/persistent-container-volumes.adoc[]のこれらのボリュームの準備に関するインストールセクションを参照してください。
 
@@ -254,6 +254,6 @@ mgradm migrate kubernetes <oldserver.fqdn>
 [IMPORTANT]
 ====
 
-[command]``+mgradm migrate+``コマンドを正常に実行した後、すべてのクライアントの{salt}セットアップは依然としてレガシーサーバを指します。
+`+mgradm migrate+`コマンドを正常に実行した後、すべてのクライアントの{salt}セットアップは依然としてレガシーサーバーを指します。
 新しいサーバにリダイレクトするには、新しいサーバの名前をインフラストラクチャレベル(DHCPおよびDNS)で変更して、レガシーサーバと同じFQDNとIPアドレスを使用する必要があります。
 ====
