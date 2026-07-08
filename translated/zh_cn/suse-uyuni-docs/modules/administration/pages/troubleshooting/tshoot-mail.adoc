@@ -28,7 +28,7 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 
 
-为确保邮件通信安全，您可以启用身份验证，设置用户名和密码，并在 [path]+``+/etc/rhn/rhn.conf+`` 中启用 [literal]``+SSL+`` 或 [literal]+``+STARTLS+``+：
+为确保邮件通信安全，您可以启用身份验证，设置用户名和密码，并在 `+/etc/rhn/rhn.conf+` 中启用 `+SSL+` 或 `+STARTLS+`：
 
 ----
 java.smtp_server = string (default: localhost)
@@ -40,7 +40,7 @@ java.smtp_user = string (default: null)
 java.smtp_pass = string (default: null)
 ----
 
-要为 SMTP 服务器通信的连接超时设置更高的值，可以在 [path]``+/etc/rhn/rhn.conf+`` 中设置以下参数：
+要增加 SMTP 服务器通信的连接超时时间，可以在 `+/etc/rhn/rhn.conf+` 中设置以下参数：
 
 ----
 java.smtp_timeout = integer (default: 5000)
