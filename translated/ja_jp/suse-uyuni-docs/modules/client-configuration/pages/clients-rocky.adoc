@@ -33,7 +33,7 @@ endif::[]
 
 [NOTE]
 ====
-{productname}に{rocky}クライアントを登録することは、デフォルトのSELinux設定（``+enforcing+``）および``+targeted+``ポリシーでテストされています。
+{rocky}クライアントを{productname}に登録することは、`+enforcing+`のデフォルトSELinux設定および`+targeted+`ポリシーでテストされています。
 {productname}に{rocky}クライアントを登録するためにSELinuxを無効にする必要はありません。
 ====
 
@@ -127,7 +127,7 @@ endif::[]
 
 [NOTE]
 ====
-[command]``+spacewalk-common-channels+``によって提供されるクライアントツールチャンネルの提供元は{uyuni}です。{suse}ではありません。
+`+spacewalk-common-channels+`によって提供されるクライアントツールチャネルは、{uyuni}から取得され、{suse}からは取得されません。
 ====
 
 endif::[]
@@ -150,7 +150,7 @@ endif::[]
 ====
 
 {rocky} 8のモジュラーチャネルを使用している場合、クライアントでPython 3.6モジュールストリームを有効にする必要があります。
-Python 3.6を提供しない場合、[package]``+spacecmd+``パッケージのインストールは失敗します。
+Python 3.6 を提供しない場合、`+spacecmd+`パッケージのインストールは失敗します。
 
 
 == 同期ステータスの確認
