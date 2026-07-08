@@ -53,7 +53,7 @@ endif::[]
 ifeval::[{mlm-content} == true]
 
 //The products you need for this procedure are:
-예를 들어, `+x86_64+` 아키텍처에서 작업할 때 필요한 제품은 다음과 같습니다.
+예를 들어, `+x86_64+` 아키텍처에서 작업할 때 필요한 제품은 다음과 같습니다:
 
 [[amazon-channels-wizard]]
 [cols="1,1", options="header"]
@@ -142,7 +142,7 @@ endif::[]
 
 [NOTE]
 ====
-[command]``+spacewalk-common-channels+``가 제공하는 클라이언트 도구 채널은 {suse}가 아닌 {uyuni}에서 공급됩니다.
+`+spacewalk-common-channels+`에서 제공하는 클라이언트 도구 채널은 {uyuni}에서 제공되며, {suse}이(가) 아닙니다.
 ====
 
 endif::[]
