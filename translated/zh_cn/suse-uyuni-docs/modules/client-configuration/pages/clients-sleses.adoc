@@ -100,6 +100,9 @@ endif::[]
 | {sll} 10
 | RHEL 或 SLES ES 和 Liberty 10 x86_64
 
+| {sll} 9.6 EMS
+| SUSE Liberty Linux 9.6 EMS x86_64
+
 | {sll} 9
 | RHEL 或 SLES ES 和 Liberty 9 x86_64
 
@@ -128,6 +131,7 @@ endif::[]
 
 | 操作系统版本 | 基础通道                     | 工具通道
 | {sll} 10    | RHEL 和 Liberty 10 基础版         | ManagerTools-EL10-Pool for x86_64 和 ManagerTools-EL10-Updates for x86_64
+| {sll} 9.6 EMS | RHEL 和 Liberty 9.6 EMS 基础版  | ManagerTools-EL9-Pool for x86_64 和 ManagerTools-EL9-Updates for x86_64
 | {sll} 9     | RHEL 和 Liberty 9 基础版          | ManagerTools-EL9-Pool for x86_64 和 ManagerTools-EL9-Updates for x86_64
 | {sll} 8     | RHEL 或 SLES ES 或 CentOS 8 基础版 | RES8-Manager-Tools-Pool for x86_64 和 RES8-Manager-Tools-Updates for x86_64
 | {sll} 7     | RHEL 扩展支持 7          | RES7-SUSE-Manager-Tools x86_64
@@ -166,6 +170,11 @@ ifeval::[{mlm-content} == true]
 | el10-pool-x86_64
 | -
 | managertools-el10-pool-x86_64
+
+| {sll} 9.6 EMS
+| el9-pool-x86_64
+| -
+| managertools-el9-pool-x86_64
 
 | {sll} 9
 | el9-pool-x86_64
@@ -266,7 +275,7 @@ endif::[]
 ====
 
 如果您使用的是模块化通道，您必须在客户端上启用 Python 3.6 模块流。
-如果您不提供 Python 3.6，[package]``+spacecmd+`` 软件包的安装将失败。
+如果您不提供 Python 3.6，则 `+spacecmd+` 软件包的安装将失败。
 
 
 .过程：升级将基础媒体添加到自定义通道（RHEL 7.0 示例）
@@ -277,7 +286,7 @@ ____
 您必须使用来自 {redhat} 的原始安装媒体。
 您必须使用主要版本发布（例如 `+7+`），而不是次要版本发布（例如 `+7.9+`）。
 ====
-. 将基础媒体映像复制到 {productname} 服务器容器主机上的 [path]``+/tmp/+`` 目录中。
+. 将基础媒体映像复制到 {productname} 服务器容器主机上的 `+/tmp/+` 目录中。
 
 . 要将基础媒体映像添加到 {productname} 服务器容器，请使用：
 
@@ -287,7 +296,7 @@ mgradm distribution copy /tmp/rhel-server-7.0-x86_64-dvd.iso rhel-server-7.0
 ----
 
 +
-容器中的目标将是 [path]``+/srv/www/distributions/rhel-server-7.0+``。
+容器中的目标将是 `+/srv/www/distributions/rhel-server-7.0+`。
 
 . 将软件包导入您之前创建的子通道：
 
@@ -331,9 +340,9 @@ mgrctl exec -- spacewalk-repo-sync -c <channel-label> -u file:///srv/www/distrib
 | 选项                 | 参数
 | 储存库 URL         | 由 {redhat} CDN 或 {centos} 提供的内容 URL
 | 包含已签名的元数据？  | 取消选中所有 {redhat} 企业储存库
-| SSL CA 证书     | [systemitem]``+redhat-uep+``（仅限 {redhat}）
-| SSL 客户端证书 | [systemitem]``+Entitlement-Cert-date+``（仅限 {redhat}）
-| SSL 客户端密钥         | ``+Entitlement-Key-date+``（仅限 {redhat}）
+| SSL CA 证书     | `+redhat-uep+`（仅限 {redhat}）
+| SSL 客户端证书 | `+Entitlement-Cert-date+`（仅限 {redhat}）
+| SSL 客户端密钥         | `+Entitlement-Key-date+`（仅限 {redhat}）
 
 |===
 
@@ -429,7 +438,7 @@ endif::[]
 REACTIVATION_KEY=<KEY> ./bootstrap_liberate9.sh
 ----
 
-另一种方法是向位于 [path]``+/etc/venv-salt-minon/minion.d/susemanager.conf+``+ 的 {salt} 客户端配置文件添加一些特殊标志（或 [path]+``+/etc/salt-minon/minion.d/susemanager.conf+``），即以下内容（将此内容与现有的内容合并）：
+另一种方法是在位于 {salt}（或 `+/etc/venv-salt-minon/minion.d/susemanager.conf+`）的 `+/etc/salt-minon/minion.d/susemanager.conf+` 客户端配置文件中添加一些特殊标志，内容如下（将此内容与现有内容合并）：
 
 ----
 grains:
@@ -438,7 +447,7 @@ grains:
         management_key: "MINION_REACTIVATION_KEY"
 ----
 
-更改 [path]``+susemanager.conf+``+ 文件后，需要在 {salt} 服务器上重启 [systemitem]+``+salt-minion+`` 服务。 默认情况下，
+更改 `+susemanager.conf+` 文件后，需要在 `+salt-minion+` 服务器上重启 {salt} 服务。 默认情况下，
 
 ----
 systemctl restart venv-salt-minon
@@ -453,7 +462,7 @@ systemctl restart salt-minon
 
 
 
-=== [systemitem]``+解放+`` 公式
+=== `+liberate+` 公式
 
-将企业 Linux (EL) 客户端迁移到 {sll}，使用 [systemitem]``+解放+`` 公式。
+使用 {sll} 公式将企业 Linux (EL) 客户端迁移到 `+liberate+`。
 有关更多信息，请参见 xref:specialized-guides:salt/salt-formula-liberate.adoc[]。
