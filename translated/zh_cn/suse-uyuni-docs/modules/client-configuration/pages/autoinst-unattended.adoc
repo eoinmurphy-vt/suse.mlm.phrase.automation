@@ -14,8 +14,8 @@
 
 .过程：升级通过手动声明的控制文件重新安装
 
-. 在 {productname} 服务器的命令提示符下，使用 [systemitem]``+system.createSystemRecord+`` API 调用。
-  在此示例中，将 [literal]``+name+``+ 替换为您的客户端名称，将 [literal]+``+<profile>+``+ 替换为控制文件标签，将 [literal]+``+<iface>+``+ 替换为客户端接口的名称，例如 [literal]+``+eth0+``+，以及将 [literal]+``+<hw_addr>+``+ 替换为其 MAC 地址，例如 [literal]+``+00:25:22:71:e7:c6+``：
+. 在 {productname} 服务器上，在命令提示符处，使用 `+system.createSystemRecord+` API 调用。
+  在此示例中，将 `+name+` 替换为您的客户端名称，将 `+<profile>+` 替换为控制文件标签，将 `+<iface>+` 替换为客户端接口的名称（例如 `+eth0+`），并将 `+<hw_addr>+` 替换为其硬件地址（例如 `+00:25:22:71:e7:c6+`）：
 +
 ----
 $ spacecmd api -- --args '["<name>", "<profile>", "", "", \
@@ -27,4 +27,4 @@ $ spacecmd api -- --args '["<name>", "<profile>", "", "", \
 
 此命令在 {cobbler} 创建一个系统记录。
 您还可以指定其他参数，例如内核选项、客户端的 IP 地址及其域名。
-有关更多信息，请参阅 [systemitem]``+createSystemRecord call+`` 的 API 文档。
+有关详细信息，请参见 `+createSystemRecord call+` 的 API 文档。
