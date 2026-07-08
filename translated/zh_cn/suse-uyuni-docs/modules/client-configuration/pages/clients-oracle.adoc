@@ -69,7 +69,6 @@ ifeval::[{mlm-content} == true]
 | {oracle} 10 | Oracle Linux 10 x86_64
 | {oracle} 9  | Oracle Linux 9 x86_64
 | {oracle} 8  | Oracle Linux 8 x86_64
-| {oracle} 7  | Oracle Linux 7 x86_64
 |===
 
 ifndef::backend-pdf[]
@@ -92,7 +91,6 @@ endif::[]
 | {oracle} 10 | oraclelinux10-x86_64
 | {oracle} 9  | oraclelinux9-x86_64
 | {oracle} 8  | oraclelinux8-x86_64
-| {oracle} 7  | oraclelinux7-x86_64
 |===
 
 ifndef::backend-pdf[]
@@ -132,11 +130,6 @@ ifeval::[{uyuni-content} == true]
 | oraclelinux8-uyuni-client
 | oraclelinux8-appstream
 
-| {oracle} 7
-| oraclelinux7
-| oraclelinux7-uyuni-client
-| -
-
 |===
 
 ifndef::backend-pdf[]
@@ -149,7 +142,7 @@ endif::[]
 
 [NOTE]
 ====
-由 [command]``+spacewalk-common-channels+`` 提供的客户端工具通道来自 {uyuni} 而非 {suse}。
+`+spacewalk-common-channels+` 提供的客户端工具通道源自 {uyuni}，而非 {suse}。
 ====
 
 endif::[]
@@ -158,13 +151,13 @@ ifeval::[{uyuni-content} == true]
 [IMPORTANT]
 ====
 对于 {oracle} 10、{oracle} 9 和 {oracle} 8 客户端，请添加Base和AppStream通道。
-您需要从这两个通道获取软件包。
+您需要来自两个通道的软件包。
 如果您不添加这两个通道，由于缺少软件包，您将无法创建启动储存库。
 ====
 endif::[]
 
-如果您使用的是模块化通道，您必须在客户端上启用Python 3.6模块流。
-如果您不提供 Python 3.6，[package]``+spacecmd+`` 软件包的安装将失败。
+如果您使用的是模块化通道，您必须在客户端上启用 Python 3.6 模块流。
+如果您不提供 Python 3.6，`+spacecmd+` 软件包的安装将失败。
 
 
 == 检查同步状态
@@ -221,7 +214,7 @@ endif::[]
 ====
 信任 GPG 密钥对客户端的安全性至关重要。
 决定需要哪些密钥并可以信任哪些密钥是管理员的任务。
-由于在 GPG 密钥不被信任时无法使用软件通道，因此将通道分配给客户端的决定取决于信任该密钥的决定。
+由于在 GPG 密钥未被信任时无法使用软件通道，因此是否将通道分配给客户端取决于是否信任该密钥。
 ====
 
 有关 GPG 密钥的更多信息，请参见 xref:client-configuration:gpg-keys.adoc[]。
@@ -233,11 +226,6 @@ endif::[]
 ol8-gpg-pubkey-82562EA9AD986DA3.key
 ----
 
-对于 {oracle} 7 客户端，请使用
-----
-ol67-gpg-pubkey-72F97B74EC551F0A3.key
-----
-====
 
 
 
