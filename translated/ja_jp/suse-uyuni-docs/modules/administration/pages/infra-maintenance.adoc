@@ -29,7 +29,7 @@ ____
 
 . 必要に応じて、最新のサービスパックにアップグレードします。
 
-. [command]``+podman ps+``を実行し、必要なすべてのサービスが稼働しているかどうかを確認します。
+. `+podman ps+`を実行し、必要なすべてのサービスが稼働しているかどうかを確認します。
 ____
 
 {sles} {bci-mlm}では、パッケージマネージャーを使用して更新をインストールできます。
@@ -37,8 +37,8 @@ ____
 * {yast}の使用に関する情報は、{sles-base-os-documentation}/cha-onlineupdate-you.htmlを参照してください。
 * zypperの使用に関する情報は、{sles-base-os-documentation}/cha-sw-cl.html#sec-zypperを参照してください。
 
-{sl-micro} {microversion}では、[command]``+transactional-update+``コマンドを使用して更新をインストールできます。
-[command]``+transactional-update+``の使用に関する情報は、https://documentation.suse.com/sle-micro/6.1/html/Micro-transactional-updates/transactional-updates.html.を参照してください。
+{sl-micro} {microversion}では、`+transactional-update+`コマンドを使用して更新をインストールできます。
+`+transactional-update+`の使用方法については、https://documentation.suse.com/sle-micro/6.1/html/Micro-transactional-updates/transactional-updates.html.を参照してください。
 
 
 デフォルトでは、{productname}サーバーに対していくつかの更新チャネルが構成され、有効になっています。
@@ -92,7 +92,7 @@ ifeval::[{mlm-content} == true]
 例えば、メジャーリリース5.1は、MUがリリースされると5.1.1に更新されます。
 
 {webui}のナビゲーションバーの下部を見て、実行中のバージョンを確認できます。
-また、[literal]``+api.getVersion()+`` XMLRPC APIコールを使用してバージョン番号を取得することもできます。
+また、`+api.getVersion()+` XMLRPC APIコールを使用してバージョン番号を取得することもできます。
 
 endif::[]
 
@@ -101,10 +101,10 @@ endif::[]
 === クライアントツール
 
 サーバーが更新された際には、クライアント上のいくつかのツールも更新することを検討してください。
-[package]``+venv-salt-minion+``+、[package]+``+zypper+``、およびクライアント上の他の関連管理パッケージの更新は厳密な要件ではありませんが、一般的にはベストプラクティスです。
+`+venv-salt-minion+`、`+zypper+`、およびクライアント上の他の関連管理パッケージを更新することは厳密な要件ではありませんが、一般的にはベストプラクティスです。
 例えば、サーバのメンテナンス更新は、新しいメジャーSaltバージョンを導入する可能性があります。
 その後、Saltクライアントは動作し続けますが、後で問題が発生する可能性があります。
-これを避けるために、{suse}は[package]``+venv-salt-minion+``が常に安全に更新されることを確認します。
+これを避けるために、{suse}は`+venv-salt-minion+`が常に安全に更新されることを確認します。
 
 
 
