@@ -36,8 +36,8 @@ transactional-update
 . 업데이트가 적용된 경우 재부팅합니다.
 
 . 이 단계는 선택 사항입니다.
-  그러나 인프라에 사용자 정의 영구 스토리지가 필요한 경우 [command]``+mgr-storage-proxy+`` 도구를 사용하십시오.
-** 자세한 내용은 [command]``+mgr-storage-proxy --help+``를 참조하십시오.
+  그러나 인프라에 사용자 정의 영구 스토리지가 필요한 경우 `+mgr-storage-proxy+` 도구를 사용하십시오.
+** 자세한 내용은 `+mgr-storage-proxy --help+`을 참조하십시오.
 이 도구는 컨테이너 볼륨 생성 과정을 간소화합니다.
 
 ** 다음 방법으로 명령 사용:
@@ -55,7 +55,7 @@ mgr-storage-proxy /dev/nvme1n1
 +
 [NOTE]
 ====
-이 명령은 [path]``+/var/lib/containers/storage/volumes+``에 있는 영구 스토리지 볼륨을 지정된 스토리지 장치로 이동합니다.
+이 명령은 `+/var/lib/containers/storage/volumes+`에 있는 영구 스토리지 볼륨을 지정된 스토리지 장치로 이동합니다.
 
 자세한 내용은 다음을 참조하십시오.
 
