@@ -1,5 +1,5 @@
 在迁移时，{productname} 默认使用自签名证书。
-要使用来自外部 PKI（证书颁发机构）的证书，您可以在运行 [command]``+{migration-command}+``+ 时提供所有证书文件，使用 [literal]+``+--ssl*+`` 标志。
+要使用来自外部 PKI（证书颁发机构）的证书，您可以在运行 `+{migration-command}+` 时使用 `+--ssl*+` 标志提供所有证书文件。
 
 .快速参考：迁移所需的标志
 [cols="1,5"]
@@ -31,17 +31,17 @@
 |请参见下面的 "来自外部 PKI 的所有证书"
 |===
 
-任何未指定的 [literal]``+--ssl*+`` 标志将使用源服务器中的相应值。
+任何未指定的 `+--ssl*+` 标志将使用源服务器中的相应值。
 仅为与当前设置不同的文件提供标志。
 
 === 标志参考
 
 ifeval::[{migration-source} == 4.3]
-以下 [literal]``+--ssl*+``+ 标志由 [command]+``+mgradm migrate+`` 支持：
+支持以下 `+--ssl*+` 标志：`+mgradm migrate+`
 endif::[]
 
 ifeval::[{migration-source} == 5.0]
-以下 [literal]``+--ssl*+``+ 标志由 [command]+``+mgradm migrate+``+ 和 [command]+``+mgradm upgrade+`` 支持：
+`+mgradm migrate+` 和 `+mgradm upgrade+` 支持以下 `+--ssl*+` 标志：
 endif::[]
 
 [cols="1,5"]
@@ -76,21 +76,21 @@ endif::[]
 [IMPORTANT]
 ====
 数据库证书链与服务器证书链完全独立。
-即使使用相同的 CA，也必须提供 [literal]``+--ssl-db-*+`` 标志，因为数据库容器需要在迁移期间生成自己的证书。
+必须提供 `+--ssl-db-*+` 标志，即使使用相同的 CA，因为数据库容器需要在迁移期间生成自己的证书。
 ====
 
 === 证书要求
 
-以下要求适用于与 [command]``+mgradm migrate+`` 一起使用的所有证书文件：
+以下要求适用于与 `+mgradm migrate+` 一起使用的所有证书文件：
 
 * 所有证书文件必须为 PEM 格式。
   如果您的证书为 DER 格式，请先将其转换。
 
-* 证书的 [literal]``+X509v3 Subject Alternative Name+`` 部分中的主机名必须与证书部署的机器的完全限定主机名匹配。
+* 证书 `+X509v3 Subject Alternative Name+` 部分中的主机名必须与证书部署的机器的完全限定主机名匹配。
 
-* 数据库证书需要 [literal]``+reportdb+``+ 和 [literal]+``+db+``+ 作为 [literal]+``+Subject Alternative Name+`` (SAN)。
+* 数据库证书需要 `+reportdb+` 和 `+db+` 作为 `+Subject Alternative Name+` (SAN)。
 
-* 支持的密钥类型为 [literal]``+RSA+``+ 和 [literal]+``+EC+`` (椭圆曲线)。
+* 支持的密钥类型为 `+RSA+` 和 `+EC+` (椭圆曲线)。
 
 * 使用 CA 链时，首先将证书与服务器或数据库证书连接，然后按顺序添加所有中间 CA 证书。
 根 CA 证书应单独存放在一个独立的文件中。
@@ -116,14 +116,14 @@ cat server.pem intermediate-ca1.pem intermediate-ca2.pem > combined-server.pem
 * Web 组件的私钥
 * 数据库组件的根 CA 证书
 * 数据库组件的中间 CA 证书（如适用）
-* 数据库组件的服务器证书（带有 [literal]``+reportdb+``+ 和 [literal]+``+db+`` 作为 SAN）
+* 数据库组件的服务器证书（包含 `+reportdb+` 和 `+db+` 作为 SAN）
 * 数据库组件的私钥
 
 在大多数部署中，单个 CA 同时服务于服务器和数据库组件。
-在这种情况下，两个 [literal]``+--ssl-*+``+ 和 [literal]+``+--ssl-db-*+`` 标志使用相同的证书文件。
+在这种情况下，`+--ssl-*+` 和 `+--ssl-db-*+` 标志使用相同的证书文件。
 下面的示例使用不同的文件名以便于区分。
 
-.包含所有 [literal]``+--ssl*+`` 标志的示例迁移命令
+.包含所有 `+--ssl*+` 标志的示例迁移命令
 [source,shell,subs="attributes+"]
 ----
 {migration-command} podman <oldserver.fqdn> \
