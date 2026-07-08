@@ -1,14 +1,14 @@
 [[backup-restore-db]]
 = 디스크 공간 관리
-:description: [command]\``+mgradm+``를 사용하여 {productname} 서버의 온라인 데이터베이스 백업을 관리하는 방법을 배우십시오.
+:description: `+mgradm+`를 사용하여 {productname} 서버의 온라인 데이터베이스 백업을 관리하는 방법을 배우십시오.
 :revdate: 2026-03-17
 :page-revdate: {revdate}
 :page-author: SUSE 제품 및 솔루션 문서 팀
 :page-product-name: {productname}
 :page-product-version: {productnumber}
 
-이 가이드는 [command]``+mgradm+``를 사용하여 {productname} 서버의 온라인 데이터베이스 백업을 관리하는 방법을 설명합니다.
-백업 시스템은 {postgresql} 지속적인 아카이빙 쓰기 선행 로깅(WAL)을 기반으로 하며, 이전 버전의 [command]``+smdba+``와 유사합니다.
+이 가이드는 {productname}를 사용하여 `+mgradm+` 서버의 온라인 데이터베이스 백업을 관리하는 방법을 설명합니다.
+백업 시스템은 {postgresql} 지속적인 아카이빙 쓰기 선행 로깅(WAL)을 기반으로 하며, 이전 버전의 `+smdba+`와 유사합니다.
 
 [IMPORTANT]
 ====
@@ -23,7 +23,7 @@
 
 지속적인 아카이빙은 트랜잭션 로그(WAL)를 전용 볼륨에 지속적으로 백업하여 데이터 손실 위험을 줄입니다.
 
-백업 시스템은 [literal]``+var-pgsql-walbackup+``라는 전용 Podman 볼륨을 사용하여 다음을 저장합니다:
+백업 시스템은 다음을 저장하기 위해 `+var-pgsql-walbackup+`라는 전용 Podman 볼륨을 사용합니다:
 
 * 기본 백업(데이터베이스의 전체 스냅샷).
 * WAL 세그먼트(마지막 기본 백업 이후의 증분 변경 사항).
@@ -31,10 +31,10 @@
 
 [NOTE]
 ====
-시점 복구는 현재 [command]``+mgradm+``에서 지원되지 않으며 수동 워크플로가 필요합니다.
+시점 복구는 현재 `+mgradm+`에서 지원되지 않으며 수동 워크플로가 필요합니다.
 
 
-전체 복구만 [command]``+mgradm+`` 도구에서 지원됩니다. 
+`+mgradm+` 도구에서는 전체 복구만 지원됩니다. 
 복원 절차는 백업 위치에서 모든 것을 복원합니다.
 ====
 
@@ -42,7 +42,7 @@
 
 == 전제 조건
 
-* 호스트에 설치된 [command]``+mgradm+`` 도구입니다.
+* `+mgradm+`호스트에 설치된 도구입니다.
 * {productname} Podman 환경에서 실행 중인 서버입니다.
 
 
@@ -60,15 +60,15 @@ mgradm backup db enable
 
 * 백업이 이미 활성화되어 있지 않은지 확인합니다.
 
-* {postgresql}([path]``+postgresql.conf+``+)을 구성하여 [option]+``+archive_mode+``+를 활성화하고 [option]+``+archive_command+``를 설정합니다.
+* {postgresql}을(를) 활성화하고 `+postgresql.conf+`을(를) 설정하도록 `+archive_mode+` (`+archive_command+`)을(를) 구성합니다.
 
-* 데이터베이스 서비스용 [literal]``+var-pgsql-walbackup+`` 볼륨을 구성합니다.
+* 데이터베이스 서비스를 위해 `+var-pgsql-walbackup+` 볼륨을 구성합니다.
 
 * Spacewalk 서비스를 다시 시작하여 변경 사항을 적용합니다.
 
 * 컨테이너 내에서 초기 기본 백업을 수행합니다.
 
-백업이 이미 구성되어 있지만 다시 초기화해야 하는 경우 [option]``+--force+`` 플래그를 사용하십시오.
+백업이 이미 구성되어 있지만 다시 초기화해야 하는 경우 `+--force+` 플래그를 사용하십시오.
 
 
 
@@ -103,7 +103,7 @@ mgradm backup db rebase
 
 [IMPORTANT]
 ====
-복원 작업에 필요한 시간을 최소화하기 위해 명령 [command]``+mgradm backup db rebase+``를 사용하여 데이터베이스 백업을 정기적으로 리베이스하십시오.
+복원 작업에 필요한 시간을 최소화하기 위해 명령 `+mgradm backup db rebase+`을 사용하여 데이터베이스 백업을 정기적으로 리베이스하십시오.
 ====
 
 
@@ -134,7 +134,7 @@ mgradm backup db restore
 
 [IMPORTANT]
 ====
-복원을 수행하기 전에 최근의 기본 백업과 모든 필요한 WAL 세그먼트가 [literal]``+var-pgsql-walbackup+`` 볼륨에 있는지 확인하십시오.
+복원을 수행하기 전에 최근의 기본 백업과 모든 필요한 WAL 세그먼트가 `+var-pgsql-walbackup+` 볼륨에 있는지 확인하십시오.
 ====
 
 
