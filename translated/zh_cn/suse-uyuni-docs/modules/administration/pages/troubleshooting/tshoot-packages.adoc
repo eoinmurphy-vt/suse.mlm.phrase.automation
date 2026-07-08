@@ -36,7 +36,7 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 ifeval::[{mlm-content} == true]
 
-* 在扩展支持平台上，检查 [path]``+/etc/yum.conf+``+ 并搜索 +``+exclude=+``。
+* 在展开支持平台上，检查 `+/etc/yum.conf+` 并搜索 `+exclude=+`。
 endif::[]
 
-* 在 {sle} 和 {opensuse} 上，使用 [command]``+zypper locks+`` 命令。
+* 在 {sle} 和 {opensuse} 上，使用 `+zypper locks+` 命令。
