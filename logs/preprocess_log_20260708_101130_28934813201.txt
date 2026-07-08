@@ -1,0 +1,171 @@
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/clients-ubuntu.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/clients-ubuntu.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:30.030527
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/configuration-management.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/configuration-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:30.083636
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-default.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-default.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:30.137037
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-intro.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-intro.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:30.190233
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-saltbundle.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-saltbundle.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:30.243503
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-saltssh-tunnel.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-saltssh-tunnel.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:30.296416
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-saltssh.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/contact-methods-saltssh.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:30.350764
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/custom-info.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/custom-info.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:30.403751
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/delete-clients.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/delete-clients.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:30.456653
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/gpg-keys.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/gpg-keys.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:30.510395
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/package-management.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/package-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:30.563467
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/patch-management.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/patch-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:30.615747
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/power-management.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/power-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:30.668113
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/registration-bootstrap.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/registration-bootstrap.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:30.720401
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/registration-cli.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/registration-cli.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:30.772183
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/registration-overview-suse.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/registration-overview-suse.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:30.823435
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/registration-overview.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/registration-overview.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:30.875755
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/registration-webui.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/registration-webui.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:30.927340
+Starting preprocess: source/suse-uyuni-docs/modules/client-configuration/pages/repositories.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/client-configuration/pages/repositories.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:30.979734

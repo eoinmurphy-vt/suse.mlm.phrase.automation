@@ -1,0 +1,18 @@
+Starting preprocess: source/suse-uyuni-docs/modules/administration/nav-administration-guide.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/nav-administration-guide.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:23.931843
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/actions.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/actions.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:23.984032

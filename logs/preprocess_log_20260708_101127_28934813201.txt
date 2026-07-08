@@ -1,0 +1,171 @@
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-mounting-vartmp-with-noexec.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-mounting-vartmp-with-noexec.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.042516
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-not-enough-disk-space.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-not-enough-disk-space.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.094767
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-notifications.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-notifications.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.147044
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-oes-repos-enablement.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-oes-repos-enablement.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.198921
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-packages.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-packages.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.250463
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-passing-grains-to-start-event.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-passing-grains-to-start-event.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.302440
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-reg-from-webui-fails-no-errors.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-reg-from-webui-fails-no-errors.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.354439
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-registerclones.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-registerclones.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:27.406930
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-remote-root-on-micro.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-remote-root-on-micro.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.458469
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-resizingBtrfs.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-resizingBtrfs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:27.509906
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-rh-cdn-channel-and-multiple-certs.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-rh-cdn-channel-and-multiple-certs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.561290
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-rpctimeout.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-rpctimeout.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.614753
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-salt-clients-down-and-dns.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-salt-clients-down-and-dns.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.667036
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-schema-upgrade-fails.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-schema-upgrade-fails.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.718802
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-sync.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-sync.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:27.771901
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-taskomatic.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-taskomatic.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.824571
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-wicked-to-networkmanager.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/troubleshooting/tshoot-wicked-to-networkmanager.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.877380
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/tuning-changelogs.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/tuning-changelogs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:27.929591
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/users.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/users.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:27.982051

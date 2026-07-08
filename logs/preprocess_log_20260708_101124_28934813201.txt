@@ -1,0 +1,171 @@
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/ansible-compliance-as-code.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/ansible-compliance-as-code.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.035563
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/ansible-integration.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/ansible-integration.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.088865
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/ansible-setup-control-node.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/ansible-setup-control-node.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:24.142026
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/auditing.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/auditing.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:24.194481
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/auth-methods-pam.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/auth-methods-pam.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.247351
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/auth-methods-sso-example.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/auth-methods-sso-example.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:24.300201
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/auth-methods-sso.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/auth-methods-sso.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.353520
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/backup-restore-db.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/backup-restore-db.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.406364
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/backup-restore.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/backup-restore.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.458501
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/channel-management.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/channel-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.510059
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/confidential-computing.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/confidential-computing.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.562310
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/content-lifecycle-examples.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/content-lifecycle-examples.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.619609
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/content-lifecycle.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/content-lifecycle.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.674085
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/content-staging.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/content-staging.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.728302
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/custom-channels.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/custom-channels.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.782560
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/disconnected-setup.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/disconnected-setup.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.836927
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/image-management.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/image-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:24.892449
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/infra-maintenance.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/infra-maintenance.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:24.945500
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/live-patching-channel-setup.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/live-patching-channel-setup.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.001091

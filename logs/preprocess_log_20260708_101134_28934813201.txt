@@ -1,0 +1,153 @@
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/pubcloud-requirements.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/pubcloud-requirements.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.033232
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/uyuni-install-requirements.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/uyuni-install-requirements.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.086637
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-actkey-bootstrap-proxy-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-actkey-bootstrap-proxy-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.139731
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-check-rpmnew-rpmsave.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-check-rpmnew-rpmsave.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.191822
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-database-backup-volume.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-database-backup-volume.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.243705
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-ensure-proxy-prerequisites.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-ensure-proxy-prerequisites.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.296144
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-generate_proxy_config.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-generate_proxy_config.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.348728
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-hardened-tmpdir.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-hardened-tmpdir.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.401067
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-prepare-micro-host.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-prepare-micro-host.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.453750
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-prepare-micro-proxy-host.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-prepare-micro-proxy-host.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.505453
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-prepare-sles-host.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-prepare-sles-host.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.557330
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-prepare-sles-proxy-host.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-prepare-sles-proxy-host.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.611570
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-register-proxy-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-register-proxy-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.664024
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-ssl-migration-certs.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-ssl-migration-certs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.716012
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-start-proxy.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-start-proxy.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.767932
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-step-deploy-podman-certs.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-step-deploy-podman-certs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.821385
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-transfer_proxy_config.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/partials/snippet-transfer_proxy_config.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:34.873979

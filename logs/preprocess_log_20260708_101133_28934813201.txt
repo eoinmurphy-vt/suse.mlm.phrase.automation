@@ -1,0 +1,171 @@
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/server-deployment-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/server-deployment-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:33.027776
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/server-deployment-vm-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/server-deployment-vm-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.079842
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/server-deployment-vmdk-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/mlm/server-deployment-vmdk-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:33.133077
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/migrate-uyuni-to-a-container.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/migrate-uyuni-to-a-container.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.185587
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/proxy-container-setup-uyuni.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/proxy-container-setup-uyuni.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.237570
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/proxy-conversion-from-client-uyuni.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/proxy-conversion-from-client-uyuni.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.290021
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/proxy-deployment-uyuni.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/proxy-deployment-uyuni.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.342686
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/proxy-k3s-deployment-uyuni.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/proxy-k3s-deployment-uyuni.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.395684
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/proxy-migration-uyuni.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/proxy-migration-uyuni.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.448457
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/server-air-gapped-deployment-uyuni.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/server-air-gapped-deployment-uyuni.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.500533
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/server-deployment-uyuni.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-deployment/uyuni/server-deployment-uyuni.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.552154
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-management/mgradm-yaml-custom-configuration.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-management/mgradm-yaml-custom-configuration.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.604481
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-management/persistent-container-volumes.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-management/persistent-container-volumes.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:33.657108
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-management/start-and-stop-containers.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-management/start-and-stop-containers.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.709818
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-management/storage-scripts.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-management/storage-scripts.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:33.766208
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-management/updating-proxy-containers.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-management/updating-proxy-containers.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.818814
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-management/updating-server-containers.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/container-management/updating-server-containers.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.872297
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/hardware-requirements.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/hardware-requirements.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:33.926109
+Starting preprocess: source/suse-uyuni-docs/modules/installation-and-upgrade/pages/network-requirements.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/installation-and-upgrade/pages/network-requirements.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:33.981009

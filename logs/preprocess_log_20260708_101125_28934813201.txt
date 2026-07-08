@@ -1,0 +1,171 @@
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/live-patching-sles12.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/live-patching-sles12.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.053729
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/live-patching-sles15.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/live-patching-sles15.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.106555
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/maintenance-windows.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/maintenance-windows.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:25.159047
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/master-fingerprint.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/master-fingerprint.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.210555
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/mgr-sync.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/mgr-sync.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.261847
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/mirror-sources.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/mirror-sources.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.313409
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/monitoring.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/monitoring.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:25.366902
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/openscap.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/openscap.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:25.419594
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/organizations.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/organizations.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:25.472136
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/patch-management.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/patch-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.525175
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/ptfs.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/ptfs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.577012
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/removing-channels.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/removing-channels.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.629952
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/repo-metadata.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/repo-metadata.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.681734
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/reporting-database.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/reporting-database.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.734014
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/reports.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/reports.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-08 10:11:25.785790
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/role-based-access-control.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/role-based-access-control.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.837816
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/space-management.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/space-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.889782
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/ssl-certs-hsts.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/ssl-certs-hsts.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.941407
+Starting preprocess: source/suse-uyuni-docs/modules/administration/pages/ssl-certs-imported.adoc
+Saved processed file → processed/suse-uyuni-docs/modules/administration/pages/ssl-certs-imported.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-08 10:11:25.993316
