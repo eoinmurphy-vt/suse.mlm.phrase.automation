@@ -3,7 +3,7 @@
 :description: SUSE Linux Enterprise Server 클라이언트를 콘텐츠 라이프사이클 관리자의 자동화된 프로세스를 사용하여 업그레이드하십시오.
 :revdate: 2024-11-21
 :page-revdate: {revdate}
-:page-author: SUSE 제품 및 솔루션 문서 팀
+:page-author: SUSE 제품 및 솔루션 문서팀
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -52,7 +52,7 @@
 
 . 컨텐트 라이프싸이클 프로젝트의 이름을 참조하는 레이블을 배포에 지정합니다.
 
-. ``+Installer Generation+`` 필드에서 사용 중인 SLES 버전을 선택합니다.
+. `+Installer Generation+` 필드의 사용 중인 SLES 버전을 선택합니다.
 
 
 
@@ -101,7 +101,7 @@ distro_label=15sp1-demo-test
 
 . {productname} {webui}에서 menu:시스템[시스템 목록]으로 이동하여 프로비저닝할 클라이언트를 선택하고 시스템 세트 관리자에 추가합니다.
 
-. menu:시스템[시스템 세트 관리자> 개요]로 이동하여 [guimenu]``+프로비저닝+`` 탭을 클릭합니다.
+. menu:시스템[시스템 세트 관리자> 개요]로 이동하여 `+Provisioning+` 탭을 클릭합니다.
 
 . 사용할 자동 설치 프로파일을 선택합니다.
 
