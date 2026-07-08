@@ -3,7 +3,7 @@
 :description: Open Enterprise Serverクライアントの登録とソフトウェアチャンネルの同期について学ぶ
 :revdate: 2026-04-20
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメンテーションチーム
+:page-author: SUSE 製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -88,14 +88,14 @@ endif::[]
 
 |===
 
-古い製品のチャンネル名を見つけるには、{productname}サーバのコマンドプロンプトでrootになり、[command]``+mgr-sync+``コマンドを使用します:
+古い製品のチャンネル名を見つけるには、{productname}サーバのコマンドプロンプトでルートユーザーとして、`+mgr-sync+`コマンドを使用します：
 
 ----
 mgr-sync list --help
 ----
 
 次に、興味のある引数を指定します。
-例えば、[literal]``+channels+``:
+例えば、`+channels+`：
 
 ----
 mgr-sync list channels [-c]
@@ -212,23 +212,23 @@ ifeval::[{uyuni-content} == true]
 
 == GPGキーの管理
 
-クライアントは、ソフトウェアパッケージがインストールされる前に、その正当性を確認するためにGPGキーを使用します。
-信頼されたソフトウェアのみがクライアントにインストールできます。
+クライアントは、ソフトウェアパッケージがインストールされる前に、その真正性を確認するためにGPGキーを使用します。
+信頼できるソフトウェアのみがクライアントにインストールできます。
 
 [IMPORTANT]
 ====
-GPGキーを信頼することは、クライアントのセキュリティにとって重要です。
+クライアントのセキュリティのために、GPGキーを信頼することは重要です。
 どのキーが必要で信頼できるかを決定するのは管理者の仕事です。
-GPGキーが信頼されていない場合、ソフトウェアチャンネルは使用できないため、クライアントにチャンネルを割り当てる決定はキーを信頼する決定に依存します。
+GPG キーが信頼されていない場合、ソフトウェア チャンネルは使用できないため、クライアントにチャンネルを割り当てる決定はキーを信頼する決定に依存します。
 ====
 
-GPGキーに関する詳細情報は、xref:client-configuration:gpg-keys.adoc[]を参照してください。
+GPG キーの詳細については、xref:client-configuration:gpg-keys.adoc[] を参照してください。
 
 ////
 [NOTE]
 ====
 Use the same GPG key for both {sles}{nbsp}15 and {sles}{nbsp}12 clients.
-The correct key is called ``+sle12-gpg-pubkey-39db7c82.key+``.
+The correct key is called `+sle12-gpg-pubkey-39db7c82.key+`.
 ====
 ////
 
