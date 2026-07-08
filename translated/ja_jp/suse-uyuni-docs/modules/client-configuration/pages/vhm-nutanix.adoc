@@ -26,9 +26,9 @@ endif::[]
 
 
 
-仮想ホストマネージャ(VHM)は{productname}サーバ上で動作します。
+Virtual Host Manager (VHM)は{productname}サーバ上で動作します。
 
-{productname}サーバに[systemitem]``+virtual-host-gatherer-Nutanix+``パッケージがインストールされていることを確認してください。
+`+virtual-host-gatherer-Nutanix+`パッケージが{productname}サーバーにインストールされていることを確認してください。
 
 VHMを実行するには、{productname}サーバでポート9440がオープンになっていて、Nutanix Prism Element APIにアクセスする必要があります。
 
@@ -36,33 +36,33 @@ VHMを実行するには、{productname}サーバでポート9440がオープン
 .プロシージャ:Nutanix VHMの作成
 
 . {productname} {webui}で、menu:Systems[Virtual Host Managers]に移動します。
-. btn:[作成]をクリックし、[guimenu]``+Nutanix AHV+``を選択します。
-. [guimenu]``+Add a Nutanix AHV Virtual Host Manager+``セクションで、次のパラメータを使用します：
-* [guimenu]``+Label+``フィールドにVHMのカスタム名を入力します。
-* [guimenu]``+Hostname+``フィールドに、完全修飾ドメイン名(FQDN)またはホストIPアドレスを入力します。
-* [guimenu]``+Port+``+フィールドに、使用するPrism Element APIポートを入力します（例：[parameter]+``+9440+``）。
-* [guimenu]``+Username+``フィールドに、VMホストに関連付けられているユーザ名を入力します。
-* [guimenu]``+Password+``フィールドに、VMホストユーザに関連付けられているパスワードを入力します。
-. btn:[作成]をクリックして変更を保存し、VHMを作成します。
-. [guimenu]``+Virtual Host Managers+``ページで、新しいVHMを選択します。
-. [guimenu]``+Properties+``ページで、btn:[Refresh Data]をクリックし、新しいVHMのインベントリを作成します。
+. btn:[Create]をクリックし、`+Nutanix AHV+`を選択します。
+. `+Add a Nutanix AHV Virtual Host Manager+`セクションで、以下のパラメータを使用します。
+* `+Label+`フィールドにVHMのカスタム名を入力します。
+* `+Hostname+`フィールドに、完全修飾ドメイン名(FQDN)またはホストIPアドレスを入力します。
+* `+Port+`フィールドに、使用するPrism Element APIポートを入力します（例：`+9440+`）。
+* `+Username+`フィールドに、VMホストに関連付けられているユーザー名を入力します。
+* `+Password+`フィールドに、VMホストユーザーに関連付けられているパスワードを入力します。
+. btn:[Create]をクリックして変更を保存し、VHMを作成します。
+. `+Virtual Host Managers+`ページで、新しいVHMを選択します。
+. `+Properties+`ページで、btn:[Refresh Data]をクリックして、新しいVHMをインベントリに追加します。
 
 インベントリされたオブジェクトおよびリソースを表示するには、menu:Systems[System List> Virtual Systems]に移動します。
 
 
 [NOTE]
 ====
-ブラウザからHTTPSを使用してNutanix Prism APIサーバーに接続すると、時々``+無効な証明書+``エラーが記録されることがあります。
+ブラウザからHTTPSを使用してNutanix Prism APIサーバーに接続すると、時々`+invalid certificate+`エラーが記録されることがあります。
 この場合、仮想ホストマネージャからのデータ更新が失敗します。
 有効なSSL証明書（自己署名ではない）がNutanix APIサーバーに必要です。
-Nutanix SSL証明書にカスタムCAを使用している場合は、カスタムCA証明書を{productname}サーバの[path]``+/etc/pki/trust/anchors+``にコピーしてください。
+Nutanix SSL証明書にカスタムCAを使用している場合は、カスタムCA証明書を`+/etc/pki/trust/anchors+`サーバーの{productname}にコピーしてください。
 
-コマンドラインで[command]``+update-ca-certificates+``コマンドを実行し、証明書を再度信頼し、spacewalkサービスを再起動します。
+コマンドラインで`+update-ca-certificates+`コマンドを実行して証明書を再度信頼し、spacewalkサービスを再起動します。
 ====
 
 VHMが作成され、設定された後、Taskomaticはデータ収集を自動的に実行します。
 手動でデータ収集を行いたい場合は、menu:Systems[Virtual Host Managers]に移動し、適切なVHMを選択して、btn:[Refresh Data]をクリックします。
 
-{productname}には、APIを使用してVHMに接続し、仮想ホストに関する情報を要求できる[command]``+virtual-host-gatherer+``というツールが付属しています。[command]``+virtual-host-gatherer+``は、各モジュールが特定のVHMを有効にするオプションモジュールの概念を維持しています。
+{productname}には、APIを使用してVHMに接続し、仮想ホストに関する情報を要求できる`+virtual-host-gatherer+`というツールが付属しています。`+virtual-host-gatherer+`は、各モジュールが特定のVHMを有効にするオプションモジュールの概念を維持しています。
 このツールは、Taskomaticによって毎晩自動的に呼び出されます。
-[command]``+virtual-host-gatherer+``+ツールのログファイルは、[path]+``+/var/log/rhn/gatherer.log+``にあります。
+`+virtual-host-gatherer+`ツールのログファイルは`+/var/log/rhn/gatherer.log+`にあります。
