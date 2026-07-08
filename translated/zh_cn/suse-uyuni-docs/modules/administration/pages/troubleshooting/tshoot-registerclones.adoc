@@ -53,7 +53,7 @@ ____
 
 
 .. 在克隆的计算机上，更改主机名和 IP 地址。
-    确保 [path]``+/etc/hosts+`` 包含您所做的更改和正确的主机项。
+    确保`+/etc/hosts+`包含您所做的更改和正确的主机项。
 
 
 . *解决重复机器 ID*
@@ -74,7 +74,7 @@ systemd-machine-id-setup
 
 +
 
-... 如果克隆的机器在 [path]``+/var/log/journal/+``+ 中也有一个文件夹，则需要根据新的机器 ID 进行相应重命名。如果名称不匹配，[command]+``+journalctl+``+ 将无法检索任何日志，而 [command]+``+podman logs+`` 将不会显示任何内容。
+... 如果克隆的机器在`+/var/log/journal/+`中也有一个文件夹，则需要根据新的机器 ID 进行相应重命名。如果名称不匹配，`+journalctl+`将无法检索任何日志，并且`+podman logs+`也不会显示任何内容。
 
 +
 
@@ -104,7 +104,7 @@ dbus-uuidgen --ensure
 * 如果您正在克隆一台稍后将解放至 {sll} 的 {rhel} 8.10 服务器，则必须执行额外步骤修复内核配置文件。
 
 
-* {rhel} 使用机器 ID 在 [path]``+/boot/loader/entries+`` 中生成内核条目。
+* {rhel}使用机器 ID 在`+/boot/loader/entries+`中生成内核条目。
 不执行这些步骤将导致解放后旧内核条目和新内核条目的混合，因为 {sll} 内核将创建新条目而不是替换旧条目。
 
 
@@ -124,7 +124,7 @@ sudo grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
 
 . *重新配置 {salt} 客户端*
 
-.. 如果您的客户端仍然具有相同的 Salt 客户端 ID，请删除每个客户端上的 [path]``+minion_id+`` 文件（这样就会使用在客户端重启时重新生成的 FQDN）。
+.. 如果您的客户端仍保留相同的 Salt 客户端 ID，请删除每个客户端上的 `+minion_id+` 文件（客户端重启时将重新生成 FQDN）。
 
 ...  对于 Salt 捆绑包客户端：
 
@@ -172,6 +172,6 @@ service venv-salt-minion restart
 +
 
 .. 重新注册客户端。
-   每个客户端现在都有一个不同的 [path]``+/etc/machine-id+``，并且应会正确显示在 [guimenu]+``+系统概览+`` 页面上。
+   每个客户端现在都有一个不同的`+/etc/machine-id+`，并且应该在`+System Overview+`页面上正确显示。
 
 ____
