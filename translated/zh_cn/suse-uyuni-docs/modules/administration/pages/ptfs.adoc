@@ -44,10 +44,10 @@ PTF 软件包目前仅支持基于 SLE 12 和 SLE 15 的系统。
 
 .过程：升级使用命令行启用和同步 PTF 储存库
 
-. 在控制台上输入 [command]``+mgr-sync refresh+``。
-. 输入 [command]``+mgr-sync list channel+``+，查找以您的 {scc} 账户名称开头并在其名称中包含 +`ptfs` 的通道。
+. 在控制台上输入 `+mgr-sync refresh+`。
+. 输入 `+mgr-sync list channel+` 并查找名称以您的 {scc} 帐户名开头且名称中包含 `+ptfs+` 的通道。
   例如，`+a123456-sles-15.3-ptfs-x86_64+`。
-. 使用 [command]``+mgr-sync add channel <label>+`` 启用该 PTF 通道。
+. 使用 `+mgr-sync add channel <label>+` 启用 PTF 通道。
 
 此通道现在便可供使用，并可添加到使用相同基础通道的每个系统。
 
@@ -72,16 +72,16 @@ SUSE 客户支持将提供修复特定问题的 PTF 编号。
 .过程：升级安装 PTF 软件包
 
 . 在 {productname} {webui} 中，导航到 menu:系统[系统列表]，选择您要安装 PTF 的客户端。
-. 导航到 menu:系统[软件 > 软件包 > 软件通道]，选择 [systemitem]``+PTF 通道+``。
-. 单击 btn:[下一步]，然后单击 [guimenu]``+确认软件通道更改+``，再单击 btn:[确认]。
+. 导航到 menu:系统[软件 > 软件包 > 软件通道]，然后选择 `+PTF channel+`。
+. 单击 btn:[下一步]，并使用 `+Confirm Software Channel Change+` btn:[确认]。
 . 要检查通道指派是否已完成，请导航到 menu:系统[事件 > 历史记录] 查看结果。
 . 导航到 menu:系统[软件 > PTF > 安装] 子选项卡。
 . 选择要安装的 PTF 软件包。
-. 单击 btn:[安装 PTF]，然后单击 [guimenu]``+确认程序临时修复 (PTF) 安装+``，再单击 btn:[确认]。
+. 单击 btn:[安装 PTF]，并使用 `+Confirm Program Temporary Fixes (PTFs) Installation+` btn:[确认]。
 . 要查看 PTF 安装结果，请导航到 menu:系统[事件 > 历史记录]。
 
 
-如果应使用 API 安装 PTF，可以使用常规 [systemitem]``+system.schedulePackageInstall+`` API 和代理软件包名称。
+如果应使用 API 安装 PTF，可以使用常规 `+system.schedulePackageInstall+` API 和代理软件包名称。
 
 
 == 安装 PTF 后
@@ -106,21 +106,21 @@ SUSE 客户支持将提供修复特定问题的 PTF 编号。
 . 在 {productname} {webui} 中，导航到 menu:系统[系统列表]，选择您要从中去除 PTF 的客户端。
 . 导航到 menu:系统[软件 > PTF > 列出/去除] 子选项卡。
 . 选择要去除的 PTF 软件包。
-. 单击 btn:[去除 PTF]，然后在 [guimenu]``+确认去除程序临时修复 (PTF)+`` 页面上单击 btn:[确认]。
+. 单击 btn:[去除 PTF]，然后在 `+Confirm Program Temporary Fixes (PTFs) Removal+` 页面上单击 btn:[确认]。
 . 要查看结果，请导航到 menu:系统[事件 > 历史记录]。
 
 
 [NOTE]
 ====
-去除 PTF 需要在客户端系统上安装特定版本的 [literal]``+libzypp+``+ 和 [literal]+``+zypper+``。
-检查 [command]``+zypper --help+``+ 以确认 [命令]+``+removeptf+`` 是否受支持。
-仅在满足此条件时，``+列出/去除+`` 选项卡才会可见。
+去除 PTF 需要在客户端系统上安装特定版本的 `+libzypp+` 和 `+zypper+`。
+检查 `+zypper --help+` 以确认是否支持 `+removeptf+`。
+仅在满足此条件时，`+List/Remove+` 选项卡才会可见。
 ====
 
-如果应使用 API 去除 PTF，可以使用常规 [systemitem]``+system.schedulePackageRemove+`` API 和代理软件包名称。
+如果应使用 API 去除 PTF，可以使用常规 `+system.schedulePackageRemove+` API 和代理软件包名称。
 
 
 == 在客户端上去除软件包的已修补版本
 
-如果需要在客户端直接使用控制台去除 PTF，则需要使用特定命令 ``+zypper removeptf+``。
+如果需要在客户端直接使用控制台去除 PTF，则需要使用特定命令 `+zypper removeptf+`。
 所有其他方式都会导致错误，或可能导致意外行为，例如从系统中去除重要软件包，使系统无法使用。
