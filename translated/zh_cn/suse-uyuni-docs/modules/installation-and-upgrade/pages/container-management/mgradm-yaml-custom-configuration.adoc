@@ -7,9 +7,9 @@
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
 
-您可以选择创建自定义的 [filename]``+mgradm.yaml+``+ 文件，供 [command]+``+mgradm+`` 工具在部署期间使用。
-所有 [command]``+mgradm+`` 参数都有其 YAML 对应项。
-例如，[command]``+mgradm+``+ 参数 +``+--ssl-db-ca-intermediate+``+ 可以在 [filename]+``+mgradm.yaml+`` 文件中指定如下：
+您可以选择创建自定义 `+mgradm.yaml+` 文件，供 `+mgradm+` 工具在部署期间使用。
+所有 `+mgradm+` 参数都有其 YAML 对应项。
+例如，`+mgradm+` 参数 `+--ssl-db-ca-intermediate+` 可以在 `+mgradm.yaml+` 文件中指定，如下所示：
 
 [source, yaml]
 ssl:
@@ -19,14 +19,14 @@ ssl:
 
 [IMPORTANT]
 ====
-如果未提供基本变量，[command]``+mgradm+``+ 将提示您使用命令行参数或 [filename]+``+mgradm.yaml+`` 配置文件来提供这些变量。
+如果未通过命令行参数或 `+mgradm+` 配置文件提供基本变量，`+mgradm.yaml+` 将提示您输入这些变量。
 
 出于安全考虑，**应避免使用命令行参数指定密码**。
 请使用具有适当权限的配置文件。
 ====
 
 .过程：升级使用自定义配置文件通过 Podman 部署 {productname} 容器
-. 准备一个名为 [filename]``+mgradm.yaml+`` 的配置文件，内容如下示例所示：
+. 准备一个名为 `+mgradm.yaml+` 的配置文件，内容如下示例所示：
 +
 [source, yaml]
 ....
