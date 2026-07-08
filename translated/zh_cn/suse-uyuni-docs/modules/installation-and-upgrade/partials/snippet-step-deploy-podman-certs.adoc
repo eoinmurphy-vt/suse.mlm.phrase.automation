@@ -4,7 +4,7 @@
 
 [NOTE]
 ====
-如果您使用 VM 映像作为迁移目标，最后一步请执行命令 [command]``+mgradm migrate+``，而非 [command]``+mgradm install+``。
+如果您使用虚拟机镜像作为迁移目标，请在此处作为最后一步执行命令`+mgradm migrate+`而不是`+mgradm install+`。
 ====
 
 +
@@ -43,6 +43,6 @@ mgradm install podman <FQDN> \
 
 +
 
-有关更多信息，请参见 [command]``+mgradm install podman --help+``。
+有关详细信息，请访问 `+mgradm install podman --help+`。
 
 --
