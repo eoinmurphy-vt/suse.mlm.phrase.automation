@@ -33,7 +33,7 @@ endif::[]
 
 [NOTE]
 ====
-{rocky}에 {productname} 클라이언트를 등록하는 것은 ``+enforcing+``+ 기본 SELinux 구성과 +``+targeted+`` 정책으로 테스트되었습니다.
+{rocky} 클라이언트를 {productname}에 등록하는 것은 `+enforcing+`의 기본 SELinux 구성과 `+targeted+` 정책으로 테스트되었습니다.
 {rocky}에 {productname} 클라이언트를 등록하기 위해 SELinux를 비활성화할 필요는 없습니다.
 ====
 
@@ -127,7 +127,7 @@ endif::[]
 
 [NOTE]
 ====
-[command]``+spacewalk-common-channels+``가 제공하는 클라이언트 도구 채널은 {suse}가 아닌 {uyuni}에서 공급됩니다.
+`+spacewalk-common-channels+`에서 제공하는 클라이언트 도구 채널은 {uyuni}에서 가져오며, {suse}에서 가져오는 것이 아닙니다.
 ====
 
 endif::[]
@@ -150,7 +150,7 @@ endif::[]
 ====
 
 {rocky} 8과 함께 모듈형 채널을 사용하는 경우 클라이언트에서 Python 3.6 모듈 스트림을 활성화해야 합니다.
-Python 3.6을 제공하지 않으면 [package]``+spacecmd+`` 패키지 설치가 실패합니다.
+Python 3.6을 제공하지 않으면 `+spacecmd+` 패키지 설치가 실패합니다.
 
 
 == 동기화 상태 확인
