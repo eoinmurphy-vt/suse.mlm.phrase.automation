@@ -8,8 +8,8 @@
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
 
-Salt SSH 正在使用 [path]``+/var/tmp+`` 来部署 Salt Bundle，并在客户端上执行带有捆绑 Python 的 Salt 命令。
-因此，您不应使用 [option]+``+noexec+`` 选项来挂载 [path]``+/var/tmp+``+。
-由于启动过程中使用 Salt SSH 连接客户端，因此无法使用 对那些以 [option]+``+noexec+`` 选项挂载在 [path]``+/var/tmp+``+ 的客户端进行 bootstrap 操作 {webui}。
+Salt SSH 正在使用 `+/var/tmp+` 来部署 Salt Bundle，并在客户端上使用捆绑的 Python 执行 Salt 命令。
+因此，您不得使用 `+/var/tmp+` 选项挂载 `+noexec+`。
+由于启动过程使用 Salt SSH 来访问客户端，因此无法用 {webui} 启动那些以 `+noexec+` 选项挂载了 `+/var/tmp+` 的客户端。
 
 
