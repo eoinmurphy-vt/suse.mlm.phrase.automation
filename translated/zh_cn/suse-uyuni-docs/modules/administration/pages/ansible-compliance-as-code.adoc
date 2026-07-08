@@ -41,7 +41,7 @@ endif::[]
 sle15-playbook-stig.yml
 ----
 
-. 要运行该 Playbook，请选择客户端的 [guimenu]``+Inventory 路径+``，例如：
+. 要运行该 Playbook，请选择客户端的 `+Inventory Path+`，例如：
 
 +
 
@@ -52,10 +52,10 @@ sle15-playbook-stig.yml
 
 +
 
-单击 btn:[Schedule]。
+单击 btn:[日程安排]。
 
-. 在 [guimenu]``+Events+`` 选项卡下检查已安排事件的状态。
+. 在 `+Events+` 选项卡下检查已安排事件的状态。
 
 
 
-如果 Playbook 位于不同目录，您可以单击 [guimenu]``+设置 Ansible 控制节点+`` 链接了解如何添加。
+如果 Playbook 位于不同的目录，您可以单击 `+Setup Ansible Control Node+` 链接了解如何添加它。
