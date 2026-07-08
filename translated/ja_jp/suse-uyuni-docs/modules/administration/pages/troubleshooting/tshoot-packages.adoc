@@ -3,7 +3,7 @@
 :description: SUSE Multi-Linux Manager Serverを使用してパッケージの不整合をトラブルシューティングする方法を学び、クライアントの更新が成功するようにします。
 :revdate: 2025-02-06
 :page-revdate: {revdate}
-:page-author: SUSE Product & Solution ドキュメンテーションチーム
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -36,7 +36,7 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 ifeval::[{mlm-content} == true]
 
-* 拡張サポートプラットフォームでは、[path]``+/etc/yum.conf+``+をチェックして、+``+exclude=+``を検索します。
+* Expanded Support Platformで、`+/etc/yum.conf+`を確認し、`+exclude=+`を検索します。
 endif::[]
 
-* {sle}および{opensuse}で、[command]``+zypper locks+``コマンドを使用します。
+* {sle}および{opensuse}で、`+zypper locks+`コマンドを使用します。

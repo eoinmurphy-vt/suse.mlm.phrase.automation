@@ -2,18 +2,18 @@
 :description: ホストオペレーティングシステムとSUSE Multi-Linux Managerツールを最新バージョンに更新し、手順に従ってアップグレードしてください。
 :revdate: 2026-02-16
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメントチーム
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
 
 アップグレードコマンドを実行する前に、ホストオペレーティングシステムを更新する必要があります。
-ホストオペレーティングシステムを更新すると、{productname}に含まれるツール群、例えば[literal]``+mgrpxy+``などのツールも更新されます。
+ホストオペレーティングシステムを更新すると、{productname}ツールや`+mgrpxy+`ツールなどのツール類も更新されます。
 
 .プロシージャ:プロキシのアップグレード
 [role=procedure]
 ____
-. [command]``+zypper+``を使用してソフトウェアリポジトリを更新します:
+. `+zypper+`を使用してソフトウェアリポジトリを更新します:
 
 +
 
@@ -28,13 +28,13 @@ ifeval::[{mlm-content} == true]
 
 +
 
-{sl-micro}のようなトランザクションシステムの場合:::
+{sl-micro}などのトランザクションシステムの場合:::
 
 +
 
 --
 
-. [command]``+transactional-update+``を使用して利用可能な更新を適用します:
+. `+transactional-update+`を使用して利用可能な更新を適用します:
 
 +
 
@@ -43,7 +43,7 @@ ifeval::[{mlm-content} == true]
 transactional-update
 ----
 
-. 更新が適用された場合は、[literal]``+reboot+``します。
+. 更新が適用された場合、`+reboot+`します。
 
 --
 
@@ -53,7 +53,7 @@ endif::[]
 
 ifeval::[{uyuni-content} == true]
 
-. [command]``+transactional-update+``を使用して利用可能な更新を適用します:
+. `+transactional-update+`を使用して利用可能な更新を適用します:
 
 +
 
@@ -62,7 +62,7 @@ ifeval::[{uyuni-content} == true]
 transactional-update
 ----
 
-. 更新が適用された場合は、[literal]``+reboot+``します。
+. 更新が適用された場合、`+reboot+`します。
 
 endif::[]
 
@@ -75,7 +75,7 @@ ifeval::[{mlm-content} == true]
 
 --
 
-[command]``+zypper+``を使用してインストールされたソフトウェアを更新します:
+`+zypper+`を使用してインストールされたソフトウェアを更新します:
 
 [source,shell]
 ----
@@ -88,7 +88,7 @@ endif::[]
 
 +
 
-. {productname}のプロキシコンテナ（[literal]``+podman+``上で実行中）は、次のコマンドで更新できます:
+. {productname}のプロキシコンテナ（`+podman+`上で実行中）は、次のコマンドで更新できます:
 
 +
 
@@ -120,9 +120,7 @@ podman image prune -a
 ----
 +
 
-{kube}では、イメージのクリーンアップは自動的に処理されるか、{kube}ディストリビューションによって異なります。 +
-``
-
+{kube}では、イメージのクリーンアップが自動的に行われるか、または{kube}ディストリビューションによってその処理方法が異なります。
 +
 
 ifndef::backend-pdf[]
@@ -155,4 +153,4 @@ endif::[]
 通常の状況下では、すべてのプロキシコンテナに同じタグを使用して一貫性を確保することを強くお勧めします。
 ====
 
-エアギャップ(された)インストールでは、まずコンテナのRPMパッケージをアップグレードし、その後[command]``+mgrpxy upgrade podman+``コマンドを実行します。
+エアギャップ(された)環境でのインストールでは、まずコンテナのRPMパッケージをアップグレードし、その後`+mgrpxy upgrade podman+`コマンドを実行します。
