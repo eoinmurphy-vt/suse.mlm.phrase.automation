@@ -38,7 +38,7 @@
 
 온보딩 후에도 로컬 리포지토리를 계속 사용하도록 설정해야 하는 경우 해당 클라이언트에 대해 다음 열을 설정해야 합니다.
 
-``+/srv/pillar/top.sls+`` 파일을 편집합니다:
+`+/srv/pillar/top.sls+` 파일을 편집하세요:
 
 ----
 base:
@@ -46,7 +46,7 @@ base:
     - localrepos
 ----
 
-``+/srv/pillar/localrepos.sls+`` 파일을 편집합니다:
+`+/srv/pillar/localrepos.sls+` 파일을 편집하세요:
 
 ----
 mgr_disable_local_repos: False
@@ -61,12 +61,12 @@ mgr_disable_local_repos: False
 
 ifeval::[{mlm-content} == true]
 | 클라이언트 운영 체제 | 로컬 리포지토리 디렉토리
-| {sles} | [path]``+/etc/zypp/repos.d+``
-| {opensuse} | [path]``+/etc/zypp/repos.d+``
-| {sles} {es} | [path]``+/etc/yum.repos.d/+``
-| {rhel} 및 유사 파생물 | [path]``+/etc/yum.repos.d/+``
-| {ubuntu} | [path]``+/etc/apt/sources.list.d/+``
-| {debian} | [path]``+/etc/apt/sources.list.d/+``
+| {sles} | `+/etc/zypp/repos.d+`
+| {opensuse} | `+/etc/zypp/repos.d+`
+| {sles} {es} | `+/etc/yum.repos.d/+`
+| {rhel} 및 유사 파생물 | `+/etc/yum.repos.d/+`
+| {ubuntu} | `+/etc/apt/sources.list.d/+`
+| {debian} | `+/etc/apt/sources.list.d/+`
 endif::[]
 
 
@@ -74,11 +74,11 @@ endif::[]
 
 ifeval::[{uyuni-content} == true]
 | 클라이언트 운영 체제 | 로컬 리포지토리 디렉토리
-| {sles} | [path]``+/etc/zypp/repos.d+``
-| {opensuse} | [path]``+/etc/zypp/repos.d+``
-| {rhel} 및 유사 파생물 | [path]``+/etc/yum.repos.d/+``
-| {ubuntu} | [path]``+/etc/apt/sources.list.d/+``
-| {debian} | [path]``+/etc/apt/sources.list.d/+``
+| {sles} | `+/etc/zypp/repos.d+`
+| {opensuse} | `+/etc/zypp/repos.d+`
+| {rhel} 및 유사 파생물 | `+/etc/yum.repos.d/+`
+| {ubuntu} | `+/etc/apt/sources.list.d/+`
+| {debian} | `+/etc/apt/sources.list.d/+`
 endif::[]
 
 |===
