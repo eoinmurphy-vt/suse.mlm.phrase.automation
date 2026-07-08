@@ -3,7 +3,7 @@
 :description: SUSE Multi-Linux Managerで事前定義されたタスクスケジュールを管理および構成し、定期的なメンテナンスタスクを自動化する方法を学びます。
 :revdate: 2026-04-20
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメンテーションチーム
+:page-author: SUSE 製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -97,7 +97,7 @@ menu:kickstartfile-sync-default[]::
 menu:mgr-forward-registration-default[]::
 クライアント登録データを{scclongform}と同期します。
 デフォルトでは、新しい、変更された、または削除されたクライアントデータが転送されます。
-[path]``+/etc/rhn/rhn.conf+``に設定されている同期を無効にするには、次のコマンドを実行します：
+`+/etc/rhn/rhn.conf+` で設定された同期を無効にするには、次を実行します。
 +
 ----
 server.susemanager.forward_registration = 0
@@ -114,7 +114,7 @@ https://suselinux.fra1.qualtrics.com/jfe/form/SV_0ooNnrY0rYuQScS[サービス向
 ====
 
 menu:mgr-sync-refresh-default[]::
-{scclongform}（``+mgr-sync-refresh+``）と同期します。
+{scclongform} (`+mgr-sync-refresh+`) と同期します。
 デフォルトでは、すべてのカスタムチャネルもこのタスクの一部として同期されます。
 カスタムチャネルの同期に関する詳細は、xref:administration:custom-channels.adoc#_custom_channel_synchronization[]を参照してください。
 
