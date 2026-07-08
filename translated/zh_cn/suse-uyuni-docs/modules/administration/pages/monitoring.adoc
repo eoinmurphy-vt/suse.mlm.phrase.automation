@@ -112,9 +112,9 @@ Prometheus 软件也可用于 {productname} 代理和 {productname} {smr} 分支
 
 [IMPORTANT]
 ====
-* 要在 {productname} 服务器容器内访问外壳，请在容器主机上运行 [literal]``+mgrctl term+``+，或者要执行一条命令，请运行 [literal]+``+mgrctl exec <options> -- <command>+``。
+* 要访问 {productname} 服务器容器内的外壳，请在容器主机上运行 `+mgrctl term+`；如需仅执行一条命令，请运行 `+mgrctl exec <options> -- <command>+`。
 
-* 要从容器内部将文件复制到容器主机，请使用 [literal]``+mgrctl cp+``。
+* 要从容器内部将文件复制到容器主机，请使用 `+mgrctl cp+`。
 ====
 
 [NOTE]
@@ -127,13 +127,13 @@ Prometheus 期望使用 POSIX 文件系统来存储数据。
 .过程：升级使用 {webui} 安装 Prometheus。
 [role=procedure]
 ____
-. 在 {productname} {webui} 中，打开要在其中安装 Prometheus 的系统的详细页面，然后导航到 [guimenu]``+Formulas+`` 选项卡。
+. 在 {productname} {webui}，打开要安装 Prometheus 的系统的详细信息页面，并导航到 `+Formulas+` 选项卡。
 
-. 选中 [guimenu]``+Prometheus+`` 复选框以启用监控公式，然后单击 btn:[保存]。
+. 选中 `+Prometheus+` 复选框以启用监控公式，然后单击 btn:[保存]。
 
-. 在顶部菜单中导航到 ``+Prometheus+`` 选项卡。
+. 在顶部菜单中导航到 `+Prometheus+` 选项卡。
 
-. 在 ``+{productname} 服务器+`` 部分，输入有效的 {productname} API 凭证。
+. 在 `+{productname} Server+` 部分，输入有效的 {productname} API 凭证。
     确保您输入的身份凭证允许访问您要监控的系统集。
 
 . 根据需要自定义任何其他配置选项。
@@ -142,7 +142,7 @@ ____
 
 . 应用 Highstate 并确认它成功完成。
 
-. 检查 Prometheus 界面是否正常加载。在浏览器中，导航到安装了 Prometheus 的服务器的 URL，使用端口 9090（例如 [literal]``+http://example.com:9090+``）。
+. 检查 Prometheus 界面是否正常加载。在浏览器中，导航到安装了 Prometheus 的服务器的 URL，使用端口 9090（例如 `+http://example.com:9090+`）。
 
 ____
 
@@ -154,7 +154,7 @@ ____
 [role=procedure]
 ____
 
-. 在监控服务器上，安装 [package]``+golang-github-prometheus-prometheus+`` 软件包：
+. 在监控服务器上，安装 `+golang-github-prometheus-prometheus+` 软件包：
 
 +
 
@@ -173,9 +173,9 @@ systemctl enable --now prometheus
 ----
 
 . 检查 Prometheus 界面是否正常加载。
-  在浏览器中，导航到安装了 Prometheus 的服务器的 URL，使用端口 9090（例如 [literal]``+http://example.com:9090+``）。
+  在浏览器中，导航到安装了 Prometheus 的服务器的 URL，使用端口 9090（例如 `+http://example.com:9090+`）。
 
-. 打开配置文件 [path]``+/etc/prometheus/prometheus.yml+`` 并添加此配置信息。
+. 打开位于 `+/etc/prometheus/prometheus.yml+` 的配置文件并添加此配置信息。
   将 `+server.url+` 替换为您的 {productname} 服务器 URL，并调整 `+username+` 和 `+password+` 字段以匹配您的 {productname} 凭证。
 
 +
@@ -260,15 +260,15 @@ Grafana 在 {productname} 代理上无法使用。
 [role=procedure]
 ____
 
-. 在 {productname} {webui} 中，打开要安装 Grafana 的系统的详细页面，然后导航到 [guimenu]``+Formulas+`` 选项卡。
+. 在 {productname} {webui}，打开要安装 Grafana 的系统的详细信息页面，并导航到 `+Formulas+` 选项卡。
 
-. 选中 [guimenu]``+Grafana+`` 复选框以启用监控公式，然后单击 btn:[保存]。
+. 选中 `+Grafana+` 复选框以启用监控公式，然后单击 btn:[保存]。
 
-. 在顶部菜单中导航到 ``+Grafana+`` 选项卡。
+. 在顶部菜单中导航到 `+Grafana+` 选项卡。
 
-. 在 ``+启用并配置 Grafana+`` 部分，输入您希望用于登录 Grafana 的管理员凭证。
+. 在 `+Enable and configure Grafana+` 部分，输入用于登录 Grafana 的管理员凭证。
 
-. 在 ``+数据源+`` 部分，确保 Prometheus URL 字段指向运行 Prometheus 的系统。
+. 在 `+Datasources+` 部分，确保 Prometheus URL 字段指向运行 Prometheus 的系统。
 
 . 根据需要自定义任何其他配置选项。
 
@@ -276,7 +276,7 @@ ____
 
 . 应用 Highstate 并确认它成功完成。
 
-. 检查 Grafana 界面是否正常装载。在浏览器中，导航到安装了 Grafana 的服务器的 URL，使用端口 3000（例如 [literal]``+http://example.com:3000+``）。
+. 检查 Grafana 界面是否正常装载。在浏览器中，导航到安装了 Grafana 的服务器的 URL，使用端口 3000（例如 `+http://example.com:3000+`）。
 
 * 请确保防火墙已开放 3000 端口，以顺利访问 Grafana
 
@@ -294,7 +294,7 @@ ____
 [role=procedure]
 ____
 
-. 安装 [package]``+grafana+`` 软件包：
+. 安装 `+grafana+` 软件包：
 
 +
 
@@ -312,11 +312,11 @@ zypper in grafana
 systemctl enable --now grafana-server
 ----
 
-. 在浏览器中，导航到安装了 Grafana 的服务器的 URL，使用端口 3000（例如 [literal]``+http://example.com:3000+``）。
+. 在浏览器中，导航到安装了 Grafana 的服务器的 URL，使用端口 3000（例如 `+http://example.com:3000+`）。
 
 * 请确保防火墙已开放 3000 端口，以顺利访问 Grafana。
 
-. 在登录页面中，输入 ``+admin+`` 作为用户名和密码。
+. 在登录页面中，输入 `+admin+` 作为用户名和密码。
 
 . 单击 btn:[登录]。
   如果成功登录，您将会看到要求您更改口令的提示。
@@ -337,9 +337,9 @@ systemctl enable --now grafana-server
 
 . 要导入仪表板，请单击侧边菜单中的 btn:[+] 图标，然后单击 btn:[导入]。
 
-. 对于 {productname} 服务器概览，请加载仪表板 ID：``+17569+``。
+. 对于 {productname} 服务器概览，请加载仪表板 ID：`+17569+`。
 
-. 对于 {productname} 客户端概览，请加载仪表板 ID：``+17570+``。
+. 对于 {productname} 客户端概览，请加载仪表板 ID：`+17570+`。
 
 +
 
@@ -366,18 +366,18 @@ ____
 
 这些导出器与 {productname} 服务器一起提供：
 
-* Node 导出器：[systemitem]``+golang-github-prometheus-node_exporter+``。
+* Node 导出器：`+golang-github-prometheus-node_exporter+`。
 ** 请参见 https://github.com/prometheus/node_exporter.
-* PostgreSQL 导出器：[systemitem]``+prometheus-postgres_exporter+``。
+* PostgreSQL 导出器：`+prometheus-postgres_exporter+`。
 ** 请参见 https://github.com/wrouesnel/postgres_exporter.
-* JMX 导出器：[systemitem]``+prometheus-jmx_exporter+``。
+* JMX 导出器：`+prometheus-jmx_exporter+`。
 ** 请参见 https://github.com/prometheus/jmx_exporter.
 
 这些导出器软件包随 {productname} 代理一起提供：
 
-* Node 导出器：[systemitem]``+golang-github-prometheus-node_exporter+``。
+* Node 导出器：`+golang-github-prometheus-node_exporter+`。
 ** 请参见 https://github.com/prometheus/node_exporter.
-* Squid 导出器：[systemitem]``+golang-github-boynux-squid_exporter+``。
+* Squid 导出器：`+golang-github-boynux-squid_exporter+`。
 ** 请参见 https://github.com/boynux/squid-exporter.
 
 导出器已预安装在 {productname} 服务器和代理中，但其各自的 systemd 守护程序默认已禁用。
@@ -394,9 +394,9 @@ ____
 
 . 重启 Tomcat 和 Taskomatic。
 
-. 导航到您的 Prometheus 服务器的 URL，端口为 9090（例如，[literal]``+http://example.com:9090+``）
+. 导航到您的 Prometheus 服务器的 URL，端口为 9090（例如 `+http://example.com:9090+`）
 
-. 在 Prometheus UI 中，导航到 menu:状态[目标]，并确认 ``+mgr-server+`` 组中的所有端点均处于正常状态。
+. 在 Prometheus UI 中，导航到 menu:状态[目标]，并确认 `+mgr-server+` 组中的所有端点均处于正常状态。
 
 . 如果您还使用 {webui} 安装了 Grafana，则可以在 {productname} 服务器仪表板的 menu:管理员[管理器配置> 监控]中查看服务器洞察信息。
 
@@ -559,11 +559,11 @@ Prometheus 不会自动收集代理的指标。
 
 可将这些导出器安装在受管系统上：
 
-* Node 导出器：[systemitem]``+golang-github-prometheus-node_exporter+``。
+* Node 导出器：`+golang-github-prometheus-node_exporter+`。
 ** 请参见 https://github.com/prometheus/node_exporter.
-* PostgreSQL 导出器：[systemitem]``+prometheus-postgres_exporter+``。
+* PostgreSQL 导出器：`+prometheus-postgres_exporter+`。
 ** 请参见 https://github.com/wrouesnel/postgres_exporter.
-* Apache 导出器：[systemitem]``+golang-github-lusitaniae-apache_exporter+``。
+* Apache 导出器：`+golang-github-lusitaniae-apache_exporter+`。
 ** 请参见 https://github.com/Lusitaniae/apache_exporter.
 
 [NOTE]
@@ -582,14 +582,14 @@ ____
 
 . 在 {productname} {webui} 中，打开要监控的客户端的详细页面，并导航到 menu:公式[] 选项卡。
 
-. 选中 [guimenu]``+Enabled+`` 复选框，在 ``+Prometheus Exporters+`` 公式上。
+. 在 `+Prometheus Exporters+` 公式上选中 `+Enabled+` 复选框。
 
 . 单击 btn:[保存]。
 
 . 导航到 menu:公式[Prometheus 导出器] 选项卡。
 
 . 选择要启用的导出器并根据需要自定义参数。
-    [guimenu]``+地址+``+ 字段接受冒号开头的端口号 (+``+:9100+``+)，或完全可解析的地址 (+``+example:9100+``)。
+    `+Address+` 字段接受冒号开头的端口号 (`+:9100+`) 或完全可解析的地址 (`+example:9100+`)。
 
 . 单击 btn:[保存公式]。
 
@@ -620,7 +620,7 @@ ____
 
 * https://grafana.com/docs/grafana/latest/administration/user-management/user-preferences/#change-your-grafana-password
 
-如果您忘记了 Grafana 管理员密码，可以使用以下命令将其重置为 [literal]``+root+``：
+如果您忘记了 Grafana 管理员密码，可以使用以下命令将其重置为 `+root+`：
 ----
 grafana-cli --configOverrides cfg:default.paths.data=/var/lib/grafana --homepath /usr/share/grafana admin reset-admin-password <new_password>
 ----
@@ -668,14 +668,14 @@ Prometheus 使用拉取机制提取指标，因此服务器必须能够与受监
 [role=procedure]
 ____
 
-. 在 {productname} {webui} 中，打开要监控的系统的详细页面，并导航到 [guimenu]``+Formulas+`` 选项卡。
+. 在 {productname} {webui} 中，打开要监控的系统的详细页面，并导航到 `+Formulas+` 选项卡。
 
-. 选中 [guimenu]``+Prometheus Exporters+`` 复选框以启用导出器公式，然后单击 btn:[Save]。
+. 选中 `+Prometheus Exporters+` 复选框以启用导出器公式，然后单击 btn:[保存]。
 
-. 在顶部菜单中导航到 ``+Prometheus Exporters+`` 选项卡。
+. 在顶部菜单中导航到 `+Prometheus Exporters+` 选项卡。
 
-. 选中 [guimenu]``+Enable reverse proxy+`` 选项，并输入有效的反向代理端口号。
-  例如，``+9999+``。
+. 选中 `+Enable reverse proxy+` 选项，并输入有效的反向代理端口号。
+  例如，`+9999+`。
 
 * 请确保防火墙已开放 9999/tcp 端口。
 
@@ -720,8 +720,8 @@ ____
 
 +
 
-确保 [systemitem]``+set-cname+`` 参数是您的 {salt} 客户端的完全限定域名 (FQDN)。
-如果需要多个别名，您可以多次使用 [systemitem]``+set-cname+`` 参数：
+确保 `+set-cname+` 参数是您的 {salt} 客户端的完全限定的域名 (FQDN)。
+如果需要多个别名，您可以多次使用 `+set-cname+` 参数：
 
 +
 
@@ -747,7 +747,7 @@ Generating/signing web server's SSL certificate: server.crt
 
 +
 
-.. 将 [path]``+server.crt+``+ 和 [path]+``+server.key+`` 文件从服务器容器复制到主机：
+.. 将 `+server.crt+` 和 `+server.key+` 文件从服务器容器复制到主机：
 
 +
 
@@ -758,7 +758,7 @@ mgrctl cp server:/root/ssl-build/minion/server.crt server.crt
 
 +
 
-.. 将 [path]``+server.crt+``+ 和 [path]+``+server.key+`` 文件从主机复制到监控客户端：
+.. 将 `+server.crt+` 和 `+server.key+` 文件从主机复制到监控客户端：
 
 +
 
