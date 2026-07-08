@@ -1,18 +1,16 @@
 [[auth-methods-sso-example]]
 = SSOの実装例
 :description: SUSE Multi-Linux Managerを使用してエンドポイントを公開し、KeycloakをIDサービスプロバイダとして使用することで、セキュアなシングルサインオンを実現します。
-:revdate: 2025-02-06
+:revdate: 2026-06-24
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメントチーム
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
 
-この例では、3つのエンドポイントを{productname}で公開し、Keycloak 21.0.1以降をIDサービスプロバイダ(IdP)として使用することによってSSOが実装されています。
+この例では、3つのエンドポイントを{productname}で公開し、Keycloak 26.5.3以降をIDサービスプロバイダ(IdP)として使用することによってSSOが実装されています。
 
-まず、Keycloak IdPをインストールし、その後{productname}サーバを設定します。
-次に、エンドポイントをKeycloakクライアントとして追加し、ユーザーを作成できます。
-
+{productname}とKeycloakでシングルサインオン(SSO)を設定するには、まずKeycloak IDプロバイダを設定し、そのSAML公開証明書を取得して、クライアントとユーザーを設定します。その後、{productname}サーバーがKeycloakを信頼するように設定します。
 
 [WARNING]
 ====
@@ -20,168 +18,143 @@
 Keycloakのサポートについては、https://www.keycloak.org/.を参照してください。
 ====
 
-
 Keycloakを直接マシンにインストールするか、コンテナで実行できます。
 この例では、PodmanコンテナでKeycloakを実行します。
 Keycloakのインストールに関する詳細は、https://www.keycloak.org/guides#getting-started.のKeycloakドキュメントを参照してください。
 
+[#how-to-set-up-keycloak]
+== IDサービスプロバイダ(Keycloak)の設定
 
-.プロシージャ:IDサービスプロバイダの設定
+まず、Keycloakを実行し、レルムを作成し、SAML公開証明書を取得して、クライアントを設定します。
+
+[#pro-setting-up-keycloak]
+.プロシージャ:Keycloakの設定
+[role=procedure]
+____
 . Keycloakのドキュメントに従って、PodmanコンテナにKeycloakをインストールします。
-. ``+-td+``引数を使用してコンテナを実行し、プロセスが実行され続けることを確認します。
+. `+-td+`引数を使用してコンテナを実行し、処理が実行され続けることを確認します:
 +
 ----
-podman run -td --name keycloak -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay.io/keycloak/keycloak:21.0.1
+podman run -td --name keycloak -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:26.1.1 start-dev
 ----
-. Keycloak {webui}に``+admin+``ユーザーとしてサインインし、これらの詳細を用いて認証レルムを作成します。
+. `+admin+`ユーザーとしてKeycloak管理コンソールにサインインします。
+. 認証レルムを作成します:
+* 左上隅で、レルムセレクタのドロップダウン(`+master+`と表示)をクリックし、`+Manage realms+`を選択します。
+* `+Manage realms+`ページで、右上隅にあるbtn:[Create realm]ボタンをクリックします。
+* `+Realm name+`フィールドに名前(例: `+MLM+`)を入力します。
+* btn:[作成]をクリックします。
+. SAML公開証明書を取得します:
+* 左側のナビゲーションメニューから、menu:Realm settings[]をクリックします。
+* `+Keys+`タブをクリックします。
+* アクティブなキーのテーブルで、アクティブな**RSA**キー(プロバイダ`+rsa-generated+`)を見つけます。
+* その行にあるbtn:[Certificate]ボタンをクリックします。
+* 開いたモーダルから、Base64エンコードされた証明書全体をコピーします。この証明書は、サーバーの設定に備えて手元に保管しておいてください。
+. {productname}をクライアントとして追加します:
+* 左側のナビゲーションメニューから、menu:Clients[]をクリックします。
+* btn:[Create client]をクリックします。
+* `+Client type+`フィールドで、`+SAML+`を選択します。
+* `+Client ID+`フィールドに、{productname}メタデータエンドポイントを入力します。
+  次に例を示します。`+https://<FQDN_MLM>/rhn/manager/sso/metadata+`
+* btn:[次へ]をクリックします。
+* `+Valid redirect URIs+`フィールドに、{productname} Assertion Consumer Service (ACS) エンドポイントを入力します。
+  次に例を示します。`+https://<FQDN_MLM>/rhn/manager/sso/acs+`
+* btn:[保存]をクリックします。
+. クライアント設定の微調整:
+* `+Settings+`タブの下で、`+SAML capabilities+`セクションまでスクロールダウンします。
+** `+Sign assertions+`を`+On+`に切り替えます。
+** `+Signature algorithm+`フィールドで、`+RSA_SHA1+`を選択します。
+** `+SAML Signature Key Name+`フィールドで、`+Key ID+`を選択します。
+** ［**保存**］をクリックします。
+* `+Keys+`タブの下で:
+** `+Client signature required+`を`+Off+`に切り替えます。
+* `+Advanced+`タブの下で、`+Fine Grain SAML Endpoint Configuration+`セクションまでスクロールダウンします。
+** `+Assertion Consumer Service POST Binding URL+`フィールドと`+Assertion Consumer Service Redirect Binding URL+`フィールドの両方に、{productname} ACSエンドポイントを入力します。
+  次に例を示します。`+https://<FQDN_MLM>/rhn/manager/sso/acs+`
+** `+Logout Service POST Binding URL+`フィールドに、{productname} SLSエンドポイントを入力します。
+  次に例を示します。`+https://<FQDN_MLM>/rhn/manager/sso/sls+`
+** `+Logout Service Redirect Binding URL+`フィールドに、{productname}インスタンスのルートURLを入力します。
+  次に例を示します。`+https://<FQDN_MLM>/+`
+** ［**保存**］をクリックします。
+. クライアントスコープとマッパーの設定:
+* 左側のナビゲーションメニューから、menu:Client scopes[]をクリックします。
+* リスト内の`+role_list+`をクリックします。
+* `+Mappers+`タブをクリックし、`+role list+`マッパーをクリックします。
+* `+Single Role Attribute+`を`+On+`に切り替え、btn:[Save]をクリックします。
+* menu:Clients[]に戻り、{productname}クライアントID（`+https://<FQDN_MLM>/rhn/manager/sso/metadata+`）をクリックして、`+Client scopes+`タブをクリックします。
+* 専用スコープ（例: `+https://<FQDN_MLM>/rhn/manager/sso/metadata-dedicated+`）をクリックします。
+* btn:[Configure a new mapper]をクリックします。
+* リストから `+User Attribute+` を選択し、以下の詳細を使用してマッパーを設定します。
+** `+Name+` フィールドに `+uid+` を入力します。
+** `+Property+`フィールドで、`+username+`を選択します。
+** `+SAML Attribute Name+` フィールドに `+uid+` を入力します。
+* btn:[保存]をクリックします。
+. ユーザの作成:
+* 左側のナビゲーションメニューから、menu:ユーザ[]をクリックします。
+* btn:[ユーザの追加] をクリックします。
+* `+Username+` フィールドに、既存の {productname} ユーザ（管理ユーザなど）と一致するユーザ名を入力します。
+* btn:[作成]をクリックします。
+* `+Credentials+` タブをクリックし、btn:[パスワードの設定] をクリックしてユーザのパスワードを設定し、`+Temporary+` を `+Off+` に切り替えてから、btn:[保存] をクリックし、btn:[パスワードの保存] をクリックして確定します。
+____
+
+
+[#how-to-configure-{productname}-server]
+== {productname} サーバの設定
+
+Keycloak の準備ができたら、{productname} サーバがシングルサインオンを使用するように設定します。
+
+[IMPORTANT]
+====
+SSOを使用して認証するユーザが {productname} に既に存在することを確認してください。ユーザは {productname} {webui} で手動作成するか、コマンドラインインタフェースまたはAPI（PAM有効またはパスワードなし認証を使用）を使用して作成できます。
+====
+
+[#pro-setting-up-server]
+.プロシージャ:{productname} サーバの設定
+[role=procedure]
+____
+. {productname} サーバ上で、`+/etc/rhn/rhn.conf+` 設定ファイルを開きます。
+. 次のパラメータを追加します。`+<FQDN_MLM>+` を {productname} インストールの完全修飾ドメイン名に、`+<FQDN_IDP>+` を Keycloak サーバの FQDN に、`+<REALM>+` をレルム名（例: `+MLM+`）に、`+<CERTIFICATE>+` を前の手順で Keycloak から取得した SAML 公開証明書の Base64 エンコード文字列に置き換えます。
 +
-* ``+Name+``フィールドに、レルムの名前を入力します。
-    たとえば、``+MLM+``。
-* ``+Endpoints+``+フィールドで、``+SAML 2.0 Identity Provider Metadata+``リンクをクリックします。
-    これにより、{productname}設定ファイルにコピーするエンドポイントと証明書が表示されるページに移動します。
-
-
-Keycloakをインストールしてレルムを作成したら、{productname}サーバを準備できます。
-
-.プロシージャ:{productname}サーバの設定
-. {productname}サーバで、[path]``+/etc/rhn/rhn.conf+``設定ファイルを開き、これらのパラメータを編集します。
-    ``+<FQDN_MLM>+``をあなたの{productname}インストールの完全修飾ドメイン名に置き換えます：
-+
-----
-java.sso.onelogin.saml2.sp.entityid                       = https://<FQDN_MLM>/rhn/manager/sso/metadata
-java.sso.onelogin.saml2.sp.assertion_consumer_service.url = https://<FQDN_MLM>/rhn/manager/sso/acs
-java.sso.onelogin.saml2.sp.single_logout_service.url      = https://<FQDN_MLM>/rhn/manager/sso/sls
-----
-. 設定ファイルで、``+<FQDN_IDP>+``をあなたのKeycloakサーバの完全修飾ドメイン名に置き換えます。
-    ``+<REALM>+``+をあなたの認証レルムに置き換えます。たとえば+``+MLM+``：
-+
-----
-java.sso.onelogin.saml2.idp.entityid                   = http://<FQDN_IDP>:8080/realms/<REALM>
-java.sso.onelogin.saml2.idp.single_sign_on_service.url = http://<FQDN_IDP>:8080/realms/<REALM>/protocol/saml
-java.sso.onelogin.saml2.idp.single_logout_service.url  = http://<FQDN_IDP>:8080/realms/<REALM>/protocol/saml
-----
-. IdPメタデータで、パブリックx509証明書を探します。
-    この形式を使用します: ``+http://<FQDN_IDP>:8080/realms/<REALM>/protocol/saml/descriptor+``。
-    設定ファイルで、IdPの公開x509証明書を指定します:
-+
-----
-java.sso.onelogin.saml2.idp.x509cert = -----BEGIN CERTIFICATE----- <CERTIFICATE>  -----END CERTIFICATE-----
-----
-
-
-SSOを有効にした後の{productname}における[path]``+rhn.conf+``の例は次のとおりです:
-//+
 ----
 java.sso = true
 
+java.sso.onelogin.saml2.debug = true
 
-# This is the configuration file for Single Sign-On (SSO) via SAMLv2 protocol
-# To enable SSO, set java.sso = true in /etc/rhn/rhn.conf
-#
-# Mandatory changes: search this file for:
-# - YOUR-PRODUCT
-# - YOUR-IDP-ENTITY
-#
-# See product documentation and the comments inline in this file for more
-# information about every parameter.
-#
-#
-#
-#
-# If 'strict' is True, then the Java Toolkit will reject unsigned
-# or unencrypted messages if it expects them signed or encrypted
-# Also will reject the messages if not strictly follow the SAML
-#
-# WARNING: In production, this parameter setting parameter MUST be set as "true".
-# Otherwise your environment is not secure and will be exposed to attacks.
-# Enable debug mode (to print errors)
-# Identifier of the SP entity (must be a URI)
-java.sso.onelogin.saml2.sp.entityid = https://MLMserver.example.org/rhn/manager/sso/metadata
+java.sso.onelogin.saml2.sp.entityid                       = https://<FQDN_MLM>/rhn/manager/sso/metadata
+java.sso.onelogin.saml2.sp.assertion_consumer_service.url = https://<FQDN_MLM>/rhn/manager/sso/acs
+java.sso.onelogin.saml2.sp.single_logout_service.url      = https://<FQDN_MLM>/rhn/manager/sso/sls
 
-# Specifies info about where and how the <AuthnResponse> message MUST be
-# returned to the requester, in this case our SP.
-# URL Location where the <Response> from the IdP will be returned
-java.sso.onelogin.saml2.sp.assertion_consumer_service.url = https://MLMserver.example.org/rhn/manager/sso/acs
+java.sso.onelogin.saml2.idp.entityid                   = http://<FQDN_IDP>:8080/realms/<REALM>
+java.sso.onelogin.saml2.idp.single_sign_on_service.url = http://<FQDN_IDP>:8080/realms/<REALM>/protocol/saml
+java.sso.onelogin.saml2.idp.single_logout_service.url  = http://<FQDN_IDP>:8080/realms/<REALM>/protocol/saml
 
-# Specifies info about where and how the <Logout Response> message MUST be
-# returned to the requester, in this case our SP.
-java.sso.onelogin.saml2.sp.single_logout_service.url = https://MLMserver.example.org/rhn/manager/sso/sls
+java.sso.onelogin.saml2.idp.x509cert = -----BEGIN CERTIFICATE----- <CERTIFICATE> -----END CERTIFICATE-----
 
-# Identifier of the IdP entity (must be a URI)
-java.sso.onelogin.saml2.idp.entityid = http://idp.example.org:8080/realms/MLM
-
-# SSO endpoint info of the IdP. (Authentication Request protocol)
-# URL Target of the IdP where the SP will send the Authentication Request Message
-java.sso.onelogin.saml2.idp.single_sign_on_service.url = http://idp.example.org:8080/realms/MLM/protocol/saml
-
-# SLO endpoint info of the IdP.
-# URL Location of the IdP where the SP will send the SLO Request
-java.sso.onelogin.saml2.idp.single_logout_service.url = http://idp.example.org:8080/realms/MLM/protocol/saml
-
-# Public x509 certificate of the IdP
-java.sso.onelogin.saml2.idp.x509cert = -----BEGIN CERTIFICATE----- MIIClzCCAX8CBgGC+tPbVjANBgkqhkiG9w0BAQsFADAPMQ0wCwYDVQQDDARTVU1BMB4XDTIyMDkwMTIwNTEwNFoXDTMyMDkwMTIwNTI0NFowDzENMAsG
-A1UEAwwEU1VNQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMNSWJAalB5mShTkMBO5mrsOosyheEL8/A37WvuqDPwwEfm4x0cG7gmMHvONxYXZk+LRyzoQl2sBrNFrbMuwu5dnah5ZSMxQyUu697S280m4vIiegGaFdbgH+g4FGBu
-eSis1ssMzTcES+NUuI7pLkMLNmSQtncESnoL9q2SyeQSwYtr5dz1ydl6IzjwtaWeyQ9EGJNtJtLk3U4+arLPCpHAwqFAnLO9NeYcRDNUKhNBs1v5mHP+L066PZu1/DkE0mSgy/+qXaS0CgZVKqz8qB+bvHVuAq9W60g1CjqZKbwvPu72p/7+d8z
-9DxXPIZ1uxdqn19q/kLEP2TYLtgQobSHECAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAga+raLMJDo/P/yN1Z6SGGocK227WFqovBiE/mLYlp5Ff0+0jS1US1plSppJ94xOr8j0m7HW0Wu5xCz6oOhzXTEtnfIbeRyr1Rms3BWdxyXgQ9bWUeZMWZ
-HfDkTbhgRRmjDEwSSfEXRKQNvw41CpnlB36I0++ejgGnjDvH7BbkCaoW55JF5j6DT/WYR0n7MkEl2Ova9CH0e9X7Gny8iOAg26oziy06uy3P/lx9Z9RmHnvpvN/Q34SGEq9z/HlQVuP12UPj//iT21Jc17OOZFsZQXlGFTG6bXKmO42W8FdUDJU
-ONoXZgjMb3eC7U691YyeowoqTY7mJKxNPprYY/lL0w== -----END CERTIFICATE-----
-
-
-# Organization
-java.sso.onelogin.saml2.organization.name = SUSE Manager admin
-java.sso.onelogin.saml2.organization.displayname = SUSE Manager admin
-java.sso.onelogin.saml2.organization.url = https://MLMserver.example.org
+# Organization Metadata (Optional)
+java.sso.onelogin.saml2.organization.name = SUSE Multi-Linux Manager
+java.sso.onelogin.saml2.organization.displayname = SUSE Multi-Linux Manager
+java.sso.onelogin.saml2.organization.url = https://<FQDN_MLM>
 java.sso.onelogin.saml2.organization.lang =
 
-# Contacts
-java.sso.onelogin.saml2.contacts.technical.given_name = SUSE Manager admin
-java.sso.onelogin.saml2.contacts.technical.email_address = MLM@example.org
-java.sso.onelogin.saml2.contacts.support.given_name = SUSE Manager admin
-java.sso.onelogin.saml2.contacts.support.email_address = MLM@example.org
+# Contacts (Optional)
+java.sso.onelogin.saml2.contacts.technical.given_name = SUSE Multi-Linux Manager Admin
+java.sso.onelogin.saml2.contacts.technical.email_address = admin@example.com
+java.sso.onelogin.saml2.contacts.support.given_name = SUSE Multi-Linux Manager Admin
+java.sso.onelogin.saml2.contacts.support.email_address = admin@example.com
 ----
-
-
-{productname}エンドポイントをKeycloakに追加できます。
-Keycloakはエンドポイントをクライアントと呼びます。
-
-
-.プロシージャ:エンドポイントをクライアントとして追加する
-. Keycloak {webui}で、これらの詳細を使用して新しいクライアントを作成します:
+. 変更を保存し、spacewalkサービスを再起動して変更を適用します。
 +
-* ``+Client type+``+フィールドで、``+SAML+``を選択します。
-* ``+Client ID+``+フィールドに、サーバの設定ファイルで指定されているエンドポイントを``+java.sso.onelogin.saml2.idp.entityid+``として入力します。
-    たとえば、``+https://<FQDN_MLM>/rhn/manager/sso/metadata+``。
-. ``+Settings+``タブで、これらの詳細を使用してクライアントを微調整します:
-+
-* ``+Sign assertions+``+スイッチを``+On+``に切り替えます。
-* ``+Signature algorithm+``+フィールドで、``+RSA_SHA1+``を選択します。
-* ``+SAML Signature Key Name+``+フィールドで、``+Key ID+``を選択します。
-. ``+Keys+``タブで:
-+
-* ``+Client signature required+``を``+Off+``に設定します。
-. ``+Advanced+``+タブ内の+``+Fine Grain SAML Endpoint Configuration+``セクションで、これらの詳細を使用して2つのエンドポイントを追加します。
-+
-* ``+Assertion Consumer Service+``+フィールドの両方に、サーバの設定ファイルで指定されているエンドポイントを``+java.sso.onelogin.saml2.sp.assertion_consumer_service.url+``として入力します。
-    たとえば、``+https://<FQDN_MLM>/rhn/manager/sso/acs+``。
-* ``+Logout Service+``+フィールドの両方に、サーバの設定ファイルで指定されているエンドポイントを``+java.sso.onelogin.saml2.sp.single_logout_service.url+``として入力します。
-    たとえば、``+https://<FQDN_MLM>/rhn/manager/sso/sls+``。
+----
+mgradm restart
+----
+. {productname} {webui} に移動します。Keycloak ログイン画面にリダイレクトされ、認証後に {productname} に正常にログインできるはずです。
+____
 
+[#how-to-troubleshoot-sso]
+== トラブルシューティング
 
-エンドポイントをクライアントとして追加したら、クライアントスコープを設定し、Keycloakと{productname}間のユーザーをマッピングできます。
+シングルサインオンでの認証時に問題が発生した場合は、次の手順で診断してください。
 
-
-.プロシージャ:クライアントスコープとマッパーの設定
-. Keycloak {webui}で、menu:クライアント[クライアントスコープ] タブに移動し、デフォルトクライアントスコープとして``+role_list+``を割り当てます。
-. menu:Client_scopes[Mappers] タブに移動して、ユーザ属性``+uid+``のマッパーをデフォルトの値を使用して追加します。
-    このSAML属性は{productname}によって想定されています。
-. menu:Client_scopes[Mappers] に移動し、``+role_list+``+マッパーをクリックします。++Single Role Attribute++を``+On+``に設定します。
-. menu:Users[Admin] セクションに移動し、管理ユーザを作成します。
-    このユーザは、{productname}管理ユーザに一致する必要はありません。
-. menu:Users[Role mappings] タブに移動して、``+uid+``という名前の属性を追加し、{productname}管理ユーザのユーザ名に一致する値を設定します。
-. menu:Users[Credentials] タブに移動して、{productname}管理ユーザによって使用されるのと同じパスワードを設定します。
-. 変更を保存します。
-
-
-設定が完了したら、インストールが期待通りに動作しているかテストできます。
-変更を反映させるために{productname} サーバを再起動し、{productname} {webui}に移動します。
-インストールが正しく動作している場合、Keycloak SSOページにリダイレクトされ、正常に認証できます。
+* **ログの確認:**`+/var/log/rhn/rhn_web_ui.log+` で SSO エラーを探します。`+java.sso.onelogin.saml2.debug = true+` が `+/etc/rhn/rhn.conf+` に設定されている場合、詳細ログが有効になります。
+* **ユーザが見つかりません:**Keycloak 認証後に「User not found」と表示されるか、リダイレクトが失敗する場合は、Keycloak のユーザ名が {productname} のユーザ名と完全に一致していることを確認してください。ユーザはあらかじめ {productname} に作成しておく必要があります。
+* **署名および証明書エラー:**「Signature verification failed」と表示される場合は、`+java.sso.onelogin.saml2.idp.x509cert+` の証明書がKeycloakのレルム設定の `+Keys+` タブに表示されているアクティブなRSA証明書と一致していることを確認し、クライアント設定で `+Sign assertions+` が `+On+` に切り替えられていることを確認してください。
+* **無効なリダイレクトURI:**リダイレクト時にKeycloakに「Invalid parameter: redirect_uri」と表示される場合は、Keycloakのクライアント設定の `+Valid redirect URIs+` が `+https://<FQDN_MLM>/rhn/manager/sso/acs+` に設定されていることを確認してください。
