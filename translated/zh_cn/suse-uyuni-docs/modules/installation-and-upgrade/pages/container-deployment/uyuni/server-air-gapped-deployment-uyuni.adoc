@@ -17,10 +17,10 @@ endif::[]
 隔离部署是指任何网络系统的设置和操作，该系统与不安全的网络（尤其是互联网）物理隔离。
 这种类型的部署通常用于高安全性环境，如军事设施、金融系统、关键基础设施，以及处理敏感数据并必须保护免受外部威胁的任何地方。
 
-您可以在能够访问互联网的计算机上轻松使用 [systemitem]``+Podman+``+ 或 [systemitem]+``+Docker+`` 拉取容器映像。
+您可以在能够访问互联网的计算机上轻松使用 `+Podman+` 或 `+Docker+` 拉取容器映像。
 
 .过程：升级拉取映像
-. 提取所需的映像，然后将其保存为 [literal]``+tar+`` Tar 包。
+. 拉取所需的映像，然后将其保存为 `+tar+` 归档。
   例如：
 
 +
@@ -36,7 +36,7 @@ docker pull registry.opensuse.org/uyuni/server:latest
 docker save --output images.tar registry.opensuse.org/uyuni/server:latest
 ----
 +
-. 将生成的 [filename]``+server-image.tar+`` 传输到服务器容器主机，并使用以下命令加载它：
+. 将生成的 `+server-image.tar+` 传输到服务器容器主机，并使用以下命令加载它：
 +
 .装载服务器映像
 ----
@@ -94,7 +94,7 @@ transactional-update pkg install mgradm* mgrctl* uyuni-server*-image*
 ----
 +
 . 重引导。
-. 使用 [command]``+mgradm+``+ 部署 {productname}。在隔离环境中，您可能希望使用选项 [command]+``+--pullPolicy Never+``。
+. 使用 {productname} 部署 `+mgradm+`。在隔离的环境中，您可能希望使用选项 `+--pullPolicy Never+`。
 
 
 有关在 {leapmicro} 上安装 {productname} 服务器的更详细信息，请参见 xref:container-deployment/uyuni/server-deployment-uyuni.adoc[服务器部署]。

@@ -19,7 +19,7 @@ endif::[]
 请勿使用 NFS 存储数据，因为它不支持 SELinux 文件标记。
 ====
 
-// In this table, replace ``+version+`` with the version of the product you are using.
+// In this table, replace `+version+` with the version of the product you are using.
 == 服务器要求
 
 
@@ -48,15 +48,15 @@ endif::[]
 | 最低 32{nbsp}GB
 
 | 磁盘空间
-| [path]``+/+`` (root 目录)
+| `+/+`（根目录）
 | 最低 40{nbsp}GB
 
 |
-| [path]``+/var/lib/pgsql+``
+| `+/var/lib/pgsql+`
 | 最低 50{nbsp}GB
 
 |
-| [path]``+/var/spacewalk+``
+| `+/var/spacewalk+`
 | 最低存储要求：100{nbsp}GB（这将通过实施的检查进行验证）
  +
 * 每个 {suse} 产品和软件包中心需要 50{nbsp}GB
@@ -64,7 +64,7 @@ endif::[]
 * 每个 {redhat} 产品需要 360{nbsp}GB
 
 |
-| [path]``+/var/cache+``
+| `+/var/cache+`
 | 最低 10{nbsp}GB。
 每个 {suse} 产品增加 100{nbsp}MB，每个 {redhat} 或其他产品增加 1{nbsp}GB。
 如果服务器是 ISS 主控，则将空间加倍。
@@ -102,27 +102,27 @@ endif::[]
 | 至少 8{nbsp}GB
 
 | 磁盘空间
-| [path]``+/+`` (root 目录)
+| `+/+`（根目录）
 | 最低 40{nbsp}GB
 
 |
-| [path]``+/srv+``
+| `+/srv+`
 | 至少 100{nbsp}GB
 
 |
-| [path]``+/var/cache+``（Squid）
+| `+/var/cache+` (Squid)
 | 至少 100{nbsp}GB
 |===
 
 
-{productname} 代理在 [path]``+/var/cache/+`` 目录中缓存软件包。
-如果 [path]``+/var/cache/+`` 中可用空间不足，代理将去除旧的未使用软件包，并用更新的软件包替换。
+{productname} 代理在 `+/var/cache/+` 目录中缓存软件包。
+如果 `+/var/cache/+` 中可用空间不足，代理将去除旧的未使用软件包，并用更新的软件包替换它们。
 
 鉴于这种行为：
 
-* 代理上的 [path]``+/var/cache/+`` 目录越大，代理与 {productname} 服务器之间的流量就越少。
+* 代理上的 `+/var/cache/+` 目录越大，代理与 {productname} 服务器之间的流量就越少。
 
-* 使代理上的 [path]``+/var/cache/+``+ 目录与 [path]+``+/var/spacewalk/+`` 在 {productname} 服务器上保持相同的大小，可以避免在首次同步后出现大量的流量。
+* 使代理上的 `+/var/cache/+` 目录与 `+/var/spacewalk/+` 服务器上的 {productname} 保持相同的大小，可以避免在首次同步后出现大量的流量。
 
-* 与代理相比，{productname} 服务器上的 [path]``+/var/cache/+`` 目录可能较小。
+* 与代理相比，`+/var/cache/+` 服务器上的 {productname} 目录可能较小。
     有关大小估算的指南，请参见 <<server-hardware-requirements>> 部分。

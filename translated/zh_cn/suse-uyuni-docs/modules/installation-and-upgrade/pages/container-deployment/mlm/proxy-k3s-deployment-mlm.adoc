@@ -23,7 +23,7 @@ endif::[]
 如果您需要在其他 Kubernetes 环境中部署，请联系支持进行评估。
 ====
 
-在容器主机上，安装 [literal]``+K3s+``+（将 [literal]+``+<K3S_HOST_FQDN>+`` 替换为您的 K3s 主机的 FQDN）：
+在容器主机上，安装 `+K3s+`（将 `+<K3S_HOST_FQDN>+` 替换为您的 K3s 主机的 FQDN）：
 
 [source,shell]
 ----
@@ -33,9 +33,9 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--tls-san=<K3S_HOST_FQDN>" sh -
 [[installation-proxy-containers-k3s-helm]]
 == 安装工具
 
-安装时需要提供 [literal]``+mgrpxy+``+ 和 [literal]+``+helm+`` 软件包。
+安装需要 `+mgrpxy+` 和 `+helm+` 软件包。
 
-[literal]``+mgrpxy+``+ 和 +``+helm+`` 软件包可在 {productname} 代理产品仓库中找到。
+`+mgrpxy+` 软件包和 `+helm+` 软件包可在 {productname} 代理产品仓库中找到。
 
 . 要进行安装，请运行以下命令：
 
@@ -65,12 +65,12 @@ endif::[]
 
 永久性卷声明已命名为：
 
-* [literal]``+squid-cache-pv-claim+``
-* [literal]``+package-cache-pv-claim+``
-* [literal]``+tftp-boot-pv-claim+``
+* `+squid-cache-pv-claim+`
+* `+package-cache-pv-claim+`
+* `+tftp-boot-pv-claim+`
 
 按照 xref:installation-and-upgrade:container-deployment/mlm/proxy-deployment-mlm.adoc[] 中的文档创建 {productname} 代理的配置。
-复制配置 [literal]``+tar.gz+`` 文件，然后安装：
+复制配置文件 `+tar.gz+`，然后安装：
 
 ----
 mgrpxy install kubernetes /path/to/config.tar.gz
