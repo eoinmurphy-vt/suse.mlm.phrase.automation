@@ -9,7 +9,7 @@
 :page-product-version: 5.1
 
 本章包含您需要备份的文件信息。
-使用内置的备份和恢复解决方案（[command]``+mgradm backup+``），您可以创建 {productname} 个备份。
+使用内置的备份和恢复解决方案（`+mgradm backup+`），您可以创建{productname}个备份。
 有关在系统故障情况下如何从备份中恢复的信息，使本章内容更为完整。
 
 由于 {productname} 依赖数据库及已安装的程序和配置，因此备份安装的所有组件至关重要。
@@ -30,11 +30,11 @@
 
 [NOTE]
 ====
-随着内置解决方案的出现，使用 [command]``+smdba+`` 备份工具的旧方法已被弃用。
-如果您从使用 [command]``+smdba+`` 的旧系统迁移到新解决方案，您必须禁用旧功能并去除旧备份档案。
+随着内置解决方案的出现，使用`+smdba+`备份工具的旧方法已被弃用。
+如果您从使用 `+smdba+` 的旧系统迁移到新解决方案，则必须禁用旧功能并去除旧备份存档。
 ====
 
-在迁移之前禁用 [command]``+smdba+``（推荐）或在迁移后的 {productname} {productnumber} 系统上禁用。
+在迁移之前禁用 `+smdba+`（推荐）或在迁移后的{productname} {productnumber}系统上禁用。
 
 
 .过程：升级迁移前禁用已安装 smdba 的旧方法
@@ -79,7 +79,7 @@ mgrctl exec -- smdba backup-hot --enable=off
 endif::[]
 
 
-此命令会按如下方式更改 [option]``+archive_command+``+ 在 [path]+``+/var/lib/pgsql/data/postgresql.conf+`` 中的内容：
+这将在 `+archive_command+` 中按如下方式更改 `+/var/lib/pgsql/data/postgresql.conf+`：
 
 ----
 archive_command = '/bin/true'
@@ -95,7 +95,7 @@ ____
 ____
 请在迁移后执行此过程（此时 smdba 已不可用）。
 
-. 以 root 用户身份在容器主机中编辑 [path]``+/var/lib/containers/storage/volumes/var-pgsql/_data/postgresql.conf+`` 文件，并设置以下选项：
+. 在容器主机上，以root用户身份编辑 `+/var/lib/containers/storage/volumes/var-pgsql/_data/postgresql.conf+` 并设置以下选项：
 +
 ----
 archive_mode = off
@@ -115,15 +115,15 @@ ____
 [[backup-product]]
 == 备份 {productname}
 
-备份您的 {productname} 安装的最全面方法是使用 [command]``+mgradm backup create+`` 命令。
+备份您的 {productname} 安装的最全面方法是使用`+mgradm backup create+`命令。
 这可以节省您在管理备份时的时间，并且在故障情况下重新安装和重新同步可能更快。
 然而，这种方法需要大量的磁盘空间，并且可能需要很长时间来执行备份。
 
-[command]``+mgradm backup create+`` 命令将备份保存到一个目录。
+`+mgradm backup create+` 命令将备份保存到目录中。
 该目录可以是本地目录或挂载的远程目录。
 
-[command]``+mgradm backup create+`` 命令允许对备份内容进行各种自定义。
-有关所有可用选项，请参见 [command]``+mgradm backup create --help+``。
+`+mgradm backup create+` 命令允许对备份内容进行各种自定义。
+有关所有可用选项，请参阅 `+mgradm backup create --help+`。
 
 
 === {productname} 的完整备份
@@ -144,7 +144,7 @@ ____
 备份完成后，服务会自动重新启动。
 ====
 
-.过程：升级使用 [command]``+mgradm backup create+`` 创建完整备份
+.过程：升级使用 `+mgradm backup create+` 创建完整备份
 [role=procedure]
 ____
 . 在容器主机上，以 root 身份执行以下命令创建备份：
@@ -158,13 +158,13 @@ mgradm backup create $path
 
 +
 
-请将 [literal]``+$path+`` 替换为备份位置的路径。
+请将 `+$path+` 替换为备份位置的路径。
 ____
 
 
 === {productname} 的部分备份
 
-[command]``+mgradm backup create+`` 工具允许创建部分备份。
+`+mgradm backup create+` 工具允许创建部分备份。
 可以跳过单个或所有卷，跳过数据库备份和容器镜像。
 
 特别是，当跳过数据库备份时，系统会创建备份而不停止 {productname} 服务，备份可以作为两阶段备份流程中的一个阶段运行。
@@ -186,7 +186,7 @@ ____
 mgradm backup create --skipdatabase $path
 ----
 +
-请将 [literal]``+$path+`` 替换为备份位置的路径。
+请将 `+$path+` 替换为备份位置的路径。
 ____
 
 
@@ -205,22 +205,22 @@ mgradm backup create --skipvolumes $volumes $path
 
 +
 
-请将 [literal]``+$path+`` 替换为备份位置的路径。
+请将 `+$path+` 替换为备份位置的路径。
 
 +
 
-请将 [literal]``+$volumes+`` 替换为要排除在备份之外的卷名称，或一系列以逗号分隔的要排除的卷名称。
+请将 `+$volumes+` 替换为要排除在备份之外的卷名称，或以逗号分隔的多个要排除的卷名称。
 
 +
 
-使用 [literal]``+all+`` 可以跳过所有卷（数据库卷除外）。
+使用 `+all+` 可以跳过所有卷（数据库卷除外）。
 ____
 
 
 === 备份额外的卷
 
-[command]``+mgradm backup+`` 命令使用内部的 {productname} 卷列表。
-如果在安装过程中配置了额外的卷，或者需要将额外的卷添加到备份中，则需要使用 [command]``+--extravolumes $volumes+`` 指定它们。
+`+mgradm backup+` 命令使用内部的 {productname} 卷列表。
+如果在安装过程中配置了额外的卷，或者需要将额外的卷添加到备份中，则需要使用 `+--extravolumes $volumes+` 指定它们。
 
 .过程：升级创建包含其他自定义卷的备份
 [role=procedure]
@@ -236,11 +236,11 @@ mgradm backup create --extravolumes $volume $path
 
 +
 
-请将 [literal]``+$path+`` 替换为备份位置的路径。
+请将 `+$path+` 替换为备份位置的路径。
 
 +
 
-请将 [literal]``+$volumes+`` 替换为要包含在备份中的卷名称，或一系列以逗号分隔的要包含的卷名称。
+请将 `+$volumes+` 替换为要包含在备份中的卷名称，或以逗号分隔的多个要包含的卷名称。
 
 ____
 
@@ -293,13 +293,13 @@ mgradm start
 
 +
 
-请将 [literal]``+$path+`` 替换为备份位置的路径。
+请将 `+$path+` 替换为备份位置的路径。
 ____
 
 
-备份的验证可能是一个耗时的操作。如果通过其他方式确保了备份的完整性，可以使用 [command]``+--skipverify+`` 选项跳过验证。
+备份的验证可能是一个耗时的操作。如果通过其他方式确保了备份的完整性，可以使用 `+--skipverify+` 选项跳过验证。
 
-如果出于某些原因需要跳过恢复备份中的某个卷，可以使用 [command]``+--skipvolumes $volumes+`` 选项。
+如果出于某些原因需要跳过恢复备份中的某个卷，可以使用 `+--skipvolumes $volumes+` 选项。
 
 
 
@@ -308,12 +308,12 @@ ____
 .过程：升级恢复 {productname} 后的推荐步骤
 [role=procedure]
 ____
-. 使用 {productname} {webui} 重新同步您的 {productname} 储存库，或在容器的命令提示符下使用 [command]``+mgr-sync+`` 工具。
+. 使用 {productname}{webui} 重新同步您的 {productname} 储存库，或在容器的命令提示符下使用 `+mgr-sync+` 工具。
   您可以选择重新注册您的产品，或跳过注册和 SSL 证书生成部分。
 
-. 在容器主机上检查是否需要恢复 [path]``+/var/lib/containers/storage/volumes/var-spacewalk/_data/packages/+``。
-  如果 [path]``+/var/lib/containers/storage/volumes/var-spacewalk/_data/packages/+`` 不在您的备份中，您需要恢复它。
-  如果源储存库可用，您可以通过完整的频道同步恢复 [path]``+/var/lib/containers/storage/volumes/var-spacewalk/_data/packages/+``：
+. 在容器主机上，检查您是否需要还原 `+/var/lib/containers/storage/volumes/var-spacewalk/_data/packages/+`。
+  如果 `+/var/lib/containers/storage/volumes/var-spacewalk/_data/packages/+` 不在您的备份中，您需要还原它。
+  如果源储存库可用，您可以通过完全频道同步来还原 `+/var/lib/containers/storage/volumes/var-spacewalk/_data/packages/+`：
 
 +
 
@@ -322,7 +322,7 @@ ____
 mgrctl exec -ti -- mgr-sync refresh --refresh-channels
 ----
 
-. 安排在下次启动 [command]``+rhn-search+`` 服务时重新创建搜索索引。
+. 安排在下次启动 `+rhn-search+` 服务时重新创建搜索索引。
 
 +
 
