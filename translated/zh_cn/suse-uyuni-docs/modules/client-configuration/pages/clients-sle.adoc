@@ -120,14 +120,14 @@ endif::[]
 | sle-product-sles15-sp5-pool-x86_64
 |===
 
-要查找较旧产品的通道名称，请在{productname}服务器上的命令提示符处以 root 身份使用[command]``+mgr-sync+``命令：
+要查找较旧产品的通道名称，请在 {productname} 服务器的命令行以 root 身份使用 `+mgr-sync+` 命令：
 
 ----
 mgr-sync list --help
 ----
 
 然后指定您感兴趣的参数。
-例如，[literal]``+channels+``：
+例如，`+channels+`：
 
 ----
 mgr-sync list channels [-c]
@@ -193,14 +193,14 @@ ifeval::[{uyuni-content} == true]
 
 == 管理 GPG 密钥
 
-客户端使用 GPG 密钥在安装前检查软件包的真实性。
-只有受信任的软件才能在客户端上安装。
+客户端使用 GPG 密钥在安装软件包之前检查其真实性。
+只有受信任的软件包才能在客户端上安装。
 
 [IMPORTANT]
 ====
 信任 GPG 密钥对客户端的安全性至关重要。
-决定哪些密钥是必要的并可以被信任是管理员的任务。
-由于在未信任 GPG 密钥时无法使用软件通道，因此将通道分配给客户端的决定取决于是否信任该密钥。
+决定需要哪些密钥并可以信任哪些密钥是管理员的任务。
+由于在 GPG 密钥未被信任时无法使用软件通道，因此是否将通道分配给客户端取决于是否信任该密钥。
 ====
 
 有关 GPG 密钥的更多信息，请参见 xref:client-configuration:gpg-keys.adoc[]。
@@ -208,7 +208,7 @@ ifeval::[{uyuni-content} == true]
 [NOTE]
 ====
 请对 {sles}{nbsp}15 和 {sles}{nbsp}12 客户端使用相同的 GPG 密钥。
-正确的密钥称为 ``+sle12-gpg-pubkey-39db7c82.key+``。
+正确的密钥称为 `+sle12-gpg-pubkey-39db7c82.key+`。
 ====
 
 endif::[]
