@@ -16,7 +16,7 @@ endif::[]
 
 
 在本节中，您将掌握设置和部署 {productname} 服务器的专业知识。
-该过程包括安装 [command]``+Podman+``+、[systemitem]+``+Uyuni 容器工具+``+、部署，然后通过 [command]+``+mgrctl+`` 开始与容器的交互。
+该处理包括安装 `+Podman+`、`+Uyuni container utilities+`、部署，然后通过 `+mgrctl+` 启动与容器的交互。
 
 [NOTE]
 ====
@@ -54,7 +54,7 @@ https://download.opensuse.org/distribution/leap-micro/
 .过程：升级在 {leapmicro} {microversion} 上安装 Uyuni 工具
 . 在本地主机上打开终端窗口，或启动一个运行 {leapmicro} {microversion} 的虚拟机。
 . 以 root 身份登录。
-. 输入 [command]``+事务更新外壳+``：
+. 输入 `+transactional-update shell+`：
 +
 ----
 transactional-update shell
@@ -92,9 +92,9 @@ transactional update # exit
 == 配置自定义永久性存储
 
 该步骤可选。
-但是，如果您的基础架构需要自定义的永久性存储，请使用 [command]``+mgr-storage-server+`` 工具。
+但是，如果您的基础设施需要自定义的永久性存储，请使用 `+mgr-storage-server+` 工具。
 
-* 有关更多信息，请参见 [command]``+mgr-storage-server --帮助+``。
+* 有关详细信息，请访问 `+mgr-storage-server --help+`。
 有关详细信息，请参见 [command]\\``mgr-storage-server \--help``。此工具可以简化容器存储和数据库卷的创建。
 
 如下所示使用命令：
@@ -109,7 +109,7 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 
 [NOTE]
 ====
-此命令将在 [path]``+/var/lib/containers/storage/volumes+`` 中创建永久性存储卷。
+此命令将在 `+/var/lib/containers/storage/volumes+` 处创建永久性存储卷。
 
 有关更多信息，请参见 xref:installation-and-upgrade:container-management/persistent-container-volumes.adoc[]。
 ====
@@ -117,15 +117,15 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 
 == 使用 Podman 部署 Uyuni 容器
 
-=== [command]``+mgradm+`` 概述
+=== `+mgradm+` 概览
 
-{productname} 使用 [command]``+mgradm+`` 工具作为容器进行部署。
+{productname} 使用 `+mgradm+` 工具作为容器进行部署。
 有两种方法可以将 {productname} 服务器作为容器进行部署。
 在本节中，我们将重点介绍基本的容器部署。
 
 有关使用自定义配置文件进行部署的信息，请参见 xref:installation-and-upgrade:container-management/mgradm-yaml-custom-configuration.adoc[]。
 
-要获取更多信息，您可以在命令行中运行 [command]``+mgradm --help+`` 进行进一步探索。
+要获取更多信息，您可以在命令行中运行 `+mgradm --help+` 进行进一步探索。
 
 ifndef::backend-pdf[]
 include::installation-and-upgrade:partial$snippet-hardened-tmpdir.adoc[leveloffset=+2]
@@ -168,14 +168,14 @@ INF Setting up uyuni network
 
 [NOTE]
 ====
-如果您只是在试用 {productname}，则无需指定这些卷。默认情况下，[command]``+mgradm+`` 会设置正确的卷。
+如果您只是在试用 {productname}，则无需指定这些卷。默认情况下，`+mgradm+` 会设置正确的卷。
 
 通常只需为较大规模的生产部署指定卷位置。
 ====
 
-默认情况下，[command]``+podman+``+ 将其卷存储在 [path]+``+/var/lib/containers/storage/volumes/+`` 中。
+默认情况下，`+podman+` 将其卷存储在 `+/var/lib/containers/storage/volumes/+` 中。
 
-您可以通过在此路径或其中预期的卷路径上挂载磁盘来提供自定义存储，例如：[path]``+/var/lib/containers/storage/volumes/var-spacewalk+``。
+您可以通过在此路径或其中预期的卷路径上挂载磁盘来提供自定义存储，例如：`+/var/lib/containers/storage/volumes/var-spacewalk+`。
 这对于数据库和软件包镜像尤其重要。
 
 有关容器中所有永久性卷的列表，请参见
