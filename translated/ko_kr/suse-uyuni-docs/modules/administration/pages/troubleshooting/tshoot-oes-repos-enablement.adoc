@@ -17,13 +17,13 @@
 +
 . {productname} 서버에 로그인합니다.
 +
-. [guimenu]``+관리자 > 설정 마법사 > 조직 자격 증명+``으로 이동합니다.
+. `+Admin > Setup Wizard > Organization Credentials+`로 이동하세요.
 +
 . {productname}에 대한 SUSE 자격 증명이 이미 있는지 확인합니다.
 +
 . 새로 추가하기 위한 옵션을 선택하고 Microfocus 자격 증명을 입력합니다.
 +
-. [guimenu]``+관리자 > 설정 마법사 > 조직 자격 증명+``으로 이동하여 새로 고침 작업이 완료될 때까지 기다립니다.
+. `+Admin > Setup Wizard > Organization Credentials+`(으)로 이동하여 새로 고침 작업이 완료될 때까지 기다리십시오.
 +
 . OES는 새로 고침된 제품 목록에서 확인할 수 있어야 합니다. 
   이제 다른 제품처럼 활성화할 수 있습니다.
