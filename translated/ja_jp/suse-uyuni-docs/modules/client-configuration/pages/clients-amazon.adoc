@@ -3,7 +3,7 @@
 :description: Amazon Linuxクライアントを、信頼されたGPGキーを使用してSUSE® Multi-Linux Managerサーバに登録するように構成します。
 :revdate: 2025-06-30
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメンテーションチーム
+:page-author: SUSE製品およびソリューションドキュメントチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -142,7 +142,7 @@ endif::[]
 
 [NOTE]
 ====
-[command]``+spacewalk-common-channels+``によって提供されるクライアントツールのチャンネルは{uyuni}が提供元であり、{suse}ではありません。
+`+spacewalk-common-channels+`が提供するクライアントツールチャネルは、{uyuni}から提供されており、{suse}からではありません。
 ====
 
 endif::[]
@@ -196,16 +196,16 @@ endif::[]
 == GPGキーの管理
 
 クライアントは、ソフトウェアパッケージがインストールされる前に、その真正性を確認するためにGPGキーを使用します。
-信頼されたソフトウェアのみがクライアントにインストールできます。
+信頼できるソフトウェアのみがクライアントにインストールできます。
 
 [IMPORTANT]
 ====
-GPGキーを信頼することは、クライアントのセキュリティにとって重要です。
+クライアントのセキュリティのために、GPGキーを信頼することは重要です。
 どのキーが必要で信頼できるかを決定するのは管理者の仕事です。
-GPGキーが信頼されていない場合、ソフトウェアチャンネルは使用できないため、クライアントにチャンネルを割り当てる決定はキーを信頼する決定に依存します。
+GPG キーが信頼されていない場合、ソフトウェア チャンネルは使用できないため、クライアントにチャンネルを割り当てる決定はキーを信頼する決定に依存します。
 ====
 
-GPGキーに関する詳細については、xref:client-configuration:gpg-keys.adoc[]を参照してください。
+GPG キーの詳細については、xref:client-configuration:gpg-keys.adoc[] を参照してください。
 
 
 
