@@ -1,7 +1,7 @@
 == 启动 {productname} {productnumber} 代理
 
 
-现在可以使用 [literal]`+mgrpxy+` 命令启动容器：
+现在可以使用 `+mgrpxy+` 命令启动容器：
 
 .过程：升级启动并检查代理状态
 
@@ -20,7 +20,7 @@ mgrpxy status
 ----
 +
 
-应该会显示五个 {productname} 代理容器，并且它们应该是 [literal]``+proxy-pod+`` 容器 Pod 的一部分：
+应该会显示五个 {productname} 代理容器，并且它们应该属于 `+proxy-pod+` 容器 Pod：
 
 - proxy-salt-broker
 - proxy-httpd
