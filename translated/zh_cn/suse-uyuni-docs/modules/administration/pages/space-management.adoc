@@ -22,17 +22,17 @@
 
 默认情况下，{productname} 服务器容器监控以下目录：
 
-* [path]``+/var/spacewalk+``
-* [path]``+/var/cache+``
-* [path]``+/srv+``
+* `+/var/spacewalk+`
+* `+/var/cache+`
+* `+/srv+`
 
-您可以通过在服务器容器的 systemd 服务中设置 [systemitem]``+DISKCHECKDIRS+`` 环境变量来更改监控的目录。
+您可以通过在服务器容器的 systemd 服务中设置 `+DISKCHECKDIRS+` 环境变量来更改被监控的目录。
 您可以通过用空格分隔多个目录来指定多个目录。
 
 [NOTE]
 ====
-[systemitem]``+DISKCHECKDIRS+`` 环境变量仅适用于服务器容器。
-数据库容器始终监控 [path]``+/var/lib/pgsql/data+``，且无法被覆盖。
+`+DISKCHECKDIRS+` 环境变量仅适用于服务器容器。
+数据库容器始终监控 `+/var/lib/pgsql/data+`，且无法被覆盖。
 ====
 
 .过程：升级配置监控目录
@@ -64,7 +64,7 @@ mgradm restart
 默认情况下，当监控目录的磁盘使用率达到 90% 时，{productname} 会生成警告。
 当监控目录的磁盘使用率达到 95% 时，会生成严重警报，并且容器健康检查将失败。
 
-您可以通过设置 [systemitem]``+DISKCHECKALERT+``+ 和 [systemitem]+``+DISKTHRESHOLD+`` 环境变量来更改这些警报阈值。
+您可以通过设置 `+DISKCHECKALERT+` 和 `+DISKTHRESHOLD+` 环境变量来更改这些警报阈值。
 
 .过程：升级配置磁盘检查阈值
 . 创建 systemd 覆盖目录：
@@ -107,18 +107,18 @@ mgradm restart
 
 == 数据库磁盘检查
 
-数据库容器有自己的磁盘检查，仅监控PostgreSQL数据目录（[path]``+/var/lib/pgsql/data+``）。
-此目录始终受到监控，无法通过[systemitem]``+DISKCHECKDIRS+``环境变量进行更改或覆盖。
+数据库容器有自己的磁盘检查，仅监控 PostgreSQL 数据目录（`+/var/lib/pgsql/data+`）。
+此目录始终受到监控，无法通过 `+DISKCHECKDIRS+` 环境变量进行更改或覆盖。
 
-数据库磁盘检查使用为[systemitem]+``+uyuni-db+``服务配置的[systemitem]``+DISKCHECKALERT+``+和[systemitem]+``+DISKTHRESHOLD+``+环境变量。
+数据库磁盘检查使用为 `+uyuni-db+` 服务配置的 `+DISKCHECKALERT+` 和 `+DISKTHRESHOLD+` 环境变量。
 
 数据库磁盘检查作为PostgreSQL函数运行，并在容器健康检查期间被调用。
 当超过阈值时，健康检查将失败，容器将自动停止以防止数据损坏。
 
 [IMPORTANT]
 ====
-数据库容器仅监控[path]``+/var/lib/pgsql/data+``。
-您无法使用[systemitem]``+DISKCHECKDIRS+``在数据库容器中配置其他要监控的目录。
+数据库容器仅监控 `+/var/lib/pgsql/data+`。
+您无法使用 `+DISKCHECKDIRS+` 在数据库容器中配置其他要监控的目录。
 要监控其他目录，请使用服务器容器配置。
 ====
 
