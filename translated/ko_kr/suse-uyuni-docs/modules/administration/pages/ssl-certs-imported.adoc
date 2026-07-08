@@ -25,19 +25,19 @@
 모든 파일은 PEM 형식이어야 합니다.
 
 SSL 서버 인증서의 호스트 이름은 이를 배포하는 시스템의 정규화된 호스트 이름과 일치해야 합니다.
-인증서의 [literal]``+X509v3 Subject Alternative Name+`` 섹션에서 호스트 이름을 설정할 수 있습니다.
+인증서의 `+X509v3 Subject Alternative Name+` 섹션에서 호스트 이름을 설정할 수 있습니다.
 환경에 따라 여러 호스트 이름을 나열할 수도 있습니다.
-지원되는 키 유형은 [literal]``+RSA+``+ 및 [literal]+``+EC+`` (타원 곡선)입니다.
+지원되는 키 유형은 `+RSA+` 및 `+EC+` (타원 곡선)입니다.
 
 [IMPORTANT]
 ====
-이전 버전에서는 데이터베이스 SSL 인증서에 [literal]``+reportdb+``+ 및 [literal]+``+db+``+가 [literal]+``+Subject Alternative Name+``으로 필요했습니다.
+이전 버전에서는 데이터베이스 SSL 인증서의 경우, `+reportdb+`와 `+db+`가 `+Subject Alternative Name+`로 필요했습니다.
 이제 더 이상 필요하지 않습니다.
 ====
 
 타사 기관은 요청된 서버 인증서에 서명하기 위해 일반적으로 중간 CA를 사용합니다.
 이 경우 체인의 모든 CA가 사용 가능해야 합니다.
-[literal]``+mgrdadm+`` 명령이 인증서의 순서를 관리합니다.
+`+mgrdadm+` 명령이 인증서의 순서를 관리합니다.
 이상적으로는 루트 CA가 별도의 파일에 있어야 합니다. 
 서버 인증서 파일에는 서버 인증서가 먼저 포함되어야 하며, 그 뒤에 모든 중간 CA 인증서가 순서대로 포함되어야 합니다.
 
@@ -53,7 +53,7 @@ SSL 서버 인증서의 호스트 이름은 이를 배포하는 시스템의 정
 [role=procedure]
 ____
 . xref:installation-and-upgrade:install-server.adoc[]의 지침에 따라 {productname} 서버를 배포하십시오.
-  올바른 파일을 [literal]``+mgradm install podman+``에 대한 매개변수로 전달해야 합니다.
+  올바른 파일을 `+mgradm install podman+`에 대한 매개변수로 전달해야 합니다.
   매개변수는 다음과 같습니다:
 
 +
@@ -118,13 +118,13 @@ ____
 .절차 모든 기존 인증서 교체
 [role=procedure]
 ____
-. 다음은 [litteral]``+root-ca.pem+``+, [litteral]+``+intermediate-ca1.pem+``+, [litteral]+``+intermediate-ca2.pem+``+, [litteral]+``+server.pem+``+ 및 [litteral]+``+server.key+`` 파일이 있다고 가정합니다.
+. 다음은 `+root-ca.pem+`, `+intermediate-ca1.pem+`, `+intermediate-ca2.pem+`, `+server.pem+` 및 `+server.key+` 파일이 있다고 가정합니다.
   서버 인증서 서명 체인의 중간 CA 수에 따라 다를 수 있습니다.
 
 . 중간 CA와 서버 인증서를 결합하십시오.
   순서가 중요하며, 서버가 먼저 오고 중간 CA가 순서대로 이어져야 합니다.
-  루트 CA를 체인 마지막에 추가하지 마십시오. 이는 [litteral]``+uyuni-ca+``+ 및 [litteral]+``+uyuni-db-ca+`` 비밀에 별도로 전달됩니다.
-  중간 CA가 없으면 다음 단계에서 결합된 파일 대신 [litteral]``+server.pem+``을 사용할 수 있습니다.
+  루트 CA를 체인의 마지막에 추가하지 마십시오. `+uyuni-ca+` 및 `+uyuni-db-ca+` 시크릿에 별도로 전달됩니다.
+  중간 CA가 없으면 다음 단계에서 결합된 파일 대신 `+server.pem+`을 사용할 수 있습니다.
 
 +
 [source,shell]
@@ -205,7 +205,7 @@ ____
 
 . menu:시스템[시스템 설정 관리자> 개요]로 이동합니다.
 
-. [guimenu]``+상태+`` 필드에서 btn:[적용]을 클릭하여 시스템 상태를 적용합니다.
+. `+States+` 필드에서 btn:[적용]을 클릭하여 시스템 상태를 적용합니다.
 
-. [guimenu]``+Highstate+`` 페이지에서 btn:[Highstate 적용]을 클릭하여 변경 사항을 클라이언트에 전파합니다.
+. `+Highstate+` 페이지에서 btn:[Highstate 적용]을 클릭하여 변경 사항을 클라이언트에 전파합니다.
 ____
