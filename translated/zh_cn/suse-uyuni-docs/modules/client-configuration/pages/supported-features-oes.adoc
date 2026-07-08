@@ -28,9 +28,9 @@
 |===
 
 | 功能
-| {oes}{nbsp}25.4
-| {oes}{nbsp}24.4
 | {oes}{nbsp}23.4
+| {oes}{nbsp}24.4
+| {oes}{nbsp}25.4
 
 | 客户端
 | {check}
@@ -62,7 +62,7 @@
 | {check}
 | {check}
 
-| 系统包状态
+| 系统软件包状态
 | {check}
 | {check}
 | {check}
@@ -82,7 +82,7 @@
 | {check}
 | {check}
 
-| 系统集管理器 (SSM)
+| 系统集管理器（SSM）
 | {check}
 | {check}
 | {check}
@@ -117,7 +117,7 @@
 | {check}
 | {check}
 
-| 暂存（软件包的预下载）
+| 暂存 (软件包预下载)
 | {check}
 | {check}
 | {check}
@@ -162,8 +162,8 @@
 | {check}
 | {check}
 
-| 软件包配置文件
-| {check}支持 控制文件，不支持同步
+| 软件包控制文件
+| 支持 {check} 控制文件，不支持同步
 | {check}支持 控制文件，不支持同步
 | {check}支持 控制文件，不支持同步
 
