@@ -29,11 +29,11 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 默认情况下，{productname} {webui} 要求用户在 30{nbsp}分钟后重新登录。
 根据您的环境，您可能希望调整登录超时值。
 
-要调整该值，您需要在 [path]``+rhn.conf+``+ 和 [path]+``+web.xml+`` 中进行更改。
-确保您在 [path]``+/etc/rhn/rhn.conf+``+ 中以秒为单位设置值，在 [path]+``+web.xml+`` 中以分钟为单位设置值。
+要调整该值，您需要在 `+rhn.conf+` 和 `+web.xml+` 中进行更改。
+请确保将 `+/etc/rhn/rhn.conf+` 中的值设置为秒，将 `+web.xml+` 中的值设置为分钟。
 这两个值必须等于相同的时间。
 
-例如，要将超时值更改为一小时，请将 [path]``+rhn.conf+``+ 中的值设置为 3600 秒，将 [path]+``+web.xml+`` 中的值设置为 60 分钟。
+例如，要将超时值更改为一小时，请将 `+rhn.conf+` 中的值设置为 3600 秒，将 `+web.xml+` 中的值设置为 60 分钟。
 
 
 
@@ -51,7 +51,7 @@ mgrctl term
 
 --
 
-.. 打开 [path]``+/etc/rhn/rhn.conf+`` 并添加或编辑下面一行内容，以包含以秒为单位的新超时值：
+.. 打开 `+/etc/rhn/rhn.conf+` 并添加或编辑此行，以包含以秒为单位的新超时值：
 
 +
 
@@ -61,7 +61,7 @@ web.session_database_lifetime = <Timeout_Value_in_Seconds>
 
 .. 保存并关闭该文件。
 
-.. 打开 [path]``+/etc/tomcat/web.xml+`` 并添加或编辑下面一行内容，以包含以分钟为单位的新超时值：
+.. 打开 `+/etc/tomcat/web.xml+` 并添加或编辑此行，以包含以分钟为单位的新超时值：
 
 +
 
