@@ -31,7 +31,7 @@ SSH 推送（使用隧道）::
 
 通信软件{salt}选项的实现：
 
-Salt 软件包 ([package]``+venv-salt-minion+``)::
+Salt 捆绑包 (`+venv-salt-minion+`)::
 是一个包含 {salt} 受控端、Python 3、所需的 Python 模块和库的单个二进制软件包。
 因此，{salt} 联系方法与客户端上安装的软件无关。
 
@@ -46,10 +46,10 @@ It is the only supported implementation for the SSH Push or SSH Push (with tunne
 
 有关更多信息，请参见 xref:client-configuration:contact-methods-saltbundle.adoc[]。
 
-Salt 受控端 ([package]``+salt-minion+``)::
+Salt minion (`+salt-minion+`)::
 是安装在客户端系统上的 {salt} 软件，并且通常不再支持 {productname}。
 如有需要，您可以仅在 {sle} 15 客户端及其衍生版本（如 {sle-micro}）上安装，仅用于启动。
-然后，在启动过程中，它将被替换为 [package]``+venv-salt-minion+``。
+然后，在启动时，它将被替换为 `+venv-salt-minion+`。
 
 
 
