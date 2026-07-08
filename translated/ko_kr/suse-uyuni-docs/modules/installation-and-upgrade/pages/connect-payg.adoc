@@ -37,15 +37,15 @@
 .절차 새 {payg} 인스턴스 연결
 [role=procedure]
 . {productname} {webui}에서 menu:Admin[Setup Wizard > {payg}]로 이동하여 btn:[추가 {payg}]를 클릭합니다.
-. 페이지 섹션 [guimenu]``+{payg} 연결 설명+``으로 시작하십시오.
-. [guimenu]``+설명+`` 필드에 설명을 추가합니다.
-. 페이지 섹션 [guimenu]``+인스턴스 SSH 연결 데이터+``로 이동합니다.
-. [guimenu]``+호스트+`` 필드에 {productname}에서 연결할 인스턴스 DNS 또는 IP 주소를 입력합니다.
-. [guimenu]``+SSH 포트+`` 필드에 포트 번호를 입력하거나 기본값 22를 사용합니다.
-. [guimenu]``+사용자+`` 필드에 클라우드에 지정된 대로 사용자 이름을 입력합니다.
-. [guimenu]``+암호+`` 필드에 암호를 입력합니다.
-. [guimenu]``+SSH 개인 키+`` 필드에 인스턴스 키를 입력합니다.
-. [guimenu]``+SSH 개인 키 암호 문구+`` 필드에 키 암호 문구를 입력합니다.
+. `+{payg} connection Description+` 페이지 섹션에서 시작합니다.
+. `+Description+` 필드에 설명을 추가합니다.
+. `+Instance SSH connection data+` 페이지 섹션으로 이동합니다.
+. `+Host+` 필드에 {productname}에서 연결할 인스턴스 DNS 또는 IP 주소를 입력합니다.
+. `+SSH Port+` 필드에 포트 번호를 입력하거나 기본값 22를 사용합니다.
+. `+User+` 필드에 클라우드에 지정된 대로 사용자 이름을 입력합니다.
+. `+Password+` 필드에 암호를 입력합니다.
+. `+SSH Private Key+` 필드에 인스턴스 키를 입력합니다.
+. `+SSH Private Key Passphrase+` 필드에 키 암호를 입력합니다.
 
 [IMPORTANT]
 ====
@@ -59,13 +59,13 @@
 [[proc-adding-ssh-bastion-connection-data]]
 .절차 SSH 배스천 연결 데이터 추가
 [role=procedure]
-. 페이지 섹션 [guimenu]``+배스천 SSH 연결 데이터+``로 이동합니다.
-. [guimenu]``+호스트+`` 필드에 배스천 호스트 이름을 입력합니다.
-. [guimenu]``+SSH 포트+`` 필드에 배스천 포트 번호를 입력합니다.
-. [guimenu]``+사용자+`` 필드에 배스천 사용자 이름을 입력합니다.
-. [guimenu]``+암호+`` 필드에 배스천 암호를 입력합니다.
-. [guimenu]``+SSH 개인 키+`` 필드에 배스천 키를 입력합니다.
-. [guimenu]``+SSH 개인 키 암호 문구+`` 필드에 배스천 키 암호 문구를 입력합니다.
+. `+Bastion SSH connection data+` 페이지 섹션으로 이동합니다.
+. `+Host+` 필드에 배스천 호스트 이름을 입력합니다.
+. `+SSH Port+` 필드에 배스천 포트 번호를 입력합니다.
+. `+User+` 필드에 배스천 사용자 이름을 입력합니다.
+. `+Password+` 필드에 배스천 암호를 입력합니다.
+. `+SSH Private Key+` 필드에 배스천 키를 입력합니다.
+. `+SSH Private Key Passphrase+` 필드에 배스천 키 암호를 입력합니다.
 
 <<proc-finishing-payg-connecting>>로 설정 프로세스를 완료합니다.
 
@@ -73,27 +73,27 @@
 .절차 {payg} 연결 마무리
 [role=procedure]
 . 새로운 {payg} 연결 데이터를 추가하려면 btn:[만들기를] 클릭하십시오.
-. {payg} 연결 데이터 [guimenu]``+세부정보+`` 페이지로 돌아갑니다. 
-    업데이트된 연결 상태는 [guimenu]``+정보+``라는 상단 섹션에 표시됩니다.
-. 연결 상태는 [guimenu]``+관리 > 설정 마법사 > 종량제+`` 화면에도 표시됩니다.
-. 인스턴스에 대한 인증 데이터가 올바르면, [guimenu]``+상태+`` 열에 "자격 증명이 성공적으로 업데이트되었습니다."가 표시됩니다.
+. {payg} 연결 데이터 `+Details+` 페이지로 돌아갑니다. 
+    업데이트된 연결 상태는 이름이 `+Information+`인 상단 섹션에 표시됩니다.
+. 연결 상태는 `+Admin > Setup Wizard > Pay-as-you-go+` 화면에도 표시됩니다.
+. 인스턴스에 대한 인증 데이터가 올바르면, `+Status+` 열에 "자격 증명이 성공적으로 업데이트되었습니다."가 표시됩니다.
 
 [IMPORTANT]
 ====
-잘못된 데이터가 입력되면 새로 생성된 인스턴스가 [guimenu]``+관리 > 설정 마법사 > {payg}+``+에 표시되며, [guimenu]+``+상태+`` 열에 오류 메시지가 표시됩니다.
+잘못된 데이터가 입력되면 새로 생성된 인스턴스가 `+Admin > Setup Wizard > {payg}+`에 표시되며, `+Status+` 열에 오류 메시지가 표시됩니다.
 ====
 
 
 서버에서 인증 데이터를 사용할 수 있게 되면 사용 가능한 제품 목록이 업데이트됩니다.
 
 사용 가능한 제품은 {payg} 인스턴스에 설치된 것과 동일한 제품군 및 아키텍처의 모든 버전입니다. 
-예를 들어, 인스턴스에 {sles}{nbsp}15 SP1 제품이 설치되어 있으면, {sles}{nbsp}15 SP2, {sles}{nbsp}15 SP3, {sles}{nbsp}15 SP4 및 {sles}{nbsp}15 SP5가 자동으로 [guimenu]``+관리 > 설정 마법사 > 제품+``에 표시됩니다.
+예를 들어, 인스턴스에 {sles}{nbsp}15 SP1 제품이 설치되어 있으면, {sles}{nbsp}15 SP2, {sles}{nbsp}15 SP3, {sles}{nbsp}15 SP4 및 {sles}{nbsp}15 SP5가 자동으로 `+Admin > Setup Wizard > Products+`에 표시됩니다.
 
 제품이 사용 가능한 것으로 표시되면 사용자는 제품 이름 옆의 확인란을 선택하고 btn:[제품 추가]를 클릭하여 {productname}에 제품을 추가할 수 있습니다.
 
-성공 메시지가 표시되면 {webui}에서 [guimenu]``+소프트웨어 > 채널 목록 > 전체+``로 이동하여 새로 추가된 채널을 확인할 수 있습니다. 
+성공 메시지 후, {webui}로 이동하여 `+Software > Channel List > All+`에서 새로 추가된 채널을 확인할 수 있습니다. 
 
-각 채널의 동기화 진행 상황을 모니터링하려면 {productname} 서버의 [path]``+/var/log/rhn/reposync+`` 디렉토리에서 로그 파일을 확인하십시오.
+각 채널의 동기화 진행 상황을 모니터링하려면 `+/var/log/rhn/reposync+` 서버의 {productname} 디렉토리에서 로그 파일을 확인하십시오.
 
 [IMPORTANT]
 ====
@@ -107,7 +107,7 @@
 {productname} 서버는 인스턴스에서 수집된 자격 증명을 사용하여 RMT 서버에 연결하고 reposync를 사용하여 패키지를 다운로드합니다.
 이 자격 증명은 정의된 SSH 연결 데이터를 사용하여 taskomatic에 의해 10분마다 갱신됩니다. RMT 서버에 대한 연결은 항상 {payg} 인스턴스에서 수집된 마지막으로 알려진 인증 자격 증명을 사용합니다.
 
-{payg} 인스턴스의 자격 증명 수집 상태는 [literal]``+상태+`` 열 또는 인스턴스 세부정보 페이지에 표시됩니다.
+{payg} 인스턴스의 자격 증명 수집 상태는 `+Status+` 열 또는 인스턴스 세부정보 페이지에 표시됩니다.
 인스턴스에 접근할 수 없을 때 자격 증명 업데이트 프로세스가 실패합니다.
 
 인스턴스에 접근할 수 없을 때 자격 증명 업데이트 프로세스가 실패하며, 두 번째 실패한 갱신 후 자격 증명이 무효가 됩니다.
@@ -137,7 +137,7 @@
 다음의 어떤 작업이나 {payg} 인스턴스의 변경 사항도 자격 증명이 실패하게 만듭니다:
 * zypper 자격 증명 파일 제거
 * 가져온 인증서 제거
-* [path]``+/etc/hosts+``에서 클라우드 특정 항목 제거
+* `+/etc/hosts+`에서 클라우드 특정 항목 제거
 ====
 
 
@@ -158,8 +158,8 @@
 
 자격 증명 확인::
 * 스크립트가 자격 증명 수집에 실패하면 로그 및 {webui}에 적절한 오류 메시지가 표시되어야 합니다.
-* 자격 증명이 작동하지 않으면 [literal]``+reposync+``에 적절한 오류가 표시되어야 합니다.
+* 자격 증명이 작동하지 않으면 `+reposync+`에 적절한 오류가 표시되어야 합니다.
 
-[literal]``+registercloudguest+`` 사용::
-* 공용 클라우드 업데이트 인프라에 대한 [literal]``+registercloudguest+`` 연결을 갱신하거나 변경해도 자격 증명을 사용하는 데 방해가 되지 않아야 합니다.
-* 클라우드 게스트 명령에 새 클라우드 연결이 등록되어 있지 않은 경우 [literal]```+registercloudguest --clean+``을 실행하면 문제가 발생할 수 있습니다.
+`+registercloudguest+` 사용::
+* 공용 클라우드 업데이트 인프라에 대한 `+registercloudguest+` 연결을 새로 고치거나 변경해도 자격 증명을 사용하는 데 방해가 되지 않아야 합니다.
+* 클라우드 게스트 명령에 새 클라우드 연결이 등록되어 있지 않은 경우 `+registercloudguest --clean+`을 실행하면 문제가 발생할 수 있습니다.
