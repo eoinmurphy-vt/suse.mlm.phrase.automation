@@ -28,7 +28,7 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 ////
 Cause: Caches on the ISS slave and master can contain old or out-of-date entries.
-Consequence: Synchronizing fails, with ``+ERROR: Encountered IntegrityError+``.
+Consequence: Synchronizing fails, with `+ERROR: Encountered IntegrityError+`.
 Fix: Delete the cache on the slave and the master
 Result: Synchronization completes successfully.
 ////
@@ -49,7 +49,7 @@ ISS 마스터 및 ISS 슬레이브에서 캐시를 삭제하여 이 문제를 �
 
 [IMPORTANT]
 ====
-서버 컨테이너 내부의 셸에 액세스하려면 컨테이너 호스트에서 [literal]``+mgrctl term+``을 실행합니다.
+Server 컨테이너 내부의 셸에 접근하려면 컨테이너 호스트에서 `+mgrctl term+`을(를) 실행합니다.
 ====
 
 
