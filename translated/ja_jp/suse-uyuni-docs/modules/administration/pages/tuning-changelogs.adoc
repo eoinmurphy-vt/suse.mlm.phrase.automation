@@ -3,7 +3,7 @@
 :description: SUSE Multi-Linux Managerで変更ログメタデータを設定し、ダウンロード可能なデータを制限してディスクスペースを節約できます。パラメータ値は1から無制限まで設定可能です。
 :revdate: 2024-05-10
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメントチーム
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -14,12 +14,12 @@
 
 [IMPORTANT]
 ====
-サーバコンテナ内でステップを実行する前に、[literal]``+mgrctl term+``を使用します。
+サーバーコンテナ内でステップを実行する前に、`+mgrctl term+`を使用してください。
 ====
 
-この設定オプションは、[filename]``+/etc/rhn/rhn.conf+``設定ファイルにあります。
-パラメータのデフォルト値は[systemitem]``+20+``です。
-この値を[systemitem]``+0+``に変更すると、無制限のエントリが提供されます。
+この設定オプションは、`+/etc/rhn/rhn.conf+`設定ファイルにあります。
+パラメータのデフォルト値は`+20+`です。
+この値を`+0+`に変更すると、無制限のエントリが提供されます。
 
 ----
 java.max_changelog_entries = 20
@@ -27,7 +27,7 @@ java.max_changelog_entries = 20
 
 このパラメータを設定すると、新しいパッケージが同期されるときにのみ有効になります。
 
-このパラメータを変更した後で、``+mgradm restart+``を使用してサービスを再起動します。
+このパラメータを変更した後で、`+mgradm restart+`を使用してサービスを再起動してください。
 
 キャッシュされたデータを削除して再生成し、古いデータを削除したい場合があります。
 
