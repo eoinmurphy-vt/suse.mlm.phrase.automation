@@ -32,7 +32,7 @@ endif::[]
 在将 {debian} 客户端注册到 {productname} 服务器之前，需要进行一些准备工作：
 
 * 确保 DNS 配置正确，并为客户端提供条目。
-  或者，您可以在 {productname} 服务器和客户端上配置 ``+/etc/hosts+`` 文件，添加适当的条目。
+  或者，您可以在 {productname} 服务器和客户端上配置 `+/etc/hosts+` 文件，添加适当的条目。
 * 注册前，客户端的日期和时间必须已与 {productname} 服务器同步。
 
 
@@ -239,18 +239,18 @@ mgradm gpg add <filename>.gpg
 
 在 {debian} 上，root 用户默认情况下禁用了 SSH 访问。
 
-要使用普通用户完成注册，您需要编辑 [filename]``+sudoers+`` 文件。
+要能够使用普通用户进行注册，您需要编辑 `+sudoers+` 文件。
 
 .过程：升级授予 Root 用户访问权限
 
-. 在客户端上，编辑 [filename]``+sudoers+`` 文件：
+. 在客户端，编辑 `+sudoers+` 文件：
 +
 ----
 sudo visudo
 ----
 +
-通过在 [filename]+``+sudoers+`` 文件末尾添加这一行，授予用户 [command]``+sudo+`` 访问权限。
-将 [systemitem]``+<user>+`` 替换为在 {webui} 中启动客户端的用户的名称：
+在 `+sudoers+` 文件末尾添加此行，以授予用户 `+sudo+` 访问权限。
+将 `+<user>+` 替换为在 {webui} 中负责启动客户端的用户名称：
 +
 ----
 <user>  ALL=NOPASSWD: /usr/bin/python, /usr/bin/python2, /usr/bin/python3, /var/tmp/venv-salt-minion/bin/python
@@ -260,7 +260,7 @@ sudo visudo
 ====
 此过程授予 root 访问权限，无需密码，这对于注册客户端是必需的。
 当客户端成功安装后，它以 root 权限运行，因此不再需要访问权限。
-我们建议在客户端成功安装后，从 [path]``+sudoers+`` 文件中删除该行。
+我们建议在客户端成功安装后，从 `+sudoers+` 文件中去除此行。
 ====
 
 
