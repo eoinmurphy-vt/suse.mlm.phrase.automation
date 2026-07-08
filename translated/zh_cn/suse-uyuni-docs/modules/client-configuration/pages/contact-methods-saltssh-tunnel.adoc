@@ -9,7 +9,7 @@
 :page-product-version: 5.1
 
 
-SSH 推送（利用隧道）([literal]``+ssh-push-tunnel+``) 用于客户端无法直接访问 {productname} 服务器的环境。
+SSH 推送（利用隧道）(`+ssh-push-tunnel+`) 用于客户端无法直接访问 {productname} 服务器的环境。
 在此环境中，客户端位于称为 DMZ 的防火墙保护区。
 DMZ 内的任何系统都无权打开与内部网络的连接，包括 {productname} 服务器。
 
@@ -36,18 +36,18 @@ DMZ 内的任何系统都无权打开与内部网络的连接，包括 {productn
 
 [IMPORTANT]
 ====
-请在服务器容器内执行步骤之前使用 [literal]``+mgrctl term+``。
+在服务器容器内运行步骤之前，请使用 `+mgrctl term+`。
 ====
 
 对于通过 SSH 建立隧道的连接，需要指定一个端口号，该端口用于通过 HTTPS 进行隧道通信。
-默认使用的端口号是 [literal]``+1233+``。
-要覆盖它，您可以在容器内将大于 1024 的自定义端口号添加到 [path]``+/etc/rhn/rhn.conf+``：
+默认使用的端口号是 `+1233+`。
+要覆盖它，您可以在容器内，将大于 1024 的自定义端口号添加到 `+/etc/rhn/rhn.conf+`：
 
 ----
 ssh_push_port_https = high_port
 ----
 
-更改此配置参数后，必须重启服务，例如 [systemitem]``+salt-secrets-config.service+``、[systemitem]+``+tomcat.service+`` 和 [systemitem]``+taskomatic.service+``。
+更改此配置参数后，您必须重启 `+salt-secrets-config.service+`、`+tomcat.service+` 和 `+taskomatic.service+` 等服务。
 为了覆盖所有所需的服务，最好以根用户身份重启 {productname} 服务器。
 在容器外，从容器主机输入：
 
@@ -59,7 +59,7 @@ mgradm restart
 ////
 [IMPORTANT]
 ====
-Use [literal]``+mgrctl term+`` before running steps inside the server container.
+Use `+mgrctl term+` before running steps inside the server container.
 ====
 ////
 
@@ -68,13 +68,13 @@ Use [literal]``+mgrctl term+`` before running steps inside the server container.
 
 .过程：升级配置非特权 SSH 访问
 . 在每个客户端系统上，创建相应的非特权用户。
-. 在每个客户端系统上，编辑 [filename]``+sudoers+`` 文件：
+. 在每个客户端系统上，编辑 `+sudoers+` 文件：
 +
 ----
 sudo visudo
 ----
-. 通过在 [filename]+``+sudoers+`` 文件末尾添加此行，授予 [command]``+sudo+`` 访问权限给用户。
-  将 [systemitem]``+<user>+`` 替换为在 {webui} 中启动客户端的用户的名称：
+. 在 `+sudoers+` 文件末尾添加此行，以授予用户 `+sudo+` 访问权限。
+  将 `+<user>+` 替换为在 {webui} 中负责启动客户端的用户名称：
 +
 ----
 <user>  ALL=NOPASSWD: /usr/bin/python3, /var/tmp/venv-salt-minion/bin/python
@@ -84,17 +84,17 @@ sudo visudo
 ====
 此过程授予 root 访问权限，无需密码，这对于注册客户端是必需的。
 当客户端成功安装后，它以 root 权限运行，因此不再需要访问权限。
-我们建议在客户端成功安装后，从 [path]``+sudoers+`` 文件中删除该行。
+我们建议在客户端成功安装后，从 `+sudoers+` 文件中去除此行。
 ====
 
-. 在 {productname} 服务器容器内，编辑 [path]``+/etc/rhn/rhn.conf+`` 配置文件，并添加或修改下面一行以包含非特权用户名：
+. 在 {productname} 服务器容器内，编辑 `+/etc/rhn/rhn.conf+` 配置文件，并添加或修改此行以包含非特权用户名：
 +
 ----
 ssh_push_sudo_user = <user>
 ----
 
 
-更改此配置参数后，必须重启服务，例如 [systemitem]``+salt-secrets-config.service+``、[systemitem]+``+tomcat.service+`` 和 [systemitem]``+taskomatic.service+``。
+更改此配置参数后，您必须重启 `+salt-secrets-config.service+`、`+tomcat.service+` 和 `+taskomatic.service+` 等服务。
 为了覆盖所有所需的服务，最好以根用户身份重启 {productname} 服务器。
 在容器外，从容器主机输入：
 
@@ -115,7 +115,7 @@ mgradm restart
 .示例：通过 API 访问 SSH 推送（利用隧道）
 
 您可以使用 API 管理要使用的联系方法。
-此示例 Python 代码将联系方法设置为 ``+ssh-push-tunnel+``。
+此示例 Python 代码将联系方法设置为 `+ssh-push-tunnel+`。
 
 ----
 client = xmlrpclib.Server(MLM_HOST + "/rpc/api", verbose=0)
