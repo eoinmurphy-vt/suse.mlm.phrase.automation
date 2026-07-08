@@ -19,7 +19,7 @@
 ====
 
 如果使用代理 FQDN 生成的代理容器配置不是注册的客户端（如在 Kubernetes 使用案例中），系统列表中将出现一个新的系统条目。
-此新条目将显示在之前输入的代理 FQDN 值下，并将属于 [literal]``+Foreign+`` 系统类型。
+此新条目将显示在之前输入的代理FQDN值下，并将属于`+Foreign+`系统类型。
 
 [NOTE]
 ====
@@ -34,9 +34,9 @@ mgrctl exec -ti -- rhn-ssl-tool --gen-server --dir="/root/ssl-build" --set-count
   --set-hostname=PROXY --set-cname="proxy.example.com"
 ----
 要使用的文件为： +
-* [litteral]``+/root/ssl-build/RHN-ORG-TRUSTED-SSL-CERT+`` 作为根 CA， +
-* [litteral]``+/root/ssl-build/<hostname>/server.crt+`` 作为代理证书， +
-* [litteral]``+/root/ssl-build/<hostname>/server.key+`` 作为代理证书的密钥。
+* `+/root/ssl-build/RHN-ORG-TRUSTED-SSL-CERT+` 作为根CA， +
+* `+/root/ssl-build/<hostname>/server.crt+` 作为代理证书， +
+* `+/root/ssl-build/<hostname>/server.key+` 作为代理证书的密钥。
 ====
 
 // tag::generate-proxy-config-section[]
@@ -48,13 +48,13 @@ _____
 
 . 在 {webui} 中，导航到 menu:系统[代理配置] 并填写所需数据。
 
-. 在 [guimenu]``+代理 FQDN+`` 字段中，键入代理的完全限定域名。
+. 在 `+Proxy FQDN+` 字段中，键入代理的完全限定的域名。
 
-. 在 [guimenu]``+父 FQDN+`` 字段中，键入 {productname} 服务器或另一个 {productname} 代理的完全限定域名。
+. 在 `+Parent FQDN+` 字段中，键入 {productname} 服务器或另一个 {productname} 代理的完全限定的域名。
 
-. 在 [guimenu]``+代理 SSH 端口+`` 字段中，键入 {productname} 代理上 SSH 服务监听的 SSH 端口。建议保持默认值 8022。
+. 在 `+Proxy SSH port+` 字段中，输入 {productname} 代理上 SSH 服务侦听的 SSH 端口。建议保持默认值 8022。
 
-. 在 [guimenu]``+最大 Squid 缓存大小 [MB]+`` 字段中，键入 Squid 缓存的最大允许大小。
+. 在 `+Max Squid cache size [MB]+` 字段中，输入 Squid 缓存允许的最大大小。
   建议最多使用可用存储的 80% 来存放容器。
 
 +
@@ -65,7 +65,7 @@ _____
 这需要根据您的环境进行调整。
 ====
 
-. 在 [guimenu]``+SSL 证书+`` 选择列表中选择是否为 {productname} 代理生成新的服务器证书或使用现有证书。
+. 在 `+SSL certificate+` 选择列表中选择是否为 {productname}代理生成新的服务器证书或使用现有证书。
 您可以将生成的证书视为 {productname} 内置（自签名）证书。
 
 +
@@ -74,22 +74,22 @@ _____
 
 +
 
-服务器生成的 CA 证书存储在 [path]``+/var/lib/containers/storage/volumes/root/_data/ssl-build+`` 目录中。
+服务器生成的 CA 证书存储在 `+/var/lib/containers/storage/volumes/root/_data/ssl-build+` 目录中。
 
 +
 
 有关现有或自定义证书以及企业和中间证书概念的更多信息，请参见 xref:administration:ssl-certs-imported.adoc[]。
 
-. 单击 btn:[生成] 以在 {productname} 服务器中注册新代理 FQDN，并生成包含容器主机详细信息的配置归档 ([filename]``+config.tar.gz+``)。
+. 单击 btn:[生成]，以在 {productname} 服务器中注册新代理FQDN，并生成包含容器主机详细信息的配置归档（`+config.tar.gz+`）。
 . 片刻之后，您将看到一个可供下载的文件。
   请将此文件保存在本地。
 _____
 
 
 
-=== 使用 [literal]``+spacecmd+`` 和自我签名证书生成代理配置。
+=== 使用 `+spacecmd+` 和自我签名证书生成代理配置
 
-可以使用 [literal]``+spacecmd+`` 生成代理配置。
+可以使用 `+spacecmd+` 生成代理配置。
 
 .过程：升级使用 spacecmd 和自我签名证书生成代理配置。
 [role=procedure]
@@ -117,9 +117,9 @@ _____
 
 
 
-=== 使用 [literal]``+spacecmd+`` 和自定义证书生成代理配置。
+=== 使用 `+spacecmd+` 和自定义证书生成代理配置
 
-可以使用 [literal]``+spacecmd+`` 为自定义证书（而不是默认的自我签名证书）生成代理配置。
+可以使用 `+spacecmd+` 为自定义证书（而不是默认的自我签名证书）生成代理配置。
 
 .过程：升级使用 spacecmd 和自定义证书生成代理配置。
 [role=procedure]
