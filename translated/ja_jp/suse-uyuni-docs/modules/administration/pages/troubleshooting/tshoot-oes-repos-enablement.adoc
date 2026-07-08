@@ -17,13 +17,13 @@
 +
 . {productname}サーバにログインします。
 +
-. [guimenu]``+Admin > セットアップウィザード > 組織の資格情報+``に移動します。
+. `+Admin > Setup Wizard > Organization Credentials+`に進みます。
 +
 . すでに{productname}のSUSE資格情報があることを確認します。
 +
 . 新規追加のオプションを選択し、Microfocus資格情報を入力します。
 +
-. [guimenu]``+Admin > セットアップウィザード > 組織の資格情報+``に移動して、更新操作が完了するのを待ちます。
+. `+Admin > Setup Wizard > Organization Credentials+`に移動し、更新操作が完了するまでお待ちください。
 +
 . OESは更新された製品リストに表示されるはずです。
   他の製品と同様に、それを有効にすることができます。

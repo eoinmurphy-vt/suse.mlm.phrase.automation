@@ -12,9 +12,9 @@ ifeval::[{mlm-content} == true]
 endif::[]
 
 コンテナ化されたプロキシは、現在一連のsystemdサービスによって管理されています。
-コンテナ化されたプロキシを管理するには、[command]``+mgrpxy+``ツールを使用してください。
+コンテナ化されたプロキシを管理するには、`+mgrpxy+`ツールを使用してください。
 
-このセクションでは、レガシー[systemitem]``+systemd+``+プロキシから、[command]+``+mgrpxy+``ツールを使用して移行する方法を説明します。
+このセクションでは、`+mgrpxy+`ツールを使用して従来の`+systemd+`プロキシから移行する方法を説明します。
 
 [IMPORTANT]
 ====
@@ -100,7 +100,7 @@ proxy-ssh
 ----
 transactional-update --continue
 ----
-. [command]``+mgrpxy+``をインストールし、必要に応じて[command]+``+mgrpxy-bash-completion+``もインストールします。
+. `+mgrpxy+`をインストールします。オプションで`+mgrpxy-bash-completion+`もインストールできます。
 +
 ----
 transactional-update pkg install mgrpxy mgrpxy-bash-completion 
@@ -108,28 +108,28 @@ transactional-update pkg install mgrpxy mgrpxy-bash-completion
 +
 . 再起動します。
 
-. ホストに、[literal]``+tar.gz+``プロキシ設定をコピーします。
+. `+tar.gz+`プロキシ設定をホストにコピーします。
 
 
 
 == {webui}を使用したパッケージのインストール
 
-[package]``+mgrpxy+``パッケージおよび[package]``+mgrpxy-bash-completion+``パッケージは、Minionが起動され（ブートストラップされ）サーバーに登録された後、Web UI経由でインストールすることもできます。
+`+mgrpxy+`パッケージおよび`+mgrpxy-bash-completion+`パッケージは、Minionが起動されてサーバに登録された後にWeb UI経由でインストールすることもできます。
 
 .プロシージャ:{webui}を使用したパッケージのインストール
 . インストール後、{sle-micro}{microversion}親チャンネルとプロキシの子チャンネルが、menu:管理[セットアップウィザード -> 製品]ページから追加および同期されていることを確認します。
 . {webui}で、menu:システム[アクティベーションキー]に移動し、同期された{sle-micro} {microversion}チャンネルにリンクされたアクティベーションキーを作成します。
 . menu:システム[ブートストラップ]ページを使用して、システムをMinionとしてブートストラップします。
 . 新しいマシンがオンボーディングされてシステムリストに表示されたら、システムを選択して、menu:システムの詳細[パッケージのインストール]ページに移動します。
-. [package]``+mgrpxy+``パッケージおよび[package]``+mgrpxy-bash-completion+``をインストールします。
+. `+mgrpxy+`パッケージと`+mgrpxy-bash-completion+`パッケージをインストールします。
 . システムを再起動します。
 
 
-== [literal]``+spacecmd+``と自己署名証明書を使用してプロキシ設定を生成します。
+== `+spacecmd+`と自己署名証明書を使用したプロキシ設定の生成
 
 spacecmdを使用してプロキシ設定を生成できます。
 
-.プロシージャ:[literal]``+spacecmd+``と自己署名証明書を使用してプロキシ設定を生成します。
+.プロシージャ:`+spacecmd+`と自己署名証明書を使用したプロキシ設定の生成
 . SSHでコンテナホストに接続します。
 . 次のコマンドを実行してサーバとプロキシFQDNを置き換えます。
 +
@@ -148,17 +148,17 @@ mgrpxy install podman config.tar.gz
 ----
 
 
-== [literal]``+spacecmd+``とカスタム証明書を使用してプロキシ設定を生成します。
+== `+spacecmd+`とカスタム証明書を使用したプロキシ設定の生成
 
-デフォルトの自己署名証明書ではなくカスタム証明書に対して、[literal]``+spacecmd+``を使用してプロキシ設定を生成できます。
+デフォルトの自己署名証明書ではなく`+spacecmd+`カスタム証明書に対してを使用して、プロキシ設定を生成できます。
 
 [NOTE]
 ====
-2 GBはデフォルトのプロキシSquidキャッシュサイズを表します。
+2 GBはデフォルトのプロキシキャッシュサイズ（Squid）を表します。
 これはあなたの環境に合わせて調整する必要があります。
 ====
 
-.プロシージャ:[literal]``+spacecmd+``とカスタム証明書を使用してプロキシ設定を生成します。
+.プロシージャ:`+spacecmd+`とカスタム証明書を使用したプロキシ設定の生成
 . サーバコンテナホストにSSHで接続します。
 . 次のコマンドを実行してサーバとプロキシFQDNを置き換えます。
 +
