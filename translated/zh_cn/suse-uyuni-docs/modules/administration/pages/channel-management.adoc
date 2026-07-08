@@ -39,9 +39,9 @@
 
 .过程：升级限制订阅者对通道的访问权限
 . 在{productname} {webui}中，导航到menu:软件[通道列表]，并选择要编辑的通道。
-. 找到[guimenu]``+每个用户的订阅限制+``+部分并选中[guimenu]+``+只有您组织中的选定用户可以订阅此通道+``。
+. 找到`+Per-User Subscription Restrictions+`部分并勾选`+Only selected users within your organization may subscribe to this channel+`。
   点击 btn:[更新] 以保存更改。
-. 导航到 [guimenu]``+订阅者+`` 选项卡，并根据需要选择或取消选择用户。
+. 导航到 `+Subscribers+` 选项卡，并根据需要选择或取消选择用户。
 
 
 

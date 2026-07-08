@@ -71,14 +71,14 @@ OpenSCAP 审计在使用 SSH 联系方法的 Salt 客户端上不可用。
 | Debian | libopenscap8 | scap-security-guide-debian
 |===
 
-RHEL 7 及兼容系统提供了一个 [package]``+scap-security-guide+`` 包，其中包含过时的内容。
-建议您使用在 {productname} 客户端工具中找到的 [package]``+scap-security-guide-redhat+`` 包。
+RHEL 7 及兼容系统提供了一个 `+scap-security-guide+` 软件包，其中包含过时的内容。
+建议您使用在 {productname} 客户端工具中找到的 `+scap-security-guide-redhat+` 软件包。
 
 
 [IMPORTANT]
 ====
-{suse} 提供了不同 openscap 控制文件的 [package]``+scap-security-guide+`` 包。
-在当前版本的 [package]``+scap-security-guide+`` 中，{suse} 支持以下控制文件：
+{suse} 为不同的 openscap 控制文件提供了 `+scap-security-guide+` 软件包。
+在 `+scap-security-guide+` 的当前版本中，{suse} 支持以下控制文件：
 
 * 适用于 {sles} 12 和 15 的 DISA STIG 控制文件
 * 适用于 {sles} 12 和 15 的 ANSSI-BP-028 控制文件
@@ -109,7 +109,7 @@ OpenSCAP 使用 SCAP 内容文件来定义测试规则。
 ====
 
 创建内容文件后，您需要将文件传输到客户端。
-您可以像移动其他文件一样进行此操作，使用物理存储介质，或通过网络使用 Salt（例如，https://docs.saltproject.io/en/latest/ref/cli/salt-cp.html[salt-cp] 或 https://docs.saltproject.io/en/latest/ref/file_server/index.html[Salt 文件服务器]），[command]``+FTP+``+ 或 [command]+``+scp+``。
+您可以像移动其他文件一样进行此操作，使用物理存储介质，或通过网络使用 Salt（例如，https://docs.saltproject.io/en/latest/ref/cli/salt-cp.html[salt-cp] 或 https://docs.saltproject.io/en/latest/ref/file_server/index.html[Salt 文件服务器]），`+ftp+` 或 `+scp+`。
 
 我们建议您创建一个软件包，以将内容文件分发给您使用 {productname} 管理的客户端。
 软件包可以被签名和验证以确保其完整性。
@@ -187,25 +187,25 @@ _____
 
 . 在 {productname} {webui} 中，导航到 menu:系统[系统列表]，选择您要扫描的客户端。
 
-. 导航到 [guimenu]``+审计+``+ 选项卡和 [guimenu]+``+日程安排+`` 子选项卡。
+. 导航到 `+Audit+` 选项卡和 `+Schedule+` 子选项卡。
 
-. 在 [guimenu]``+XCCDF 文档的路径+`` 字段中，输入要在客户端上使用的 SCAP 模板和控制文件的参数。
+. 在 `+Path to XCCDF Document+` 字段中，输入要在客户端上使用的 SCAP 模板和控制文件的参数。
   例如：
 
 +
 
-  * [literal]``+命令+``: /usr/bin/oscap xccdf eval
+  * `+Command+`: /usr/bin/oscap xccdf eval
 
-  * [literal]``+命令行参数+``: --profile xccdf_org.ssgproject.content_profile_stig
+  * `+Command-line arguments+`: --profile xccdf_org.ssgproject.content_profile_stig
 
-  * [literal]``+XCCDF 文档路径+``: /usr/share/xml/scap/ssg/content/ssg-sle15-ds.xml
+  * `+Path to XCCDF document+`: /usr/share/xml/scap/ssg/content/ssg-sle15-ds.xml
 
 +
 
 [NOTE]
 ====
-如果您经常使用 [literal]``+--fetch-remote-resources+`` 参数，则需要大量 RAM。
-此外，您可能需要增加 [literal]``+file_recv_max_size+`` 的值。
+如果您经常使用 `+--fetch-remote-resources+` 参数，则需要大量的 RAM。
+此外，您可能需要增加 `+file_recv_max_size+` 的值。
 ====
 
 . 扫描将在客户端进行下一次安排的同步时运行。
@@ -225,7 +225,7 @@ _____
 
 . 在开始之前，请确保要扫描的客户端上已安装 Python 和 XML-RPC 库。
 
-. 选择现有的脚本或创建一个脚本，用于通过 ``+system.scap.scheduleXccdfScan+`` 安排系统扫描。
+. 选择现有的脚本或创建一个脚本，用于通过 `+system.scap.scheduleXccdfScan+` 安排系统扫描。
   例如：
 
 +
@@ -245,13 +245,13 @@ client.auth.logout(session_key)
 
 在此示例中：
 
-* ``+<1000010001>+`` 是系统 ID (sid)。
+* `+<1000010001>+` 是系统 ID (sid)。
 
-* ``+<path_to_xccdf_file.xml>+`` 是客户端上内容文件位置的路径。
-  例如，[path]``+/usr/share/xml/scap/ssg/content/ssg-sle15-ds.xml+``。
+* `+<path_to_xccdf_file.xml>+` 是客户端上内容文件位置的路径。
+  例如，`+/usr/share/xml/scap/ssg/content/ssg-sle15-ds.xml+`。
 
-* ``+<profile_name>+``+ 是 [command]+``+oscap+`` 命令的附加参数。
-  例如，使用 ``+united_states_government_configuration_baseline+`` (USGCB)。
+* `+<profile_name>+` 是 `+oscap+` 命令的附加参数。
+  例如，使用 `+united_states_government_configuration_baseline+` (USGCB)。
 
 . 在命令提示符下，对您要扫描的客户端运行该脚本。
 
@@ -267,7 +267,7 @@ _____
 
 要确保扫描的详细信息可用，您需要在客户端上启用它。
 在 {productname} {webui} 中，导航到 menu:管理员[组织]，然后单击客户端所属的组织。
-导航到 [guimenu]``+配置+``+ 选项卡，并检查 [guimenu]+``+启用详细 SCAP 文件上传+`` 选项。
+导航到 `+Configuration+` 选项卡，并勾选 `+Enable Upload of Detailed SCAP Files+` 选项。
 启用后，这将在每次扫描时生成一个额外的 HTML 文件，其中包含额外信息。
 结果显示一行类似于以下内容：
 
@@ -276,7 +276,7 @@ Detailed Results: xccdf-report.html xccdf-results.xml scap-yast2sec-oval.xml.res
 ----
 
 
-要从命令行检索扫描信息，请使用 [command]``+spacewalk-report+`` 命令：
+要从命令行检索扫描信息，请使用 `+spacewalk-report+` 命令：
 
 ----
 spacewalk-report system-history-scap
@@ -285,13 +285,13 @@ spacewalk-report scap-scan-results
 ----
 
 
-您还可以使用 {productname} API 通过 ``+system.scap+`` 处理程序查看结果。
+您还可以使用 {productname} API 通过 `+system.scap+` 处理程序查看结果。
 
 [[removing-scap-scan-results]]
 == 删除 SCAP 扫描结果
 
 只有通过配置的保留期的 SCAP 扫描才能被删除。
-您可以在 [literal]``+Organization Configuration+`` 部分配置保留期。
+您可以在 `+Organization Configuration+` 部分中配置保留期。
 
 .过程：升级配置 SCAP 结果的保留期
 [role=procedure]
@@ -299,9 +299,9 @@ _____
 
 . 导航到 menu:首页[我的组织> 配置]。
 
-. 在 [guimenu]``+SCAP+``+ 下，勾选 [guimenu]+``+允许删除 SCAP 结果+``。
+. 在 `+SCAP+` 下，选中 `+Allow Deletion of SCAP Results+`。
 
-. 在 [guimenu]``+允许删除后+`` 中输入天数（默认值为 90）。
+. 在 `+Allow Deletion After+` 中输入天数（默认值为 90）。
 
 _____
 
@@ -342,7 +342,7 @@ _____
 
 === 使用 Bash 脚本运行修复
 
-在所有目标系统上安装 [package]``+scap-security-guide+`` 软件包。
+在所有目标系统上安装 `+scap-security-guide+` 软件包。
 有关更多信息，请参见 xref:administration:ansible-setup-control-node.adoc[]。
 
 每个操作系统和发行版的软件包、通道和脚本都是不同的。
@@ -375,9 +375,9 @@ chmod +x -R /usr/share/scap-security-guide/bash
 
 一次性在多个系统上将 Bash 脚本作为远程命令运行。
 
-. 创建系统组后，单击 [guimenu]``+系统组+``+，从表中选择 [guimenu]+``+在 SSM 中使用+``。
+. 创建系统组后，单击 `+System Groups+`，然后从表中选择 `+Use in SSM+`。
 
-. 在 [guimenu]``+系统集管理器+`` 中，在 menu:其他[远程命令] 下，编写一个 Bash 脚本，例如：
+. 在 `+System Set Manager+` 中，在 menu:其他[远程命令] 下，编写一个 Bash 脚本，例如：
 +
 
 ----
@@ -426,7 +426,7 @@ sle15-script-stig.sh
 
 [NOTE]
 ====
-centos7-updates 中的 [package]``+scap-security-guide+`` 仅包含 {rhel} 脚本。
+centos7-updates 中的 `+scap-security-guide+` 仅包含 {rhel} 脚本。
 ====
 
 软件包::
