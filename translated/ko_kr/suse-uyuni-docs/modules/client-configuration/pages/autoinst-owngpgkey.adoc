@@ -8,7 +8,7 @@
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
 
-자동 설치에 사용하는 리포지토리에 서명되지 않은 메타데이터가 있는 경우, 일반적으로 [option]``+insecure=1+`` 커널 파라미터를 자동 설치 가능한 배포판 옵션으로 사용하고, [경로]+``+spacewalk/sles_no_signature_checks+`` 코드 조각을 {ay} 설치 파일에 사용해야 합니다.
+자동 설치에 사용하는 리포지토리에 서명되지 않은 메타데이터가 있는 경우, 일반적으로 `+insecure=1+` 커널 파라미터를 자동 설치 가능한 배포판 옵션으로 사용하고 `+spacewalk/sles_no_signature_checks+` 코드 조각을 {ay} 설치 파일에 사용해야 합니다.
 
 더 안전한 방법은 자체 GPG 키를 제공하는 것입니다.
 
@@ -21,9 +21,9 @@
 . GPG 키를 생성합니다.
 . 이 키를 사용하여 패키지의 메타데이터에 서명합니다.
 . 설치 미디어의 초기 RAM 디스크에 추가합니다.
-. GPG 키를 컨테이너에 복사하려면 [command]``+mgradm gpg add+``를 사용하십시오.
+. GPG 키를 컨테이너에 복사하려면 `+mgradm gpg add+`를 사용하십시오.
   이 명령은 GPG 키를 복사하여 고객 키링에 추가합니다.
-. 명령 [command]``+mgradm restart+``를 실행하십시오.
+. `+mgradm restart+` 명령을 실행하십시오.
   이 명령은 SUSE와 고객 키링을 사용하여 고유한 키링을 생성합니다.
 
 [NOTE]

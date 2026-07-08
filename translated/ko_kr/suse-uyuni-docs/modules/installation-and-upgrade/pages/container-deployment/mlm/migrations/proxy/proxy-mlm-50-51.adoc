@@ -54,8 +54,8 @@ mgrpxy --version
 
 확인:
 
-* 운영 체제: [literal]``+SLE Micro 5.5+``
-* 도구 버전: [literal]``+mgrpxy version 0.1.29+`` 이상
+* 운영 체제: `+SLE Micro 5.5+`
+* 도구 버전: `+mgrpxy version 0.1.29+` 이상
 
 +
 
@@ -85,7 +85,7 @@ Spacewalk 서비스가 실행 중인지 확인합니다.
 +
 
 * {productname} {webui}에서 menu:관리자[설정 마법사> 제품]으로 이동하십시오.
-* 오른쪽의 ``+새로 고침+`` 버튼을 클릭하여 SUSE 고객 센터에서 제품 카탈로그를 업데이트하십시오.
+* 오른쪽의 `+Refresh+` 버튼을 클릭하여 SUSE 고객 센터에서 제품 카탈로그를 업데이트합니다.
 
 . {productname} 서버에서 새로운 프록시 제품을 동기화하십시오.
   자세한 내용은 xref:client-configuration:products.adoc[]을 참조하십시오.
@@ -94,8 +94,8 @@ Spacewalk 서비스가 실행 중인지 확인합니다.
 
 웹 UI를 사용하여 동기화:
 
-* [literal]``+SUSE Linux Micro 6.1+``
-* [literal]``+{productname} 프록시 확장 {productnumber}+``
+* `+SUSE Linux Micro 6.1+`
+* `+{productname} Proxy Extension {productnumber}+`
 
 +
 
@@ -110,13 +110,13 @@ Spacewalk 서비스가 실행 중인지 확인합니다.
 
 마이그레이션
 
-* [lteral]``+SLE Micro 5.5+``+ + [literal]+``+SUSE Manager Proxy 5.0 Extension+``
+* `+SLE Micro 5.5+` + `+SUSE Manager Proxy 5.0 Extension+`
 
 +
 
 대상
 
-* [literal]``+SL Micro 6.1+``+ + [literal]+``+{productname} 프록시 확장 {productnumber}+``
+* `+SL Micro 6.1+` + `+{productname} Proxy Extension {productnumber}+`
 
 +
 
@@ -295,8 +295,8 @@ mgrpxy --version
 
 확인:
 
-* 운영 체제: [literal]``+SUSE Linux Enterprise Server 15 SP6+``
-* 도구 버전: [literal]``+mgrpxy version 0.1.29+`` 이상
+* 운영 체제: `+SUSE Linux Enterprise Server 15 SP6+`
+* 도구 버전: `+mgrpxy version 0.1.29+` 이상
 
 
 +
@@ -330,14 +330,14 @@ podman ps
 
 {webui}를 사용하여 다음을 동기화합니다.
 
-* [literal]``+SUSE Linux Enterprise Server 15 SP7+``
-- [literal]``+{productname} SLE 5.1용 프록시 확장+``
+* `+SUSE Linux Enterprise Server 15 SP7+`
+- `+{productname} Proxy Extension for SLE 5.1+`
 
 +
 
 [NOTE]
 ====
-프록시 확장은 [literal]``+Basesystem Module 15 SP7+` > `+컨테이너 모듈 15 SP7+`` 아래에 나열됩니다.
+프록시 확장 프로그램은 `+Basesystem Module 15 SP7+` > `+Containers Module 15 SP7+` 아래에 나열되어 있습니다.
 ====
 
 +
@@ -355,7 +355,7 @@ podman ps
 
 +
 
-* [literal]``+SUSE Linux Enterprise Server 15 SP6+``+ + [literal]+``+SUSE Manager Proxy Extension 5.0+``
+* `+SUSE Linux Enterprise Server 15 SP6+` + `+SUSE Manager Proxy Extension 5.0+`
 
 +
 
@@ -363,7 +363,7 @@ podman ps
 
 +
 
-* [literal]``+SUSE Linux Enterprise Server 15 SP7+``+ + [literal]+``+{productname} SLE 5.1용 프록시 확장+``
+* `+SUSE Linux Enterprise Server 15 SP7+` + `+{productname} Proxy Extension for SLE 5.1+`
 
 +
 
@@ -419,8 +419,8 @@ SUSEConnect --status-text
 
 다음을 참조해야 합니다.
 
-* [literal]``+PRETTY_NAME="SUSE Linux Enterprise Server 15 SP7"+``
-* [literal]``+SUSE Multi-Linux Manager Proxy 5.1 SLE용 확장 프로그램+``
+* `+PRETTY_NAME="SUSE Linux Enterprise Server 15 SP7"+`
+* `+SUSE Multi-Linux Manager Proxy 5.1 Extension for SLE+`
 
 +
 
@@ -437,7 +437,7 @@ mgrpxy --version
 
 예상 출력:
 
-* [literal]``+mgrpxy version 5.1.11+`` 이상
+* `+mgrpxy version 5.1.11+` 이상
 
 
 +
