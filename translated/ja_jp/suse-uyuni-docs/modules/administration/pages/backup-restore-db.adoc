@@ -1,14 +1,14 @@
 [[backup-restore-db]]
 = ディスク容量管理
-:description: {productname}サーバーのオンラインデータベースバックアップを[command]\``+mgradm+``を使用して管理するハウツーを学びます。
+:description: `+mgradm+`を使用して{productname}サーバーのオンラインデータベースのバックアップ管理方法を学ぶ。
 :revdate: 2026-03-17
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメントチーム
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
 :page-product-name: {productname}
 :page-product-version: {productnumber}
 
-このガイドでは、{productname}サーバーのオンラインデータベースバックアップを[command]``+mgradm+``を使用して管理する方法について説明します。
-バックアップシステムは、{postgresql}の継続的アーカイブ書き込み先行ログ（WAL）に基づいており、以前のバージョンの[command]``+smdba+``と同様です。
+このガイドでは、{productname}を使用して`+mgradm+`サーバーのオンラインデータベースのバックアップを管理する方法を説明します。
+バックアップシステムは、{postgresql}の継続的アーカイブのWrite-Ahead Logging（WAL）に基づいており、以前のバージョンの`+smdba+`と同様です。
 
 [IMPORTANT]
 ====
@@ -23,7 +23,7 @@
 
 継続的アーカイブは、トランザクションログ（WAL）を専用ボリュームに常にバックアップすることにより、データ損失のリスクを低減します。
 
-バックアップシステムは、[literal]``+var-pgsql-walbackup+``という専用のPodmanボリュームを利用して、次のものを保存します：
+バックアップシステムは、`+var-pgsql-walbackup+`という専用のPodmanボリュームを利用して、次のものを保存します：
 
 * ベースバックアップ（完全なバックアップ）（データベースの完全スナップショット）。
 * WALセグメント（最後のベースバックアップ以降の増分変更）。
@@ -31,10 +31,10 @@
 
 [NOTE]
 ====
-時点復元は現在[command]``+mgradm+``によってサポートされておらず、手動のワークフローが必要です。
+時点復元は現在`+mgradm+`によってサポートされておらず、手動のワークフローが必要です。
 
 
-完全な復元のみが[command]``+mgradm+``ツールによってサポートされています。
+`+mgradm+`ツールでは、完全な復元のみがサポートされています。
 復元手順は、バックアップ場所からすべてを復元します。
 ====
 
@@ -42,7 +42,7 @@
 
 == 前提条件
 
-* ホストにインストールされた[command]``+mgradm+``ツール。
+* ホストにインストールされた`+mgradm+`ツール。
 * Podman環境で実行されている{productname}サーバー。
 
 
@@ -60,15 +60,15 @@ mgradm backup db enable
 
 * バックアップがすでに有効でないことを確認します。
 
-* {postgresql}（[path]``+postgresql.conf+``+）を構成して、[option]+``+archive_mode+``+を有効にし、[option]+``+archive_command+``を設定します。
+* `+archive_mode+`を有効にするために{postgresql}（`+postgresql.conf+`）を構成し、`+archive_command+`を設定します。
 
-* データベースサービスのために[literal]``+var-pgsql-walbackup+``ボリュームを構成します。
+* データベースサービス用に`+var-pgsql-walbackup+`ボリュームを構成します。
 
 * spacewalkサービスを再起動して変更を取得します。
 
 * コンテナ内で初期ベースバックアップを実行します。
 
-バックアップがすでに構成されているが再初期化が必要な場合は、[option]``+--force+``フラグを使用してください。
+バックアップがすでに構成されているが再初期化が必要な場合は、`+--force+`フラグを使用してください。
 
 
 
@@ -103,7 +103,7 @@ mgradm backup db rebase
 
 [IMPORTANT]
 ====
-コマンド[command]``+mgradm backup db rebase+``を使用して、データベースバックアップを定期的にリベースし、復元操作に必要な時間を最小限に抑えてください。
+コマンド`+mgradm backup db rebase+`を使用してデータベースバックアップを定期的にリベースし、復元操作に必要な時間を最小限に抑えてください。
 ====
 
 
@@ -134,7 +134,7 @@ mgradm backup db restore
 
 [IMPORTANT]
 ====
-復元を行う前に、最近のベースバックアップとすべての必要なWALセグメントが[literal]``+var-pgsql-walbackup+``ボリュームにあることを確認してください。
+復元を行う前に、最近のベースバックアップとすべての必要なWALセグメントが`+var-pgsql-walbackup+`ボリュームにあることを確認してください。
 ====
 
 
