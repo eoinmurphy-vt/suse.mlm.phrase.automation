@@ -54,8 +54,8 @@ mgrpxy --version
 
 确认以下信息：
 
-* 操作系统：[literal]``+SLE Micro 5.5+``
-* 工具版本：[literal]``+mgrpxy 版本 0.1.29+`` 或更高版本
+* 操作系统：`+SLE Micro 5.5+`
+* 工具版本：`+mgrpxy version 0.1.29+` 或更高版本
 
 +
 
@@ -85,7 +85,7 @@ podman ps
 +
 
 * 在 {productname} {webui} 中，导航到 menu:管理员[设置向导> 产品]。
-* 单击右侧的 ``+刷新+`` 按钮，从 SUSE Customer Center 更新产品目录。
+* 单击右侧的 `+Refresh+` 按钮，从 SUSE Customer Center 更新产品目录。
 
 . 在 {productname} 服务器中同步新的代理产品。
   有关更多信息，请参见 xref:client-configuration:products.adoc[]。
@@ -94,8 +94,8 @@ podman ps
 
 使用 Web UI 进行同步：
 
-* [literal]``+SUSE Linux Micro 6.1+``
-* [literal]``+{productname} 代理扩展 {productnumber}+``
+* `+SUSE Linux Micro 6.1+`
+* `+{productname} Proxy Extension {productnumber}+`
 
 +
 
@@ -110,13 +110,13 @@ podman ps
 
 将
 
-* [lteral]``+SLE Micro 5.5+``+ + [literal]+``+SUSE Manager Proxy 5.0 Extension+``
+* `+SLE Micro 5.5+` + `+SUSE Manager Proxy 5.0 Extension+`
 
 +
 
 迁移到
 
-* [literal]``+SL Micro 6.1+``+ + [literal]+``+{productname} 代理扩展 {productnumber}+``
+* `+SL Micro 6.1+` + `+{productname} Proxy Extension {productnumber}+`
 
 +
 
@@ -295,8 +295,8 @@ mgrpxy --version
 
 确认以下信息：
 
-* 操作系统：[literal]``+SUSE Linux Enterprise Server 15 SP6+``
-* 工具版本：[literal]``+mgrpxy 版本 0.1.29+`` 或更高版本
+* 操作系统：`+SUSE Linux Enterprise Server 15 SP6+`
+* 工具版本：`+mgrpxy version 0.1.29+` 或更高版本
 
 
 +
@@ -330,14 +330,14 @@ podman ps
 
 通过 {webui} 同步以下内容：
 
-* [literal]``+SUSE Linux Enterprise Server 15 SP7+``
-- [literal]``+{productname} 代理扩展用于 SLE 5.1+``
+* `+SUSE Linux Enterprise Server 15 SP7+`
+- `+{productname} Proxy Extension for SLE 5.1+`
 
 +
 
 [NOTE]
 ====
-代理扩展列于 [literal]``+Basesystem Module 15 SP7+` > `+Containers Module 15 SP7+`` 下。
+代理扩展列在 `+Basesystem Module 15 SP7+` > `+Containers Module 15 SP7+` 下。
 ====
 
 +
@@ -355,7 +355,7 @@ podman ps
 
 +
 
-* [literal]``+SUSE Linux Enterprise Server 15 SP6+``+ + [literal]+``+SUSE Manager Proxy 5.0 扩展+``
+* `+SUSE Linux Enterprise Server 15 SP6+` + `+SUSE Manager Proxy Extension 5.0+`
 
 +
 
@@ -363,7 +363,7 @@ podman ps
 
 +
 
-* [literal]``+SUSE Linux Enterprise Server 15 SP7+``+ + [literal]+``+{productname} 代理扩展用于 SLE 5.1+``
+* `+SUSE Linux Enterprise Server 15 SP7+` + `+{productname} Proxy Extension for SLE 5.1+`
 
 +
 
@@ -419,8 +419,8 @@ SUSEConnect --status-text
 
 您应看到以下内容：
 
-* [literal]``+PRETTY_NAME="SUSE Linux Enterprise Server 15 SP7"+``
-* [literal]``+SUSE Multi-Linux Manager Proxy 5.1 扩展用于 SLE+``
+* `+PRETTY_NAME="SUSE Linux Enterprise Server 15 SP7"+`
+* `+SUSE Multi-Linux Manager Proxy 5.1 Extension for SLE+`
 
 +
 
@@ -437,7 +437,7 @@ mgrpxy --version
 
 预期输出：
 
-* [literal]``+mgrpxy 版本 5.1.11+`` 或更高版本
+* `+mgrpxy version 5.1.11+` 或更高版本
 
 
 +
