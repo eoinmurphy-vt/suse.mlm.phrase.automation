@@ -66,11 +66,11 @@ endif::[]
 | 8GB
 
 | ディスク領域
-| [path]``+/+``（ルートディレクトリ）
+| `+/+`（ルートディレクトリ）
 | 最低40GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes+``
+| `+/var/lib/containers/storage/volumes+`
 | 最低100GB、ストレージ要件は、使用するISOディストリビューションイメージ、コンテナ、およびブートストラップリポジトリの数に基づいて計算する必要があります。
 
 |===
@@ -106,7 +106,7 @@ CPU、RAM、およびストレージ要件については、xref:installation-an
 
 . ログインします。
 
-. [command]``+トランザクション更新シェル+``を入力します:
+. `+transactional-update shell+`を入力してください：
 +
 ----
 transactional-update shell
@@ -135,7 +135,7 @@ zypper in mgrpxy mgrpxy-bash-completion uyuni-storage-setup-proxy
 +
 [NOTE]
 ====
-または、[systemitem]``+mgrpxy-zsh-completion+``+または[systemitem]+``+mgrpxy-fish-completion+``をインストールできます。
+あるいは、`+mgrpxy-zsh-completion+`または`+mgrpxy-fish-completion+`をインストールすることもできます。
 ====
 
 . トランザクションシェルを終了します。
@@ -166,7 +166,7 @@ transactional-update pkg install mgrpxy mgrpxy-bash-completion uyuni-storage-set
 
 [NOTE]
 ====
-Alternatively you may install [systemitem]``+mgrpxy-zsh-completion+``+ or [systemitem]+``+mgrpxy-fish-completion+``.
+Alternatively you may install `+mgrpxy-zsh-completion+` or `+mgrpxy-fish-completion+`.
 ====
 
 ////
@@ -177,9 +177,9 @@ Uyuniコンテナユーティリティに関する詳細は、link:https://build
 == カスタム永続ストレージの設定
 
 このステップはオプションです。
-ただし、ご使用のインフラストラクチャにカスタム永続ストレージが必要な場合は、[command]``+mgr-storage-proxy+``ツールを使用します。
+ただし、ご使用のインフラストラクチャにカスタム永続ストレージが必要な場合は、`+mgr-storage-proxy+`ツールを使用します。
 
-* 詳細については、[command]``+mgr-storage-proxy --help+``を参照してください。
+* 詳細については、`+mgr-storage-proxy --help+`を参照してください。
 このツールは、コンテナストレージとSquidキャッシュボリュームの作成を簡素化します。
 
 このコマンドは次のように使用します。
@@ -197,7 +197,7 @@ mgr-storage-proxy /dev/nvme1n1
 
 [NOTE]
 ====
-このコマンドは、[path]``+/var/lib/containers/storage/volumes+``に永続ストレージボリュームを作成します。
+このコマンドにより、`+/var/lib/containers/storage/volumes+`に永続ストレージボリュームが作成されます。
 
 詳細については、以下を参照してください。
 
@@ -243,22 +243,22 @@ mgr-storage-proxy /dev/nvme1n1
 .プロシージャ:
 . プロキシ設定ファイルを生成します。
 . 設定をプロキシに転送します。
-. [literal]``+mgrpxy+``コマンドでプロキシを起動します。
+. `+mgrpxy+`コマンドでプロキシを起動します。
 
 [[proc-proxy-containers-setup-webui]]
 .タスク:Web UIを使用したプロキシコンテナ設定の生成
 
 . {webui}で、menu:システム[プロキシ設定]に移動し、必要なデータを入力します:
-. [guimenu]``+プロキシFQDN+``フィールドに、プロキシの完全修飾ドメイン名を入力します。
-. [guimenu]``+親FQDN+``フィールドに、{productname}サーバまたは別の{productname}プロキシの完全修飾ドメイン名を入力します。
-. [guimenu]``+プロキシSSHポート+``フィールドに、{productname}プロキシでSSHサービスがリッスンしているSSHポートを入力します。推奨されるのは、デフォルトの8022を維持することです。
-. [guimenu]``+最大Squidキャッシュサイズ [MB]+``フィールドに、Squidキャッシュの最大許可サイズを入力します。通常、これはコンテナ用の利用可能なストレージの最大60%までにするのが一般的です。
-. [guimenu]``+SSL証明書+``の選択リストで、{productname}プロキシ用に新しいサーバ証明書を生成するか、既存のものを使用するかを選択します。
+. `+Proxy FQDN+`フィールドに、プロキシの完全修飾ドメイン名を入力します。
+. `+Parent FQDN+`フィールドに、{productname}サーバまたは別の {productname}プロキシの完全修飾ドメイン名を入力します。
+. `+Proxy SSH port+`フィールドに、{productname}プロキシでSSHサービスがリッスンしているSSHポートを入力します。推奨されるのは、デフォルトの8022を維持することです。
+. `+Max Squid cache size [MB]+`フィールドに、Squidキャッシュに許可される最大サイズを入力します。通常、これはコンテナ用の利用可能なストレージの最大60%までにするのが一般的です。
+. `+SSL certificate+`の選択リストで、{productname}プロキシ用に新しいサーバー証明書を生成するか、既存のものを使用するかを選択します。
 生成された証明書は、{productname}組み込み（自己署名）証明書と見なすことができます。
 +
 選択に応じて、新しい証明書を生成するための署名CA証明書へのパス、またはプロキシ証明書として使用される既存の証明書とそのキーへのパスのいずれかを指定します。
 +
-サーバ上で生成されたCA証明書は、[path]``+/var/lib/containers/storage/volumes/root/ssl-build+``ディレクトリに保存されます。
+サーバ上で生成されたCA証明書は、`+/var/lib/containers/storage/volumes/root/ssl-build+`ディレクトリに保存されます。
 +
 既存の証明書またはカスタム証明書、および企業証明書と中間証明書の概念の詳細については、xref:administration:ssl-certs-imported.adoc[]を参照してください。
 
@@ -298,7 +298,7 @@ mgrpxy install podman config.tar.gz
 [[proxy-deploy-containers-transfer-start]]
 == {productname} {productnumber}プロキシを起動します。
 
-コンテナは、[literal]`+mgrpxy+`コマンドで起動できるようになりました。
+コンテナは、`+mgrpxy+`コマンドで起動できるようになりました。
 
 [[proc-install-containers-setup-start]]
 .タスク:プロキシの起動とステータスの確認
@@ -318,7 +318,7 @@ mgrpxy status
 ----
 +
 
-{productname}プロキシコンテナが5つ存在し、[literal]``+proxy-pod+``コンテナポッドの一部である必要があります。
+５つの{productname}プロキシコンテナが存在し、`+proxy-pod+`コンテナポッドの一部である必要があります。
 
 * proxy-salt-broker
 * proxy-httpd
@@ -331,7 +331,7 @@ mgrpxy status
 === サービスにカスタムコンテナイメージを使用する
 
 デフォルトでは、{productname}プロキシスイートは、各サービスに対して同じイメージバージョンとレジストリパスを使用するように設定されています。
-ただし、特定のサービスに対してデフォルト値を上書きすることは、[literal]``+-tag+``+および[literal]+``+-image+``で終わるインストールパラメータを使用することで可能です。
+ただし、特定のサービスに対してデフォルト値を上書きすることは、`+-tag+`および`+-image+`で終わるインストールパラメータを使用することで可能です。
 
 たとえば、次のように使用します。
 
@@ -339,7 +339,7 @@ mgrpxy status
 mgrpxy install podman --httpd-tag 0.1.0 --httpd-image registry.opensuse.org/uyuni/proxy-httpd /path/to/config.tar.gz
 ----
 
-これは、httpdサービスの設定ファイルを調整します。ここで、[path]``+registry.opensuse.org/uyuni/proxy-httpds+``+は使用するイメージであり、[literal]+``+0.1.0+``はバージョンタグです。その後、再起動します。
+これはhttpdサービスの設定ファイルを調整します。ここで、`+registry.opensuse.org/uyuni/proxy-httpds+`は使用するイメージ、`+0.1.0+`はバージョンタグであり、調整後にサービスを再起動します。
 
 値をデフォルトにリセットするには、これらのパラメータを指定せずにもう一度installコマンドを実行します。
 
