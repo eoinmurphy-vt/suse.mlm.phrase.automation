@@ -14,12 +14,12 @@
 
 [IMPORTANT]
 ====
-请在服务器容器内执行步骤之前使用 [literal]``+mgrctl term+``。
+在服务器容器内运行步骤之前，请使用 `+mgrctl term+`。
 ====
 
-此配置选项位于 [filename]``+/etc/rhn/rhn.conf+`` 配置文件中。
-该参数的默认值为 [systemitem]``+20+``。
-将此值更改为 [systemitem]``+0+`` 将提供无限数量的条目。
+此配置选项位于`+/etc/rhn/rhn.conf+`配置文件中。
+该参数的默认值为 `+20+`。
+将此值更改为 `+0+` 将提供无限数量的条目。
 
 ----
 java.max_changelog_entries = 20
@@ -27,7 +27,7 @@ java.max_changelog_entries = 20
 
 如果您设置此参数，它只在同步新软件包后对其生效。
 
-更改此参数后，请使用 ``+mgradm restart+`` 重启服务。
+更改此参数后，请使用 `+mgradm restart+` 重启服务。
 
 您可能想要删除再重新生成缓存的数据，以去除旧数据。
 
