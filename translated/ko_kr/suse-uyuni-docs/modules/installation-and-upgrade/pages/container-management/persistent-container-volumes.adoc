@@ -12,7 +12,7 @@
 영구 볼륨 외부에서 이루어진 모든 변경 사항은 폐기됩니다.
 아래는 {productname} {productnumber}에 대한 영구 볼륨 목록입니다.
 
-기본 볼륨 위치를 사용자 정의하려면 포드를 처음 실행하기 전에 [command]``+podman volume create+`` 명령을 사용하여 필요한 볼륨을 생성해야 합니다.
+기본 볼륨 위치를 사용자 정의하려면, 포드를 처음 실행하기 전에 `+podman volume create+` 명령을 사용하여 필요한 볼륨을 생성했는지 확인하세요.
 
 [NOTE]
 ====
@@ -31,7 +31,7 @@
 |볼륨 이름 | 볼륨 디렉토리
 
 | **Podman Storage**
-| [path]``+/var/lib/containers/storage/volumes/+``
+| `+/var/lib/containers/storage/volumes/+`
 |===
 
 .영구 볼륨: **root**
@@ -40,7 +40,7 @@
 |볼륨 이름 | 볼륨 디렉토리
 
 | **root**
-| [path]``+/root+``
+| `+/root+`
 |===
 
 
@@ -50,25 +50,25 @@
 |볼륨 이름 | 볼륨 디렉토리
 
 | **var-cobbler**
-| [path]``+/var/lib/cobbler+``
+| `+/var/lib/cobbler+`
 
 | **var-salt**
-| [path]``+/var/lib/salt+``
+| `+/var/lib/salt+`
 
 | **var-pgsql**
-| [path]``+/var/lib/pgsql/data+``
+| `+/var/lib/pgsql/data+`
 
 | **var-pgsql-backup**
-| [path]``+/var/lib/pgsql-backup+``
+| `+/var/lib/pgsql-backup+`
 
 | **var-cache**
-| [path]``+/var/cache+``
+| `+/var/cache+`
 
 | **var-spacewalk**
-| [path]``+/var/spacewalk+``
+| `+/var/spacewalk+`
 
 | **var-log**
-| [path]``+/var/log+``
+| `+/var/log+`
 |===
 
 
@@ -79,25 +79,25 @@
 | 볼륨 이름 | 볼륨 디렉토리
 
 | **srv-salt**
-| [path]``+/srv/salt+``
+| `+/srv/salt+`
 
 | **srv-www**
-| [path]``+/srv/www/+``
+| `+/srv/www/+`
 
 | **srv-tftpboot**
-| [path]``+/srv/tftpboot+``
+| `+/srv/tftpboot+`
 
 | **srv-formulametadata**
-| [path]``+/srv/formula_metadata+``
+| `+/srv/formula_metadata+`
 
 | **srv-pillar**
-| [path]``+/srv/pillar+``
+| `+/srv/pillar+`
 
 | **srv-susemanager**
-| [path]``+/srv/susemanager+``
+| `+/srv/susemanager+`
 
 | **srv-spacewalk**
-| [path]``+/srv/spacewalk+``
+| `+/srv/spacewalk+`
 |===
 
 
@@ -108,40 +108,40 @@
 |볼륨 이름 | 볼륨 디렉토리
 
 | **etc-apache2**
-| [path]``+/etc/apache2+``
+| `+/etc/apache2+`
 
 | **etc-rhn**
-| [path]``+/etc/rhn+``
+| `+/etc/rhn+`
 
 | **etc-systemd-multi**
-| [path]``+/etc/systemd/system/multi-user.target.wants+``
+| `+/etc/systemd/system/multi-user.target.wants+`
 
 | **etc-systemd-sockets**
-| [path]``+/etc/systemd/system/sockets.target.wants+``
+| `+/etc/systemd/system/sockets.target.wants+`
 
 | **etc-salt**
-| [path]``+/etc/salt+``
+| `+/etc/salt+`
 
 | **etc-sssd**
-| [path]``+/etc/sssd+``
+| `+/etc/sssd+`
 
 | **etc-tomcat**
-| [path]``+/etc/tomcat+``
+| `+/etc/tomcat+`
 
 | **etc-cobbler**
-| [path]``+/etc/cobbler+``
+| `+/etc/cobbler+`
 
 | **etc-sysconfig**
-| [path]``+/etc/sysconfig+``
+| `+/etc/sysconfig+`
 
 | **etc-tls**
-| [path]``+/etc/pki/tls+``
+| `+/etc/pki/tls+`
 
 | **etc-postfix**
-| [path]``+/etc/postfix+``
+| `+/etc/postfix+`
 
 | **ca-cert**
-| [path]``+/etc/pki/trust/anchors+``
+| `+/etc/pki/trust/anchors+`
 
 |===
 
@@ -152,7 +152,7 @@
 |볼륨 이름 | 볼륨 디렉토리
 
 | **run-salt-master**
-| [path]``+/run/salt/master+``
+| `+/run/salt/master+`
 
 |===
 
@@ -168,7 +168,7 @@
 |볼륨 이름 | 볼륨 디렉토리
 
 | **Podman Storage**
-| [path]``+/var/lib/containers/storage/volumes/+``
+| `+/var/lib/containers/storage/volumes/+`
 |===
 
 .영구 볼륨: **srv/**
@@ -177,7 +177,7 @@
 |볼륨 이름 | 볼륨 디렉토리
 
 | **uyuni-proxy-tftpboot**
-| [path]``+/srv/tftpboot+``
+| `+/srv/tftpboot+`
 |===
 
 
@@ -187,9 +187,9 @@
 |볼륨 이름 | 볼륨 디렉토리
 
 | **uyuni-proxy-rhn-cache**
-| [path]``+/var/cache/rhn+``
+| `+/var/cache/rhn+`
 
 
 | **uyuni-proxy-squid-cache**
-| [path]``+/var/cache/squid+``
+| `+/var/cache/squid+`
 |===
