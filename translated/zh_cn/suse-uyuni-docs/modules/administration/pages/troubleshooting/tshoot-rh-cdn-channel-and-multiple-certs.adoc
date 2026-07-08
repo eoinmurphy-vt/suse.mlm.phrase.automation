@@ -25,17 +25,17 @@ Could not refresh the repositories because of errors.
 HH:MM:SS RepoMDError: Cannot access repository. Maybe repository GPG keys are not imported
 ----
 
-要解决此问题，请将所有有效证书合并到单个 ``+.pem+`` 文件中，然后重新构建证书以供 {productname} 使用：
+要解决此问题，请将所有有效证书合并到单个 `+.pem+` 文件中，然后重新构建证书以供 {productname} 使用：
 
 
 
 .过程：升级解决多个 {redhat} CDN 证书的问题
-. 在 {redhat} 客户端的命令提示符下，以 root 身份将 ``+/etc/pki/entitlement/+``+ 中的所有当前证书合并到单个 +``+rh-cert.pem+`` 文件中：
+. 在 {redhat} 客户端上，在命令提示符处，以 root 身份，将 `+/etc/pki/entitlement/+` 中的所有当前证书收集到单个 `+rh-cert.pem+` 文件中：
 +
 ----
 cat 866705146090697087.pem 3539668047766796506.pem redhat-entitlement-authority.pem > rh-cert.pem
 ----
-. 将 ``+/etc/pki/entitlement/+``+ 中的所有当前密钥合并到单个 +``+rh-key.pem+`` 文件中：
+. 将 `+/etc/pki/entitlement/+` 中的所有当前密钥收集到单个 `+rh-key.pem+` 文件中：
 +
 ----
 cat 866705146090697087-key.pem 3539668047766796506-key.pem > rh-key.pem
