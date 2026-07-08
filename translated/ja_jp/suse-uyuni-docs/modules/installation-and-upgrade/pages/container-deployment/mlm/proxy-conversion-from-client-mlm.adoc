@@ -29,7 +29,7 @@
 
 === クライアントは以下を満たしている必要があります
 
-* すでに{productname}にオンボードされています
+* {productname}に既にオンボード済み
 
 * ネットワーク経由でアクセス可能であること
 
@@ -48,7 +48,7 @@
 
 以下のものが必要です。
 
-* {productname}サーバ上の証明書に署名した認証局（CA）の公開証明書
+* {productname}サーバ上の証明書に署名した認証局(CA)の公開証明書
 
 * プロキシの証明書。
 
@@ -59,7 +59,7 @@
 CAが中間証明書チェーンを使用している場合は、すべて中間証明書も含める必要があります。
 ====
 
-サードパーティ証明書を使用していない場合は、`+rhn-ssl-tool+`コンテナ内の{productname}を使用して生成できます。
+サードパーティ証明書を使用していない場合は、{productname}コンテナ内の`+rhn-ssl-tool+`を使用して生成できます。
 
 .プロキシ証明書を生成する
 
@@ -126,15 +126,15 @@ scp <MLM-FQDN>:/root/rootca.pem ./
 
 * suse-multi-linux-manager-5.1-<ARCH>-proxy-tftpd-image
 
-これらのパッケージは{webui}から、[literal]``+Software+``+ > [literal]+``+Packages+``+ > [literal]+``+Install+``タブに移動し、上記のパッケージを検索してインストールすることでインストールできます。
+これらのパッケージは{webui}から、`+Software+` > `+Packages+` > `+Install+`タブに移動し、上記のパッケージを検索してインストールすることでインストールできます。
 
-エアギャップされたデプロイメントの詳細については、xref:installation-and-upgrade:container-deployment/mlm/proxy-air-gapped-deployment-mlm.adoc[]を参照してください。
+エアギャップ(された)デプロイメントの詳細については、xref:installation-and-upgrade:container-deployment/mlm/proxy-air-gapped-deployment-mlm.adoc[]を参照してください。
 
 == プロキシクライアントのセットアップ
 
-. クライアントの[literal]``+Overview+``ページに移動します。
+. クライアントの`+Overview+`ページに移動します。
 
-. ボタンbtn:[Proxyへの変換]をクリックします。
+. ボタンbtn:[プロキシへの変換]をクリックします。
 
 +
 
@@ -142,47 +142,47 @@ scp <MLM-FQDN>:/root/rootca.pem ./
 
 +
 
-このページには後で[literal]``+詳細+`` > [literal]+``+Proxy+``+ > [literal]+``+設定+``タブからアクセスできます。
+このページには、後で`+Details+` > `+Proxy+` > `+Configuration+`タブからアクセスできます。
 
-. {webui}に移動し、menu:Proxy[設定]に必要なデータを入力します:
-
-+
-
-.プロシージャ:Proxyの設定
-
-.. [guimenu]``+親FQDN+``フィールドに、親サーバまたはプロキシの完全修飾ドメイン名を入力します。
-
-.. [guimenu]``+プロキシSSHポート+``フィールドに、{productname}プロキシでSSHサービスがリッスンしているSSHポートを入力します。デフォルトのままにすることをお勧めします：8022.
-
-.. [guimenu]``+Squidの最大キャッシュサイズ+``フィールドに、Squidキャッシュの最大許容サイズをギガバイト単位で入力します。
-
-.. [guimenu]``+プロキシ管理者の電子メール+``フィールドに、管理者の電子メールアドレスを入力します。
-
-.. [literal]``+証明書+``セクションに、準備ステップで取得した{productname}プロキシの証明書を指定します。
-
-.. [literal]``+ソース+``+セクションで、2つのオプションのいずれかを選択します: [literal]+``+RPM+``+または[literal]+``+レジストリ+``。
+. {webui}で、menu:プロキシ[設定]に移動し、必要なデータを入力します:
 
 +
 
-* [literal]``+RPM+``オプションは、エアギャップされた環境または制限された環境において、推奨されます。
+.プロシージャ:プロキシの設定
 
-* [literal]``+レジストリ+``オプションは、コンテナイメージレジストリへの接続が可能な場合に使用できます。
+.. `+Parent FQDN+`フィールドに、親サーバまたはプロキシの完全修飾ドメイン名を入力します。
+
+.. `+Proxy SSH port+`フィールドに、{productname}プロキシでSSHサービスがリスンしているSSHポートを入力します。デフォルトのままにすることをお勧めします:8022.
+
+.. `+Max Squid cache size+`フィールドに、Squidキャッシュの最大許容サイズをギガバイト単位で入力します。
+
+.. `+Proxy admin email+`フィールドに、管理者のメールアドレスを入力します。
+
+.. `+Certificates+`セクションに、準備ステップで取得した{productname}プロキシの証明書を指定します。
+
+.. `+Source+`セクションで、`+RPM+`または`+Registry+`の2つのオプションのいずれかを選択します。
 
 +
 
-選択すると、2つのサブオプションのいずれかを選択するように求められます: [literal]``+単純+``+または[literal]+``+詳細+``。
+* `+RPM+`オプションは、エアギャップ(された)環境または制限された環境に推奨されます。
+
+* `+Registry+`オプションは、コンテナイメージレジストリへの接続が可能な場合に使用できます。
 
 +
 
-** [literal]``+単純+``+が選択された場合は、[literal]+``+レジストリURL+``+と[literal]+``+コンテナタグ+``フィールドに値を入力します。
+選択すると、`+Simple+`または`+Advanced+`の2つのサブオプションのいずれかを選択するように求められます。
 
-*** [literal]``+レジストリURL+``+には、[literal]+``+registry.suse.com/suse/multi-linux-manager/5.1/x86_64+``を使用します。
++
+
+** `+Simple+`が選択された場合、`+Registry URL+`フィールドおよび`+Containers Tag+`フィールドに値を入力します。
+
+*** `+Registry URL+`には`+registry.suse.com/suse/multi-linux-manager/5.1/x86_64+`を使用します。
 
 *** ドロップダウンリストからタグを選択します。
 
-** [literal]``+詳細+``が選択された場合、フォームの追加セクションが表示されます:
+** `+Advanced+`が選択された場合、フォームの追加セクションが表示されます。
 
-*** 各個別のコンテナURLフィールドには、レジストリ: [literal]``+registry.suse.com/suse/multi-linux-manager/5.1/x86_64+``+に続いて、対応するサフィックス（例: +`_proxy-httpd_`+または+`_salt-broker_`）を使用します。
+*** 各コンテナURLフィールドには、レジストリ`+registry.suse.com/suse/multi-linux-manager/5.1/x86_64+`の後に対応するサフィックスを続けたものを使用します（例: `+_proxy-httpd_+`または`+_salt-broker_+`）。
 
 *** ドロップダウンリストからタグを選択します。
 
