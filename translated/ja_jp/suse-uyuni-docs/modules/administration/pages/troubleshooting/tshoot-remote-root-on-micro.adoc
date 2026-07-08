@@ -24,13 +24,13 @@ SSHルートログインを有効にする方法は2つあります。
 
 .オプションA:事前設定されたパッケージを使用する
 
-. クライアントのUI/APIからパッケージ[package]``+openssh-server-config-rootlogin+``をインストールします。
+. クライアントのUI/APIからパッケージ`+openssh-server-config-rootlogin+`をインストールします。
 
 . UIまたは端末からコンテナホストを再起動して新しい設定を有効化します。
 
 .オプションB:SSH設定を手動で編集する
 
-. 次の内容を含むドロップイン設定[path]``+/etc/ssh/sshd_config.d/permit_root.conf+``ファイルを追加します。
+. 以下の内容で、ドロップイン設定`+/etc/ssh/sshd_config.d/permit_root.conf+`ファイルを追加します。
 
 +
 ----
@@ -49,5 +49,5 @@ systemctl reload sshd
 ____
 
 
-[command]``+transactional-update+``に関する詳細は、https://documentation.suse.com/sle-micro/6.1/html/Micro-transactional-updates/.を参照してください。
+`+transactional-update+`の詳細については、https://documentation.suse.com/sle-micro/6.1/html/Micro-transactional-updates/.を参照してください。
 
