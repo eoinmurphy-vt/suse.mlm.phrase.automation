@@ -8,8 +8,8 @@
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
 
-Salt SSHは、クライアントにSalt Bundleをデプロイし、バンドルされたPythonでSaltコマンドを実行するために、[path]``+/var/tmp+``を使用しています。
-したがって、[path]``+/var/tmp+``+を[option]+``+noexec+``オプションでマウントしてはいけません。
-クライアントが[path]``+/var/tmp+``+を[option]+``+noexec+``オプションでマウントしている場合、起動プロセスがSalt SSHを使用してクライアントに到達するため、{webui}でクライアントを起動することはできません。
+Salt SSHは、クライアントにSalt Bundleをデプロイし、バンドルされたPythonでSaltコマンドを実行するために`+/var/tmp+`を使用しています。
+したがって、`+/var/tmp+`を`+noexec+`オプションでマウントしてはいけません。
+クライアントが`+/var/tmp+`を`+noexec+`オプションでマウントしている場合、起動処理がSalt SSHを介してクライアントにアクセスするため、{webui}でクライアントを起動することはできません。
 
 

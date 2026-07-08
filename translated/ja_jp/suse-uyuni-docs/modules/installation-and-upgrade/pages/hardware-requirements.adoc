@@ -43,9 +43,9 @@ endif::[]
 
 選択したソフトウェアの量によっては、オペレーティングシステムとして{sles}を使用する場合、ディスク容量がかなり必要になる場合があります。
 
-デフォルトでは、{productname}サーバーコンテナはミラーリポジトリ（パッケージまたは製品）、データベース、およびその他のデータを[path]``+/var/lib/containers/storage/volumes/+``ディレクトリのサブディレクトリに保存します。
+デフォルトでは、{productname} サーバーコンテナはミラーされたリポジトリ（パッケージまたは製品）、データベース、その他のデータを `+/var/lib/containers/storage/volumes/+` ディレクトリのサブディレクトリに保存します。
 このディレクトリのディスク容量が不足すると、リポジトリの同期が失敗します。
-ミラーリングする予定のクライアントとリポジトリの数と種類に基づいて、[path]``+/var/lib/containers/storage/volumes/+``ディレクトリが必要とするスペースを見積もります。
+ミラーリングする予定のクライアントやリポジトリの数や種類に基づいて、`+/var/lib/containers/storage/volumes/+` ディレクトリに必要なスペースを見積もってください。
 
 ファイルシステムおよびパーティショニングの詳細については、xref:installation-and-upgrade:hardware-requirements.adoc#install-hardware-requirements-storage[]およびこのガイドのインストールおよびデプロイメントセクションの詳細なインストール手順を参照してください。
 
@@ -70,39 +70,39 @@ endif::[]
 | 32GB
 
 | ディスク領域
-| [path]``+/+``（ルートディレクトリ）
+| `+/+`（ルートディレクトリ）
 | 40 GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes+``
+| `+/var/lib/containers/storage/volumes+`
 | 最小150GB（製品の数に応じて）
 
 |
-| [path]``+/var/lib/containers/storage/volumes/var-pgsql+``
+| `+/var/lib/containers/storage/volumes/var-pgsql+`
 | 最低50GB
 
 | スワップ容量
-| システムは追加のスワップスペースの恩恵を受けることができます。 {suse}はスワップパーティションの代わりにスワップファイルを使用することを推奨します。 スワップスペースに関する詳細については、xref:installation-and-upgrade:hardware-requirements.adoc#installation-swap-space[]を参照してください。
+| システムは追加のスワップスペースの恩恵を受けることができます。{suse}はスワップパーティションの代わりにスワップファイルを使用することを推奨します。 スワップスペースに関する詳細については、xref:installation-and-upgrade:hardware-requirements.adoc#installation-swap-space[]を参照してください。
 | 8～12 GB
 |===
 
 // |
-// | [path]``+/var/lib/containers/storage/volumes/var-cache+``
+// | `+/var/lib/containers/storage/volumes/var-cache+`
 // | Minimum 10 GB.
 // Add 100 MB per {suse} product, 1 GB per {redhat} or other product.
 // Consider to double the space if the server is used for Inter-Server Synchronization (ISS)
 // 
 // |
-// | [path]``+/var/lib/containers/storage/volumes/srv-www+``
+// | `+/var/lib/containers/storage/volumes/srv-www+`
 // | Minimum 100 GB
 // 
 // * Storage requirments should be calculated for the number of ISO distribution images, containers, and bootstrap repositories you will use.
 
 
-デフォルトでは、イメージには40 GBの[literal]``+/+``パーティションがあります。
-{sl-micro} {microversion}のクラウドイメージには、5 GBの[literal]``+/+``パーティションしかありません。
+デフォルトでは、イメージには40 GBの `+/+` パーティションがあります。
+{sl-micro} {microversion}のクラウドイメージには、5 GBの `+/+` パーティションのみがあります。
 どちらも{productname}で問題なく動作します。
-外部ストレージが[path]``+/var/lib/containers/storage/volumes+``にマウントされている限り、{productname}は[literal]+``+/+``パーティション上のストレージを必要とせず、コンテナホスト自体の管理に任せます。
+外部ストレージが `+/var/lib/containers/storage/volumes+` にマウントされている限り、{productname} は `+/+` パーティション上のストレージを必要とせず、その管理はコンテナホスト自体に任せられます。
 
 
 
@@ -131,15 +131,15 @@ ifeval::[{mlm-content} == true]
 | 32 GB
 
 | Disk Space
-| [path]``+/+`` (root directory)
+| `+/+` (root directory)
 | Minimum 100 GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes/var-pgsql+``
+| `+/var/lib/containers/storage/volumes/var-pgsql+`
 | Minimum 50 GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes/var-spacewalk+``
+| `+/var/lib/containers/storage/volumes/var-spacewalk+`
 | Minimum storage required: 100 GB (this will be verified by the implemented check)
 
 * 50 GB for each {suse} product and Package Hub
@@ -147,13 +147,13 @@ ifeval::[{mlm-content} == true]
 * 360 GB for each {redhat} product
 
 |
-| [path]``+/var/lib/containers/storage/volumes/var-cache+``
+| `+/var/lib/containers/storage/volumes/var-cache+`
 | Minimum 10{nbsp}GB.
 Add 100{nbsp}MB per {suse} product, 1{nbsp}GB per {redhat} or other product.
 Double the space if the server is an ISS Master.
 
 |
-| [path]``+/var/lib/containers/storage/volumes/srv-www+``
+| `+/var/lib/containers/storage/volumes/srv-www+`
 | Minimum 100 GB
 
 * Storage requirements should be calculated for the number of ISO distribution images, containers, and bootstrap repositories you will use.
@@ -220,11 +220,11 @@ endif::[]
 | 8GB
 
 | ディスク領域
-| [path]``+/+``（ルートディレクトリ）
-| 最低40 GB
+| `+/+`（ルートディレクトリ）
+| 最低40GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes+``
+| `+/var/lib/containers/storage/volumes+`
 | 最低100 GB
 
 | スワップ容量
@@ -233,21 +233,21 @@ endif::[]
 
 |===
 
-デフォルトでは、{productname}プロキシコンテナは、[path]``+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+``ディレクトリにパッケージをキャッシュします。
+デフォルトでは、{productname} プロキシコンテナはパッケージを `+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+` ディレクトリにキャッシュします。
 十分な空き容量がない場合、プロキシは古い未使用のパッケージを削除し、新しいパッケージと置き換えます。
 
 この動作の結果は以下のとおりです。
 
-* プロキシ上の[path]``+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+``ディレクトリの容量が大きくなるほど、プロキシと{productname}サーバ間のトラフィックが少なくなります。
-* プロキシ上の[path]``+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+``+ディレクトリを[path]+``+/var/lib/containers/storage/volumes/var-spacewalk/+``{productname}と同じサイズにすることで、最初に同期した後のトラフィック量の増大が防止されます。
-* プロキシに比べ、{productname}サーバ上では[path]``+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+``ディレクトリを小さくしても問題ありません。
+* プロキシ上の `+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+` ディレクトリの容量が大きいほど、プロキシと {productname} サーバー間のトラフィックが減少します。
+* プロキシ上の `+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+` ディレクトリを `+/var/lib/containers/storage/volumes/var-spacewalk/+` サーバー上の {productname} と同じサイズにすることで、最初の同期後に大量のトラフィックが発生するのを防ぐことができます。
+* {productname} サーバー上の `+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+` ディレクトリは、プロキシ上のものと比べて小さくても問題ありません。
   サイズ推定のガイドについては、<<server-hardware-requirements>>セクションを参照してください。
 
 [NOTE]
 ====
 一般的に、{suse}はキャッシュディレクトリの値を利用可能な空き容量の約80 %に調整することを推奨します。
-[option]``+cache_dir+``の値は、サーバ上でプロキシ設定を生成する際に設定されます。
-[path]``+squid.conf+``でオプションを直接設定することはできません。
+`+cache_dir+` の値は、サーバーでプロキシ設定を生成する際に設定されます。
+`+squid.conf+` でオプションを直接設定することはできません。
 ====
 
 
@@ -265,7 +265,7 @@ endif::[]
 
 [NOTE]
 ====
-BtrFSファイルシステム上のスワップファイルは、そのボリュームのスナップショットの作成を妨げます。以下の例における[path]``+/var+``+はすでにsnapperスナップショットから除外されているため、[path]+``+/var/swap+``を安全に使用できます。
+BtrFSファイルシステム上のスワップファイルは、そのボリュームのスナップショット作成を妨げます。以下の例の `+/var+` はすでにsnapperスナップショットから除外されているため、`+/var/swap+` を安全に使用できます。
 ====
 
 [source,shell]
@@ -338,9 +338,9 @@ endif::[]
 hwinfo --disk | grep -E "Device File:"
 ----
 
-[command]``+lsblk+``コマンドを使用して、各デバイスの名前とサイズを表示します。
+`+lsblk+` コマンドを使用して、各デバイスの名前とサイズを表示します。
 
-[command]``+mgr-storage-server+``コマンドを、デバイス名を指定して使用することで、外部ディスクをストレージの配置先として、さらに必要に応じて専用のディスク上でデータベース用に設定できます：
+`+mgr-storage-server+` コマンドにデバイス名を指定して実行することで、外部ディスクをストレージの配置先として、さらに必要に応じて専用ディスク上にデータベース用として設定できます。
 
 [source, shell]
 ----
@@ -354,11 +354,11 @@ mgr-storage-server <storage-disk-device> [<database-disk-device>]
 mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 ----
 
-外部ストレージボリュームは、[path]``+/manager_storage+``+および[path]+``+/pgsql_storage+``にマウントされているXFSパーティションとして設定されます。
+外部ストレージボリュームは、`+/manager_storage+` および `+/pgsql_storage+` にマウントされたXFSパーティションとして設定されます。
 
 [NOTE]
 ====
-このコマンドは、[path]``+/var/lib/containers/storage/volumes+``に永続ストレージボリュームを作成します。
+このコマンドは、`+/var/lib/containers/storage/volumes+`に永続ストレージボリュームを作成します。
 
 詳細については、xref:installation-and-upgrade:container-management/persistent-container-volumes.adoc[]を参照してください。
 ====
@@ -366,9 +366,9 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 チャネルデータとデータベースの両方に同じストレージデバイスを使用することは可能です。
 これは推奨されません。なぜなら、チャネルリポジトリが増加するとストレージが満杯になり、データベースの整合性にリスクをもたらす可能性があるからです。
 別々のストレージデバイスを使用することで、パフォーマンスが向上する可能性もあります。
-単一のストレージデバイスを使用したい場合は、[command]``+mgr-storage-server+``を単一のデバイス名パラメータで実行してください。
+単一のストレージデバイスを使用したい場合は、`+mgr-storage-server+` を単一のデバイス名パラメータで実行してください。
 
-プロキシをインストールしている場合、[command]``+mgr-storage-proxy+``コマンドはデバイス名パラメータを1つだけ取り、外部ストレージの場所をSquidキャッシュとして設定します。
+プロキシをインストールしている場合、`+mgr-storage-proxy+` コマンドはデバイス名パラメータを1つだけ取り、外部ストレージの場所をSquidキャッシュとして設定します。
 
 
 
@@ -382,19 +382,19 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 // container-deployment/mlm/server-deployment-mlm.adoc
 その他の配備については、ボリュームごとに個別のディスクも推奨されます。
 
-{productname}サーバのコンテナホストでは、[command]``+mgr-storage-server+``+コマンドが[path]+``+/var/lib/containers/storage/volumes+``+ディレクトリの内容全体を別のディスクに移動し、[path]+``+/var/lib/containers/storage/volumes+``に再マウントします。
+{productname} サーバーのコンテナホスト上で、`+mgr-storage-server+` コマンドは `+/var/lib/containers/storage/volumes+` ディレクトリの全内容を別のディスクに移動し、`+/var/lib/containers/storage/volumes+` に再マウントします。
 
-オプションで、2つ目のデバイス名を指定した場合、[command]``+mgr-storage-server+``+は[path]+``+/var/lib/containers/storage/volumes/var-pgsql+``+データベースディレクトリの内容を2つ目の別のディスクに移動し、[path]+``+/var/lib/containers/storage/volumes/var-pgsql+``+に再マウントします。
+オプションとして、2つ目のデバイス名が指定された場合、`+mgr-storage-server+` は `+/var/lib/containers/storage/volumes/var-pgsql+` データベースディレクトリのコンテンツを別の2台目のディスクに移動し、`+/var/lib/containers/storage/volumes/var-pgsql+` に再マウントします。
 
-同様に、{productname}プロキシのコンテナホストでは、[command]``+mgr-storage-proxy+``+コマンドが[path]+``+/var/lib/containers/storage/volumes+``+ディレクトリの内容全体を別のディスクに移動し、[path]+``+/var/lib/containers/storage/volumes+``+に再マウントします。
+同様に、{productname} プロキシのコンテナホスト上で、`+mgr-storage-proxy+` コマンドは `+/var/lib/containers/storage/volumes+` ディレクトリの全コンテンツを別のディスクに移動し、それを `+/var/lib/containers/storage/volumes+` に再マウントします。
 
 
 
 ////
 // *** The following is commented, and can probably deleted ***
 
-// When installation takes place on bare metal (on-premise), [command]``+cockpit+`` can be used to create an LVM setup.
+// When installation takes place on bare metal (on-premise), `+cockpit+` can be used to create an LVM setup.
 // In such a case, the disk setup needs to be performed manually.
 
-// With containers {productname} now has [path]``+/var/lib/containers/storage/volumes+`` as an extra disk.
+// With containers {productname} now has `+/var/lib/containers/storage/volumes+` as an extra disk.
 ////
