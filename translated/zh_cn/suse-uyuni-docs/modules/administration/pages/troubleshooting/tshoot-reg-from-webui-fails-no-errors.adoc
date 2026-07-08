@@ -12,5 +12,5 @@
 
 由其性质决定，Salt SSH 客户端不会向服务器回报错误。
 
-不过，Salt SSH 客户端会将日志保存在本地的 [path]``+/var/log/salt-ssh.log+`` 中，供您检查错误。
+不过，Salt SSH 客户端会将日志保存在本地的 `+/var/log/salt-ssh.log+`，可以用于检查错误。
 
