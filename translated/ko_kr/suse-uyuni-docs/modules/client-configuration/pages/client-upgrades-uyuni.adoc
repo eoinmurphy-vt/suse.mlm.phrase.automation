@@ -18,7 +18,7 @@ endif::[]
 
 
 .절차 클라이언트 업그레이드 준비
-. {productname} 서버의 명령 프롬프트에서 루트 사용자로 로그인한 후, [command]``+spacewalk-common-channels+`` 명령을 사용하여 적절한 채널을 추가합니다.
+. {productname} 서버의 명령 프롬프트에서 루트 사용자로 `+spacewalk-common-channels+` 명령을 사용하여 적절한 채널을 추가합니다.
 +
 ----
 spacewalk-common-channels \
@@ -29,24 +29,24 @@ opensuse_leap15_4-updates \
 opensuse_leap15_4-uyuni-client
 ----
 
-. [command]``+spacewalk-repo-sync+``로 모든 채널을 완전히 동기화합니다.
+. `+spacewalk-repo-sync+`과(와) 모든 채널을 완전히 동기화합니다.
 +
 // These are custom channels.
 // For more information, see xref:client-configuration:clients-opensuse.adoc[].
 
-. {productname} 서버 {webui}에서 menu:소프트웨어[채널 > 관리]으로 이동하여 [systemitem]``+Uyuni Client Tools for openSUSE Leap 15.4 (x86_64)+`` 채널 이름을 클릭합니다.
+. {productname} 서버 {webui}에서 menu:소프트웨어[관리> 채널]로 이동하여 `+Uyuni Client Tools for openSUSE Leap 15.4 (x86_64)+` 채널 이름을 클릭합니다.
 
 . 오른쪽 상단에서 btn:[채널 관리]를 클릭합니다.
 
-. [guimenu]``+리포지토리+`` 탭을 클릭하고 [systemitem]+``+External - Uyuni Client Tools for openSUSE Leap 15.3 (x86_64)+``를 선택합니다.
+. `+Repositories+` 탭을 클릭하고 `+External - Uyuni Client Tools for openSUSE Leap 15.3 (x86_64)+`을(를) 선택합니다.
 
 . btn:[리포지토리 업데이트]를 클릭합니다.
 
 . menu:리포지토리[동기화] 하위 탭으로 이동하여 btn:[지금 동기화]를 클릭합니다.
 
-. [systemitem]``+openSUSE Leap 15.4 (x86_64)+``+ 및 [systemitem]+``+External - openSUSE Leap 15.3 (x86_64)+``에 대해서도 동일한 작업을 합니다.
+. `+openSUSE Leap 15.4 (x86_64)+` 및 `+External - openSUSE Leap 15.3 (x86_64)+`에 대해서도 동일하게 수행합니다.
 
-[systemitem]``+openSUSE Leap 15.4 (x86_64)+``를 펼쳐 패키지로 채워져 있는 모든 하위 채널을 표시합니다.
+`+openSUSE Leap 15.4 (x86_64)+`을(를) 펼쳐 패키지가 채워진 모든 하위 채널을 확인합니다.
 
 
 
@@ -59,9 +59,9 @@ opensuse_leap15_4-uyuni-client
 .절차 클라이언트 업그레이드
 
 . {productname} 서버 {webui}에서 menu:시스템[]으로 이동하여 클라이언트 이름을 클릭합니다.
-. menu:소프트웨어[소프트웨어 채널]을 클릭하고 기본 채널로 {opensuse-version} 채널을 선택합니다. 이 채널은 [systemitem]``+사용자 정의 채널+`` 목록에 나열되어 있습니다.
-. [guimenu]``+하위 채널+`` 창에서 {opensuse-version} 하위 채널을 선택합니다.
-. btn:[다음]을 클릭하고 [guimenu]``+소프트웨어 채널 변경 확인+``을 btn:[확인]합니다.
+. menu:소프트웨어[소프트웨어 채널]을 클릭하고 기본 채널로 목록에 나열된 openSUSE Leap {opensuse-version} `+Customs Channels+`채널을 선택합니다.
+. `+Child Channels+` 창에서 {opensuse-version} 하위 채널을 선택합니다.
+. btn:[다음]을 클릭한 후, btn:[확인]으로 표시된 `+Confirm Software Channel Change+`을(를) 클릭합니다.
 . menu:소프트웨어[패키지> 업그레이드]를 클릭하고 클라이언트에서 업데이트할 모든 패키지를 선택한 후, 선택한 항목을 적용합니다.
   btn:[업그레이드 패키지]를 클릭하고 세부 정보를 확인한 후, btn:[확인]을 클릭하여 업데이트를 완료합니다.
 . 클라이언트를 재부팅합니다.
@@ -73,7 +73,7 @@ opensuse_leap15_4-uyuni-client
 ////
 . Assign the new channels to the clients instead of the old channels.
 
-. Update all the packages.  This can either be done with the {webui} or better run [command]``+zypper dup+`` manually on the command line local on the systems or remotely as a Salt command.
+. Update all the packages.  This can either be done with the {webui} or better run `+zypper dup+` manually on the command line local on the systems or remotely as a Salt command.
 ////
 
 ////
