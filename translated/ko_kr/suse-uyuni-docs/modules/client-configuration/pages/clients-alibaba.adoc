@@ -114,7 +114,7 @@ endif::[]
 
 [NOTE]
 ====
-[command]``+spacewalk-common-channels+``가 제공하는 클라이언트 도구 채널은 {suse}가 아닌 {uyuni}에서 공급됩니다.
+`+spacewalk-common-channels+`에서 제공하는 클라이언트 도구 채널은 {uyuni}에서 제공되며, {suse}이(가) 아닙니다.
 ====
 
 endif::[]
