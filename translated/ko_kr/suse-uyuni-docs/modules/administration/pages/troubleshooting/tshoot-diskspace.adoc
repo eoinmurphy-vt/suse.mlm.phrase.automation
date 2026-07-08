@@ -30,10 +30,10 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 공간 관리에 대한 자세한 내용은 xref:administration:space-management.adoc[]을 참조하십시오.
 
 일반적으로 컨테이너 볼륨은 호스트 파일 시스템과 공간을 공유합니다.
-[systemitem]``+btrfs+`` 파일 시스템이 가득 차면 파일을 삭제할 수 없게 됩니다.
-이를 해결하기 위해 [command]``+btrfs device add+`` 명령을 사용하여 파일 시스템에 임시로 소량의 저장소를 추가할 수 있습니다.
+`+btrfs+` 파일 시스템이 가득 차면 파일을 제거하지 못할 수 있습니다.
+이를 해결하기 위해 `+btrfs device add+` 명령을 사용하여 파일 시스템에 임시로 소량의 저장소를 추가할 수 있습니다.
 이렇게 하면 파일을 삭제하여 추가적인 파일 시스템 유지 관리를 위한 공간을 확보할 수 있습니다.
-유지 관리가 완료되면 [command]``+btrfs device delete+``를 사용하여 임시 저장소를 제거할 수 있습니다.
+유지 관리가 완료되면 `+btrfs device delete+`를 사용하여 임시 저장소를 제거할 수 있습니다.
 이 주제에 대한 자세한 정보는 https://www.suse.com/support/kb/doc/?id=000018779.를 참조하십시오.
 
 사용하지 않는 소프트웨어 채널을 제거하여 디스크 공간을 복구할 수 있습니다.
@@ -50,17 +50,17 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 
 .절차 중복 데이터베이스 항목 문제 해결하기
-. [command]``+spacewalk-data-fsck+`` 명령을 사용하여 중복 데이터베이스 항목을 나열합니다.
-. [command]``+spacewalk-data-fsck --remove+`` 명령을 사용하여 삭제합니다.
+. `+spacewalk-data-fsck+` 명령을 사용하여 중복된 데이터베이스 항목을 나열하십시오.
+. `+spacewalk-data-fsck --remove+` 명령을 사용하여 해당 항목을 삭제하십시오.
 
 
 
 == 누락된 디렉토리에 대한 디스크 검사 경고
 
 5.0에서 컨테이너화된 배포로 마이그레이션한 후 또는 사용자 정의 디스크 검사 구성을 사용할 때 더 이상 존재하지 않는 디렉토리에 대한 경고가 표시될 수 있습니다.
-이것은 일반적으로 [systemitem]``+DISKCHECKDIRS+``+ 환경 변수가 [path]+``+/var/lib/pgsql+`` 또는 그 하위 디렉토리를 참조할 때 발생합니다.
+이는 일반적으로 `+DISKCHECKDIRS+` 환경 변수가 `+/var/lib/pgsql+` 또는 해당 하위 디렉토리를 참조할 때 발생합니다.
 
-컨테이너화된 배포에서 PostgreSQL 데이터베이스는 자체 컨테이너에서 실행되며, [path]``+/var/lib/pgsql+`` 디렉토리는 더 이상 서버 컨테이너에 존재하지 않습니다.
+컨테이너화된 배포에서 PostgreSQL 데이터베이스는 자체 컨테이너에서 실행되며, `+/var/lib/pgsql+` 디렉토리는 더 이상 서버 컨테이너에 존재하지 않습니다.
 데이터베이스 파일은 별도의 데이터베이스 컨테이너 볼륨에 저장됩니다.
 
 로그나 알림에서 이러한 경고를 보시면:
@@ -75,19 +75,19 @@ DISKCHECK: Directory /var/lib/pgsql/data does not exist
 
 === 원인
 
-컨테이너화 이전에 고객은 [systemitem]``+spacecheck_dirs+``+ 매개변수를 [path]+``+/etc/rhn/rhn.conf+`` 파일에 설정하여 모니터링할 사용자 지정 디렉토리를 구성할 수 있었습니다.
-일반적인 구성에는 데이터베이스 디스크 공간을 모니터링하기 위해 [path]``+/var/lib/pgsql+``가 포함되었습니다.
+컨테이너화 이전에 고객은 `+/etc/rhn/rhn.conf+`에 `+spacecheck_dirs+` 매개변수를 설정하여 모니터링할 사용자 지정 디렉토리를 구성할 수 있었습니다.
+일반적인 구성에는 데이터베이스 디스크 공간을 모니터링하기 위해 `+/var/lib/pgsql+`가 포함되었습니다.
 
 컨테이너화된 배포에서:
 
-* [path]+``+/etc/rhn/rhn.conf+``+의 [systemitem]``+spacecheck_dirs+``+ 매개변수는 여전히 읽히지만, 설정된 경우 [systemitem]+``+DISKCHECKDIRS+`` 환경 변수에 의해 대체됩니다.
-* [systemitem]``+DISKCHECKDIRS+``+가 설정되지 않은 경우 시스템은 구성 파일의 [systemitem]+``+spacecheck_dirs+``를 사용합니다.
+* `+/etc/rhn/rhn.conf+`의 `+spacecheck_dirs+` 매개변수는 여전히 읽히지만, `+DISKCHECKDIRS+` 환경 변수가 설정된 경우 해당 변수에 의해 재정의됩니다.
+* `+DISKCHECKDIRS+`이(가) 설정되지 않은 경우, 시스템은 구성 파일의 `+spacecheck_dirs+`로 대체됩니다.
 * 데이터베이스는 별도의 컨테이너에서 실행되며 전용 디스크 검사를 가지고 있습니다.
 
 
 === 수정
 
-[systemitem]``+DISKCHECKDIRS+`` 환경 변수에서 오래된 디렉토리 참조를 제거하십시오.
+`+DISKCHECKDIRS+` 환경 변수에서 오래된 디렉토리 참조를 제거하십시오.
 
 .절차 오래된 디렉토리 참조 제거
 
@@ -97,7 +97,7 @@ DISKCHECK: Directory /var/lib/pgsql/data does not exist
 cat /etc/systemd/system/uyuni-server.service.d/diskcheck.conf
 ----
 
-. 파일에 [path]``+/var/lib/pgsql+`` 또는 다른 존재하지 않는 디렉토리가 포함되어 있으면, 유효한 디렉토리만 사용하도록 업데이트하십시오:
+. 파일에 `+/var/lib/pgsql+` 또는 다른 존재하지 않는 디렉토리가 포함되어 있으면, 유효한 디렉토리만 사용하도록 업데이트하십시오:
 +
 ----
 cat > /etc/systemd/system/uyuni-server.service.d/diskcheck.conf << 'EOF'
@@ -118,7 +118,7 @@ mgradm restart
 누락된 디렉토리에 대한 디스크 검사 경고가 더 이상 나타나지 않을 것입니다.
 서버 컨테이너는 컨테이너 내에 존재하는 디렉토리만 모니터링합니다.
 
-데이터베이스 컨테이너는 데이터베이스 컨테이너 내의 PostgreSQL 데이터 디렉토리 ([path]``+/var/lib/pgsql/data+``)를 모니터링하는 별도의 디스크 검사를 가지고 있습니다.
+데이터베이스 컨테이너는 데이터베이스 컨테이너 내의 PostgreSQL 데이터 디렉토리(`+/var/lib/pgsql/data+`)를 모니터링하는 별도의 디스크 검사를 가지고 있습니다.
 이 검사는 자동으로 구성되며 수동 개입이 필요하지 않습니다.
 
 컨테이너화된 배포에서 디스크 공간 관리에 대한 자세한 정보는 xref:administration:space-management.adoc[]을 참조하십시오.
