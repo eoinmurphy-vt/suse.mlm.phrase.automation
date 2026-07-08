@@ -23,7 +23,7 @@ endif::[]
 他のKubernetes環境にデプロイする必要がある場合は、評価のためにサポートに連絡してください。
 ====
 
-コンテナホストマシンで、[literal]``+K3s+``+をインストールします（[literal]+``+<K3S_HOST_FQDN>+``をK3sホストのFQDNに置き換えます）：
+コンテナホストマシンに、`+K3s+`をインストールします（`+<K3S_HOST_FQDN>+`をK3sホストのFQDNに置き換えます）：
 
 [source,shell]
 ----
@@ -33,9 +33,9 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--tls-san=<K3S_HOST_FQDN>" sh -
 [[installation-proxy-containers-k3s-helm]]
 == ツールのインストール
 
-インストールには、[literal]``+mgrpxy+``+および[literal]+``+helm+``パッケージが必要です。
+インストールには、`+mgrpxy+`および`+helm+`パッケージが必要です。
 
-[literal]``+mgrpxy+``+および+``+helm+``パッケージは、{productname}プロキシ製品リポジトリで利用可能です。
+`+mgrpxy+`および`+helm+`パッケージは、{productname}プロキシ製品リポジトリで利用可能です。
 
 . インストールするには、次のコマンドを実行します。
 
@@ -65,12 +65,12 @@ endif::[]
 
 永続ボリュームのクレームの名前は次のとおりです。
 
-* [literal]``+squid-cache-pv-claim+``
-* [literal]``+package-cache-pv-claim+``
-* [literal]``+tftp-boot-pv-claim+``
+* `+squid-cache-pv-claim+`
+* `+package-cache-pv-claim+`
+* `+tftp-boot-pv-claim+`
 
 xref:installation-and-upgrade:container-deployment/mlm/proxy-deployment-mlm.adoc[]に記載されているように、{productname} プロキシの設定を作成します。
-構成[literal]``+tar.gz+``ファイルをコピーし、次にインストールします：
+設定`+tar.gz+`ファイルをコピーしてからインストールします:
 
 ----
 mgrpxy install kubernetes /path/to/config.tar.gz
