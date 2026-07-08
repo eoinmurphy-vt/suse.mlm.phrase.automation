@@ -39,10 +39,10 @@
 
 == 重新启用路由器通告
 
-当使用 [command]``+mgradm install podman+``+ 或 [command]+``+mgrpxy install podman+`` 安装 {productname} 时，它会设置 Podman，从而启用 IPv4 和 IPv6 转发。
+当使用 `+mgradm install podman+` 或 `+mgrpxy install podman+` 安装 {productname} 时，它会设置 Podman，从而启用 IPv4 和 IPv6 转发。
 这对于容器外部的通信是必要的。
 
-然而，如果您的系统之前将 [literal]``+/proc/sys/net/ipv6/conf/eth0/accept_ra+``+ 设置为 [literal]+``+1+``，它将停止使用路由器广告。
+但是，如果您的系统之前将 `+/proc/sys/net/ipv6/conf/eth0/accept_ra+` 设置为 `+1+`，它将停止使用路由器通告。
 因此，路由不再通过路由器广告获取，默认的 IPv6 路由缺失。
 
 要恢复 IPv6 路由的正常功能，请执行以下步骤：
@@ -55,7 +55,7 @@
 .过程：升级重新启用路由器广告而不使用网络管理器
 [role=procedure]
 ____
-. 在 [path]``+/etc/sysctl.d+`` 中创建一个文件，例如 [literal]+``+99-ipv6-ras.conf+``。
+. 在 `+/etc/sysctl.d+` 中创建一个文件，例如 `+99-ipv6-ras.conf+`。
 . 向文件中添加以下参数和值：
 
 +
@@ -76,9 +76,9 @@ ____
 .过程：升级使用网络管理器重新启用路由器广告
 [role=procedure]
 ____
-. 使用 [command]``+nmcli connection show+`` 列出您的连接。
+. 使用 `+nmcli connection show+` 列出您的连接。
 
-. 创建或修改文件 [path]``+/etc/NetworkManager/system-connections/<name of connection>.nmconnection+`` 以添加此设置：
+. 创建或修改文件 `+/etc/NetworkManager/system-connections/<name of connection>.nmconnection+` 以添加此设置：
 
 +
 
@@ -122,7 +122,7 @@ ____
 
 .过程：升级配置 HTTP 或 HTTPS OSI 七层代理
 
-. 要进行操作系统互联网访问配置，请根据需求修改 [path]``+/etc/sysconfig/proxy+``：
+. 要进行操作系统互联网访问配置，请根据需求修改 `+/etc/sysconfig/proxy+`：
 
 +
 
@@ -134,7 +134,7 @@ HTTPS_PROXY=""
 NO_PROXY="localhost, 127.0.0.1"
 ----
 
-. 要进行 ``+Podman+`` 容器的互联网访问配置，请根据需求修改 [path]+``+/etc/systemd/system/uyuni-server.service.d/custom.conf+``。
+. 要进行 `+Podman+` 容器互联网访问配置，请根据需求修改 `+/etc/systemd/system/uyuni-server.service.d/custom.conf+`。
   例如，进行如下设置：
 
 +
@@ -147,14 +147,14 @@ Environment="PODMAN_EXTRA_ARGS="
 Environment="https_proxy=user:password@http://192.168.10.1:3128"
 ----
 
-. 要进行 Java 应用程序的互联网访问配置，请根据需求修改 [path]``+/etc/rhn/rhn.conf+``。
-  在容器主机上，执行 [literal]``+mgrctl term+`` 以在服务器容器内打开命令行：
+. 要进行 Java 应用程序的互联网访问配置，请根据需求修改 `+/etc/rhn/rhn.conf+`。
+  在容器主机上，执行 `+mgrctl term+` 以在服务器容器内打开命令行：
 
 +
 
 --
 
-.. 根据需求修改 [path]``+/etc/rhn/rhn.conf+``。
+.. 根据需要修改 `+/etc/rhn/rhn.conf+`。
    例如，进行如下设置：
 
 +
@@ -231,7 +231,7 @@ image::ports_proxy_diagram.png[]
 | 67          | TCP/UDP  | DHCP       | 仅在客户端请求服务器的 IP 地址时需要。
 | 69          | TCP/UDP  | TFTP       | 如果服务器用作 PXE 服务器以进行自动客户端安装，则需要。
 | 80          | TCP      | HTTP       | 在某些引导储存库和自动安装过程中暂时需要。
-| 443         | TCP      | HTTPS      | 处理 {webui}、客户端、服务器和代理 (``+tftpsync+``) 请求。
+| 443         | TCP      | HTTPS      | 处理 {webui}、客户端、服务器和代理 (`+tftpsync+`) 请求。
 | 4505        | TCP      | Salt       | 需要接受来自客户端的通信请求。
 客户端发起连接，并保持打开状态以接收来自 Salt 主控的命令。
 | 4506        | TCP      | Salt       | 需要接受来自客户端的通信请求。
@@ -266,7 +266,7 @@ image::ports_proxy_diagram.png[]
 === 内部服务器端口
 
 内部端口由 {productname} 服务器内部使用。
-内部端口仅可从 [literal]``+localhost+`` 访问。
+内部端口仅可从 `+localhost+` 访问。
 
 大多数情况下无需调整这些端口。
 
@@ -309,7 +309,7 @@ cat /proc/sys/net/ipv4/ip_local_port_range
 | 22          |          |         | 仅在用户希望通过 {salt} SSH 管理代理主机时需要。
 | 67          | TCP/UDP  | DHCP    | 仅在客户端请求服务器的 IP 地址时需要。
 | 69          | TCP/UDP  | TFTP    | 如果服务器用作 PXE 服务器以进行自动客户端安装，则需要。
-| 443         | TCP      | HTTPS   | {webui}、客户端、服务器和代理（``+tftpsync+``）请求。
+| 443         | TCP      | HTTPS   | {webui}、客户端、服务器和代理 (`+tftpsync+`) 请求。
 | 4505        | TCP      | Salt    | 需要接受来自客户端的通信请求。
 客户端发起连接，并保持打开状态以接收来自 Salt 主控的命令。
 | 4506        | TCP      | Salt    | 需要接受来自客户端的通信请求。
@@ -366,18 +366,18 @@ cat /proc/sys/net/ipv4/ip_local_port_range
 有一些 URL {productname} 必须能够访问，以注册客户端并执行更新。
 在大多数情况下，允许访问这些 URL 就足够了：
 
-* [literal]``+scc.suse.com+``
-* [literal]``+updates.suse.com+``
-* [literal]``+installer-updates.suse.com+``
-* [literal]``+registry.suse.com+``
-* [literal]``+registry-storage.suse.com+``
-* [literal]``+opensuse.org+``
+* `+scc.suse.com+`
+* `+updates.suse.com+`
+* `+installer-updates.suse.com+`
+* `+registry.suse.com+`
+* `+registry-storage.suse.com+`
+* `+opensuse.org+`
 
 此外，您可能需要访问以下非 SUSE 产品的 URL：
 
-* [literal]``+download.nvidia.com+``
-* [literal]``+public.dhe.ibm.com+``
-* [literal]``+nu.novell.com+``
+* `+download.nvidia.com+`
+* `+public.dhe.ibm.com+`
+* `+nu.novell.com+`
 
 您可以在以下文章中找到有关将指定 URL 及其关联 IP 地址列入白名单的更多详细信息：https://support.scc.suse.com/s/kb/SUSE-Customer-Center-and-SUSE-registry-URLs-for-access-behind-a-firewall-and-or-through-a-proxy[在防火墙和/或代理后访问 {scclongform} 和 SUSE 仓库]。
 
