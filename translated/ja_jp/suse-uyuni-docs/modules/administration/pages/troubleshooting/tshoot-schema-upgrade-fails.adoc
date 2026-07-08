@@ -31,11 +31,11 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 
 スキーマアップグレードがエラーの場合、データベースバージョンチェックと他のすべてのSpacewalkサービスが起動しません。
-コンテナホストで[command]``+mgradm start+``を実行して、詳細情報と進め方のヒントを得てください。
+詳細情報や進め方のヒントを得るには、コンテナホストで`+mgradm start+`を実行してください。
 
 [IMPORTANT]
 ====
-サーバコンテナ内でシェルにアクセスするには、コンテナホストで[literal]``+mgrctl term+``を実行します。
+サーバコンテナ内のシェルにアクセスするには、コンテナホストで`+mgrctl term+`を実行します。
 ====
 
 バージョン確認をコンテナ上で直接実行することもできます。
@@ -50,4 +50,4 @@ systemctl status uyuni-check-database.service
 journalctl -u uyuni-check-database.service
 ----
 
-一般的な[command]``+mgradm+``コマンドを実行しない場合、これらのコマンドを実行するとデバッグ情報が出力されます。
+より一般的な`+mgradm+`コマンドを実行したくない場合、これらのコマンドを実行するとデバッグ情報が出力されます。
