@@ -2,14 +2,14 @@
 :description: 特定の例の形式でカスタムmgradm.yamlファイルを作成する方法を学び、その後、パスワードを保護しながらデプロイメント時にmgradmツールと共に使用します。
 :revdate: 2024-11-19
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメンテーションチーム
+:page-author: SUSE製品およびソリューションドキュメントチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
 
-カスタムの[filename]``+mgradm.yaml+``+ファイルを作成するオプションがあり、[command]+``+mgradm+``ツールはデプロイメント時にこのファイルを利用できます。
-すべての[command]``+mgradm+``引数には、対応するYAML項目が存在します。
-例えば、[command]``+mgradm+``+引数+``+--ssl-db-ca-intermediate+``+は、[filename]+``+mgradm.yaml+``ファイルに次のように指定できます:
+カスタムの`+mgradm.yaml+`ファイルを作成するオプションがあり、`+mgradm+`ツールはデプロイメント時にこのファイルを利用できます。
+すべての`+mgradm+`引数には、対応するYAML項目が存在します。
+例えば、`+mgradm+`引数`+--ssl-db-ca-intermediate+`は、次のように`+mgradm.yaml+`ファイルで指定できます。
 
 [source, yaml]
 ssl:
@@ -19,14 +19,14 @@ ssl:
 
 [IMPORTANT]
 ====
-[command]``+mgradm+``+は、コマンドラインパラメータまたは[filename]+``+mgradm.yaml+``設定ファイルで基本的な変数が指定されていない場合、入力を求めます。
+コマンドライン引数または`+mgradm+`設定ファイルで基本的な変数が指定されていない場合、`+mgradm.yaml+`が入力を求めます。
 
 セキュリティのため、**コマンドラインパラメータを使用してパスワードを指定することは避けるべきです**。
 代わりに適切な権限を持つ設定ファイルを使用してください。
 ====
 
 .プロシージャ:カスタム設定ファイルを使用してPodmanで{productname}コンテナをデプロイする
-. 次の例のような[filename]``+mgradm.yaml+``という名前の設定ファイルを準備します。
+. 次の例のような`+mgradm.yaml+`という名前の設定ファイルを準備します。
 +
 [source, yaml]
 ....
