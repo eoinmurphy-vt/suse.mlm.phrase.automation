@@ -36,7 +36,7 @@ ifeval::[{mlm-content} == true]
 | {check}
 | {check}
 
-| 操作系统软件包
+| 操作系统包
 | {check}
 | {check}
 
@@ -100,7 +100,7 @@ ifeval::[{mlm-content} == true]
 | {check}
 | {check}
 
-| 暂存（预下载软件包）
+| 暂存 (软件包预下载)
 | {check}
 | {check}
 
@@ -147,7 +147,7 @@ ifeval::[{mlm-content} == true]
 | 监视服务器
 | {cross}
 | {cross}
-`
+
 | 监控的客户端
 | {check}
 | {check}
@@ -198,7 +198,7 @@ ifeval::[{uyuni-content} == true]
 | {check}
 | {check}
 
-| 操作系统软件包
+| 操作系统包
 | {check}
 | {check}
 
@@ -262,7 +262,7 @@ ifeval::[{uyuni-content} == true]
 | {check}
 | {check}
 
-| 暂存（预下载软件包）
+| 暂存 (软件包预下载)
 | {check}
 | {check}
 
