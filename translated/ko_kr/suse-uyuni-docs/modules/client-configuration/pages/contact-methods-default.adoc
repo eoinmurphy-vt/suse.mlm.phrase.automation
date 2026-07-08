@@ -9,12 +9,12 @@
 :page-product-version: 5.1
 
 특별한 필요가 없는 한 {salt} 프로토콜을 사용하는 기본 연락처 방법이 권장됩니다.
-기본적으로 {salt} 번들 구현([package]``+venv-salt-minion+``)이 배포됩니다.
+기본적으로 {salt} 번들 구현(`+venv-salt-minion+`)이 배포됩니다.
 일반적인 {salt}에 대한 자세한 내용은 xref:specialized-guides:salt/salt-overview.adoc[]를 참조하십시오.
 
 ifeval::[{mlm-content} == true]
 
-기본 연락처 방법([literal]``+기본+``)은 가장 좋은 확장 방법입니다.
+기본 연락 방법 (`+Default+`)은 가장 좋은 확장 방법입니다.
 모든 새로운 {productname} 기능이 지원됩니다.
 
 [IMPORTANT]
@@ -46,10 +46,10 @@ SSH Push에 대한 자세한 내용은 xref:client-configuration:contact-methods
 {salt}은 미니언의 키를 유지하기 위한 자체 데이터베이스를 가지고 있습니다. 이는 {productname} 데이터베이스와 동기화되어야 합니다.
 키가 {salt}에서 수락되면 {productname}에서 온보딩 프로세스가 시작됩니다.
 
-온보딩 프로세스는 {productname} 데이터베이스에서 ``+minion_id+``+ 및 +``+machine-id+``+를 검색하여 기존 시스템을 찾습니다.
+온보딩 프로세스는 {productname} 데이터베이스에서 `+minion_id+` 및 `+machine-id+`를 검색하여 기존 시스템을 찾습니다.
 결과에 따라 다음과 같은 시나리오가 가능합니다:
 
 * 아무것도 찾을 수 없으면 새 시스템이 생성됩니다.
-* ``+minion_id+``+ 또는 +``+machine-id+``가 있는 항목을 찾으면 해당 시스템은 새 시스템과 일치하도록 마이그레이션됩니다.
+* `+minion_id+` 또는 `+machine-id+`가 있는 항목을 찾으면 해당 시스템은 새 시스템과 일치하도록 마이그레이션됩니다.
 * 두 항목이 모두 일치하지만 동일한 시스템이 아닌 경우 오류가 발생하고 온보딩이 중단됩니다.
 * 이 경우 관리자는 시스템 중 하나 이상을 제거하여 충돌을 해결해야 합니다.
