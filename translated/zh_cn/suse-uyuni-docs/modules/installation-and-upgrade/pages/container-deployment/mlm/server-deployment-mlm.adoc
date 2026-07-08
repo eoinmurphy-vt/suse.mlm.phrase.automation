@@ -54,7 +54,7 @@ endif::[]
 容器主机支持的操作系统为 {sl-micro} {microversion} 或 {sles} {bci-mlm}。
 
 容器主机::
-容器主机是配备有容器引擎如 [systemitem]``+Podman+`` 的服务器，允许其管理和部署容器。
+容器主机是配备有容器引擎（如 `+Podman+`）的服务器，允许其管理和部署容器。
 这些容器包含应用程序及其基本部分，如库，但不包含完整的操作系统，使其更加轻量。
 此设置确保应用程序在不同环境中以相同方式运行。
 容器主机提供这些容器所需的资源，如 CPU、内存和存储。
@@ -69,9 +69,9 @@ FQDN 通常遵循格式 <host>.<domain>.com。
 
 例如：
 
-* [literal]``+mlm.example.com+``
+* `+mlm.example.com+`
 
-* [literal]``+mlm.container.lab+``
+* `+mlm.container.lab+`
 
 有关更多信息，请参见 xref:installation-and-upgrade:network-requirements.adoc[] 中的网络要求部分。
 ====
@@ -81,9 +81,9 @@ FQDN 通常遵循格式 <host>.<domain>.com。
 // This sections needs to be run by devs. How would a customer use custom storage? How do we set this up with mgradm?
 
 默认情况下，{productname} {productnumber} 定义了所需的持久存储卷。
-如果这些卷尚不存在，它们将在安装过程中由 [command]``+mgradm+`` 工具创建。
+如果这些卷尚不存在，它们将在安装过程中由 `+mgradm+` 工具创建。
 
-这些卷创建在 [path]``+/var/lib/containers/storage/volumes/+``+ 中，其中 [systemitem]+``+Podman+`` 默认存储其卷。
+这些卷是在 `+/var/lib/containers/storage/volumes/+` 中创建的，`+Podman+` 默认将卷存储在此处。
 
 .建议
 [NOTE]
@@ -102,7 +102,7 @@ FQDN 通常遵循格式 <host>.<domain>.com。
 XFS（尽管任何支持的文件系统都可以用于 {sl-micro} {microversion}）。
 
 可选::
-您可以通过在预期的卷路径内挂载磁盘来提供自定义存储，例如 [path]``+/var/lib/containers/storage/volumes/var-spacewalk+``。
+您可以通过在其中的预期卷路径（例如 `+/var/lib/containers/storage/volumes/var-spacewalk+`）上挂载磁盘来为卷提供自定义存储。
 这增加了 {productname} 部署的复杂性，并可能影响默认存储建议提供的弹性。
 
 ====
@@ -150,10 +150,10 @@ endif::[]
 [[deploy-mlm-server-persistent-storage]]
 == 配置自定义永久性存储
 
-配置持久存储是可选的，但这是避免容器磁盘满状态严重问题的唯一方法。
-强烈建议使用 [command]``+mgr-storage-server+`` 工具配置自定义持久存储。
+配置永久性存储是可选的，但这是避免容器因磁盘已满而引发严重问题的唯一方法。
+强烈建议使用 `+mgr-storage-server+` 工具配置自定义持久存储。
 
-有关更多信息，请参见 [command]``+mgr-storage-server --help+``。
+有关详细信息，请访问 `+mgr-storage-server --help+`。
 
 有关详细信息，请参见 [command]\\``mgr-storage-server \--help``。此工具可以简化容器存储和数据库卷的创建。
 
@@ -171,7 +171,7 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 
 [NOTE]
 ====
-此命令将在 [path]``+/var/lib/containers/storage/volumes+`` 中创建持久存储卷。
+此命令将在 `+/var/lib/containers/storage/volumes+` 处创建持久存储卷。
 
 有关详细信息，请参见
 
@@ -183,7 +183,7 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 
 
 [[deploy-mlm-server-mgradm]]
-== 使用 [literal]``+mgradm+`` 部署 {productname}
+== 使用 {productname} 部署 `+mgradm+`
 
 ifndef::backend-pdf[]
 include::installation-and-upgrade:partial$snippet-note-deploy-certs.adoc[]
@@ -200,7 +200,7 @@ ifdef::backend-pdf[]
 include::../../../partials/snippet-hardened-tmpdir.adoc[leveloffset=+2]
 endif::[]
 
-.过程：升级使用 [literal]``+mgradm+`` 部署 {productname} {productnumber}
+.过程：升级使用 {productname} 部署 {productnumber} `+mgradm+`
 . 以 root 身份登录。
 
 ifndef::backend-pdf[]
@@ -252,7 +252,7 @@ endif::[]
 
 . 打开浏览器并访问您的服务器 FQDN。
 
-. 输入您的用户名（默认为 [literal]``+admin+``）以及在部署过程中设置的密码。
+. 输入您的用户名（默认为 `+admin+`）以及在部署过程中设置的密码。
 
 在本指南中，您将 {productname} {productnumber} 服务器作为容器进行部署。
 继续下一部分以添加您的组织凭证以与 {scclongform} 同步。
@@ -267,11 +267,11 @@ endif::[]
 
 . 打开浏览器并访问您的服务器 FQDN。
 
-. 输入您的用户名（默认为 [literal]``+admin+``）以及在部署过程中设置的密码。
+. 输入您的用户名（默认为 `+admin+`）以及在部署过程中设置的密码。
 
 . 在 {productname} {webui} 中，选择 menu:Admin[安装向导]。
 
-. 在[guimenu]``+安装向导+``页中选择btn:[组织凭证]选项卡。
+. 在 `+Setup Wizard+` 页面中选择 btn:[组织凭证] 选项卡。
 
 . 单击btn:[添加新凭证]。
 
@@ -283,7 +283,7 @@ endif::[]
 
 . 记下您的**镜像凭证**。
 
-. 返回到{productname} {webui}，输入您的[guimenu]``+用户名+``+和[guimenu]+``+密码+``，并确认btn:[保存]。
+. 回到 {productname} {webui}，输入您的 `+Username+` 和 `+Password+`，并使用 btn:[保存] 进行确认。
 
 当凭证通过绿色勾号图标确认后，继续进行<<proc-quickstart-first-channel-sync>>。
 
@@ -293,7 +293,7 @@ endif::[]
 
 . 在{webui}中，导航到menu:Admin[安装向导]。
 
-. 在[guimenu]``+安装向导+``+页中选择[guimenu]+``+SUSE 产品+``选项卡。
+. 在 `+Setup Wizard+` 页面中选择 `+SUSE Products+` 选项卡。
 
 +
 
@@ -302,7 +302,7 @@ endif::[]
 
 +
 
-您可以在右侧的部分监控操作进度``+从{scclongform}刷新产品目录+``。
+您可以在右侧的 `+Refresh the product catalog from {scclongform}+` 部分中监控操作进度。
 
 +
 
@@ -315,7 +315,7 @@ image::admin_suse_products.png[scaledwidth=80%]
 
 +
 
-. 使用``+按产品说明过滤+``+和+``+按架构过滤+``来过滤显示的产品列表。
+. 使用 `+Filter by product description+` 和 `+Filter by architecture+` 来过滤显示的产品列表。
 
 +
 
@@ -334,7 +334,7 @@ image::admin_suse_products.png[scaledwidth=80%]
 * 单击页面顶部的btn:[添加产品]以开始产品同步。
 
 添加通道后，{productname}将安排通道进行同步。
-这可能需要很长时间，因为 {productname} 将从位于 {scclongform} 的 {suse} 储存库复制通道软件源到您服务器的本地 [path]``+/var/lib/containers/storage/volumes/var-spacewalk/+`` 目录。
+这可能需要很长时间，因为 {productname} 将从位于 {suse} 的 {scclongform} 储存库复制通道软件源到您服务器的本地 `+/var/lib/containers/storage/volumes/var-spacewalk/+` 目录。
 
 当通道完全同步时，将自动生成一个引导存储库。
 此步骤对于成功引导客户端至关重要，确保通道同步和分发在客户端上正常运行。这完成了 {productname} 的安装和配置，并准备了引导客户端所需的通道。
