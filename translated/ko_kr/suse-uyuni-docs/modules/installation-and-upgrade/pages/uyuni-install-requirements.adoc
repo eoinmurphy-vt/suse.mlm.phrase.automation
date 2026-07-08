@@ -19,7 +19,7 @@ endif::[]
 NFS는 SELinux 파일 레이블을 지원하지 않으므로 스토리지에 사용하지 마십시오.
 ====
 
-// In this table, replace ``+version+`` with the version of the product you are using.
+// In this table, replace `+version+` with the version of the product you are using.
 == 서버 요구사항
 
 
@@ -48,15 +48,15 @@ NFS는 SELinux 파일 레이블을 지원하지 않으므로 스토리지에 사
 | 최소 32{nbsp}GB
 
 | 디스크 공간
-| [path]``+/+`` (루트 디렉토리)
+| `+/+` (루트 디렉토리)
 | Minimum 40{nbsp}GB
 
 |
-| [path]``+/var/lib/pgsql+``
+| `+/var/lib/pgsql+`
 | 최소 50{nbsp}GB
 
 |
-| [path]``+/var/spacewalk+``
+| `+/var/spacewalk+`
 | 필요한 최소 저장 공간: 100{nbsp}GB (이는 구현된 검증을 통해 확인됩니다)
  +
 * 각 {suse} 제품 및 Package Hub당 50{nbsp}GB
@@ -64,7 +64,7 @@ NFS는 SELinux 파일 레이블을 지원하지 않으므로 스토리지에 사
 * 각 {redhat} 제품당 360{nbsp}GB
 
 |
-| [path]``+/var/cache+``
+| `+/var/cache+`
 | 최소 10{nbsp}GB입니다.
 각 {suse} 제품당 100{nbsp}MB, 각 {redhat} 또는 기타 제품당 1{nbsp}GB를 추가하십시오.
 서버가 ISS 마스터인 경우 공간을 두 배로 늘리십시오.
@@ -102,27 +102,27 @@ NFS는 SELinux 파일 레이블을 지원하지 않으므로 스토리지에 사
 | 최소 8{nbsp}GB
 
 | 디스크 공간
-| [path]``+/+`` (루트 디렉토리)
+| `+/+` (루트 디렉토리)
 | Minimum 40{nbsp}GB
 
 |
-| [path]``+/srv+``
+| `+/srv+`
 | Minimum 100{nbsp}GB
 
 |
-| [path]``+/var/cache+`` (Squid)
+| `+/var/cache+` (Squid)
 | Minimum 100{nbsp}GB
 |===
 
 
-{productname} 프록시는 [path]``+/var/cache/+`` 디렉토리에 패키지를 캐시합니다.
-[path]``+/var/cache/+``에 사용 가능한 공간이 충분하지 않으면, 프록시는 오래된 사용하지 않는 패키지를 제거하고 새로운 패키지로 교체합니다.
+{productname} 프록시는 `+/var/cache/+` 디렉토리에 패키지를 캐시합니다.
+`+/var/cache/+`에 사용 가능한 공간이 충분하지 않으면, 프록시는 오래된 사용하지 않는 패키지를 제거하고 새로운 패키지로 교체합니다.
 
 이 동작의 결과:
 
-* 프록시의 [path]``+/var/cache/+`` 디렉토리가 클수록, {productname} 서버와의 트래픽은 줄어듭니다.
+* 프록시의 `+/var/cache/+` 디렉토리가 클수록, 프록시와 {productname} 서버 간의 트래픽은 줄어듭니다.
 
-* 프록시에서 [path]``+/var/cache/+``+ 디렉토리의 크기를 [path]+``+/var/spacewalk/+``{productname}의 크기와 동일하게 설정하면, 최초 동기화 후 대규모 트래픽이 발생하는 것을 방지할 수 있습니다.
+* 프록시의 `+/var/cache/+` 디렉토리 크기를 `+/var/spacewalk/+` 서버의 {productname}와 동일하게 설정하면, 최초 동기화 후 많은 트래픽을 피할 수 있습니다.
 
-* [path]``+/var/cache/+`` 디렉토리는 프록시에 비해 {productname} 서버에서 작을 수 있습니다.
+* `+/var/cache/+` 서버에 있는 {productname} 디렉토리는 프록시보다 작을 수 있습니다.
     크기 추정에 대한 가이드는 <<server-hardware-requirements>> 섹션을 참조하십시오.
