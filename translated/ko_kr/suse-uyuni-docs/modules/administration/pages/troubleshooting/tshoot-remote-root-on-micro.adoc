@@ -24,13 +24,13 @@ SSH 루트 로그인을 활성화하는 방법은 두 가지가 있습니다.
 
 .옵션 A: 사전 구성된 패키지 사용
 
-. 클라이언트의 UI/API에서 패키지 [package]``+openssh-server-config-rootlogin+``을 설치합니다.
+. 클라이언트의 UI/API에서 패키지 `+openssh-server-config-rootlogin+`를 설치하십시오.
 
 . 컨테이너 호스트를 재부팅해 UI 또는 터미널에서 새 구성을 활성화합니다.
 
 .옵션 B: SSH 구성을 수동으로 편집
 
-. 다음과 같은 내용의 드롭인 구성 파일 [path]``+/etc/ssh/sshd_config.d/permit_root.conf+``을 추가합니다:
+. 다음 내용이 포함된 드롭인 구성 `+/etc/ssh/sshd_config.d/permit_root.conf+` 파일을 추가하십시오:
 
 +
 ----
@@ -49,5 +49,5 @@ systemctl reload sshd
 ____
 
 
-[command]``+트랜잭션 업데이트+``에 대한 자세한 내용은 https://documentation.suse.com/sle-micro/6.1/html/Micro-transactional-updates/.를 참조하십시오.
+`+transactional-update+`에 대한 자세한 내용은 https://documentation.suse.com/sle-micro/6.1/html/Micro-transactional-updates/.을 참조하십시오.
 
