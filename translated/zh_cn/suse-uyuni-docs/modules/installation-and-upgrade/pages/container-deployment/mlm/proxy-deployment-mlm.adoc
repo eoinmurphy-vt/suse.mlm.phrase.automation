@@ -18,8 +18,8 @@ endif::[]
 
 [IMPORTANT]
 ====
-目前仅支持将 {sl-micro} 作为常规从属（[systemitem]``+default+`` 联系方式）。
-我们也在努力将其作为 Salt SSH 客户端（[systemitem]``+salt-ssh+`` 联系方式）进行管理。
+目前仅支持将 {sl-micro} 作为常规 minion（`+default+` 联系方式）。
+我们也在努力将其作为 Salt SSH 客户端（`+salt-ssh+` 联系方式）进行管理。
 ====
 
 [NOTE]
@@ -44,7 +44,7 @@ _____
 
 . 创建带有代理扩展的 {salt} 激活密钥。
 
-. 使用 [systemitem]``+default+`` 连接方法将代理作为客户端启动。
+. 使用 `+default+` 连接方法将代理启动为客户端。
 
 . 生成代理配置。
 
@@ -80,7 +80,7 @@ _____
 
 本节假定您已在服务器的 menu:管理员[设置向导> 组织凭据] {webui} 下输入了您的组织凭据。
 产品列在 menu:管理员[设置向导> 产品] 页面上。
-此通道必须在服务器上完全同步，并选择子通道 [systemitem]``+代理+`` 作为扩展选项。
+此通道必须在服务器上完全同步，并选择子通道 `+Proxy+` 作为扩展选项。
 
 
 .过程：升级同步父通道和代理扩展
@@ -94,7 +94,7 @@ _____
 . 接下来，在下拉列表中选择所需的体系结构。
   在本示例中 {x86_64}。
 
-. 在 [systemitem]``+产品描述+``+ 字段中选择 {sl-micro} {microversion} 或 {sles} {bci-mlm} 复选框，然后使用下拉列表选择 [systemitem]+``+{productname} 代理扩展 5.1 x86_64+`` 扩展。
+. 在 `+Product Description+` 字段中，选中 {sl-micro} {microversion} 或 {sles} {bci-mlm} 复选框，然后使用下拉菜单选择 `+{productname} Proxy Extension 5.1 x86_64+` 扩展。
 
 . 单击 btn:[添加产品] 按钮。
 
@@ -138,9 +138,9 @@ endif::[]
 == 配置自定义永久性存储
 
 配置永久性存储是可选的，但这是避免容器因磁盘已满而引发严重问题的唯一方法。
-如果您的基础设施需要自定义永久性存储，请使用 [command]``+mgr-storage-proxy+`` 工具。
+如果您的基础设施需要自定义的永久性存储，请使用 `+mgr-storage-proxy+` 工具。
 
-* 有关更多信息，请参见 [command]``+mgr-storage-proxy --help+``。
+* 有关详细信息，请访问 `+mgr-storage-proxy --help+`。
 此工具可以简化容器存储和 Squid 缓存卷的创建。
 
 如下所示使用命令：
@@ -161,7 +161,7 @@ mgr-storage-proxy /dev/nvme1n1
 
 [NOTE]
 ====
-此命令将在 [path]``+/var/lib/containers/storage/volumes+`` 中创建持久存储卷。
+此命令将在 `+/var/lib/containers/storage/volumes+` 处创建持久存储卷。
 
 有关详细信息，请参见
 
@@ -218,7 +218,7 @@ endif::[]
 [[proxy-setup-containers-transfer-start]]
 == 启动 {productname} 代理
 
-现在可以使用 [literal]`+mgrpxy+` 命令启动容器：
+现在可以使用 `+mgrpxy+` 命令启动容器：
 
 [[proc-setup-containers-setup-start]]
 .过程：升级启动并检查代理状态
@@ -243,7 +243,7 @@ mgrpxy status
 
 +
 
-应该会显示五个 {productname} 代理容器，并且它们应该是 [literal]``+proxy-pod+`` 容器 Pod 的一部分：
+应该会显示五个 {productname} 代理容器，并且它们应该属于 `+proxy-pod+` 容器 Pod：
 
 * proxy-salt-broker
 * proxy-httpd
@@ -258,7 +258,7 @@ _____
 == 为服务使用自定义容器映像
 
 默认情况下，{productname} 代理套件配置为对其每个服务使用相同的映像版本和注册表路径。
-但是，可以使用以 [literal]``+-tag+``+ 和 [literal]+``+-image+`` 结尾的安装参数覆盖特定服务的默认值。
+但是，可以使用以`+-tag+`和`+-image+`结尾的安装参数覆盖特定服务的默认值。
 
 例如：
 
@@ -267,7 +267,7 @@ _____
 mgrpxy install podman --httpd-tag 0.1.0 --httpd-image registry.opensuse.org/uyuni/proxy-httpd /path/to/config.tar.gz
 ----
 
-该命令会在重启 httpd 服务之前调整其配置文件。其中 [path]``+registry.opensuse.org/uyuni/proxy-httpds+``+ 是要使用的映像，[literal]+``+0.1.0+`` 是版本标记。
+它会在重启httpd服务之前调整其配置文件，其中`+registry.opensuse.org/uyuni/proxy-httpds+`是要使用的镜像，`+0.1.0+`是版本标签。
 
 要重置为默认值，请再次运行 install 命令但不要指定这些参数：
 
