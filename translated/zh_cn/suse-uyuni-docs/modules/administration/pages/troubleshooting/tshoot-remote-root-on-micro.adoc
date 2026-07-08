@@ -24,13 +24,13 @@ ____
 
 .方案一：使用预配置的软件包
 
-. 在客户端上通过 UI/API 安装软件包 [package]``+openssh-server-config-rootlogin+``。
+. 从客户端的 UI/API 安装软件包 `+openssh-server-config-rootlogin+`。
 
 . 在 UI 或终端中重引导容器主机以激活新配置
 
 .方案二：手动编辑 SSH 配置
 
-. 添加一个补充配置文件 [path]``+/etc/ssh/sshd_config.d/permit_root.conf+``，在其中包含以下内容：
+. 添加一个补充配置 `+/etc/ssh/sshd_config.d/permit_root.conf+` 文件，内容如下：
 
 +
 ----
@@ -49,5 +49,5 @@ systemctl reload sshd
 ____
 
 
-有关 [command]``+transactional-update+`` 的更多信息，请参见 https://documentation.suse.com/sle-micro/6.1/html/Micro-transactional-updates/.
+有关 `+transactional-update+` 的详细信息，请参见 https://documentation.suse.com/sle-micro/6.1/html/Micro-transactional-updates/.
 
