@@ -107,8 +107,8 @@ cp /etc/pki/entitlement/ /<example>/entitlement/
 +
 [NOTE]
 ====
-您的权利证书和密钥的文件扩展名均为 [path]``+.pem+``。
-密钥的文件名中也包含 [path]``+key+``。
+您的权利证书和密钥的文件扩展名均为 `+.pem+`。
+密钥的文件名中也包含 `+key+`。
 ====
 +
 . 将客户端系统中的 {redhat} CA 证书文件复制到权利证书和密钥所在的相同网络位置：
@@ -127,20 +127,20 @@ cp /etc/rhsm/ca/redhat-uep.pem /<example>/entitlement
 
 . 在 {productname} 服务器 {webui} 上，导航到 menu:系统[自动安装 > GPG 和 SSL 密钥]。
 . 单击 btn:[创建存储的密钥/证书]，并为权利证书设置下列参数：
-* 在 [guimenu]``+说明+``+ 字段中，键入 [systemitem]+``+Entitlement-Cert-date+``。
-* 在 [guimenu]``+类型+``+ 字段中，选择 [systemitem]+``+SSL+``。
-* 在 [guimenu]``+选择要上载的文件+``+ 字段中，浏览到您保存权利证书的位置，然后选择 [path]+``+.pem+`` 证书文件。
-. 单击btn:[创建密钥]。
+* 在 `+Description+` 字段中，输入 `+Entitlement-Cert-date+`。
+* 在 `+Type+` 字段中，选择 `+SSL+`。
+* 在 `+Select file to upload+` 字段中，浏览到您保存权利证书的位置，然后选择 `+.pem+` 证书文件。
+. 单击 btn:[创建密钥]。
 . 单击btn:[创建存储的密钥/证书]，并为权利密钥设置下列参数：
-* 在 [guimenu]``+说明+``+ 字段中，键入 [systemitem]+``+Entitlement-key-date+``。
-* 在 [guimenu]``+类型+``+ 字段中，选择 [systemitem]+``+SSL+``。
-* 在 [guimenu]``+选择要上载的文件+``+ 字段中，浏览到您保存权利密钥的位置，然后选择 [path]+``+.pem+`` 密钥文件。
-. 单击btn:[创建密钥]。
+* 在 `+Description+` 字段中，输入 `+Entitlement-key-date+`。
+* 在 `+Type+` 字段中，选择 `+SSL+`。
+* 在 `+Select file to upload+` 字段中，浏览到您保存权利密钥的位置，然后选择 `+.pem+` 密钥文件。
+. 单击 btn:[创建密钥]。
 . 单击btn:[创建存储的密钥/证书]，并为{redhat}证书设置下列参数：
-* 在 [guimenu]``+说明+``+ 字段中，键入 [systemitem]+``+redhat-uep+``。
-* 在 [guimenu]``+类型+``+ 字段中，选择 [systemitem]+``+SSL+``。
-* 在 [guimenu]``+选择要上载的文件+``+ 字段中，浏览到您保存 {redhat} 证书的位置，然后选择证书文件。
-. 单击btn:[创建密钥]。
+* 在 `+Description+` 字段中，输入 `+redhat-uep+`。
+* 在 `+Type+` 字段中，选择 `+SSL+`。
+* 在 `+Select file to upload+` 字段中，浏览到您保存 {redhat} 证书的位置，然后选择证书文件。
+. 单击 btn:[创建密钥]。
 
 
 
@@ -252,7 +252,7 @@ endif::[]
 
 [NOTE]
 ====
-由 [command]``+spacewalk-common-channels+`` 提供的客户端工具通道来自 {uyuni} 而非 {suse}。
+`+spacewalk-common-channels+` 提供的客户端工具频道源自 {uyuni}，而非 {suse}。
 ====
 
 endif::[]
@@ -286,10 +286,10 @@ subscription-manager repos
 
 | 选项                 | 设置
 | 储存库 URL         | 由 {redhat} CDN 提供的内容 URL
-| 包含已签名的元数据？  | 取消选中所有 {redhat} 企业存储库
-| SSL CA 证书     | [systemitem]``+redhat-uep+``
-| SSL 客户端证书 | [systemitem]``+Entitlement-Cert-date+``
-| SSL 客户端密钥         | ``+Entitlement-Key-date+``
+| 包含已签名的元数据？  | 取消选中所有 {redhat} 企业储存库
+| SSL CA 证书     | `+redhat-uep+`
+| SSL 客户端证书 | `+Entitlement-Cert-date+`
+| SSL 客户端密钥         | `+Entitlement-Key-date+`
 |===
 
 
@@ -351,11 +351,11 @@ endif::[]
 ====
 对于 {redhat} 10、{redhat} 9 和 {redhat} 8 客户端，请添加基础和应用流通道。
 您需要来自两个通道的软件包。
-如果您不添加两个通道，由于缺少软件包，您将无法创建启动储存库。
+如果您不添加这两个通道，由于缺少软件包，您将无法创建启动储存库。
 ====
 
-如果您使用模块化通道，必须在客户端启用 Python 3.6 模块流。
-如果您不提供 Python 3.6，[package]``+spacecmd+`` 软件包的安装将失败。
+如果您使用的是模块化通道，您必须在客户端上启用 Python 3.6 模块流。
+如果您不提供 Python 3.6，`+spacecmd+` 软件包的安装将失败。
 
 ifndef::backend-pdf[]
 include::client-configuration:partial$manual_associate.adoc[]
@@ -418,24 +418,24 @@ endif::[]
 
 . 在 {productname} 服务器 {webui} 上，导航到 menu:配置[通道]。
 . 单击 btn:[创建状态通道]。
-* 在[guimenu]``+名称+``+字段中，键入[systemitem]+``+subscription-manager: disable yum plugins+``。
-* 在[guimenu]``+标签+``+字段中，键入[systemitem]+``+subscription-manager-disable-yum-plugins+``。
-* 在[guimenu]``+说明+``+字段中，键入[systemitem]+``+subscription-manager: disable yum plugins+``。
-* 在[guimenu]``+SLS 内容+``字段中，留空。
+* 在 `+Name+` 字段中，输入 `+subscription-manager: disable yum plugins+`。
+* 在 `+Label+` 字段中，输入 `+subscription-manager-disable-yum-plugins+`。
+* 在 `+Description+` 字段中，输入 `+subscription-manager: disable yum plugins+`。
+* 在 `+SLS Contents+` 字段中，留空。
 . 单击btn:[创建配置通道]。
 . 单击btn:[创建配置文件]。
-* 在[guimenu]``+文件名/路径+``+字段中，键入[systemitem]+``+/etc/yum/pluginconf.d/subscription-manager.conf+``。
-* 在[guimenu]``+文件内容+``字段中，键入：
+* 在 `+Filename/Path+` 字段中输入 `+/etc/yum/pluginconf.d/subscription-manager.conf+`。
+* 在 `+File Contents+` 字段中输入：
 +
 ----
 [main]
 enabled=0
 ----
 . 单击btn:[创建配置文件]。
-. 记下字段[guimenu]``+Salt 文件系统路径+```的值。
+. 请记录 `+Salt Filesystem Path+` 字段的值。
 . 单击配置通道的名称。
-. 单击[guimenu]``+查看/编辑 'init.sls' 文件+``。
-* 在[guimenu]``+文件内容+``字段中，键入：
+. 单击 `+View/Edit 'init.sls' File+`
+* 在 `+File Contents+` 字段中输入：
 +
 ----
 configure_subscription-manager-disable-yum-plugins:
@@ -452,7 +452,7 @@ configure_subscription-manager-disable-yum-plugins:
 
 [NOTE]
 ====
-``+创建 Salt 状态以部署配置文件+``过程是可选的。
+`+Creating a Salt State to Deploy Configuration Files+` 过程是可选的。
 ====
 
 
@@ -460,14 +460,14 @@ configure_subscription-manager-disable-yum-plugins:
 
 . 在{productname}服务器{webui}上，导航到menu:系统[系统组]。
 . 单击btn:[创建组]。
-* 在[guimenu]``+名称+``+字段中，键入[systemitem]+``+rhel-systems+``。
-* 在[guimenu]``+说明+``+字段中，键入[systemitem]+``+所有 RHEL 系统+``。
+* 在 `+Name+` 字段中，输入 `+rhel-systems+`。
+* 在 `+Description+` 字段中，输入 `+All RHEL systems+`。
 . 单击btn:[创建组]。
-. 单击[guimenu]``+状态+``选项卡。
-. 单击[guimenu]``+配置通道+``选项卡。
-. 在搜索框中键入 [systemitem]``+subscription-manager: disable yum plugins+``。
+. 单击 `+States+` 选项卡。
+. 单击 `+Configuration Channels+` 选项卡。
+. 在搜索框中输入 `+subscription-manager: disable yum plugins+`。
 . 单击 btn:[搜索] 以查看状态。
-. 单击 [systemitem]``+指派+`` 列中状态对应的复选框。
+. 单击 `+Assign+` 列中状态对应的复选框。
 . 单击 btn:[保存更改]。
 . 单击 btn:[确认]。
 
@@ -481,31 +481,32 @@ configure_subscription-manager-disable-yum-plugins:
 
 . 在 {productname} 服务器 {webui} 上，导航到 menu:系统[激活密钥]。
 . 单击用于 RHEL 系统的每个激活密钥并：
-. 依次导航到 [guimenu]``+组+`` 选项卡和 [guimenu]+``+加入+`` 子选项卡。
-. 检查 [systemitem]``+选择 rhel-systems+``。
+. 导航至 `+Groups+` 选项卡，然后导航至 `+Join+` 子选项卡。
+. 检查 `+Select rhel-systems+`。
 . 单击 btn:[加入所选的组]。
 
 
 == 管理 GPG 密钥
 
 客户端使用 GPG 密钥在安装软件包之前检查其真实性。
-只有受信任的软件才能在客户端上安装。
+只有受信任的软件包才能在客户端上安装。
 
 [IMPORTANT]
 ====
 信任 GPG 密钥对客户端的安全性至关重要。
-管理员的任务是决定哪些密钥是必要的并且可以被信任。
-由于在 GPG 密钥未被信任时无法使用软件通道，因此将通道分配给客户端的决定取决于信任该密钥的决定。
+决定需要哪些密钥并可以信任哪些密钥是管理员的任务。
+由于在 GPG 密钥未被信任时无法使用软件通道，因此是否将通道分配给客户端取决于是否信任该密钥。
 ====
 
 有关 GPG 密钥的更多信息，请参见 xref:client-configuration:gpg-keys.adoc[]。
 
 [NOTE]
 ====
-对于 {redhat} 自定义通道，如果您想检查 [guimenu]``+启用 GPG 检查+`` 字段，您需要填写 [guimenu]+``+GPG 密钥 URL+`` 字段。
-您可以使用存储在目录 [systemitem]``+/etc/pki/rpm-gpg+`` 中的 GPG 密钥的文件 URL，该密钥属于 {redhat} minion。
+对于 {redhat} 自定义频道，如果您要检查 `+Enable GPG Check+` 字段，则需要填充 `+GPG Key URL+` 字段。
+您可以使用存储在目录 `+/etc/pki/rpm-gpg+` 中的 GPG 密钥的文件 URL，该密钥属于 {redhat} minion。
 
-示例：[systemitem]``+file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release+``
+示例： +
+`+file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release+`
 
 有关完整的 {redhat} 产品签名密钥列表，请参见 https://access.redhat.com/security/team/key.
 ====
