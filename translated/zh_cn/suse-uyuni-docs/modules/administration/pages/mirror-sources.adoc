@@ -17,11 +17,11 @@
 
 [IMPORTANT]
 ====
-在服务器容器内执行步骤之前，请使用 [literal]``+mgrctl term+``。
+在服务器容器内运行步骤之前，请使用 `+mgrctl term+`。
 ====
 
 .过程：升级镜像源软件包
-. 打开 [filename]``+/etc/rhn/rhn.conf+`` 配置文件，并添加以下行：
+. 打开 `+/etc/rhn/rhn.conf+` 配置文件，并添加此行：
 +
 
 ----
