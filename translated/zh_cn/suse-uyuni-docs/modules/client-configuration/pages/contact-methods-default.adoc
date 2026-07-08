@@ -9,12 +9,12 @@
 :page-product-version: 5.1
 
 除非有特定需求，否则建议使用 {salt} 协议的默认联系方法。
-默认情况下，将部署 {salt} Bundle 实现（[package]``+venv-salt-minion+``）。
+默认情况下，将部署 {salt} Bundle 实现（`+venv-salt-minion+`）。
 有关 {salt} 的一般信息，请参见 xref:specialized-guides:salt/salt-overview.adoc[]。
 
 ifeval::[{mlm-content} == true]
 
-默认联系方法（[literal]``+Default+``）是最佳的扩展方法。
+默认联系方法 (`+Default+`) 是最佳的扩展方法。
 所有新的 {productname} 功能均受支持。
 
 [IMPORTANT]
@@ -46,10 +46,10 @@ endif::[]
 {salt} 有自己的数据库来保存 minions 的密钥。这需要与 {productname} 数据库保持同步。
 一旦在 {salt} 中接受密钥，{productname} 中的入职流程就开始。
 
-入职流程将通过在 {productname} 数据库中搜索 ``+minion_id+``+ 和 +``+machine-id+``+ 来查找现有系统。
+入职流程将通过在 {productname} 数据库中搜索 `+minion_id+` 和 `+machine-id+` 来查找现有系统。
 根据结果，可能出现以下情况：
 
 * 如果未找到任何系统，则会创建新系统。
-* 如果找到包含 ``+minion_id+``+ 或 +``+machine-id+``+ 的项，则会迁移该系统以与新系统匹配。
+* 如果找到包含 `+minion_id+` 或 `+machine-id+` 的项，则会迁移该系统以与新系统匹配。
 * 如果找到匹配这两项的系统，并且它们不是同一个系统，则会中止初始配置并显示错误。
 * 在这种情况下，管理员需要至少去除一个系统来解决冲突。
