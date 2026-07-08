@@ -8,7 +8,7 @@
 . 从 menu:系统[概述] 中选择客户端。
   然后点击 menu:软件[软件包> 安装]。
 
-. 搜索 [package]``+scap-security-guide+`` 并安装适合您系统的软件包。
+. 搜索`+scap-security-guide+`并安装适合您系统的软件包。
   请参见下表以获取软件包分发要求：
 +
 
