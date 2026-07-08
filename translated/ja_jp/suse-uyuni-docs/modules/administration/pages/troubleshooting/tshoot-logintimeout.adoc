@@ -29,11 +29,11 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 デフォルトでは、{productname} {webui}は、30{nbsp}分後にユーザーに再ログインを要求します。
 環境に応じて、ログインタイムアウト値を調整したい場合があります。
 
-値を調整するには、[path]``+rhn.conf+``+と[path]+``+web.xml+``の両方で変更を行う必要があります。
-[path]``+/etc/rhn/rhn.conf+``+で秒単位の値を設定し、パス+``+web.xml+``で分単位の値を設定してください。
+値を調整するには、`+rhn.conf+`と`+web.xml+`の両方で変更する必要があります。
+`+/etc/rhn/rhn.conf+`には秒単位で値を、`+web.xml+`には分単位で値を設定してください。
 2つの値は同じ時間でなければなりません。
 
-たとえば、タイムアウト値を1時間に変更するには、[path]``+rhn.conf+``+の値を3600秒に設定し、パス+``+web.xml+``の値を60分に設定します。
+たとえば、タイムアウト値を1時間に変更するには、`+rhn.conf+`を3600秒に設定し、`+web.xml+`を60分に設定します。
 
 
 
@@ -51,7 +51,7 @@ mgrctl term
 
 --
 
-.. [path]``+/etc/rhn/rhn.conf+``を開いて、秒単位の新しいタイムアウト値を含めるためにこの行を追加または編集してください：
+.. `+/etc/rhn/rhn.conf+`を開いて、次の行を追加または編集し、秒単位の新しいタイムアウト値を記載してください。
 
 +
 
@@ -61,7 +61,7 @@ web.session_database_lifetime = <Timeout_Value_in_Seconds>
 
 .. ファイルを保存して閉じます。
 
-.. [path]``+/etc/tomcat/web.xml+``を開いて、分単位の新しいタイムアウト値を含めるためにこの行を追加または編集してください：
+.. `+/etc/tomcat/web.xml+`を開いて、次の行を追加または編集し、分単位の新しいタイムアウト値を記載してください。
 
 +
 
