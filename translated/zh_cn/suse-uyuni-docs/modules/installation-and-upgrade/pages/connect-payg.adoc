@@ -37,15 +37,15 @@
 .过程：升级连接新的 {payg} 实例
 [role=procedure]
 . 在 {productname} {webui} 中，导航到 menu:管理员[设置向导> {payg}]，然后单击 btn:[添加 {payg}]。
-. 从页面的 [guimenu]``+{payg} 连接说明+`` 部分开始。
-. 在 [guimenu]``+描述+`` 字段中添加描述。
-. 转移到页面的 [guimenu]``+实例 SSH 连接数据+`` 部分。
-. 在 [guimenu]``+主机+`` 字段中，输入要从 {productname} 连接的实例 DNS 或 IP 地址。
-. 在 [guimenu]``+SSH 端口+`` 字段中输入端口号或使用默认值 22。
-. 在 [guimenu]``+用户+`` 字段中输入云中指定的用户名。
-. 在 [guimenu]``+密码+`` 字段中输入密码。
-. 在 [guimenu]``+SSH 私钥+`` 字段中输入实例密钥。
-. 在 [guimenu]``+SSH 私钥密码短语+`` 字段中输入密钥密码短语。
+. 从页面部分 `+{payg} connection Description+`开始。
+. 在 `+Description+`字段中，添加描述。
+. 移动到页面部分 `+Instance SSH connection data+`。
+. 在 `+Host+`字段中，输入要从 {productname}连接的实例 DNS 或 IP 地址。
+. 在 `+SSH Port+`字段中输入端口号或使用默认值 22。
+. 在 `+User+`字段中输入云中指定的用户名。
+. 在 `+Password+`字段中输入密码。
+. 在 `+SSH Private Key+`字段中输入实例密钥。
+. 在 `+SSH Private Key Passphrase+`字段中输入密钥密码。
 
 [IMPORTANT]
 ====
@@ -59,13 +59,13 @@
 [[proc-adding-ssh-bastion-connection-data]]
 .过程：升级添加 SSH 堡垒连接数据
 [role=procedure]
-. 导航到页面的 [guimenu]``+堡垒 SSH 连接数据+`` 部分。
-. 在 [guimenu]``+主机+`` 字段中输入堡垒主机名。
-. 在 [guimenu]``+SSH 端口+`` 字段中输入堡垒端口号。
-. 在 [guimenu]``+用户+`` 字段中输入堡垒用户名。
-. 在 [guimenu]``+密码+`` 字段中输入堡垒密码。
-. 在 [guimenu]``+SSH 私钥+`` 字段中输入堡垒私钥。
-. 在 [guimenu]``+SSH 私钥密码短语+`` 字段中输入堡垒私钥密码短语。
+. 导航至页面部分 `+Bastion SSH connection data+`。
+. 在 `+Host+`字段中输入堡垒主机名。
+. 在 `+SSH Port+`字段中输入堡垒端口号。
+. 在 `+User+`字段中输入堡垒用户名。
+. 在 `+Password+`字段中输入堡垒密码。
+. 在 `+SSH Private Key+`字段中输入堡垒密钥。
+. 在 `+SSH Private Key Passphrase+`字段中输入堡垒密钥密码。
 
 使用 <<proc-finishing-payg-connecting>> 完成设置过程。
 
@@ -73,27 +73,27 @@
 .过程：升级完成 {payg} 连接。
 [role=procedure]
 . 要完成添加新 {payg} 连接数据的过程，请单击 btn:[]创建。
-. 返回到 {payg} 连接数据 [guimenu]``+详细信息+`` 页面。
-    更新的连接状态显示在名为 [guimenu]``+信息+`` 的顶部部分。
-. 连接状态也显示在 [guimenu]``+管理 > 设置向导 > 随用随付+`` 屏幕中。
-. 如果实例的身份验证数据正确，[guimenu]``+状态+`` 列会显示 "已成功更新身份凭证。"
+. 返回 {payg}连接数据 `+Details+`页面。
+    更新的连接状态显示在名为 `+Information+`的顶部部分。
+. 连接状态也会显示在 `+Admin > Setup Wizard > Pay-as-you-go+`屏幕中。
+. 如果实例的身份验证数据正确，`+Status+`列会显示“凭证已成功更新”。
 
 [IMPORTANT]
 ====
-如果在任何时间输入了无效数据，新创建的实例会显示在 [guimenu]``+管理 > 设置向导 > {payg}+``+ 中，同时 ``+状态+`` 列会显示错误消息。
+如果在任何时候输入了无效数据，新创建的实例会显示在 `+Admin > Setup Wizard > {payg}+`中，同时 `+Status+`列会显示错误消息。
 ====
 
 
 一旦服务器上有可用的身份验证信息，可用产品列表即会更新。
 
 可用产品是与安装在 {payg} 实例中的产品相同产品系列和架构的所有版本。
-例如，如果实例安装了 {sles}{nbsp}15 SP1 产品，则 {sles}{nbsp}15 SP2、{sles}{nbsp}15 SP3、{sles}{nbsp}15 SP4 和 {sles}{nbsp}15 SP5 会自动显示在 [guimenu]``+管理 > 设置向导 > 产品+`` 中。
+例如，如果实例安装了 {sles}{nbsp}15 SP1 产品，则 {sles}{nbsp}15 SP2、{sles}{nbsp}15 SP3、{sles}{nbsp}15 SP4 和 {sles}{nbsp}15 SP5 会自动显示在 `+Admin > Setup Wizard > Products+`中。
 
 当产品显示为可用时，用户可以通过选中产品名称旁边的复选框并单击 btn:[添加产品]将产品添加到 {productname} 中。
 
-成功消息显示后，您可以在 {webui} 中导航到 [guimenu]``+软件 > 通道列表 > 所有+`` 来验证新添加的通道。
+成功消息显示后，您可以在 {webui}中，通过导航到 `+Software > Channel List > All+`来验证新添加的通道。
 
-要监控每个通道的同步进度，请在 {productname} 服务器上的 [path]``+/var/log/rhn/reposync+`` 目录中检查日志文件。
+要监控每个通道的同步进度，请在 {productname}服务器的 `+/var/log/rhn/reposync+`目录中检查日志文件。
 
 [IMPORTANT]
 ====
@@ -107,7 +107,7 @@
 {productname} 服务器使用从实例收集的凭证连接到 RMT 服务器，并使用 reposync 下载软件包。
 这些凭证每10分钟由 taskomatic 使用定义的 SSH 连接数据刷新一次。连接到 RMT 服务器始终使用从 {payg} 实例收集的最后已知身份验证凭证。
 
-{payg} 实例凭证收集的状态显示在 [literal]``+状态+`` 列或实例详细信息页面上。
+{payg}实例凭证收集的状态显示在 `+Status+`列或实例详细信息页面上。
 当实例无法访问时，凭证更新过程将失败。
 
 当实例无法访问时，凭证更新过程将失败，并且凭证将在第二次刷新失败后变为无效。
@@ -134,10 +134,10 @@
 
 [IMPORTANT]
 ====
-以下任何操作或对 {payg} 实例的更改将导致凭证失效： +
+以下任何操作或对 {payg}实例的更改将导致凭证失效： +
 * 删除 zypper 凭证文件 +
 * 删除导入的证书 +
-* 从 [path]``+/etc/hosts+`` 中删除云特定条目
+* 从 `+/etc/hosts+`中删除云特定条目
 ====
 
 
@@ -158,8 +158,8 @@
 
 检查身份凭证::
 * 如果脚本无法收集凭证，将会在日志和 {webui} 中提供正确的错误消息。
-* 如果凭证无法工作，[literal]``+reposync+`` 应该会显示正确的错误消息。
+* 如果凭证无法工作，`+reposync+`应该会显示正确的错误消息。
 
-使用 [literal]``+registercloudguest+``::
-* 刷新或更改 [literal]``+registercloudguest+`` 与公有云更新基础架构的连接不应影响凭证的使用。
-* 如果未使用 cloud guest 命令注册新的云连接，运行 [literal]```+registercloudguest --clean+`` 将会导致问题。
+使用 `+registercloudguest+`::
+* 刷新或更改 `+registercloudguest+`与公有云更新基础架构的连接不应影响凭证的使用。
+* 如果未使用 cloud guest 命令注册新的云连接，运行 `+registercloudguest --clean+` 将会导致问题。
