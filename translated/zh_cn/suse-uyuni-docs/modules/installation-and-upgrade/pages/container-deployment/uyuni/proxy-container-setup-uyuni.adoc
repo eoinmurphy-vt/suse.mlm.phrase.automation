@@ -17,7 +17,7 @@ endif::[]
 .过程
 . 生成 {productname} 代理配置归档文件
 . 将配置归档传输到在安装步骤中准备的容器主机并解压缩
-. 使用 [literal]``+mgrpxy+`` 启动代理服务
+. 使用 `+mgrpxy+` 启动代理服务。
 
 ifndef::backend-pdf[]
 include::installation-and-upgrade:partial$snippet-generate_proxy_config.adoc[]
@@ -32,7 +32,7 @@ endif::[]
 == 传输 {productname} 代理配置
 
 
-[command]``+spacecmd+`` 命令和通过 {webui} 方式生成的配置归档文件均可生成配置归档。
+`+spacecmd+` 命令和通过 {webui} 方式都可以创建配置归档。
 该归档需要在容器主机上可供使用。
 将生成的存档传输到容器主机。
 
@@ -41,7 +41,7 @@ endif::[]
 [[proxy-setup-containers-transfer-start]]
 == 启动 {productname} 代理容器
 
-可以使用 [literal]``+mgrpxy+`` 命令启动容器。
+容器可以通过 `+mgrpxy+` 命令启动。
 
 [[proc-setup-containers-setup-start]]
 .过程：升级启动 {productname} 代理容器
@@ -58,7 +58,7 @@ mgrpxy start uyuni-proxy-pod
 podman ps
 ----
 
-应该有五个 {productname} 代理容器，并且它们应该是 [literal]``+proxy-pod+`` 容器 Pod 的一部分。
+应该有五个 {productname} 代理容器，并且它们应属于 `+proxy-pod+` 的容器 pod。
 
 * proxy-salt-broker
 * proxy-httpd
