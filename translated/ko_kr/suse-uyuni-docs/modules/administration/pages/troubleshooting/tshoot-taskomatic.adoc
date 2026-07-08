@@ -32,11 +32,11 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 [IMPORTANT]
 ====
-서버 컨테이너 내부의 셸에 액세스하려면 컨테이너 호스트에서 [literal]``+mgrctl term+``을 실행합니다.
+Server 컨테이너 내부의 셸에 접근하려면 컨테이너 호스트에서 `+mgrctl term+`을(를) 실행합니다.
 ====
 
 Taskomatic이 여전히 실행 중이거나 프로세스가 충돌한 경우, {webui}에서 패키지 업데이트가 가능한 것처럼 보이지만 클라이언트에는 나타나지 않으며, 클라이언트를 업데이트하려고 하면 실패합니다.
-이 경우, [command]``+zypper ref+`` 명령은 다음과 같은 오류를 표시합니다:
+이 경우, `+zypper ref+` 명령은 다음과 같은 오류를 표시합니다:
 
 ----
 Valid metadata not found at specified URL
@@ -49,7 +49,7 @@ Valid metadata not found at specified URL
 
 .절차 Taskomatic 문제 해결
 
-. {productname} 서버에서 [path]``+/var/log/rhn/rhn_taskomatic_daemon.log+`` 로그 파일을 확인하여 메타데이터 재생성 프로세스가 아직 실행 중인지 또는 충돌이 발생했는지 확인합니다.
+. {productname} 서버에서 `+/var/log/rhn/rhn_taskomatic_daemon.log+` 파일을 확인하여 메타데이터 재생성 프로세스가 아직 실행 중인지 또는 충돌이 발생했는지 확인합니다.
 . taskomatic을 재시작합니다.
 +
 ----
