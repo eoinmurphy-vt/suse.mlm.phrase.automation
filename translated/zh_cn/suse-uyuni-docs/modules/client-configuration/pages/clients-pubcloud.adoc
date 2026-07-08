@@ -55,8 +55,8 @@ systemctl disable regionsrv-enabler-azure.timer
 
 == 注册客户端
 
-在 {productname} {webui} 中，导航到 menu:系统[启动]，然后填写 ``+主机+``、+``+SSH 端口+``+、+``+用户+``+ 和 +``+密码+`` 字段。
-确保您在 ``+主机+`` 字段中使用稳定的 FQDN，否则当您的公有云提供不同的短期 FQDN 时，{productname} 将无法找到您的主机。
+在 {productname} {webui} 中，导航至 menu:系统[启动]，然后填写 `+Host+`、`+SSH Port+`、`+User+` 和 `+Password+` 字段。
+确保您在 `+Host+` 字段中使用稳定的 FQDN，否则当您的公有云提供不同的短期 FQDNs 时，{productname} 将无法找到您的主机。
 
 公共云映像通常不允许使用用户名和密码进行 SSH 登录，而只允许使用证书进行 SSH 登录。
 如果您想利用 {webui} 的启动功能，则需要启用使用用户名和 SSH 密钥进行 SSH 登录。
@@ -64,7 +64,7 @@ systemctl disable regionsrv-enabler-azure.timer
 
 如果您的云提供商是 Microsoft Azure，您可以使用用户名和密码登录。
 为此，您需要允许 AzureUser 以 root 身份运行命令而无需密码。
-为此，请打开 [path]``+/etc/sudoers.d/waagent+`` 文件，并添加或编辑此行：
+为此，请打开 `+/etc/sudoers.d/waagent+` 文件，并添加或编辑此行：
 
 ----
 AzureUser ALL=(ALL) NOPASSWD: ALL
