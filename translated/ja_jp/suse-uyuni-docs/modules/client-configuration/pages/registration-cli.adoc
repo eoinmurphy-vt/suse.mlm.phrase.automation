@@ -22,32 +22,32 @@
  
 * サーバで受信するポート4505および4506を使用します。
 * {productname}サーバの設定は不要です。ただし、上記のポートが開いていることを確認する必要があります。
-* 登録の前に、Saltクライアントに[package]``+venv-salt-minion+``（Saltバンドル）または[package]+``+salt-minion+``パッケージをインストールしている必要があります。
+* 登録の前に、Saltクライアントに`+venv-salt-minion+`（Saltバンドル）または`+salt-minion+`パッケージがインストール済みである必要があります。
   両者は異なる場所に設定ファイルを使用しますが、ファイル名は同じです。
-  [literal]``+systemd+``サービスのファイル名は異なります。
+  `+systemd+`サービスのファイル名は異なります。
 
 [WARNING]
 ====
-この方法で起動するのは、クライアントツールチャンネルまたは公式の{suse}ディストリビューションの一部として[package]``+salt-minion+``を使用する場合に限られます。
+この方法で起動できるのは、`+salt-minion+`がクライアントツールチャンネルまたは公式の{suse}ディストリビューションの一部である場合のみです。
 ====
 
 == {salt}バンドルの設定
 
-{salt}バンドル（[package]``+venv-salt-minion+``）::
+{salt}バンドル (`+venv-salt-minion+`)::
 
 +
 
-* [path]``+/etc/venv-salt-minion/+``
-* [path]``+/etc/venv-salt-minion/minion+``
-* [path]``+/etc/venv-salt-minion/minion.d/NAME.conf+``
-* systemdサービスファイル: [path]``+venv-salt-minion.service+``
+* `+/etc/venv-salt-minion/+`
+* `+/etc/venv-salt-minion/minion+`
+* `+/etc/venv-salt-minion/minion.d/NAME.conf+`
+* systemdサービスファイル: `+venv-salt-minion.service+`
 
 +
 
 Saltバンドルに関する詳細は、xref:client-configuration:contact-methods-saltbundle.adoc[Salt Bundle]を参照してください。
 
 .プロシージャ:Saltバンドル設定ファイルでクライアントを登録する
-. Saltクライアントで[literal]``+minion+``設定ファイルを開きます。
+. Saltクライアントで`+minion+`の設定ファイルを開きます。
   設定ファイルは次の場所にあります:
 
 +
@@ -88,7 +88,7 @@ enable_fqdns_grains: False
 ----
 
 
-. [systemitem]``+venv-salt-minion+``サービスを再起動します:
+. `+venv-salt-minion+`サービスを再起動します:
 
 +
 
@@ -97,7 +97,7 @@ enable_fqdns_grains: False
 systemctl restart venv-salt-minion
 ----
 
-. {productname}サーバで、新しいクライアントキーを受け入れます。[systemitem]``+<client>+``をクライアントの名前に置き換えます:
+. {productname}サーバで、新しいクライアントキーを受け入れます。`+<client>+`をクライアントの名前に置き換えます:
 
 +
 
@@ -108,15 +108,15 @@ salt-key -a '<client>'
 
 == クライアントの設定
 
-クライアント ([package]``+salt-minion+``)::
+クライアント (`+salt-minion+`)::
 +
-* [path]``+/etc/salt/+``
-* [path]``+/etc/salt/minion+``
-* [path]``+/etc/salt/minion.d/NAME.conf+``
-* systemdサービスファイル: [path]``+salt-minion.service+``
+* `+/etc/salt/+`
+* `+/etc/salt/minion+`
+* `+/etc/salt/minion.d/NAME.conf+`
+* systemdサービスファイル: `+salt-minion.service+`
 
 .プロシージャ:Salt Minion設定ファイルでクライアントを登録する
-. Saltクライアントで[literal]``+minion+``設定ファイルを開きます。
+. Saltクライアントで`+minion+`の設定ファイルを開きます。
   設定ファイルは次の場所にあります:
 
 +
@@ -155,7 +155,7 @@ enable_legacy_startup_events: False
 enable_fqdns_grains: False
 ----
 
-. [systemitem]``+salt-minion+``サービスを再起動します:
+. `+salt-minion+`サービスを再起動します:
 
 +
 
@@ -164,7 +164,7 @@ enable_fqdns_grains: False
 systemctl restart salt-minion
 ----
 
-. {productname}サーバで、新しいクライアントキーを受け入れます。[systemitem]``+<client>+``をクライアントの名前に置き換えます:
+. {productname}サーバで、新しいクライアントキーを受け入れます。`+<client>+`をクライアントの名前に置き換えます:
 
 +
 
