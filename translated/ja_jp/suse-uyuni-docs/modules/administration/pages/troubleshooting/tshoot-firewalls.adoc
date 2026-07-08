@@ -3,7 +3,7 @@
 :description: ファイアウォールを設定して、SUSE® Multi-Linux Managerサーバーからのリクエストを許可または拒否し、サードパーティ製品に関連する問題をトラブルシューティングしてください。
 :revdate: 2025-02-06
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメントチーム
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -35,8 +35,8 @@ Fix: Configure the firewall to reject requests from mlm instead of drop (preferr
 Result: Sync to {scc} is either able to reach the URLs required, or rejects the request so that the request fails rather than times out.
 ////
 
-使用しているファイアウォールが外向きのトラフィックをブロックしている場合、ネットワークリクエストを``+REJECT+``+または+``+DROP+``することがあります。
-それが``+DROP+``に設定されている場合、{scclongform}との同期がタイムアウトすることがあります。
+外向きのトラフィックをブロックするファイアウォールを使用している場合、それは`+REJECT+`または`+DROP+`ネットワークリクエストを行うことができます。
+それが`+DROP+`に設定されている場合、{scclongform}との同期がタイムアウトすることがあります。
 
 これは、同期処理が非{suse}クライアント向けのパッケージを提供するサードパーティのリポジトリにアクセスする必要があるために発生し、単に{scclongform}だけではなくなります。
 {productname}サーバーがこれらのリポジトリにアクセスして有効であることを確認しようとすると、ファイアウォールがリクエストをドロップし、同期はタイムアウトするまで応答を待ち続けます。
@@ -48,7 +48,7 @@ Result: Sync to {scc} is either able to reach the URLs required, or rejects the 
 最も簡単な方法は、ファイアウォールを設定して非{suse}リポジトリに必要なURLへのアクセスを許可することです。
 これにより、同期処理がURLに到達し、正常に完了します。
 
-外部トラフィックを許可できない場合は、ファイアウォールを設定して、{productname}からのリクエストに対して+``+DROP+``を使用するのではなく、``+REJECT+``+で処理するようにしてください。
+外部トラフィックを許可できない場合は、ファイアウォールを、`+REJECT+`の代わりに{productname}で`+DROP+`からのリクエストを処理するように設定してください。
 これにより、サードパーティのURLへのリクエストが拒否され、同期がタイムアウトするのではなく早期に失敗し、製品がリストに表示されなくなります。
 
 ファイアウォールへの設定アクセス権がない場合は、代わりに{productname}サーバーに別のファイアウォールを設定することを検討してください。
