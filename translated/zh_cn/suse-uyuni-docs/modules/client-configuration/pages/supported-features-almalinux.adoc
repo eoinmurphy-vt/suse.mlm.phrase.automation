@@ -31,9 +31,9 @@
 |===
 
 | 功能
-| {almalinux}{nbsp}10
-| {almalinux}{nbsp}9
 | {almalinux}{nbsp}8
+| {almalinux}{nbsp}9
+| {almalinux}{nbsp}10
 
 | 客户端
 | {check}（普通 {almalinux}）
@@ -105,12 +105,12 @@
 | {check}
 | {check}
 
-| 联系方法
-| {check} ZeroMQ, Salt-SSH
-| {check} ZeroMQ, Salt-SSH
-| {check} ZeroMQ, Salt-SSH
+| 联系方式
+| {check} ZeroMQ，Salt-SSH
+| {check} ZeroMQ，Salt-SSH
+| {check} ZeroMQ，Salt-SSH
 
-| 与 {productname} 代理一起工作
+| 与 {productname} 代理兼容
 | {check}
 | {check}
 | {check}
@@ -171,9 +171,9 @@
 | {check}
 
 | 快照和控制文件
-| 支持 {check} 控制文件，不支持同步
-| 支持 {check} 控制文件，不支持同步
-| 支持 {check} 控制文件，不支持同步
+| {check}支持 控制文件，不支持同步
+| {check}支持 控制文件，不支持同步
+| {check}支持 控制文件，不支持同步
 
 | 电源管理
 | {check}
@@ -228,4 +228,4 @@
 |===
 
 
-{star} 迁移到匹配的 {sll} 版本。
+{star} 产品迁移到匹配的 {sll} 版本。
