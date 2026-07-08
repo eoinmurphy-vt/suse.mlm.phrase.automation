@@ -49,16 +49,16 @@ endif::[]
 
 == クライアントツールのブランド変更
 
-{productname} {productnumber}は、すべてのサポートされているオペレーティングシステム用のリブランドされたクライアントツールのセットを導入します。この移行はシームレスであり、新しい製品の同期を行うユーザーは、更新されたチャンネル名のみを認識するはずです。
+{productname} {productnumber} は、すべてのサポートされているオペレーティングシステム向けに再ブランドされたクライアントツールのセットを導入します。この移行はシームレスであり、新しい製品の同期を行うユーザーは更新されたチャンネル名のみを認識するべきです。
 
-以前に{productname} 4.3または5.0に登録されていたクライアントが使用していた[literal]``+SUSE Manager Client Tools for XYZ+``という名前のチャンネルは、バージョン5.1では利用できなくなり、5.1では更新を受け取らなくなります。
+以前に`+SUSE Manager Client Tools for XYZ+` 4.3または5.0に登録されていたクライアントが使用していた{productname}という名前のチャンネルは、バージョン5.1では利用できなくなり、5.1では更新されなくなります。
 
 移行後もレガシチャンネルは既存のクライアントに割り当てられたままですが、対応するリポジトリは削除されています。
 
 継続的な更新を確実に行うには、ユーザは以下の操作を実行する必要があります。
 
-* 関連製品の新しい[literal]``+SUSE Multi-Linux Manager Client Tools for XYZ+``チャンネルをミラーリングし、適切なクライアントに割り当てます。
-* 古い[literal]``+SUSE Manager Client Tools for XYZ+``チャンネルの割り当てを解除します。
+* 関連する製品の新しい`+SUSE Multi-Linux Manager Client Tools for XYZ+`チャンネルをミラーリングし、適切なクライアントに割り当てます。
+* 古い`+SUSE Manager Client Tools for XYZ+`チャンネルの割り当てを解除します。
 
 これにより、古いクライアントツールに基づくCLMプロジェクトも適宜調整する必要があります。
 
@@ -178,9 +178,9 @@ SUSEConnect --status-text
 
 以下が表示されるはずです。
 
-* [literal]``+PRETTY_NAME="SUSE Linux Micro 6.1"+``
+* `+PRETTY_NAME="SUSE Linux Micro 6.1"+`
 
-* [literal]``+SUSE Multi-Linux Manager Server 5.1 Extension+``
+* `+SUSE Multi-Linux Manager Server 5.1 Extension+`
 
 +
 
@@ -230,9 +230,9 @@ mgradm --version
 
 +
 
-* バージョン[literal]``+5.1.11+``以上：
+* バージョン`+5.1.11+`以上
 
-* 参照[literal]``+5.1.0+``以上：
+* 参照`+5.1.0+`以上
 
 . サーバコンテナをアップグレードする
 
@@ -272,16 +272,16 @@ podman ps
 
 以下が表示されるはずです。
 
-* [literal]``+server:5.1.0+``以上：
+* `+server:5.1.0+`以上
 
-* [literal]``+server-postgresql:5.1.0+`` or higher
+* `+server-postgresql:5.1.0+`以上
 
 ____
 
 
 [NOTE]
 ====
-アップグレード中に[literal]``+uyuni-db+``+や[litarl]+``+saline+``などのサービスがない場合のエラーは、以前にインストールされていない場合は無視できます。
+アップグレード時に、以前にインストールされていなかった`+uyuni-db+`や`+saline+`などのサービスが原因で発生するエラーは、無視して構いません。
 ====
 
 
@@ -337,9 +337,9 @@ SUSEConnect --status-text
 
 +
 
-* ベースOS: [literal]``+SUSE Linux Enterprise Server 15 SP6+``
+* ベースOS: `+SUSE Linux Enterprise Server 15 SP6+`
 
-* 拡張機能: [literal]``+SUSE Manager Server 5.0 Extension+``
+* 拡張機能: `+SUSE Manager Server 5.0 Extension+`
 
 +
 
@@ -412,9 +412,9 @@ SUSEConnect --status-text
 
 以下が表示されるはずです。
 
-* [literal]``+VERSION="15-SP7"+``
+* `+VERSION="15-SP7"+`
 
-* [literal]``+SUSE Multi-Linux Manager Server 5.1拡張機能 for SLE+``
+* `+SUSE Multi-Linux Manager Server 5.1 Extension for SLE+`
 
 +
 
@@ -431,9 +431,9 @@ mgradm --version
 
 予想される出力:
 
-* バージョン[literal]``+5.1.11+``以上：
+* バージョン`+5.1.11+`以上
 
-* イメージタグ [literal]``+5.1.0+`` 以上：
+* イメージタグ `+5.1.0+` 以上
 
 +
 
@@ -476,9 +476,9 @@ podman ps
 
 予想されるコンテナ:
 
-* [literal]``+server:5.1.0+``以上：
+* `+server:5.1.0+`以上
 
-* [literal]``+server-postgresql:5.1.0+`` or higher
+* `+server-postgresql:5.1.0+`以上
 
 ____
 
