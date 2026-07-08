@@ -12,18 +12,18 @@
 在高度安全的网络配置中，您可能希望确保您的 {salt} 客户端连接到特定的主控端。
 要设置从客户端到主控端的验证，请首先在 {salt} minion 配置文件中输入主控端的指纹：
 
-* [path]``+/etc/salt/minion.d/custom.conf+``，如果您的客户端中使用经典 {salt} minion，或者
-* [path]``+/etc/venv-salt-minion/minion.d/custom.conf+``，如果您的客户端中使用 {salt} 捆绑包
+* `+/etc/salt/minion.d/custom.conf+` 如果您的客户端使用经典 {salt} minion，或者
+* `+/etc/venv-salt-minion/minion.d/custom.conf+` 如果您的客户端使用 {salt} Bundle
 
 然后按以下过程进行操作：
 
 [IMPORTANT]
 ====
-要在服务器容器内访问外壳，请在容器主机上运行 [literal]``+mgrctl term+``。
+要在服务器容器内访问外壳，请在容器主机上运行 `+mgrctl term+`。
 ====
 
 .过程：升级将主控端的指纹添加到客户端
-. 在主控端的命令提示符下，以 root 身份使用以下命令查找 ``+master.pub+`` 指纹：
+. 在主控端的命令提示符下，以 root 身份使用以下命令查找 `+master.pub+` 指纹：
 +
 
 ----
@@ -31,7 +31,7 @@ salt-key -F master
 ----
 +
 
-在您的客户端中，打开 [path]``+/etc/salt/minion.d/custom.conf+``+ 或 [path]+``+/etc/venv-salt-minion/minion.d/custom.conf+`` 配置文件。
+在您的客户端上，打开 `+/etc/salt/minion.d/custom.conf+` 或 `+/etc/venv-salt-minion/minion.d/custom.conf+` 配置文件。
 添加此行以输入主控端的指纹，替换示例指纹：
 +
 
