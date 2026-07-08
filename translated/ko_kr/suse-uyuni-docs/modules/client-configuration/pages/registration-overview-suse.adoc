@@ -55,7 +55,7 @@ endif::[]
 [[suse-registration-overview-check]]
 == 이전 동기화 상태 확인
 
-클라이언트가 이전에 SCC, SMT 또는 RMT에 등록된 경우, 클라이언트를 {productname} 서버로 마이그레이션하기 전에 [command]``+SUSEConnect+``으로 해당 등록을 제거하십시오.
+클라이언트가 이전에 SCC, SMT 또는 RMT에 등록되어 있었다면, 클라이언트를 `+SUSEConnect+` 서버로 마이그레이션하기 전에 {productname}을 사용하여 해당 등록을 제거합니다.
 먼저 이전 등록을 제거하는 것을 잊지 마십시오.
 그렇지 않으면 더 이상 필요하지 않은 리포지토리가 클라이언트가 {suse}와 함께 최신 버전의 {productname} 운영 체제로 마이그레이션된 후 클라이언트에 추가될 수 있습니다.
 
