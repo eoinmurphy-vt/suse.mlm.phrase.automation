@@ -59,7 +59,7 @@ endif::[]
 刷新模式::
 默认情况下，现有储存库仅更新最新的软件包。
 您可以将其配置为始终从空储存库开始。
-要启用此行为，请在 [path]``+/etc/rhn/rhn.conf+`` 中添加或编辑此值：
+要启用此行为，请在 `+/etc/rhn/rhn.conf+` 中添加或编辑此值：
 +
 ----
 server.susemanager.bootstrap_repo_flush = 1
@@ -68,7 +68,7 @@ server.susemanager.bootstrap_repo_flush = 1
 自动模式::
 
 默认情况下，自动重新生成引导储存库是启用的。
-要禁用它，请在 [path]``+/etc/rhn/rhn.conf+`` 中添加或编辑此值：
+要禁用它，请在 `+/etc/rhn/rhn.conf+` 中添加或编辑此值：
 +
 ----
 server.susemanager.auto_generate_bootstrap_repo = 0
@@ -79,7 +79,7 @@ server.susemanager.auto_generate_bootstrap_repo = 0
 === 配置引导数据文件
 
 该工具使用一个数据文件，其中包含每个发行版所需的软件包的信息。
-数据文件存储在 [path]``+/usr/share/susemanager/mgr_bootstrap_data.py+``。{suse} 定期更新此文件。
+数据文件存储在 `+/usr/share/susemanager/mgr_bootstrap_data.py+` 中。{suse} 会定期更新此文件。
 如果您想对该文件进行更改，请不要直接编辑它。
 相反，请在持久目录中创建一个副本并编辑您的副本：
 
@@ -88,7 +88,7 @@ cp /usr/share/susemanager/mgr_bootstrap_data.py /srv/susemanager/my_data.py
 ----
 
 在您进行更改后，请配置 {productname} 使用新文件。
-在 [path]``+/etc/rhn/rhn.conf+`` 中添加或编辑此值：
+在 `+/etc/rhn/rhn.conf+` 中添加或编辑此值：
 
 ----
 server.susemanager.bootstrap_repo_datamodule = my_data
@@ -135,7 +135,7 @@ mgr-create-bootstrap-repo -c SLE-version-x86_64
 
 _____
 
-客户端储存库位于 [path]``+/srv/www/htdocs/pub/repositories/+``。
+客户端储存库位于 `+/srv/www/htdocs/pub/repositories/+` 中。
 
 
 
@@ -178,10 +178,10 @@ _____
 
 
 如果您正在创建包含多个不同架构的引导储存库，则需要小心确保所有架构都正确更新。
-例如，{x86_64} 和 {ibmz} 架构的 {slea} 在 ``+/srv/www/htdocs/pub/repositories/sle/15/2/bootstrap/+`` 使用相同的引导储存库 URL。
+例如，{slea} 的 {x86_64} 和 {ibmz} 架构使用位于 `+/srv/www/htdocs/pub/repositories/sle/15/2/bootstrap/+` 的相同启动储存库 URL。
 
-当启用 ``+flush+`` 选项时，如果您尝试为多个架构生成引导储存库，则只会生成一个架构。
-为避免这种情况，在创建其他架构时，请在命令提示符下使用 ``+--no-flush+`` 选项。
+当启用 `+flush+` 选项时，如果您尝试为多个架构生成启动储存库，则只会生成一个架构。
+为避免这种情况，在创建其他架构时，请在命令提示符下使用 `+--no-flush+` 选项。
 例如：
 
 ----
@@ -193,7 +193,7 @@ mgr-create-bootstrap-repo --no-flush -c SLE-15-SP2-s390x
 
 == 引导和自定义通道
 
-如果您使用自定义通道，可以在 [command]+``+mgr-create-bootstrap-repo+`` 命令中使用 [option]``+--with-custom-channels+``+ 选项。
+如果您正在使用自定义频道，则可以将 `+--with-custom-channels+` 选项与 `+mgr-create-bootstrap-repo+` 命令一起使用。
 在这种情况下，您还需要指定要使用的父通道。
 
 如果您使用自定义通道，自动创建引导储存库可能会失败。
