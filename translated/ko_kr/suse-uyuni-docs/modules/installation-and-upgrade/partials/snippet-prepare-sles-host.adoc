@@ -12,15 +12,15 @@
 [role=procedure]
 ____
 
-. https://www.suse.com/download/sles/.에서 {sles} {bci-mlm} [literal]``+.iso+``를 찾아 다운로드합니다.
+. {sles} {bci-mlm} `+.iso+`를 https://www.suse.com/download/sles/.에서 찾아 다운로드합니다.
 
 . 호스트 운영 체제({sles} {bci-mlm}) 및 확장 프로그램 모두에 대한 활성화 코드가 반드시 있어야 합니다.
 
 . {sles} {bci-mlm}의 설치를 시작합니다.
 
-  .. [literal]``+언어, 키보드 및 제품 선택+``에서 설치할 제품을 선택합니다.
+  .. `+Language, keyboard and product selection+`에서 설치할 제품을 선택합니다.
 
-  .. [literal]``+라이선스 계약+``에서 계약서를 읽고 [guimenu]+``+라이선스 약관에 동의합니다+``에 체크합니다.
+  .. `+License agreement+`에서 계약서를 읽고 `+I Agree to the License Terms+`을(를) 확인합니다.
 
 . 등록 방법을 선택합니다. 이 예제에서는 SUSE 고객 센터에 서버를 등록합니다.
 
@@ -28,7 +28,7 @@ ____
 
 . {sles} {bci-mlm}에 대한 활성화 코드를 입력합니다.
 
-. 계속하려면 [systemitem]``+다음+``을 클릭합니다.
+. 계속하려면 `+Next+`을(를) 클릭합니다.
 
 +
 
@@ -38,7 +38,7 @@ ____
 아래에 {productname} 확장 프로그램 활성화 코드를 입력해야 합니다.
 ====
 
-. [literal]``+확장 프로그램 및 모듈 선택+`` 화면에서 다음을 확인합니다.
+. 화면 `+Extensions and Modules Selection+`에서 다음 사항을 확인합니다:
 
 +
 
@@ -46,7 +46,7 @@ ____
   * Basesystem 모듈
   * 컨테이너 모듈
 
-. 계속하려면 [systemitem]``+다음+``을 클릭합니다.
+. 계속하려면 `+Next+`을(를) 클릭합니다.
 
 . {productname} {productnumber} 확장 프로그램 활성화 코드를 입력합니다.
 
@@ -133,9 +133,9 @@ ____
 
 
 
-=== [package]``+podman+``을 설치하고 활성화합니다.
+=== `+podman+`을(를) 설치하고 활성화합니다.
 
-.절차 [package]``+podman+`` 설치 중
+.절차 `+podman+` 설치 중
 [role=procedure]
 ____
 
@@ -167,8 +167,8 @@ zypper in -t product Multi-Linux-Manager-Proxy-SLE
 
 [IMPORTANT]
 ====
-패키지 [package]``+podman+``이 설치되어 있는지 확인하십시오.
-또한, 서버 [package]``+mgradm+``+ 및 [package]+``+mgradm-bash-completion+``+ 또는 프록시에서, [package]+``+mgrpxy+``+ 및 [패키지]+``+mgrpxy-bash-completion+``도 설치해야 합니다.
+패키지 `+podman+`이(가) 설치되어 있는지 확인하십시오.
+또한, 서버 `+mgradm+` 및 `+mgradm-bash-completion+` 또는 프록시에서 `+mgrpxy+` 및 `+mgrpxy-bash-completion+`도 설치해야 합니다.
 ====
 
 +
