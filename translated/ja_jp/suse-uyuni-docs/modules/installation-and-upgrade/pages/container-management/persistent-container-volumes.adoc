@@ -12,7 +12,7 @@
 永続ボリュームの外で行われた変更は破棄されます。
 以下は、{productname} {productnumber}の永続ボリュームのリストです。
 
-デフォルトのボリュームの場所をカスタマイズするには、[command]``+podman volume create+``コマンドを使用して、ポッドの最初の起動前に必要なボリュームを作成するようにします。
+デフォルトのボリュームの場所をカスタマイズするには、`+podman volume create+`コマンドを使用して、ポッドを初めて起動する前に必要なボリュームを作成しておくことを確認してください。
 
 [NOTE]
 ====
@@ -31,7 +31,7 @@
 |ボリューム名 | ボリュームディレクトリ
 
 | **Podmanストレージ**
-| [path]``+/var/lib/containers/storage/volumes/+``
+| `+/var/lib/containers/storage/volumes/+`
 |===
 
 .永続ボリューム: **ルート**
@@ -40,7 +40,7 @@
 |ボリューム名 | ボリュームディレクトリ
 
 | **root**
-| [path]``+/ルート+``
+| `+/root+`
 |===
 
 
@@ -50,25 +50,25 @@
 |ボリューム名 | ボリュームディレクトリ
 
 | **var-cobbler**
-| [path]``+/var/lib/cobbler+``
+| `+/var/lib/cobbler+`
 
 | **var-salt**
-| [path]``+/var/lib/salt+``
+| `+/var/lib/salt+`
 
 | **var-pgsql**
-| [path]``+/var/lib/pgsql/data+``
+| `+/var/lib/pgsql/data+`
 
 | **var-pgsql-backup**
-| [path]``+/var/lib/pgsql-backup+``
+| `+/var/lib/pgsql-backup+`
 
 | **var-cache**
-| [path]``+/var/cache+``
+| `+/var/cache+`
 
 | **var-spacewalk**
-| [path]``+/var/spacewalk+``
+| `+/var/spacewalk+`
 
 | **var-log**
-| [path]``+/var/log+``
+| `+/var/log+`
 |===
 
 
@@ -79,25 +79,25 @@
 | ボリューム名 | ボリュームディレクトリ
 
 | **srv-salt**
-| [path]``+/srv/salt+``
+| `+/srv/salt+`
 
 | **srv-www**
-| [path]``+/srv/www/+``
+| `+/srv/www/+`
 
 | **srv-tftpboot**
-| [path]``+/srv/tftpboot+``
+| `+/srv/tftpboot+`
 
 | **srv-formulametadata**
-| [path]``+/srv/formula_metadata+``
+| `+/srv/formula_metadata+`
 
 | **srv-pillar**
-| [path]``+/srv/pillar+``
+| `+/srv/pillar+`
 
 | **srv-susemanager**
-| [path]``+/srv/susemanager+``
+| `+/srv/susemanager+`
 
 | **srv-spacewalk**
-| [path]``+/srv/spacewalk+``
+| `+/srv/spacewalk+`
 |===
 
 
@@ -108,40 +108,40 @@
 |ボリューム名 | ボリュームディレクトリ
 
 | **etc-apache2**
-| [path]``+/etc/apache2+``
+| `+/etc/apache2+`
 
 | **etc-rhn**
-| [path]``+/etc/rhn+``
+| `+/etc/rhn+`
 
 | **etc-systemd-multi**
-| [path]``+/etc/systemd/system/multi-user.target.wants+``
+| `+/etc/systemd/system/multi-user.target.wants+`
 
 | **etc-systemd-sockets**
-| [path]``+/etc/systemd/system/sockets.target.wants+``
+| `+/etc/systemd/system/sockets.target.wants+`
 
 | **etc-salt**
-| [path]``+/etc/salt+``
+| `+/etc/salt+`
 
 | **etc-sssd**
-| [path]``+/etc/sssd+``
+| `+/etc/sssd+`
 
 | **etc-tomcat**
-| [path]``+/etc/tomcat+``
+| `+/etc/tomcat+`
 
 | **etc-cobbler**
-| [path]``+/etc/cobbler+``
+| `+/etc/cobbler+`
 
 | **etc-sysconfig**
-| [path]``+/etc/sysconfig+``
+| `+/etc/sysconfig+`
 
 | **etc-tls**
-| [path]``+/etc/pki/tls+``
+| `+/etc/pki/tls+`
 
 | **etc-postfix**
-| [path]``+/etc/postfix+``
+| `+/etc/postfix+`
 
 | **ca-cert**
-| [path]``+/etc/pki/trust/anchors+``
+| `+/etc/pki/trust/anchors+`
 
 |===
 
@@ -152,7 +152,7 @@
 |ボリューム名 | ボリュームディレクトリ
 
 | **run-salt-master**
-| [path]``+/run/salt/master+``
+| `+/run/salt/master+`
 
 |===
 
@@ -168,7 +168,7 @@
 |ボリューム名 | ボリュームディレクトリ
 
 | **Podmanストレージ**
-| [path]``+/var/lib/containers/storage/volumes/+``
+| `+/var/lib/containers/storage/volumes/+`
 |===
 
 .永続ボリューム: **srv/**
@@ -177,7 +177,7 @@
 |ボリューム名 | ボリュームディレクトリ
 
 | **uyuni-proxy-tftpboot**
-| [path]``+/srv/tftpboot+``
+| `+/srv/tftpboot+`
 |===
 
 
@@ -187,9 +187,9 @@
 |ボリューム名 | ボリュームディレクトリ
 
 | **uyuni-proxy-rhn-cache**
-| [path]``+/var/cache/rhn+``
+| `+/var/cache/rhn+`
 
 
 | **uyuni-proxy-squid-cache**
-| [path]``+/var/cache/squid+``
+| `+/var/cache/squid+`
 |===
