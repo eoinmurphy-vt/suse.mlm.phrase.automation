@@ -29,7 +29,7 @@ endif::[]
 在将 {raspberrypios} 客户端注册到 {productname} 服务器之前，您需要完成一些准备工作：
 
 * 确保 DNS 配置正确，并为客户端提供条目。
-  或者，您可以在 {productname} 服务器和客户端上配置 ``+/etc/hosts+`` 文件，添加适当的条目。
+  或者，您可以在 `+/etc/hosts+` 服务器和客户端上配置 {productname} 文件，添加适当的条目。
 * 注册前，客户端的日期和时间必须已与 {productname} 服务器同步。
 
 
@@ -171,7 +171,7 @@ endif::[]
 
 [NOTE]
 ====
-由 [command]``+spacewalk-common-channels+`` 提供的客户端工具通道来自 {uyuni} 而非 {suse}。
+`+spacewalk-common-channels+` 提供的客户端工具频道源自 {uyuni}，而非 {suse}。
 ====
 
 [IMPORTANT]
@@ -241,7 +241,7 @@ endif::[]
 ====
 信任 GPG 密钥对客户端的安全性至关重要。
 决定需要哪些密钥并可以信任哪些密钥是管理员的任务。
-因为当 GPG 密钥不被信任时，软件通道无法使用，因此将通道分配给客户端的决定取决于信任该密钥的决定。
+由于在 GPG 密钥未被信任时无法使用软件通道，因此是否将通道分配给客户端取决于是否信任该密钥。
 ====
 
 有关 GPG 密钥的更多信息，请参见 xref:client-configuration:gpg-keys.adoc[]。
@@ -276,18 +276,18 @@ mgradm gpg add <filename>.gpg
 
 默认会为 {raspberrypios} 上的 root 用户禁用 SSH 访问权限。
 
-要能够使用普通用户进行初始配置，您需要编辑 [filename]``+sudoers+`` 文件。
+要能够使用普通用户进行初始配置，您需要编辑 `+sudoers+` 文件。
 
 .过程：升级授予 Root 用户访问权限
 
-. 在客户端上，编辑 [filename]``+sudoers+`` 文件：
+. 在客户端上，编辑 `+sudoers+` 文件：
 +
 ----
 sudo visudo
 ----
 +
-通过在 [filename]+``+sudoers+`` 文件末尾添加此行，授予 [command]``+sudo+`` 访问权限给用户。
-将 [systemitem]``+<user>+`` 替换为在 {webui} 中启动客户端的用户的名称：
+通过在 `+sudoers+` 文件末尾添加此行，授予用户 `+sudo+` 访问权限。
+将 `+<user>+` 替换为在 {webui} 中启动客户端的用户名称：
 +
 ----
 <user>  ALL=NOPASSWD: /usr/bin/python, /usr/bin/python2, /usr/bin/python3, /var/tmp/venv-salt-minion/bin/python
@@ -297,7 +297,7 @@ sudo visudo
 ====
 此过程授予 root 访问权限，无需密码，这对于注册客户端是必需的。
 当客户端成功安装后，它以 root 权限运行，因此不再需要访问权限。
-我们建议在客户端成功安装后，从 [path]``+sudoers+`` 文件中删除该行。
+我们建议在客户端成功安装后，从 `+sudoers+` 文件中去除该行。
 ====
 
 
