@@ -30,11 +30,11 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 
 在开始迁移之前，请检查可用的磁盘空间。
-我们建议将 [path]``+/var/spacewalk+``+ 和 [path]+``+/var/lib/pgsql+`` 放置在单独的 XFS 文件系统上。
+我们建议将 `+/var/spacewalk+` 和 `+/var/lib/pgsql+` 放置在单独的 XFS 文件系统上。
 
-在设置单独的文件系统时，请编辑 [path]``+/etc/fstab+``+ 并去除 [path]+``+/var/lib/pqsql+`` 子卷。
+在设置单独的文件系统时，请编辑 `+/etc/fstab+` 并去除 `+/var/lib/pqsql+` 子卷。
 重启服务器以应用更改。
 
 要获取有关升级问题的更多信息，请检查日志文件。
-日志文件位于您正在升级的系统的 [path]``+/var/log/rhn/migration.log+``。
+日志文件位于您正在升级的系统上的 `+/var/log/rhn/migration.log+` 处。
 
