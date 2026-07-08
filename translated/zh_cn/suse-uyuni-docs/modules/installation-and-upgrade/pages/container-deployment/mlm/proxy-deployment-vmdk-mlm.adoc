@@ -74,14 +74,14 @@ endif::[]
 
 .过程：升级创建 VMware 虚拟机
 
-. 下载 {productname} 代理 [filename]``+.vmdk+`` 文件，然后将副本传输到您的 VMware 存储。
+. 下载{productname}代理`+.vmdk+`文件，然后将副本传输到您的VMware存储。
 
-. 使用 VMware Web 界面复制上传的 [filename]``+.vmdk+`` 文件。
-  这将把提供的 [filename]``+.vmdk+`` 文件转换为适合 vSphere 超级管理程序的格式。
+. 使用VMware Web界面复制上传的`+.vmdk+`文件。
+  这将把提供的`+.vmdk+`文件转换为适合vSphere超级管理程序的格式。
 
-. 创建一个新的虚拟机，并根据 Guest 操作系统系列 [systemitem]``+Linux+`` 和 Guest 操作系统版本 {sle} 15（64 位）为其命名。
+. 创建并命名一个新的虚拟机，基于Guest OS Family `+Linux+`和Guest OS Version {sle} 15（64位）。
 
-. 额外添加一个 [systemitem]``+硬盘 2+`` 的 100 GB（或更多空间）。
+. 添加一个100 GB（或更多）的额外`+Hard Disk 2+`。
 
 . 配置 RAM 和 CPU 数量（至少 16 GB RAM，4 个 CPU）。
 
@@ -144,7 +144,7 @@ endif::[]
 === 为服务使用自定义容器映像
 
 默认情况下，{productname} 代理套件设置为对其每个服务使用相同的映像版本和注册表路径。
-但是，可以使用以 [literal]``+-tag+``+ 和 [literal]+``+-image+`` 结尾的安装参数覆盖特定服务的默认值。
+但是，可以使用以`+-tag+`和`+-image+`结尾的安装参数覆盖特定服务的默认值。
 
 例如，可以按如下方式使用此命令：
 
@@ -152,7 +152,7 @@ endif::[]
 mgrpxy install podman --httpd-tag 0.1.0 --httpd-image registry.opensuse.org/uyuni/proxy-httpd /path/to/config.tar.gz
 ----
 
-该命令会在重启 httpd 服务之前调整其配置文件。其中 [path]``+registry.opensuse.org/uyuni/proxy-httpds+``+ 是要使用的映像，[literal]+``+0.1.0+`` 是版本标记。
+它会在重启httpd服务之前调整其配置文件，其中`+registry.opensuse.org/uyuni/proxy-httpds+`是要使用的镜像，`+0.1.0+`是版本标签。
 
 要重置为默认值，请再次运行 install 命令但不要指定这些参数：
 
