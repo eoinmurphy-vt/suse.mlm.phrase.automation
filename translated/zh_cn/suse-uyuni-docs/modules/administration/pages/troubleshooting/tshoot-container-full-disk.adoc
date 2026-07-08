@@ -31,14 +31,14 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 如果挂接为容器永久性存储媒体的专用磁盘的存储空间用尽，您需要采取紧急措施。
 
 请执行以下操作，通过调整存储媒体大小来解决问题。
-以 [literal]``+root+`` 用户身份在容器主机上运行所有列出的命令。
+以 `+root+` 用户身份在容器主机上运行所有列出的命令。
 
 .过程：升级调整存储介质大小
 
 . 增加磁盘大小。
   采取的措施取决于安装场景。
 
-. 如果磁盘已分区（例如，磁盘 [path]+``+/dev/vdb+`` 有 [path]``+/dev/vdb1+``+ 分区），请运行以下命令：
+. 如果磁盘已分区（例如，磁盘 `+/dev/vdb1+` 有 `+/dev/vdb+` 分区），请运行以下命令：
 
 +
 
@@ -47,10 +47,10 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 +
 
 --
-.. [command]``+parted /dev/vdb+``
-.. [literal]``+(parted)+``+ [command]+``+print+``
-.. [literal]``+(parted)+``+ [command]+``+resizepart NUMBER 100%+``+ 其中 [literal]+``+NUMBER+``+ 是 [command]+``+print+``+ 命令显示的分区号（例如，如果 [literal]+``+/dev/vdb1+``，则为 [literal]+``+1+``+）
-.. [literal]``+(parted)+``+ [command]+``+quit+``
+.. `+parted /dev/vdb+`
+.. `+(parted)+` `+print+`
+.. `+(parted)+` `+resizepart NUMBER 100%+`，其中 `+NUMBER+` 是 `+print+` 命令显示的分区号（例如，若 `+1+`，则为 `+/dev/vdb1+`）
+.. `+(parted)+` `+quit+`
 --
 
 . 调整文件系统大小。
