@@ -12,22 +12,22 @@
 Terraformによって作成された新しいクライアントは、{productname}に自動的に登録されます。
 登録は2つの方法で実現できます：
 
-* [literal]``+cloud-init+``ベースの登録
+* `+cloud-init+`ベースの登録
 * リモート実行プロビジョナーベースの登録
 
 
 
 [[cloud-init-based-client-registration]]
-== [literal]``+cloud-init+``ベースのクライアント登録
+== `+cloud-init+`ベースのクライアント登録
 
 
-[literal]``+cloud-init+``を活用して登録することは、新しく作成された仮想マシンの自動登録の推奨方法です。
+`+cloud-init+`を活用して登録することは、新しく作成された仮想マシンの自動登録の推奨方法です。
 このソリューションは、ホストへのSSH接続の設定を回避します。
 クライアント作成に使用されるツールに関係なく使用できます。
 
-ユーザーは、マシンを{productname}に自動的に登録するために、Terraformを使用してイメージをデプロイする際にuser dataセットを渡すことができます。[path]``+user_data+``は起動時、つまりマシンを初めて起動したときのみ一度だけ実行されます。
+ユーザーは、マシンを{productname}に自動的に登録するために、Terraformを使用してイメージをデプロイする際にユーザーデータのセットを渡すことができます。`+user_data+`は起動時、つまりマシンを初めて起動したときのみ一度だけ実行されます。
 
-[literal]``+cloud-init+``を使用してクライアントを登録する前に、ユーザーは以下を設定する必要があります：
+`+cloud-init+`を使用してクライアントを登録する前に、ユーザーは以下を設定する必要があります：
 
 * 起動スクリプト。
   詳細については、xref:client-configuration:registration-bootstrap.adoc[]を参照してください。
@@ -36,7 +36,7 @@ Terraformによって作成された新しいクライアントは、{productnam
 
 
 次のコマンドは、起動スクリプトをダウンロードし、新しいマシンが作成されるときに登録します。
-これは[literal]``+cloud-init+``の設定に追加する必要があります：
+これは`+cloud-init+`の設定に追加する必要があります：
 
 ----
 curl -s http://hub-server.tf.local/pub/bootstrap/bootstrap-default.sh | bash -s
@@ -44,26 +44,26 @@ curl -s http://hub-server.tf.local/pub/bootstrap/bootstrap-default.sh | bash -s
 
 [NOTE]
 ====
-[path]``+user_data+``がプロビジョニング変更のために更新されるたびに、Terraformはそのマシンを破棄し、新しいIPなどを使用して再作成します。
+`+user_data+`がプロビジョニング変更のために更新されるたびに、Terraformはそのマシンを破棄し、新しいIPなどを使用して再作成します。
 ====
 
-AWSの[literal]``+cloud-init+``に関する詳細については、https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/cloudinit_config.を参照してください。
+AWS上の`+cloud-init+`の詳細については、https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/cloudinit_config.を参照してください。
 
-[literal]``+cloud-init+``の例については、https://registry.terraform.io/providers/hashicorp/cloudinit/latest/docs/data-sources/cloudinit_config#example-usage.を参照してください。
+`+cloud-init+`の例については、https://registry.terraform.io/providers/hashicorp/cloudinit/latest/docs/data-sources/cloudinit_config#example-usage.を参照してください。
 
 
 
 [[remote-exec-provisioner-based-client-registration]]
-== [literal]``+remote-exec+``プロビジョナーを用いた登録
+== `+remote-exec+`プロビジョナーベースの登録
 
-新しく作成された仮想マシンの自動登録の2番目のソリューションでは、Terraformの[literal]``+remote-exec+``プロビジョナーを使用します。
+新しく作成された仮想マシンの自動登録の2番目のソリューションでは、Terraformの`+remote-exec+`プロビジョナーを使用します。
 
-[literal]``+remote-exec+`` プロビジョナーは、新しく作成されたマシンと相互作用します。
+`+remote-exec+`プロビジョナーは、新しく作成されたマシンと相互作用します。
 それはSSH接続を開き、そのマシン上でコマンドを実行できます。
 
 [IMPORTANT]
 ====
-[literal]``リモート実行``プロビジョナーを使用してクライアントを登録する際、ユーザーはTerraformを実行しているマシンが、新しい仮想マシンが作成された後にそのマシンへアクセスできることを確認する必要があります。
+`+remote-exec+`プロビジョナーを使用してクライアントを登録する際、ユーザーはTerraformを実行しているマシンが、新しく作成された仮想マシンにアクセスできることを確認する必要があります。
 ====
 
 残りの要件は、<<cloud-init-based-client-registration>>を使用する場合と同じです：
@@ -80,5 +80,5 @@ AWSの[literal]``+cloud-init+``に関する詳細については、https://regis
 curl -s http://hub-server.tf.local/pub/bootstrap/bootstrap-default.sh | bash -s
 ----
 
-[literal]``+remote-exec+``プロビジョナーに関する詳細情報は、https://www.terraform.io/docs/provisioners/remote-exec.html.を参照してください。
+`+remote-exec+`プロビジョナーの詳細については、https://www.terraform.io/docs/provisioners/remote-exec.html.を参照してください。
 
