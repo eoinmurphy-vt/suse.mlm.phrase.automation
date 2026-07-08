@@ -3,7 +3,7 @@
 :description: Alibaba Cloud LinuxクライアントをSUSE® Multi-Linux Manager Serverに登録できるように設定し、関連情報への一元的なアクセスを可能にします。
 :revdate: 2025-02-06
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメントチーム
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -114,7 +114,7 @@ endif::[]
 
 [NOTE]
 ====
-[command]``+spacewalk-common-channels+``によって提供されるクライアントツールのチャンネルは{uyuni}が提供元であり、{suse}ではありません。
+`+spacewalk-common-channels+`が提供するクライアントツールチャネルは、{uyuni}から提供されており、{suse}からではありません。
 ====
 
 endif::[]
