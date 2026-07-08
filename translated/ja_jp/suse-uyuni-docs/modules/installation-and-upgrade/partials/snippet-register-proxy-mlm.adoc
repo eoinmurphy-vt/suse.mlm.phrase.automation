@@ -8,7 +8,7 @@ endif::[]
 .プロシージャ:{sl-micro}と{productname}の{productnumber}プロキシを登録中
 . 仮想マシンをブートします。
 . `+root+`としてログインします。
-. SCCに{sl-micro}を登録する
+. {sl-micro} を SCC に登録
 +
 
 ----
@@ -36,8 +36,8 @@ transactional-update
 . 更新が適用されていた場合は再起動します。
 
 . このステップはオプションです。
-  ただし、ご使用のインフラストラクチャにカスタム永続ストレージが必要な場合は、[command]``+mgr-storage-proxy+``ツールを使用してください。
-** 詳細については、[command]``+mgr-storage-proxy --help+``をご覧ください。
+  ただし、ご使用のインフラストラクチャにカスタム永続ストレージが必要な場合は、`+mgr-storage-proxy+`ツールを使用します。
+** 詳細については、`+mgr-storage-proxy --help+`を参照してください。
 このツールは、コンテナボリュームの作成を簡素化します。
 
 ** このコマンドは次のように使用します。
@@ -55,7 +55,7 @@ mgr-storage-proxy /dev/nvme1n1
 +
 [NOTE]
 ====
-このコマンドは、[path]``+/var/lib/containers/storage/volumes+``にある永続ストレージボリュームを指定されたストレージデバイスに移動します。
+このコマンドは、`+/var/lib/containers/storage/volumes+`にある永続ストレージボリュームを指定されたストレージデバイスに移動します。
 
 詳細については、以下を参照してください。
 
