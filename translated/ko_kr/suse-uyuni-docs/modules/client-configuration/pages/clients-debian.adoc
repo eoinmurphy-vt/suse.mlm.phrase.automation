@@ -32,7 +32,7 @@ endif::[]
 {productname} 서버에 {debian} 클라이언트를 등록하기 전에 약간의 준비가 필요합니다:
 
 * DNS가 올바르게 구성되어 있고 클라이언트에 대한 항목을 제공하는지 확인하십시오.
-  또는 {productname} 서버와 클라이언트 모두에서 적절한 항목으로 ``+/etc/hosts+`` 파일을 구성할 수 있습니다.
+  또는 `+/etc/hosts+` 서버와 클라이언트 모두에서 적절한 항목으로 {productname} 파일을 구성할 수 있습니다.
 * 클라이언트는 등록 전에 {productname} 서버와 날짜 및 시간을 동기화해야 합니다.
 
 
@@ -239,18 +239,18 @@ mgradm gpg add <filename>.gpg
 
 {debian}의 루트는 기본적으로 SSH 접속을 위해 비활성화되어 있습니다.
 
-일반 사용자를 사용하여 온보딩하려면 [filename]``+sudoers+`` 파일을 편집해야 합니다.
+일반 사용자를 사용하여 온보딩하려면 `+sudoers+` 파일을 편집해야 합니다.
 
 .절차 루트 액세스 부여
 
-. 클라이언트에서 [filename]``+sudoers+`` 파일을 다음과 같이 편집합니다:
+. 클라이언트에서 `+sudoers+` 파일을 편집하십시오:
 +
 ----
 sudo visudo
 ----
 +
-이 줄을 [filename]+``+sudoers+`` 파일의 끝에 추가하여 사용자에게 [command]``+sudo+`` 액세스를 부여하십시오.
-[systemitem]``+<user>+``를 클라이언트를 부트스트랩하는 사용자의 이름으로 교체하십시오 {webui}:
+이 줄을 `+sudo+` 파일의 끝에 추가하여 사용자에게 `+sudoers+` 접근 권한을 부여하십시오.
+`+<user>+`을(를) {webui}에서 클라이언트를 부팅하는 사용자의 이름으로 교체하십시오:
 +
 ----
 <user>  ALL=NOPASSWD: /usr/bin/python, /usr/bin/python2, /usr/bin/python3, /var/tmp/venv-salt-minion/bin/python
@@ -260,7 +260,7 @@ sudo visudo
 ====
 이 절차는 클라이언트를 등록하는 데 필요한 비밀번호 없이 루트 액세스를 부여합니다.
 클라이언트가 성공적으로 설치되면 루트 권한으로 실행되므로 더 이상 액세스가 필요하지 않습니다.
-클라이언트가 성공적으로 설치된 후 [path]``+sudoers+`` 파일에서 해당 줄을 제거할 것을 권장합니다.
+클라이언트가 성공적으로 설치된 후 `+sudoers+` 파일에서 해당 줄을 제거하는 것이 좋습니다.
 ====
 
 
