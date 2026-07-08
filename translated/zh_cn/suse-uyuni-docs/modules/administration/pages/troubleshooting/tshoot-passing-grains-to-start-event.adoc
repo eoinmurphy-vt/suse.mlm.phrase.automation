@@ -8,14 +8,14 @@
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
 
-每次 Salt 客户端启动时，它会将 ``+machine_id+`` grain 传递给 {productname}。{productname} 使用此 grain 来确定客户端是否已注册。
+每次 Salt 客户端启动时，它会将`+machine_id+` grain 传递给 {productname}。{productname} 使用该 grain 来确定客户端是否已注册。
 此处理需要同步的 Salt 调用。同步的 Salt 调用会阻塞其他处理，因此如果有很多客户端同时启动，该处理可能会造成显著的延迟。
 
 为了解决此问题，Salt 中引入了一项新功能来避免进行单独的同步 Salt 调用。
 
 要使用此功能，您可以在支持该功能的客户端上向客户端配置中添加一个配置参数。
 
-为了使此处理更轻松，您可以使用 ``+mgr_start_event_grains.sls+`` 助手 Salt 状态。
+为了简化此处理，您可以使用 `+mgr_start_event_grains.sls+` 辅助 Salt 状态。
 
 [NOTE]
 ====
@@ -24,7 +24,7 @@
 ====
 
 
-在 {productname} 服务器上的命令提示符下，使用以下命令启用 ``+start_event_grains+`` 配置助手：
+在 {productname} 服务器上的命令提示符下，使用以下命令启用 `+start_event_grains+` 配置助手：
 
 ----
 salt '*' state.sls util.mgr_start_event_grains
