@@ -11,7 +11,7 @@
 [role=procedure]
 _____
 
-. 아직 완료하지 않은 경우 이전 단계에서 생성된 구성 아카이브([literal]``+config.tar.gz+``)를 서버 컨테이너에서 서버 호스트로 복사합니다.
+. 아직 완료하지 않았다면, 이전 단계에서 생성된 구성 아카이브(`+config.tar.gz+`)를 서버 컨테이너에서 서버 호스트로 복사하세요.
 +
 ----
 mgrctl cp server:/root/config.tar.gz .
