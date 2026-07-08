@@ -63,9 +63,9 @@ spacecmd system_delete FQDN
 ----
 ____
 
-[command]``+spacecmd system_delete+``は{salt}キーも削除します。
+`+spacecmd system_delete+`は{salt}キーも削除します。
 
-[command]``+system_delete+``は以下のオプションを提供します:
+`+system_delete+`には次のオプションがあります。
 
 
 ----
@@ -104,7 +104,7 @@ rm /var/cache/salt/master/thin/thin.tgz
 [WARNING]
 ====
 {rhel}、{debian}またはクローンを稼働中のクライアントに対しては、次の手順を実行してはいけません。
-[command]``+zypper+``の代わりに、[command]+``+yum+``+、[command]+``+dnf+``+、または[command]+``+apt+``のような同等のパッケージャーコマンドを使用してください。
+`+zypper+`の代わりに、`+yum+`、`+dnf+`、または`+apt+`などの同等のパッケージャーのコマンドを使用してください。
 ====
 
 .プロシージャ:SLES 12および15クライアントの削除
