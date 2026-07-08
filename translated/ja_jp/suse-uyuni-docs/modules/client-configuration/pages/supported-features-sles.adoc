@@ -24,7 +24,7 @@
 
 この表のアイコンの意味は次のとおりです。
 
-* {check}: 機能は使用できます
+* {check}: 機能は使用可能です
 * {cross}: 機能は使用できません
 * {question}: 機能は検討中であり、後日利用可能になるかどうかは未定です
 
@@ -120,18 +120,18 @@
 | 製品の移行
 | {check}
 | {check}
+| {check} (*)
+| {check}
+| {question}
+
+| システムデプロイメント（PXE/{ay}）
+| {check}
+| {check}
 | {question}
 | {check}
 | {question}
 
-| システムデプロイメント (PXE/{ay})
-| {check}
-| {check}
-| {question}
-| {check}
-| {question}
-
-| システム再デプロイメント ({ay})
+| システム再デプロイメント（{ay}）
 | {check}
 | {check}
 | {question}
@@ -139,10 +139,10 @@
 | {question}
 
 | 連絡方法
-| {check} ZeroMQ, Salt-SSH
-| {check} ZeroMQ, Salt-SSH
-| {check} ZeroMQ, Salt-SSH
-| {check} ZeroMQ, Salt-SSH
+| {check} ZeroMQ、Salt-SSH
+| {check} ZeroMQ、Salt-SSH
+| {check} ZeroMQ、Salt-SSH
+| {check} ZeroMQ、Salt-SSH
 | {check} ZeroMQ, Salt-SSH
 
 | アクションチェーン
@@ -152,7 +152,7 @@
 | {check}
 | {check}
 
-| ステージング (パッケージの事前ダウンロード)
+| ステージング（パッケージの事前ダウンロード）
 | {check}
 | {check}
 | {check}
@@ -180,7 +180,7 @@
 | {check}
 | {question}
 
-| パッケージのロック
+| パッケージロック
 | {check}
 | {check}
 | {check}
@@ -216,11 +216,11 @@
 | {check}
 
 | パッケージプロファイル
-| {check} プロファイルはサポートされていますが、syncはサポートされていません
-| {check} プロファイルはサポートされていますが、syncはサポートされていません
-| {check} プロファイルはサポートされていますが、syncはサポートされていません
-| {check} プロファイルはサポートされていますが、syncはサポートされていません
-| {check} プロファイルはサポートされていますが、syncはサポートされていません
+| {check} プロファイルがサポートされていますが、syncはサポートされていません
+| {check} プロファイルはサポートされていますが、syncはサポートされていません。
+| {check} プロファイルはサポートされていますが、syncはサポートされていません。
+| {check} プロファイルはサポートされていますが、syncはサポートされていません。
+| {check} プロファイルはサポートされていますが、syncはサポートされていません。
 
 | 電源管理
 | {check}
@@ -285,7 +285,7 @@
 | N/A
 | N/A
 
-| Yomi
+| 読み
 | {cross}
 | {cross}
 | {cross}
@@ -294,3 +294,11 @@
 
 |===
 
+
+
+[NOTE]
+====
+(*) {sles} 16.0への移行は、{sles} 15 SP7からのみサポートされています。
+
+移行は現在、通常のミニオンに対してのみサポートされています。Salt SSHで管理されているミニオンについては、移行はまだサポートされていません。
+====
