@@ -126,13 +126,13 @@ scp <MLM-FQDN>:/root/rootca.pem ./
 
 * suse-multi-linux-manager-5.1-<ARCH>-proxy-tftpd-image
 
-您可以通过 {webui} 安装这些软件包：导航到 [literal]``+软件+``+ > [literal]+``+软件包+``+ > [literal]+``+安装+`` 选项卡，然后搜索上述软件包并完成安装。
+您可以通过导航到 {webui} > `+Software+` > `+Packages+` 选项卡，在 `+Install+` 中安装这些软件包，然后搜索上述软件包并进行安装。
 
 有关隔离部署的详细信息，请参见 xref:installation-and-upgrade:container-deployment/mlm/proxy-air-gapped-deployment-mlm.adoc[]。
 
 == 升级代理
 
-. 导航到客户端的 [literal]``+概览+`` 页面。
+. 导航到客户端的 `+Overview+` 页面。
 
 . 单击按钮 btn:[转换为代理]。
 
@@ -142,7 +142,7 @@ scp <MLM-FQDN>:/root/rootca.pem ./
 
 +
 
-以后可通过 [literal]``+详情+``+ > [literal]+``+代理+``+ > [literal]+``+配置+`` 选项卡访问该页面。
+此页面稍后可通过 `+Details+` > `+Proxy+` > `+Configuration+` 选项卡访问。
 
 . 在 {webui} 中，导航到 menu:代理[配置] 并填写所需数据：
 
@@ -150,39 +150,39 @@ scp <MLM-FQDN>:/root/rootca.pem ./
 
 .过程：升级配置代理
 
-.. 在[guimenu]``+父 FQDN+``字段中，输入父服务器或代理的完全限定的域名。
+.. 在 `+Parent FQDN+` 字段中，输入父服务器或代理的完全限定域名。
 
-.. 在[guimenu]``+代理 SSH 端口+``字段中，输入{productname}代理上 SSH 服务监听的 SSH 端口。建议保持默认值：8022.
+.. 在 `+Proxy SSH port+` 字段中，输入 {productname} 代理上 SSH 服务监听的 SSH 端口。建议保持默认值：8022.
 
-.. 在[guimenu]``+最大 Squid 缓存大小+``字段中，输入允许的最大 Squid 缓存大小（以 GB 为单位）。
+.. 在 `+Max Squid cache size+` 字段中，输入允许的最大 Squid 缓存大小（以 GB 为单位）。
 
-.. 在[guimenu]``+代理管理员电子邮件+``字段中，输入管理员的电子邮件地址。
+.. 在 `+Proxy admin email+` 字段中，输入管理员的电子邮件地址。
 
-.. 在[literal]``+证书+``部分，提供在准备步骤中获取的{productname}代理的证书。
+.. 在 `+Certificates+` 部分，提供在准备步骤中获取的 {productname} 代理的证书。
 
-.. 在[literal]``+源+``部分，选择以下两个选项之一：[literal]+``+RPM+``+或[literal]+``+注册表+``。
-
-+
-
-* 对于隔离的或受限环境，建议使用[literal]``+RPM+``选项。
-
-* 如果可连接容器注册表，则可使用[literal]``+注册表+``选项。
+.. 在 `+Source+` 部分，选择以下两个选项之一：`+RPM+` 或 `+Registry+`。
 
 +
 
-如果选择此选项，系统会提示您从两个子选项中选择：[literal]``+简单+``或[literal]+``+高级+``。
+* 建议在隔离的或受限的环境中使用 `+RPM+` 选项。
+
+* 如果可连接容器映像仓库，则可使用 `+Registry+` 选项。
 
 +
 
-** 如果选择[literal]``+简单+``，需要在[literal]+``+注册表 URL+``+和[literal]+``+容器标签+``字段中输入对应值。
+如果选择此选项，系统会提示您从两个子选项中选择：`+Simple+` 或 `+Advanced+`。
 
-*** 在[literal]``+注册表 URL+``中填写：[literal]+``+registry.suse.com/suse/multi-linux-manager/5.1/x86_64+``。
++
+
+** 如果选择 `+Simple+`，请在 `+Registry URL+` 和 `+Containers Tag+` 字段中提供值。
+
+*** 对于 `+Registry URL+`，请使用：`+registry.suse.com/suse/multi-linux-manager/5.1/x86_64+`。
 
 *** 从下拉列表中选择标记。
 
-** 如果选择[literal]``+高级+``，表单会显示一个额外的部分：
+** 如果选择 `+Advanced+`，表单会显示一个额外的部分：
 
-*** 对于每个独立容器的 URL 字段，使用注册表：[literal]``+registry.suse.com/suse/multi-linux-manager/5.1/x86_64+``，后面跟上相应的后缀，例如+`_proxy-httpd_`+或+`_salt-broker_`。
+*** 对于每个单独的容器 URL 字段，请使用注册表：`+registry.suse.com/suse/multi-linux-manager/5.1/x86_64+` 后跟相应的后缀，例如 `+_proxy-httpd_+` 或 `+_salt-broker_+`。
 
 *** 从下拉列表中选择标记。
 
