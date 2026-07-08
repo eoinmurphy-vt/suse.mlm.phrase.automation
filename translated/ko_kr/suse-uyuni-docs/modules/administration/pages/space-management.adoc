@@ -22,17 +22,17 @@
 
 기본적으로 {productname} 서버 컨테이너는 다음 디렉토리를 모니터링합니다:
 
-* [path]``+/var/spacewalk+``
-* [path]``+/var/cache+``
-* [path]``+/srv+``
+* `+/var/spacewalk+`
+* `+/var/cache+`
+* `+/srv+`
 
-서버 컨테이너의 systemd 서비스에서 [systemitem]``+DISKCHECKDIRS+`` 환경 변수를 설정하여 모니터링되는 디렉토리를 변경할 수 있습니다.
+서버 컨테이너의 systemd 서비스에서 `+DISKCHECKDIRS+` 환경 변수를 설정하여 모니터링되는 디렉토리들을 변경할 수 있습니다.
 여러 디렉토리를 공백으로 구분하여 지정할 수 있습니다.
 
 [NOTE]
 ====
-[systemitem]``+DISKCHECKDIRS+`` 환경 변수는 서버 컨테이너에만 적용됩니다.
-데이터베이스 컨테이너는 항상 [path]``+/var/lib/pgsql/data+``를 모니터링하며, 이는 오버라이드할 수 없습니다.
+`+DISKCHECKDIRS+` 환경 변수는 서버 컨테이너에만 적용됩니다.
+데이터베이스 컨테이너는 항상 `+/var/lib/pgsql/data+`를 모니터링하며, 이는 오버라이드할 수 없습니다.
 ====
 
 .절차 모니터링된 디렉토리 구성
@@ -64,7 +64,7 @@ mgradm restart
 기본적으로 {productname}은 모니터링된 디렉토리가 90% 디스크 사용량에 도달하면 경고를 생성합니다.
 모니터링된 디렉토리가 95% 디스크 사용량에 도달하면 심각한 경고가 생성되며, 컨테이너 상태 검사가 실패합니다.
 
-이러한 경고 임계값은 [systemitem]``+DISKCHECKALERT+``+ 및 [systemitem]+``+DISKTHRESHOLD+`` 환경 변수를 설정하여 변경할 수 있습니다.
+`+DISKCHECKALERT+` 및 `+DISKTHRESHOLD+` 환경 변수를 설정하여 이러한 경고 임계값을 변경할 수 있습니다.
 
 .절차 디스크 체크 임계값 구성
 . systemd 오버라이드 디렉토리를 생성합니다:
@@ -107,18 +107,18 @@ mgradm restart
 
 == 데이터베이스 디스크 점검
 
-데이터베이스 컨테이너는 PostgreSQL 데이터 디렉토리([path]``+/var/lib/pgsql/data+``)만 모니터링하는 자체 디스크 점검 기능을 가지고 있습니다.
-이 디렉토리는 항상 모니터링되며 [systemitem]``+DISKCHECKDIRS+`` 환경 변수를 사용하여 변경하거나 오버라이드할 수 없습니다.
+데이터베이스 컨테이너는 PostgreSQL 데이터 디렉토리 (`+/var/lib/pgsql/data+`)만 모니터링하는 자체 디스크 점검 기능을 가지고 있습니다.
+이 디렉토리는 항상 모니터링되며 `+DISKCHECKDIRS+` 환경 변수를 사용하여 변경하거나 오버라이드할 수 없습니다.
 
-데이터베이스 디스크 점검은 [systemitem]+``+uyuni-db+`` 서비스에 대해 구성된 [systemitem]``+DISKCHECKALERT+``+ 및 [systemitem]+``+DISKTHRESHOLD+``+ 환경 변수를 사용합니다.
+데이터베이스 디스크 점검은 `+uyuni-db+` 서비스를 위해 구성된 `+DISKCHECKALERT+` 및 `+DISKTHRESHOLD+` 환경 변수를 사용합니다.
 
 데이터베이스 디스크 점검은 PostgreSQL 함수로 실행되며 컨테이너 상태 점검 중에 호출됩니다.
 임계값이 초과되면 상태 점검이 실패하고 데이터 손상을 방지하기 위해 컨테이너가 자동으로 중지됩니다.
 
 [IMPORTANT]
 ====
-데이터베이스 컨테이너는 [path]``+/var/lib/pgsql/data+``만 모니터링합니다.
-데이터베이스 컨테이너에서 [systemitem]``+DISKCHECKDIRS+``를 사용하여 모니터링할 추가 디렉토리를 구성할 수 없습니다.
+데이터베이스 컨테이너는 `+/var/lib/pgsql/data+`만 모니터링합니다.
+데이터베이스 컨테이너에서 `+DISKCHECKDIRS+`를 사용하여 모니터링할 추가 디렉토리를 구성할 수 없습니다.
 다른 디렉토리를 모니터링하려면 서버 컨테이너 구성을 사용하십시오.
 ====
 
