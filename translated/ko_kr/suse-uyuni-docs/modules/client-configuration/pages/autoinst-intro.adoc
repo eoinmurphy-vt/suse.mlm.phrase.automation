@@ -62,6 +62,6 @@ endif::[]
 [NOTE]
 ====
 {suse}은 {productname} {webui}에서 사용할 수 있는 {cobbler} 기능만 지원하거나 {productname} API를 통해 지원됩니다.
-Cobbler에서 지원하는 유일한 명령줄 명령은 [command]``+buildiso+``입니다.
+Cobbler에서 지원하는 유일한 명령줄 명령은 `+buildiso+`입니다.
 지원되는 기능만 여기에 문서화되어 있습니다.
 ====
