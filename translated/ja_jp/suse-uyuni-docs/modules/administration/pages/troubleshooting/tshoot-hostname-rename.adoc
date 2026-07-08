@@ -31,7 +31,7 @@ Showing my working. --LKB 2020-06-22
 
 Cause: Renaming the hostname
 Consequence: Changes not picked up by db, clients and proxies
-Fix: Use the [command]``+spacewalk-hostname-rename+`` script to update the settings in the PostgreSQL database and the internal structures of {productname}.
+Fix: Use the `+spacewalk-hostname-rename+` script to update the settings in the PostgreSQL database and the internal structures of {productname}.
 Result: Renaming is successfully propagated
 ////
 
@@ -42,7 +42,7 @@ Result: Renaming is successfully propagated
 
 == サーバの名前変更
 
-{productname}サーバのホスト名を変更する必要がある場合は、[command]``+mgradm server rename+``コマンドを使用して行うことができます。
+{productname} サーバのホスト名を変更する必要がある場合は、`+mgradm server rename+`コマンドを使用して変更できます。
 このコマンドは、{postgresql}データベースの設定と{productname}の内部構造を更新します。
 
 
@@ -57,7 +57,7 @@ Result: Renaming is successfully propagated
 .プロシージャ:SSL CAパスワード用の設定ファイルを準備します。
 [role=procedure]
 ____
-. 次のような内容で[path]``+config.yaml+``ファイルを作成します：
+. `+config.yaml+`ファイルを次のような内容で作成します。
 
 +
 
@@ -80,7 +80,7 @@ ____
 
 . {productname}サーバを再起動して、新しいネットワーク構成を使用し、ホスト名が変更されていることを確認します。
 
-. コンテナホストのコマンドラインから、次のコマンドを実行します。SSL CAパスワードを保存するためにファイルを作成した場合は、[command]``+-c config.yaml+``を追加してください：
+. コンテナホストのコマンドラインから、次のコマンドを実行します。SSL CAパスワードを保存するためにファイルを作成した場合は、`+-c config.yaml+`を追加してください。
 
 +
 
@@ -117,7 +117,7 @@ mgrctl exec -ti -- journalctl -u uyuni-update-config
 ____
 
 . すべてのクライアントの{salt}クライアント設定ファイルで、新しい{salt}マスター（{productname}サーバ）の名前を指定します。
-  ファイル名は[path]``+/etc/venv-salt-minion/minion.d/susemanager.conf+``+または、{salt}バンドルを使用しない場合は、[path]+``+/etc/salt-minion/minion.d/susemanager.conf+``：
+  ファイル名は`+/etc/venv-salt-minion/minion.d/susemanager.conf+`です。もしくは、{salt}バンドルを使用しない場合は`+/etc/salt-minion/minion.d/susemanager.conf+`となります。
 
 +
 
@@ -166,7 +166,7 @@ ____
 [IMPORTANT]
 ====
 プロキシを介してPXEブートを使用する場合は、プロキシの設定を確認する必要があります。
-非コンテナ化された{productname}プロキシ 4.3を介してPXEブートを使用する場合、[systemitem]``+tftpsync+``を再構成する必要があります。
+非コンテナ化された {productname} プロキシ 4.3 を介して PXE ブートを使用する場合、`+tftpsync+` を再構成する必要があります。
 
 コンテナホストで、次のコマンドを実行します。
 
