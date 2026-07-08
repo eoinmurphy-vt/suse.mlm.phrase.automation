@@ -3,7 +3,7 @@
 :description: Red Hat CDN 채널을 구성하고 유효한 인증서를 단일 PEM 파일로 병합하여 SUSE Multi-Linux Manager와 함께 사용합니다.
 :revdate: 2022-10-18
 :page-revdate: {revdate}
-:page-author: SUSE 제품 및 솔루션 문서팀
+:page-author: SUSE 제품 및 솔루션 문서 팀
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -25,17 +25,17 @@ Could not refresh the repositories because of errors.
 HH:MM:SS RepoMDError: Cannot access repository. Maybe repository GPG keys are not imported
 ----
 
-이 문제를 해결하려면 유효한 모든 인증서를 단일 ``+.pem+`` 파일로 병합한 후 {productname}에서 사용하도록 인증서를 다시 빌드하십시오.
+이 문제를 해결하려면 유효한 모든 인증서를 단일 `+.pem+` 파일로 병합한 후 {productname}에서 사용하도록 인증서를 다시 빌드하십시오.
 
 
 
 .절차 여러 {redhat} CDN 인증서 해결
-. {redhat} 클라이언트의 명령 프롬프트에서, 루트 권한으로 단일 +``+rh-cert.pem+`` 파일의 ``+/etc/pki/entitlement/+``+에서 모든 현재 인증서를 수집합니다:
+. {redhat} 클라이언트의 명령 프롬프트에서 루트 사용자로 `+/etc/pki/entitlement/+`의 모든 현재 인증서를 단일 `+rh-cert.pem+` 파일로 수집하십시오.
 +
 ----
 cat 866705146090697087.pem 3539668047766796506.pem redhat-entitlement-authority.pem > rh-cert.pem
 ----
-. 단일 +``+rh-key.pem+`` 파일의 ``+/etc/pki/entitlement/+``+에서 모든 현재 키를 수집합니다:
+. `+/etc/pki/entitlement/+`의 모든 현재 키를 단일 `+rh-key.pem+` 파일로 수집하십시오.
 +
 ----
 cat 866705146090697087-key.pem 3539668047766796506-key.pem > rh-key.pem
