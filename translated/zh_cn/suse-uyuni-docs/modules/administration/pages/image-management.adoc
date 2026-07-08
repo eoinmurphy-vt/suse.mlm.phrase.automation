@@ -33,15 +33,15 @@ Kiwi 构建类型用于构建系统、虚拟和其他映像。
 
 // Needs checking
 // at later places to be fix accordingly
-Kiwi 构建类型的映像存储区已预先定义为 [path]``+srv-www+`` 卷中的一个文件系统目录。
+Kiwi 构建类型的映像存储区已预先定义为 `+srv-www+` 卷中的一个文件系统目录。
 
 ifeval::[{mlm-content} == true]
-映像文件可以从 [path]``+https://MANAGER-HOST/os-images/ORGANIZATION-ID/FILE-NAME+`` 下载。
+映像文件可以从 `+https://MANAGER-HOST/os-images/ORGANIZATION-ID/FILE-NAME+` 下载。
 确切位置可以从映像详细信息页面确定。
 endif::[]
 
 ifeval::[{uyuni-content} == true]
-映像文件可以从 [path]``+https://UYUNI-HOST/os-images/ORGANIZATION-ID/FILE-NAME+`` 下载。
+映像文件可以从 `+https://UYUNI-HOST/os-images/ORGANIZATION-ID/FILE-NAME+` 下载。
 确切位置可以从映像详细信息页面确定。
 endif::[]
 
@@ -95,18 +95,18 @@ _____
 
 . 从 menu:系统[系统] 概览页面中选择要指定为构建主机的 {salt} 客户端。
 
-. 从所选客户端的 [guimenu]``+系统详细信息+`` 页面分配容器模块。
-  导航到 menu:软件[软件通道] 并启用容器模块（例如，[guimenu]``+SLE-Module-Containers15-Pool+``+ 和 [guimenu]+``+SLE-Module-Containers15-Updates+``）。
+. 从所选客户端的 `+System Details+` 页面分配容器模块。
+  导航至 menu:软件[软件通道] 并启用容器模块（例如，`+SLE-Module-Containers15-Pool+` 和 `+SLE-Module-Containers15-Updates+`）。
   按 btn:[下一步] 继续。
 
-. 安排 [guimenu]``+软件通道变更+``，并单击 btn:[确认]。
+. 安排 `+ 软件通道变更+`，并单击 btn:[确认]。
 
-. 从 [guimenu]``+系统详细信息+``+ 选项卡中选择 menu:属性[] 页面，并从 [guimenu]+``+附加产品系统类型+`` 列表中启用 +``+容器构建主机+``+。
+. 从 `+System Details+` 选项卡选择 menu:属性[] 页面，并从 `+Add-on System Types+` 列表中启用 `+Container Build Host+`。
   通过单击 btn:[更新属性] 确认。
 
-. 通过应用 [systemitem]``+Highstate+`` 安装所有必需的软件包。
+. 通过应用 `+Highstate+` 安装所有必需的软件包。
   从系统详细信息选项卡中选择 menu:状态[Highstate]，并单击 btn:[应用Highstate]。
-  或者，从 {productname} 服务器命令行应用 [systemitem]``+Highstate+``：
+  或者，从 {productname} 服务器命令行应用 `+Highstate+`：
 
 +
 
@@ -138,8 +138,8 @@ _____
 
 . 单击 btn:[创建密钥]。
 
-. 输入 [guimenu]``+描述+``+ 和 [guimenu]+``+密钥+`` 名称。
-  使用下拉菜单选择要与此密钥关联的 [guimenu]``+基础通道+``。
+. 输入 `+Description+` 和 `+Key+` 名称。
+  使用下拉菜单选择要与此密钥关联的 `+Base Channel+`。
 
 . 单击 btn:[创建激活密钥] 确认。
 
@@ -162,13 +162,13 @@ _____
 
 . 选择 menu:映像[存储区]。
 
-. 单击 [guimenu]``+创建+`` 以创建新存储区。
+. 单击 `+Create+` 以创建新存储区。
 
-. 从 [guimenu]``+存储区类型+`` 中选择正确的类型。
+. 从 `+Store Type+` 中选择正确的类型。
 
-. 在 [guimenu]``+标签+`` 字段中定义映像存储区的名称。
+. 在 `+Label+` 字段中定义映像存储区的名称。
 
-. 通过填写 [guimenu]``+URI+`` 字段提供映像注册表的路径，该路径用作容器注册表主机（无论是内部还是外部）的完全限定域名 (FQDN)。
+. 通过填写 `+URI+` 字段提供映像注册表的路径，该路径用作容器注册表主机（无论是内部还是外部）的完全限定域名 (FQDN)。
 
 +
 
@@ -204,7 +204,7 @@ _____
 
 . 要创建映像配置文件，请选择 menu:映像[配置文件] 并单击 btn:[创建]。
 
-. 通过填写 [guimenu]``+标签+`` 字段提供映像配置文件的名称。
+. 通过填写 `+Label+` 字段提供映像控制文件的名称。
 
 +
 
@@ -213,13 +213,13 @@ _____
 如果您的容器映像标签采用类似于 `+myproject/myimage+` 的格式，请确保您的映像存储区注册表 URI 包含 `+/myproject+` 后缀。
 ====
 
-. 将 `+Dockerfile+` 用作 [guimenu]``+映像类型+``。
+. 使用 `+Dockerfile+` 作为 `+Image Type+`。
 
-. 使用下拉菜单从 [guimenu]``+目标映像存储区+`` 字段中选择您的注册表。
+. 使用下拉菜单从 `+Target Image Store+` 字段中选择您的注册表。
 
-. 在 [guimenu]``+路径+`` 字段中，输入 GitHub、GitLab 或 BitBucket 储存库的 URL。
+. 在 `+Path+` 字段中，输入 GitHub、GitLab 或 BitBucket 储存库的 URL。
   路径也可以是构建主机上的本地目录。
-  URL 应为 [literal]``+http+``+, [literal]+``+https+`` 或令牌身份验证 URL。
+  该 URL 应为 `+http+`、`+https+` 或令牌身份验证 URL。
   对于 GitHub 或 GitLab，请使用以下格式之一：
 
 +
@@ -320,10 +320,10 @@ _____
 
 [NOTE]
 ====
-[option]``+ARG+`` 参数确保构建的映像与由 {productname} 提供的所需储存库相关联。
-此外，[option]``+ARG+`` 参数还允许您构建基于 {sles} 的映像版本，这些版本可能与构建主机本身使用的 {sles} 版本不同。
+`+ARG+` 参数确保构建的映像与由 {productname} 提供的所需储存库相关联。
+`+ARG+` 参数还允许您构建基于 {sles} 的映像版本，这些版本可能与构建主机本身使用的 {sles} 版本不同。
 
-例如：[command]``+ARG repo+``+ 参数和指向储存库文件的 [command]+``+echo+`` 命令创建并注入正确的路径到所需通道版本的储存库文件中。
+例如：`+ARG repo+` 参数和指向储存库文件的 `+echo+` 命令创建正确的路径，然后将其注入到所需通道版本的储存库文件中。
 
 储存库由您指派到映像配置文件的激活密钥决定。
 ====
@@ -380,15 +380,15 @@ _____
 
 . 选择 menu:映像[构建]。
 
-. 如果您不想使用默认的 ``+最新+`` 版本（仅与容器相关），请添加不同的标记名称。
+. 如果您不想使用默认的 `+latest+` 版本（仅与容器相关），请添加不同的标记名称。
 
-. 选择 [guimenu]``+构建控制文件+``+ 和 [guimenu]+``+构建主机+``。
+. 选择 `+Build Profile+` 和 `+Build Host+`。
 
 +
 
 [NOTE]
 ====
-注意构建字段右侧的 [guimenu]``+控制文件摘要+``。
+请注意构建字段右侧的 `+Profile Summary+`。
 当您选择了构建控制文件后，所选控制文件的详细信息将显示在此区域。
 ====
 
@@ -403,16 +403,16 @@ _____
 
 获取映像的第二种方法是导入和检查任意映像。
 为此，请从左侧导航栏选择 menu:映像[映像列表]。
-填写 [guimenu]``+导入+`` 对话框中的文本框。
-处理完成后，导入的映像将在 [guimenu]``+映像列表+`` 页面上列出。
+填写 `+Import+` 对话框中的文本框。
+处理完成后，导入的映像将在 `+Image List+` 页面上列出。
 
 .过程：升级导入映像
 [role=procedure]
 _____
 
-. 从 menu:映像[映像列表] 中单击 btn:[导入] 以打开 [guimenu]``+导入映像+`` 对话框。
+. 从 menu:映像[映像列表] 中单击 btn:[导入] 以打开 `+Import Image+` 对话框。
 
-. 在 [guimenu]``+导入映像+`` 对话框中填写以下字段：
+. 在 `+Import Image+` 对话框中填写以下字段：
 
 +
 
@@ -435,11 +435,11 @@ _____
 
 _____
 
-映像的条目已在数据库中创建，并在 {productname} 上安排了 ``+检查映像+`` 操作。
+在数据库中创建映像的条目，并在 `+Inspect Image+` 上安排 {productname} 操作。
 
-处理完成后，您可以在 ``+映像列表+`` 中找到导入的映像。
-在 ``+Build+`` 列中有一个不同的图标，以指示该映像是导入的。
-导入映像的状态图标也可以在 ``+Overview+`` 标签中看到。
+处理完成后，您可以在 `+Image List+` 中找到导入的映像。
+在 `+Build+` 列中有一个不同的图标，以指示该映像是导入的。
+导入映像的状态图标也可以在映像的 `+Overview+` 标签中看到。
 
 
 
@@ -481,7 +481,7 @@ endif::[]
 
 Kiwi 映像构建功能适用于运行 {sles}{nbsp}15 和 {sles}{nbsp}12 的 {salt} 客户端。
 //SLE15 images support is not yet released for MLM4, but is part of MLM4.0.4 as tech preview
-//From {sles}{nbsp}15, ``+kiwi-ng+`` is used instead of the legacy Kiwi.
+//From {sles}{nbsp}15, `+kiwi-ng+` is used instead of the legacy Kiwi.
 
 必须可在以下位置之一访问 Kiwi 映像配置文件和配置脚本：
 
@@ -502,9 +502,9 @@ Kiwi 映像构建功能适用于运行 {sles}{nbsp}15 和 {sles}{nbsp}12 的 {sa
 
 === 在构建映像时通过 HTTP/HTTPS 代理访问 Git 储存库。
 
-当构建主机需要从仅通过 HTTP/HTTPS 代理可访问的 git 储存库获取源时，您可能会在构建过程中看到 git 超时，因为 {salt} 状态调用的 git 客户端并不总是会使用系统范围的代理设置（例如 [path]``+/etc/sysconfig/proxy+`` 或环境变量）。
+当构建主机需要从仅通过 HTTP/HTTPS 代理可访问的 git 储存库获取源时，您可能会在构建过程中看到 git 超时，因为 {salt} 状态调用的 git 客户端并不总是会使用系统范围的代理设置（例如 `+/etc/sysconfig/proxy+` 或环境变量）。
 
-要使 git 在非交互式构建中使用代理，请创建 [path]``+/etc/gitconfig+`` 并添加 http.proxy 条目：
+要使 git 在非交互式构建中使用代理，请创建 `+/etc/gitconfig+` 并添加 http.proxy 条目：
 
 [source,console]
 ----
@@ -522,7 +522,7 @@ Kiwi 映像构建功能适用于运行 {sles}{nbsp}15 和 {sles}{nbsp}12 的 {sa
 
 ==== 使用 {salt} 进行自动化。
 
-您可以通过配置管理在构建主机上管理 [path]`+/etc/gitconfig+`，与在任何其他受管系统上的方式相同。
+您可以通过配置管理在构建主机上管理 `+/etc/gitconfig+`，与在任何其他受管系统上的方式相同。
 创建一个 {salt} 状态文件，并通过配置通道将其分配给构建主机，然后从 {productname} UI 应用高状态。
 
 如果您想从系统自定义信息字段中获取代理地址，请使用 `+custom_info:+` pillar 前缀：
@@ -560,21 +560,23 @@ Kiwi 映像构建功能适用于运行 {sles}{nbsp}15 和 {sles}{nbsp}12 的 {sa
 
 管理员可通过以下 pillar 或自定义值覆盖默认行为：
 
-* [literal]``+use_kiwi_ng+``：强制使用 Kiwi 9，
-* [literal]``+use_kiwi_container+``：强制使用容器化 Kiwi 10。
-  要启用此功能，请将值设置为 [literal]``+1+``。
+* `+use_kiwi_ng+`：强制使用 Kiwi 9，
+* `+use_kiwi_container+`：强制使用容器化 Kiwi 10。
+  要启用此功能，请将值设置为 `+1+`。
+* `+use_bundle_build+`：将额外的 KIWI 捆绑包构建工件（例如包含 PXE 引导文件的 `+.install.tar+`，以及 `+.raw.xz+`）上传到服务器。
+  要启用此功能，请将值设置为 `+true+`。
 
 
 ==== 服务器配置
 
 当为 SUSE Linux Enterprise 15 配置文件使用容器化构建主机时，需要进行特定配置。因为 SLES 15 配置文件依赖 Kiwi 9，而容器默认行为使用 Kiwi 10。
 
-为确保 SLES 15 控制文件使用正确版本，您必须定义 [literal]``+kiwi_image+`` 自定义信息键，并设置以下值：
+为确保 SLES 15 控制文件使用正确版本，您必须定义 `+kiwi_image+` 自定义信息键，并设置以下值：
 
-* [literal]``+键+``：kiwi_image
-* [literal]``+Value+``+: [path]+``+registry.suse.com/bci/kiwi:9+``
+* `+Key+`：kiwi_image
+* `+Value+`：`+registry.suse.com/bci/kiwi:9+`
 
-如果未设置此键，系统将默认使用最新版本（例如 [path]``+registry.suse.com/bci/kiwi:10.2+``），这可能导致 SLES 15 配置文件出现构建问题。
+如果未设置此键，系统将默认使用最新版本（例如 `+registry.suse.com/bci/kiwi:10.2+`），这可能导致 SLES 15 控制文件出现构建问题。
 
 
 [[at.images.kiwi.buildhost]]
@@ -607,7 +609,7 @@ _____
 
 . 在 menu:系统[概览] 页面中选择要指定为构建主机的客户端。
 
-. 导航到 menu:系统细节[属性] 选项卡，选中 [guimenu]``+附加系统类型+``+ > [guimenu]+``+操作系统映像构建主机+`` 复选框。
+. 导航至 menu:系统详细信息[属性] 选项卡，并勾选 `+Add-on System Type+` > `+OS Image Build Host+` 复选框。
 
 . 单击 btn:[更新属性] 确认。
 
@@ -615,9 +617,9 @@ _____
 
 +
 
-* {sles}{nbsp}12 构建主机需要 {productname} 客户端工具（``+SLE-Manager-Tools12-Pool+``+ 和 +``+SLE-Manager-Tools12-Updates+``）。
+* {sles}{nbsp}12 构建主机需要 {productname} 客户端工具（`+SLE-Manager-Tools12-Pool+` 和 `+SLE-Manager-Tools12-Updates+`）。
 
-* {sles}{nbsp}15 构建主机需要 {sles} 模块 ``+SLE-Module-DevTools15-SP4-Pool+``+ 和 +``+SLE-Module-DevTools15-SP4-Updates+``。
+* {sles}{nbsp}15 构建主机需要 {sles} 模块 `+SLE-Module-DevTools15-SP4-Pool+` 和 `+SLE-Module-DevTools15-SP4-Updates+`。
 
 *  配置日程安排并单击 btn:[确认]。
 
@@ -664,7 +666,7 @@ _____
 
 [IMPORTANT]
 ====
-在构建源中指定包含 {productname} SSL 证书的 RPM 软件包，并确保您的 Kiwi 配置在 +``+bootstrap+``+ 部分包含 ``+rhn-org-trusted-ssl-cert-osimage+``+ 作为必需的软件包。
+在构建源中指定包含 {productname} SSL 证书的 RPM 软件包，并确保您的 Kiwi 配置在 `+bootstrap+` 部分包含 `+rhn-org-trusted-ssl-cert-osimage+` 作为必需的软件包。
 
 .config.xml
 [source,xml]
@@ -699,9 +701,9 @@ _____
 
 . 在 {webui} 中，选择 menu:系统[激活密钥]。
 
-. 单击 [guimenu]``+创建密钥+``。
+. 单击 `+Create Key+`。
 
-. 输入一个 [guimenu]``+描述+``、一个 [guimenu]+``+密钥+``+ 名称，并使用下拉框选择一个 [guimenu]+``+基础通道+`` 以与该密钥关联。
+. 输入 `+Description+`、`+Key+` 名称，并使用下拉框选择要与该键关联的 `+Base Channel+`。
 
 . 单击 btn:[创建激活密钥] 确认。
 
@@ -717,7 +719,7 @@ _____
 // For background info about Image Store, see the overview at the beginning of this chapter.
 
 操作系统映像可能需要大量存储空间。
-默认情况下，映像存储使用 [path]``+srv-www+`` 卷。
+默认情况下，映像存储使用 `+srv-www+` 卷。
 
 
 [NOTE]
@@ -726,12 +728,12 @@ _____
 
 
 ifeval::[{mlm-content} == true]
-映像文件可以从 [path]``+https://MANAGER-HOST/os-images/ORGANIZATION-ID/FILE-NAME+`` 下载。
+映像文件可以从 `+https://MANAGER-HOST/os-images/ORGANIZATION-ID/FILE-NAME+` 下载。
 确切位置可以从映像详细信息页面确定。
 endif::[]
 
 ifeval::[{uyuni-content} == true]
-映像文件可以从 [path]``+https://UYUNI-HOST/os-images/ORGANIZATION-ID/FILE-NAME+`` 下载。
+映像文件可以从 `+https://UYUNI-HOST/os-images/ORGANIZATION-ID/FILE-NAME+` 下载。
 确切位置可以从映像详细信息页面确定。
 endif::[]
 
@@ -750,21 +752,21 @@ _____
 
 . 要创建映像控制文件，请从 menu:映像[控制文件] 中选择，并单击 btn:[创建]。
 
-. 在 [guimenu]``+Label+``+ 字段中，为 +`映像控制文件` 提供名称。
+. 在 `+Label+` 字段中，为 `+Image Profile+` 提供一个名称。
 
-. 将 `+Kiwi+` 用作 [guimenu]``+映像类型+``。
+. 使用 `+Kiwi+` 作为 `+Image Type+`。
 
 . 系统会自动选择映像存储区。
 
-. 输入指向包含 Kiwi 配置文件的目录的 [guimenu]``+Config URL+``。
+. 输入 Kiwi 配置文件所在目录的 `+Config URL+`。
   例如，git URI 如 https://github.com/SUSE/manager-build-profiles#master:OSImage/SLE-Micro54.。其他选项是 HTTP 或 HTTPS 托管的 Tar 包或构建主机上的本地目录。
   有关更多信息，请参见本节末尾的源格式选项。
 
-. 如有需要，请输入 [guimenu]``+Kiwi options+``。
-  如果 Kiwi 配置文件指定多个控制文件，请使用 [option]``+--控制文件 <name>+`` 选择活动控制文件。
+. 如果需要，请输入 `+Kiwi options+`。
+  如果 Kiwi 配置文件指定多个控制文件，请使用 `+--profile <name>+` 选择活动控制文件。
   有关其他选项，请参见 Kiwi 文档。
 
-. 选择一个 [guimenu]``+激活密钥+``。
+. 选择一个 `+Activation Key+`。
   激活密钥可确保将使用控制文件的映像指派到正确的通道和软件包。
 
 +
@@ -924,15 +926,15 @@ _____
 
 . 选择 menu:映像[构建]。
 
-. 如果您想要其他版本而不是默认的``+latest+``（仅适用于容器），请添加不同的标记名称。
+. 如果您想要除默认 `+latest+` 之外的其他版本（仅适用于容器），请添加不同的标签名称。
 
-. 选择[guimenu]``+映像控制文件+``+和[guimenu]+``+构建主机+``。
+. 选择 `+Image Profile+` 和 `+Build Host+`。
 
 +
 
 [NOTE]
 ====
-构建字段右侧显示[guimenu]``+控制文件摘要+``。
+构建字段右侧显示 `+Profile Summary+`。
 当您选择了控制文件时，所选控制文件的详细信息将在此处显示。
 ====
 
@@ -1003,16 +1005,16 @@ _____
 要列出可用的构建映像，请选择 menu:映像[映像列表]。
 将显示所有映像的列表。
 
-显示的关于映像的数据包括映像 [guimenu]``+名称+``+, 其 [guimenu]+``+版本+``+, [guimenu]+``+修订版+``+, 和构建 [guimenu]+``+状态+``。
+有关映像的显示数据包括映像 `+Name+`、其 `+Version+`、`+Revision+` 以及构建 `+Status+`。
 您还可以查看映像更新状态，以及可用于该映像的补丁和软件包更新列表。
 
-对于操作系统映像，[guimenu]``+名称+``+ 和 [guimenu]+``+版本+`` 字段来自 Kiwi 源，并在成功构建结束时更新。
+对于操作系统映像，`+Name+` 和 `+Version+` 字段来自 Kiwi 源，并会在成功构建结束时进行更新。
 在构建过程中或构建失败后，这些字段显示基于控制文件名称的临时名称。
 
-[guimenu]``+修订版+`` 在每次成功构建后自动增加。对于操作系统映像，多个修订版可以共存于存储中。
+`+Revision+` 在每次成功构建后自动增加。对于操作系统映像，多个修订版可以共存于存储中。
 
 对于容器映像，存储中仅保留最新的修订版。
-关于以前修订版（软件包、补丁等）的信息被保留，并且可以通过 [guimenu]``+显示过时+`` 复选框列出它们。
+关于以前修订版（软件包、补丁等）的信息被保留，并且可以通过 `+Show obsolete+` 复选框列出它们。
 
 单击映像上的 btn:[详细信息] 按钮可提供详细视图。
 详细视图包括相关补丁的确切列表、映像中安装的所有软件包的列表和构建日志。
