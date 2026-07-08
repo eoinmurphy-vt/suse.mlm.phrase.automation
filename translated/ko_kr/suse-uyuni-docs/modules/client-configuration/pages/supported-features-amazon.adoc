@@ -147,7 +147,7 @@ ifeval::[{mlm-content} == true]
 | 모니터링 서버
 | {cross}
 | {cross}
-`
+
 | 모니터링된 클라이언트
 | {check}
 | {check}
