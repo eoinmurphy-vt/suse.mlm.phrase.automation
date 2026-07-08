@@ -29,7 +29,7 @@ ____
 
 . 根据需要升级到最新服务包。
 
-. 运行 [command]``+podman ps+`` 并检查所有必需的服务是否已正常运行。
+. 运行 `+podman ps+` 并检查所有必需的服务是否已正常运行。
 ____
 
 在 {sles} {bci-mlm} 上，您可以使用软件包管理器安装更新：
@@ -37,8 +37,8 @@ ____
 * 有关使用 {yast} 的信息，请参见 {sles-base-os-documentation}/cha-onlineupdate-you.html。
 * 有关使用 zypper 的信息，请参见 {sles-base-os-documentation}/cha-sw-cl.html#sec-zypper。
 
-在 {sl-micro} {microversion} 上，您可以使用 [command]``+transactional-update+`` 命令安装更新。
-有关使用 [command]``+transactional-update+`` 的信息，请参见 https://documentation.suse.com/sle-micro/6.1/html/Micro-transactional-updates/transactional-updates.html.
+在 {sl-micro} {microversion} 上，您可以使用 `+transactional-update+` 命令安装更新。
+有关使用 `+transactional-update+` 的信息，请参见 https://documentation.suse.com/sle-micro/6.1/html/Micro-transactional-updates/transactional-updates.html.。
 
 
 默认情况下，为 {productname} 服务器配置并启用多个更新通道。
@@ -92,7 +92,7 @@ ifeval::[{mlm-content} == true]
 例如，当发布维护更新时，主要版本 5.1 会递增到 5.1.1。
 
 您可以通过查看 {webui} 导航栏底部来验证您正在运行的版本。
-您还可以通过 [literal]``+api.getVersion()+`` XMLRPC API 调用获取版本号。
+您还可以通过 `+api.getVersion()+` XMLRPC API 调用获取版本号。
 
 endif::[]
 
@@ -101,10 +101,10 @@ endif::[]
 === 客户端工具
 
 当服务器更新时，请考虑同时更新客户端上的一些工具。
-更新 [package]``+venv-salt-minion+``、[package]+``+zypper+`` 以及客户端上其他相关管理软件包并非严格要求，但通常被视为最佳实践。
+在客户端上更新 `+venv-salt-minion+`、`+zypper+` 以及其他相关管理软件包并非严格要求，但通常被视为最佳实践。
 例如，服务器上的维护更新可能会引入一个主要的新 Salt 版本。
 然后 Salt 客户端继续工作，但可能会在后续遇到问题。
-为避免这种情况，{suse} 会确保 [package]``+venv-salt-minion+`` 始终能够安全地进行更新。
+为避免这种情况，{suse} 会确保 `+venv-salt-minion+` 始终能够安全地进行更新。
 
 
 
