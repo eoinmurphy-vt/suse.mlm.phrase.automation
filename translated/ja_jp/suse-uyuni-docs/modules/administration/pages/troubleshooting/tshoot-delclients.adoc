@@ -3,7 +3,7 @@
 :description: 削除されたクライアントの登録問題を解決するためのハウツー（段階的なトラブルシューティングプロセス）を学びます。
 :revdate: 2024-05-10
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメントチーム
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -30,7 +30,7 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 [IMPORTANT]
 ====
-サーバーコンテナでステップを実行する前に[literal]``+mgrctl term+``を使用します。
+サーバコンテナ内でステップを実行する前に、`+mgrctl term+`を使用してください。
 ====
 
 削除された（未登録の）クライアントの新しい登録ができない場合があります。
