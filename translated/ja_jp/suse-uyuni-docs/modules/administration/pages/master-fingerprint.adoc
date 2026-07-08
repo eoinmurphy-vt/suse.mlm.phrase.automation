@@ -3,7 +3,7 @@
 :description: Saltクライアントを特定のマスターで検証するよう設定するには、そのマスターの指紋をミニオン設定ファイルに入力します。
 :revdate: 2024-12-12
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメントチーム
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -12,18 +12,18 @@
 高度に安全なネットワーク構成では、{salt}クライアントが特定のマスターに接続していることを確認したい場合があります。
 クライアントからマスターへの検証を設定するには、まず{salt}ミニオン設定ファイル内にマスターの指紋を入力します:
 
-* クライアントでクラシック{salt}ミニオンを使用している場合は、[path]``+/etc/salt/minion.d/custom.conf+``を使用します。
-* クライアントで{salt}バンドルを使用している場合は、[path]``+/etc/venv-salt-minion/minion.d/custom.conf+``を使用します。
+* `+/etc/salt/minion.d/custom.conf+` クライアントでクラシック {salt} ミニオンを使用する場合、または
+* `+/etc/venv-salt-minion/minion.d/custom.conf+` クライアントで {salt} バンドルを使用する場合
 
 その後、次のプロシージャに従います。
 
 [IMPORTANT]
 ====
-サーバコンテナ内でシェルにアクセスするには、コンテナホストで[literal]``+mgrctl term+``を実行します。
+サーバコンテナ内のシェルにアクセスするには、コンテナホストで`+mgrctl term+`を実行します。
 ====
 
 .プロシージャ:マスターの指紋をクライアントに追加する
-. マスターのコマンドプロンプトで、rootとして、次のコマンドを使用して``+master.pub+``の指紋を見つけます:
+. マスターのコマンドプロンプトで、ルートとして、次のコマンドを使用して `+master.pub+` の指紋を見つけます:
 +
 
 ----
@@ -31,7 +31,7 @@ salt-key -F master
 ----
 +
 
-クライアントで、[path]``+/etc/salt/minion.d/custom.conf+``または[path]+``+/etc/venv-salt-minion/minion.d/custom.conf+``ミニオン設定ファイルを開きます。
+クライアントで、`+/etc/salt/minion.d/custom.conf+` または `+/etc/venv-salt-minion/minion.d/custom.conf+` の設定ファイルを開きます。
 この行を追加して、例の指紋を置き換えてマスターの指紋を入力します:
 +
 
