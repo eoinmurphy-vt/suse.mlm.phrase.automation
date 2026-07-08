@@ -51,14 +51,14 @@ endif::[]
 
 {productname} {productnumber} 引入了一套重新品牌的客户端工具，适用于所有受支持的操作系统。此过渡过程无缝，进行新产品同步的用户只会注意到更新的通道名称。
 
-名为 [literal]``+SUSE Manager Client Tools for XYZ+`` 的通道，之前注册到 {productname} 4.3 或 5.0 的客户端在 5.1 中已不再提供，且不会在 5.1 中继续接收更新。
+名为 `+SUSE Manager Client Tools for XYZ+` 的通道（由之前注册到 {productname} 4.3 或 5.0 的客户端使用）在 5.1 版本中已不再可用，并且在 5.1 中将不再接收更新。
 
 尽管迁移后旧版通道仍会分配给现有客户端，但对应的储存库已被去除。
 
 为确保客户端能持续接收更新，用户必须执行以下操作：
 
-* 为相关产品同步新的 [literal]``+SUSE Multi-Linux Manager Client Tools for XYZ+`` 通道，并将其分配给相应的客户端。
-* 取消分配过时的 [literal]``+SUSE Manager Client Tools for XYZ+`` 通道。
+* 镜像相关产品的新 `+SUSE Multi-Linux Manager Client Tools for XYZ+` 通道，并将其分配给相应的客户端。
+* 取消分配过时的 `+SUSE Manager Client Tools for XYZ+` 通道。
 
 这也意味着，任何基于旧客户端工具的 CLM 项目都必须相应调整。
 
@@ -178,9 +178,9 @@ SUSEConnect --status-text
 
 您应看到以下内容：
 
-* [literal]``+PRETTY_NAME="SUSE Linux Micro 6.1"+``
+* `+PRETTY_NAME="SUSE Linux Micro 6.1"+`
 
-* [literal]``+SUSE Multi-Linux Manager Server 5.1 Extension+``
+* `+SUSE Multi-Linux Manager Server 5.1 Extension+`
 
 +
 
@@ -230,9 +230,9 @@ mgradm --version
 
 +
 
-* 版本 [literal]``+5.1.11+`` 或更高版本
+* 版本 `+5.1.11+` 或更高版本
 
-* 参考 [literal]``+5.1.0+`` 或更高版本
+* 参考 `+5.1.0+` 或更高版本
 
 . 升级服务器容器
 
@@ -272,16 +272,16 @@ podman ps
 
 您应看到以下内容：
 
-* [literal]``+server:5.1.0+`` 或更高版本
+* `+server:5.1.0+` 或更高版本
 
-* [literal]``+server-postgresql:5.1.0+`` 或更高版本
+* `+server-postgresql:5.1.0+` 或更高版本
 
 ____
 
 
 [NOTE]
 ====
-如果之前未安装 [literal]``+uyuni-db+``+ 或 [litarl]+``+saline+`` 等服务，升级过程中出现的相关缺失服务错误可忽略。
+如果之前未安装 `+uyuni-db+` 或 `+saline+` 等服务，升级过程中出现的相关缺失服务错误可忽略。
 ====
 
 
@@ -337,9 +337,9 @@ SUSEConnect --status-text
 
 +
 
-* 基础操作系统：[literal]``+SUSE Linux Enterprise Server 15 SP6+``
+* 基础操作系统：`+SUSE Linux Enterprise Server 15 SP6+`
 
-* 扩展：[literal]``+SUSE Manager Server 5.0 Extension+``
+* 扩展：`+SUSE Manager Server 5.0 Extension+`
 
 +
 
@@ -412,9 +412,9 @@ SUSEConnect --status-text
 
 您应看到以下内容：
 
-* [literal]``+VERSION="15-SP7"+``
+* `+VERSION="15-SP7"+`
 
-* [literal]``+SUSE Multi-Linux Manager Server 5.1 Extension for SLE+``
+* `+SUSE Multi-Linux Manager Server 5.1 Extension for SLE+`
 
 +
 
@@ -431,9 +431,9 @@ mgradm --version
 
 预期输出：
 
-* 版本 [literal]``+5.1.11+`` 或更高版本
+* 版本 `+5.1.11+` 或更高版本
 
-* 镜像标签 [literal]``+5.1.0+`` 或更高版本
+* 镜像标签 `+5.1.0+` 或更高版本
 
 +
 
@@ -476,9 +476,9 @@ podman ps
 
 更新容器
 
-* [literal]``+server:5.1.0+`` 或更高版本
+* `+server:5.1.0+` 或更高版本
 
-* [literal]``+server-postgresql:5.1.0+`` 或更高版本
+* `+server-postgresql:5.1.0+` 或更高版本
 
 ____
 
