@@ -107,7 +107,7 @@ __* s390x 有两个可用存储选项：CDL DASD 和 FBA.__
 == 初始 KVM 设置
 
 .过程：升级创建初始设置
-. 使用下载的 {minimal} KVM 映像创建一个新虚拟机，然后选择 [guimenu]``+导入现有磁盘映像+``。
+. 使用下载的 {minimal} KVM 映像创建一个新虚拟机，并选择 `+Import existing disk image+`。
 . 配置 RAM 和 CPU 数量（至少 16 GB RAM，4 个 CPU）。
 . 为您的 KVM 计算机命名。
 . 单击 btn:[开始安装] 以从映像引导。
@@ -192,11 +192,11 @@ transactional-update
 . 如果已应用更新，请重引导。
 
 . 该步骤可选。
-  但是，如果您的基础架构需要自定义的永久性存储，请使用 [command]``+mgr-storage-server+`` 工具。
+  但是，如果您的基础设施需要自定义的永久性存储，请使用 `+mgr-storage-server+` 工具。
 
 +
 
-有关更多信息，请参见 [command]``+mgr-storage-server --帮助+``。
+有关详细信息，请访问 `+mgr-storage-server --help+`。
 有关详细信息，请参见 [command]\\``mgr-storage-server \--help``。此工具可以简化容器存储和数据库卷的创建。
 如下所示使用命令：
 
@@ -216,7 +216,7 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 +
 [NOTE]
 ====
-此命令将把 [path]``+/var/lib/containers/storage/volumes+`` 中的永久性存储卷移动到指定的存储设备。
+此命令会将 `+/var/lib/containers/storage/volumes+` 处的永久性存储卷移动到指定的存储设备。
 
 有关详细信息，请参见
 
