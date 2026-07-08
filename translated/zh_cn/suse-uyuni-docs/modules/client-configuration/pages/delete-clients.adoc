@@ -63,9 +63,9 @@ spacecmd system_delete FQDN
 ----
 ____
 
-[command]``+spacecmd system_delete+`` 还会删除 {salt} 密钥。
+`+spacecmd system_delete+`还会删除{salt}键。
 
-[command]``+system_delete+`` 提供以下选项：
+`+system_delete+`提供了以下选项：
 
 
 ----
@@ -104,7 +104,7 @@ rm /var/cache/salt/master/thin/thin.tgz
 [WARNING]
 ====
 您不得在运行 {rhel}、{debian} 或克隆的客户端上执行以下程序。
-请使用等效的打包命令，例如 [command]+``+yum+``+、[command]+``+dnf+``+ 或 [command]+``+apt+``，而不是 [command]``+zypper+``+。
+请勿使用`+zypper+`，而应使用等效的打包器命令，例如`+yum+`、`+dnf+`或`+apt+`。
 ====
 
 .过程：升级删除 SLES 12 和 15 客户端
