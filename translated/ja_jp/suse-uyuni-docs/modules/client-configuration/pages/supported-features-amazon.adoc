@@ -3,7 +3,7 @@
 :description: この包括的な表では、Amazon Linuxクライアントがサポートする機能と機能性について説明しています
 :revdate: 2025-06-30
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメンテーションチーム
+:page-author: SUSE製品およびソリューションドキュメントチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -88,7 +88,7 @@ ifeval::[{mlm-content} == true]
 | {question}
 | {question}
 
-| 接続方法
+| 連絡方法
 | {check} ZeroMQ、Salt-SSH
 | {check} ZeroMQ、Salt-SSH
 
@@ -116,7 +116,7 @@ ifeval::[{mlm-content} == true]
 | {check}
 | {check}
 
-| パッケージのロック
+| パッケージロック
 | {cross}
 | {cross}
 
@@ -137,8 +137,8 @@ ifeval::[{mlm-content} == true]
 | {check}
 
 | スナップショットとプロファイル
-| {check} プロファイルがサポートされており、syncはサポートされていません
-| {check} プロファイルがサポートされており、syncはサポートされていません
+| {check} プロファイルはサポートされていますが、syncはサポートされていません。
+| {check} プロファイルはサポートされていますが、syncはサポートされていません。
 
 | 電源管理
 | {question}
@@ -147,7 +147,7 @@ ifeval::[{mlm-content} == true]
 | モニタリングサーバ
 | {cross}
 | {cross}
-`
+
 | 監視対象のクライアント
 | {check}
 | {check}
@@ -250,7 +250,7 @@ ifeval::[{uyuni-content} == true]
 | {question}
 | {question}
 
-| 接続方法
+| 連絡方法
 | {check} ZeroMQ、Salt-SSH
 | {check} ZeroMQ、Salt-SSH
 
@@ -278,7 +278,7 @@ ifeval::[{uyuni-content} == true]
 | {check}
 | {check}
 
-| パッケージのロック
+| パッケージロック
 | {cross}
 | {cross}
 
@@ -299,8 +299,8 @@ ifeval::[{uyuni-content} == true]
 | {check}
 
 | スナップショットとプロファイル
-| {check} プロファイルがサポートされており、syncはサポートされていません
-| {check} プロファイルがサポートされており、syncはサポートされていません
+| {check} プロファイルはサポートされていますが、syncはサポートされていません。
+| {check} プロファイルはサポートされていますが、syncはサポートされていません。
 
 | 電源管理
 | {question}
