@@ -35,7 +35,7 @@ endif::[]
 
 [NOTE]
 ====
-将 {centos} 客户端注册到 {productname} 时，使用 ``+enforcing+``+ 的默认 SELinux 配置和 +``+targeted+`` 策略进行测试。
+将 {centos} 客户端注册到 {productname} 的测试是在 `+enforcing+` 的默认 SELinux 配置下进行的，使用 `+targeted+` 策略。
 您无需禁用 SELinux 即可将 {centos} 客户端注册到 {productname}。
 ====
 
@@ -124,19 +124,19 @@ endif::[]
 
 [NOTE]
 ====
-由 [command]``+spacewalk-common-channels+`` 提供的客户端工具通道来自 {uyuni} 而非 {suse}。
+`+spacewalk-common-channels+` 提供的客户端工具频道源自 {uyuni}，而非 {suse}。
 ====
 
 endif::[]
 
 
-如果您使用模块化通道，则必须在客户端上启用 Python 3.6 模块流。
-如果您不提供 Python 3.6，则 [package]``+spacecmd+`` 软件包的安装将失败。
+如果您使用的是模块化通道，您必须在客户端上启用 Python 3.6 模块流。
+如果您不提供 Python 3.6，`+spacecmd+` 软件包的安装将失败。
 
 [NOTE]
 ====
-您可能会注意到上游和 {productname} 通道之间的 AppStream 通道中可用软件包数量存在差异。
-如果您在不同时间点比较同一通道，您可能还会看到不同的数字。
+您可能会注意到上游和 {productname} 通道之间的应用流通道中可用软件包数量存在差异。
+如果您在不同时间点比较同一通道，您也可能会看到不同的数字。
 这是由于 {centos} 管理其储存库的方式。{centos} 在发布新版本时会删除旧版本的软件包，而 {productname} 则会保留所有版本，无论其年龄。
 ====
 
@@ -190,13 +190,13 @@ endif::[]
 == 管理 GPG 密钥
 
 客户端使用 GPG 密钥在安装软件包之前检查其真实性。
-只有受信任的软件才能在客户端上安装。
+只有受信任的软件包才能在客户端上安装。
 
 [IMPORTANT]
 ====
 信任 GPG 密钥对客户端的安全性至关重要。
-管理员的任务是决定哪些密钥是必要的并且可以被信任。
-由于在 GPG 密钥不被信任时无法使用软件通道，因此将通道分配给客户端的决定取决于信任该密钥的决定。
+决定需要哪些密钥并可以信任哪些密钥是管理员的任务。
+由于在 GPG 密钥未被信任时无法使用软件通道，因此是否将通道分配给客户端取决于是否信任该密钥。
 ====
 
 有关 GPG 密钥的更多信息，请参见 xref:client-configuration:gpg-keys.adoc[]。
@@ -208,21 +208,21 @@ endif::[]
 
 [NOTE]
 ====
-CentOS 7 将无法注册，原因是 [path]``+/etc/yum.repos.d/CentOS-Base.repo+`` 中启用了 URL，导致 [command]+``+yum+`` 尝试通过 fastmirror 查找储存库。
+CentOS 7 将无法接入，原因是 `+/etc/yum.repos.d/CentOS-Base.repo+` 中启用了 URL，导致 `+yum+` 尝试通过 fastmirror 查找仓库。
 这将导致启动失败，并出现如下错误消息：
 
 ----
 Could not resolve host: mirrorlist.centos.org; Unknown error
 ----
 
-要解决此问题，您可以通过以下命令去除 [path]``+CentOS-Base.repo+`` 文件：
+要解决此问题，您可以通过以下命令去除 `+CentOS-Base.repo+` 文件：
 
 [source,shell]
 ----
 rm -f /etc/yum.repos.d/CentOS-Base.repo
 ----
 
-如果需要保留该文件，则可在每个 URL 部分添加 [literal]``+enabled=0+``。
+或者，如果需要保留该文件，则可在每个 URL 部分添加 `+enabled=0+`。
 
 无论选择哪种方式，之后都需重新执行引导流程。
 ====
@@ -273,7 +273,7 @@ CEFS 的作者提供补丁或勘误，尽力而为，希望它们有用，但不
 
 .过程：升级安装勘误服务
 
-. 在 {productname} 服务器上的命令提示符处，以 root 身份添加 ``+sle-module-development-tools+`` 模块：
+. 在 {productname} 服务器上，从命令提示符处以 root 用户身份添加 `+sle-module-development-tools+` 模块：
 +
 ----
 SUSEConnect --product sle-module-development-tools/15.2/x86_64
@@ -283,7 +283,7 @@ SUSEConnect --product sle-module-development-tools/15.2/x86_64
 ----
 zypper in  perl-Text-Unidecode
 ----
-. 在 [path]``+/etc/rhn/rhn.conf+`` 中添加或编辑此行：
+. 在 `+/etc/rhn/rhn.conf+` 中添加或编辑此行：
 +
 ----
 java.allow_adding_patches_via_api = centos7-x86_64-updates,centos7-x86_64,centos7-x86_64-extras
