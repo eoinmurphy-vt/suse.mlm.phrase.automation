@@ -43,9 +43,9 @@ endif::[]
 
 선택한 소프트웨어의 양에 따라 운영 체제로 {sles}을(를) 사용하려면 상당히 많은 디스크 공간이 필요할 수 있습니다.
 
-기본적으로 {productname} 서버 컨테이너는 미러링된 리포지토리(패키지 또는 제품), 데이터베이스 및 기타 데이터를 [path]``+/var/lib/containers/storage/volumes/+`` 디렉토리의 하위 디렉토리에 저장합니다.
+기본적으로 {productname} 서버 컨테이너는 미러링된 리포지토리(패키지 또는 제품), 데이터베이스 및 기타 데이터를 `+/var/lib/containers/storage/volumes/+` 디렉토리의 하위 디렉토리에 저장합니다.
 이 디렉토리가 디스크 공간이 부족하면 리포지토리 동기화가 실패합니다.
-미러링할 클라이언트 및 리포지토리의 수와 종류에 따라 [path]``+/var/lib/containers/storage/volumes/+`` 디렉토리에 필요한 공간을 추정하십시오.
+미러링할 클라이언트 및 리포지토리의 수와 종류에 따라 `+/var/lib/containers/storage/volumes/+` 디렉토리에 필요한 공간을 추정하십시오.
 
 파일 시스템 및 파티셔닝 세부정보에 대한 자세한 내용은 xref:installation-and-upgrade:hardware-requirements.adoc#install-hardware-requirements-storage[] 및 이 가이드의 설치 및 배포 섹션에 있는 자세한 설치 지침을 참조하십시오.
 
@@ -70,39 +70,39 @@ endif::[]
 | 32 GB
 
 | 디스크 공간
-| [path]``+/+`` (루트 디렉토리)
+| `+/+` (루트 디렉토리)
 | 40 GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes+``
+| `+/var/lib/containers/storage/volumes+`
 | 최소 150 GB (제품 수에 따라 다름)
 
 |
-| [path]``+/var/lib/containers/storage/volumes/var-pgsql+``
+| `+/var/lib/containers/storage/volumes/var-pgsql+`
 | 최소 50 GB
 
 | 스왑 공간
 | 시스템은 추가 스왑 공간의 이점을 누릴 수 있습니다. {suse}은 스왑 파티션 대신 스왑 파일을 사용하는 것을 권장합니다.  스왑 공간에 대한 자세한 내용은 xref:installation-and-upgrade:hardware-requirements.adoc#installation-swap-space[]를 참조하십시오.
-| 8 GB에서 12 GB
+| 8에서 12 GB
 |===
 
 // |
-// | [path]``+/var/lib/containers/storage/volumes/var-cache+``
+// | `+/var/lib/containers/storage/volumes/var-cache+`
 // | Minimum 10 GB.
 // Add 100 MB per {suse} product, 1 GB per {redhat} or other product.
 // Consider to double the space if the server is used for Inter-Server Synchronization (ISS)
 // 
 // |
-// | [path]``+/var/lib/containers/storage/volumes/srv-www+``
+// | `+/var/lib/containers/storage/volumes/srv-www+`
 // | Minimum 100 GB
 // 
 // * Storage requirments should be calculated for the number of ISO distribution images, containers, and bootstrap repositories you will use.
 
 
-이미지는 기본적으로 40 GB [literal]``+/+`` 파티션을 가지고 있습니다.
-{sl-micro} {microversion}의 클라우드 이미지는 단 5 GB [literal]``+/+`` 파티션을 가지고 있습니다.
+이미지는 기본적으로 40 GB `+/+` 파티션을 가지고 있습니다.
+{sl-micro} {microversion}의 클라우드 이미지는 단 5 GB `+/+` 파티션을 가지고 있습니다.
 두 시스템 모두 {productname}와 완벽하게 작동합니다.
-외부 스토리지가 [path]``+/var/lib/containers/storage/volumes+``+에 마운트되어 있는 한, {productname}은 [literal]+``+/+`` 파티션에서 스토리지를 필요로 하거나 사용하지 않으며, 컨테이너 호스트 자체의 관리에 맡깁니다.
+외부 스토리지가 `+/var/lib/containers/storage/volumes+`에 마운트되어 있는 한, {productname}은 `+/+` 파티션에서 스토리지를 필요로 하거나 사용하지 않으며, 컨테이너 호스트 자체의 관리에 맡깁니다.
 
 
 
@@ -131,15 +131,15 @@ ifeval::[{mlm-content} == true]
 | 32 GB
 
 | Disk Space
-| [path]``+/+`` (root directory)
+| `+/+` (root directory)
 | Minimum 100 GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes/var-pgsql+``
+| `+/var/lib/containers/storage/volumes/var-pgsql+`
 | Minimum 50 GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes/var-spacewalk+``
+| `+/var/lib/containers/storage/volumes/var-spacewalk+`
 | Minimum storage required: 100 GB (this will be verified by the implemented check)
 
 * 50 GB for each {suse} product and Package Hub
@@ -147,13 +147,13 @@ ifeval::[{mlm-content} == true]
 * 360 GB for each {redhat} product
 
 |
-| [path]``+/var/lib/containers/storage/volumes/var-cache+``
+| `+/var/lib/containers/storage/volumes/var-cache+`
 | Minimum 10{nbsp}GB.
 Add 100{nbsp}MB per {suse} product, 1{nbsp}GB per {redhat} or other product.
 Double the space if the server is an ISS Master.
 
 |
-| [path]``+/var/lib/containers/storage/volumes/srv-www+``
+| `+/var/lib/containers/storage/volumes/srv-www+`
 | Minimum 100 GB
 
 * Storage requirements should be calculated for the number of ISO distribution images, containers, and bootstrap repositories you will use.
@@ -220,11 +220,11 @@ endif::[]
 | 8 GB
 
 | 디스크 공간
-| [path]``+/+`` (루트 디렉토리)
+| `+/+` (루트 디렉토리)
 | 최소 40 GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes+``
+| `+/var/lib/containers/storage/volumes+`
 | Minimum 100 GB
 
 | 스왑 공간
@@ -233,21 +233,21 @@ endif::[]
 
 |===
 
-기본적으로 {productname} 프록시 컨테이너는 [path]``+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+`` 디렉토리에 패키지를 캐시합니다.
+기본적으로 {productname} 프록시 컨테이너는 `+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+` 디렉토리에 패키지를 캐시합니다.
 사용 가능한 공간이 충분하지 않으면 프록시는 오래된 사용하지 않는 패키지를 제거하고 새로운 패키지로 교체합니다.
 
 이 동작의 결과:
 
-* 프록시에 있는 [path]``+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+`` 디렉토리의 크기가 클수록 프록시와 {productname} 서버 간의 트래픽이 감소합니다.
-* 프록시에서 [path]``+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+``+ 디렉토리를 [path]+``+/var/lib/containers/storage/volumes/var-spacewalk/+``{productname}와 같은 크기로 설정하면 최초 동기화 이후 대량의 트래픽이 발생하는 것을 방지할 수 있습니다.
-* 프록시에 비해 {productname} 서버의 [path]``+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+`` 디렉토리는 작을 수 있습니다.
+* 프록시의 `+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+` 디렉토리가 클수록, 프록시와 {productname} 서버 간의 트래픽은 줄어듭니다.
+* 프록시에서 `+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+` 디렉토리의 크기를 `+/var/lib/containers/storage/volumes/var-spacewalk/+` 서버의 {productname}과 동일하게 설정하면, 최초 동기화 후 대규모 트래픽이 발생하는 것을 방지할 수 있습니다.
+* `+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+` 디렉토리는 프록시에 비해 {productname} 서버에서 작을 수 있습니다.
   크기 추정에 대한 가이드는 <<server-hardware-requirements>> 섹션을 참조하십시오.
 
 [NOTE]
 ====
 일반적으로 {suse}은 캐시 디렉토리의 값을 사용 가능한 여유 공간의 약 80%로 조정할 것을 권장합니다.
-[option]``+cache_dir+`` 값은 서버에서 프록시 구성을 생성할 때 설정됩니다.
-옵션을 [path]``+squid.conf+``에서 직접 설정할 수 없습니다.
+`+cache_dir+` 값은 서버에서 프록시 구성을 생성할 때 설정됩니다.
+옵션을 `+squid.conf+`에서 직접 설정할 수 없습니다.
 ====
 
 
@@ -265,7 +265,7 @@ endif::[]
 
 [NOTE]
 ====
-BtrFS 파일 시스템상의 스왑 파일은 해당 볼륨의 스냅샷 생성을 방지합니다. [path]``+/var+``은 다음 예시에서 이미 snapper 스냅샷에서 제외되어 있으므로, [path]+``+/var/swap+``을 안전하게 사용할 수 있습니다.
+BtrFS 파일 시스템상의 스왑 파일은 해당 볼륨의 스냅샷 생성을 방지합니다. `+/var+`은 다음 예시에서 이미 snapper 스냅샷에서 제외되어 있으므로, `+/var/swap+`을 안전하게 사용할 수 있습니다.
 ====
 
 [source,shell]
@@ -338,9 +338,9 @@ endif::[]
 hwinfo --disk | grep -E "Device File:"
 ----
 
-각 장치의 이름 및 크기를 확인하려면 [command]``+lsblk+`` 명령을 사용하십시오.
+`+lsblk+` 명령을 사용하여 각 장치의 이름 및 크기를 확인하십시오.
 
-장치 이름과 함께 [command]``+mgr-storage-server+`` 명령을 사용하여 외부 디스크를 저장소의 위치로 설정하고, 선택적으로 자체 디스크에 데이터베이스의 위치로 설정합니다:
+장치 이름과 함께 `+mgr-storage-server+` 명령을 사용하여 외부 디스크를 저장소의 위치로 설정하고, 선택적으로 자체 디스크에 데이터베이스의 위치로 설정하십시오:
 
 [source, shell]
 ----
@@ -354,11 +354,11 @@ mgr-storage-server <storage-disk-device> [<database-disk-device>]
 mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 ----
 
-외부 저장소 볼륨은 [path]``+/manager_storage+`` 및 [path]+``+/pgsql_storage+``에 마운트된 XFS 파티션으로 설정됩니다.
+외부 스토리지 볼륨은 `+/manager_storage+` 및 `+/pgsql_storage+`에 마운트된 XFS 파티션으로 설정됩니다.
 
 [NOTE]
 ====
-이 명령은 [path]``+/var/lib/containers/storage/volumes+``에 영구 저장소 볼륨을 생성합니다.
+이 명령은 `+/var/lib/containers/storage/volumes+`에 영구 스토리지 볼륨을 생성합니다.
 
 자세한 내용은 xref:installation-and-upgrade:container-management/persistent-container-volumes.adoc[]을 참조하십시오.
 ====
@@ -366,9 +366,9 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 채널 데이터와 데이터베이스에 동일한 저장 장치를 사용할 수 있습니다.
 그러나 이는 권장되지 않으며, 채널 저장소가 증가하면 저장소가 가득 차 데이터베이스 무결성에 위험을 초래할 수 있습니다.
 별도의 저장 장치를 사용하는 것이 성능을 향상시킬 수도 있습니다.
-단일 저장 장치를 사용하려면 [command]``+mgr-storage-server+``를 단일 장치 이름 파라미터와 함께 실행하십시오.
+단일 저장 장치를 사용하려면 `+mgr-storage-server+`를 단일 장치 이름 파라미터와 함께 실행하십시오.
 
-프록시를 설치하는 경우에는 [command]``+mgr-storage-proxy+`` 명령에서 1개의 장치 이름 파라미터만 사용할 수 있으며 외부 저장소 위치는 Squid 캐시로 설정됩니다.
+프록시를 설치하는 경우에는 `+mgr-storage-proxy+` 명령에서 1개의 장치 이름 파라미터만 사용할 수 있으며 외부 저장소 위치는 Squid 캐시로 설정됩니다.
 
 
 
@@ -382,19 +382,19 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 // container-deployment/mlm/server-deployment-mlm.adoc
 다른 배포의 경우 볼륨에 대한 별도의 디스크도 권장됩니다.
 
-{productname} 서버의 컨테이너 호스트에서 [command]``+mgr-storage-server+`` 명령은 [path]+``+/var/lib/containers/storage/volumes+``+ 디렉토리의 전체 내용을 별도의 디스크로 이동한 후 [path]+``+/var/lib/containers/storage/volumes+``에 다시 마운트합니다.
+{productname} 서버의 컨테이너 호스트에서 `+mgr-storage-server+` 명령은 `+/var/lib/containers/storage/volumes+` 디렉토리의 전체 내용을 별도의 디스크로 이동하고 `+/var/lib/containers/storage/volumes+`에 다시 마운트합니다.
 
-선택 사항으로, 두 번째 장치 이름이 지정된 경우, [command]``+mgr-storage-server+`` 명령은 [path]+``+/var/lib/containers/storage/volumes/var-pgsql+``+ 데이터베이스 디렉토리의 내용을 두 번째 별도 디스크로 이동한 후 이를 [path]+``+/var/lib/containers/storage/volumes/var-pgsql+``에 다시 마운트합니다.
+선택적으로, 두 번째 장치 이름이 지정된 경우 `+mgr-storage-server+`은(는) `+/var/lib/containers/storage/volumes/var-pgsql+` 데이터베이스 디렉토리의 콘텐츠를 두 번째 별도 디스크로 이동하고 `+/var/lib/containers/storage/volumes/var-pgsql+`에 다시 마운트합니다.
 
-마찬가지로 {productname} 프록시의 컨테이너 호스트에서 [command]``+mgr-storage-proxy+`` 명령은 [path]+``+/var/lib/containers/storage/volumes+``+ 디렉토리의 전체 내용을 별도의 디스크로 이동하고 [path]+``+/var/lib/containers/storage/volumes+``에 다시 마운트합니다.
+마찬가지로, {productname} 프록시의 컨테이너 호스트에서 `+mgr-storage-proxy+` 명령은 `+/var/lib/containers/storage/volumes+` 디렉토리의 전체 내용물을 별도의 디스크로 이동하고 `+/var/lib/containers/storage/volumes+`에 재마운트합니다.
 
 
 
 ////
 // *** The following is commented, and can probably deleted ***
 
-// When installation takes place on bare metal (on-premise), [command]``+cockpit+`` can be used to create an LVM setup.
+// When installation takes place on bare metal (on-premise), `+cockpit+` can be used to create an LVM setup.
 // In such a case, the disk setup needs to be performed manually.
 
-// With containers {productname} now has [path]``+/var/lib/containers/storage/volumes+`` as an extra disk.
+// With containers {productname} now has `+/var/lib/containers/storage/volumes+` as an extra disk.
 ////
