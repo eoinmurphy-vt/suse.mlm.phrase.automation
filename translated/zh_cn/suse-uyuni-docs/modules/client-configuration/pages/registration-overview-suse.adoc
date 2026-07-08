@@ -55,7 +55,7 @@ endif::[]
 [[suse-registration-overview-check]]
 == 检查之前的注册状态
 
-如果客户端之前已注册到 SCC、SMT 或 RMT，请在将客户端迁移到 {productname} 服务器之前，使用 [command]``+SUSEConnect+`` 去除该注册。
+如果客户端之前已注册到 SCC、SMT 或 RMT，请在将客户端迁移到 `+SUSEConnect+` 服务器之前，使用 {productname} 去除该注册。
 请不要忘记先去除旧的注册。
 否则，在客户端迁移到更新版本的 {suse} 操作系统并使用 {productname} 后，不再需要的储存库将被添加到客户端。
 
