@@ -3,7 +3,7 @@
 :description: SUSE Multi-Linux Manager 서버에서 클라이언트를 효과적으로 등록하는 방법을 다양한 등록 방식 및 운영 체제별 특성을 고려하여 알아보십시오.
 :revdate: 2025-02-06
 :page-revdate: {revdate}
-:page-author: SUSE 제품 및 솔루션 문서팀
+:page-author: SUSE 제품 및 솔루션 문서 팀
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -34,7 +34,7 @@
 {productname} 서버의 기본 운영 체제를 {productname} 자체에 등록하지 마십시오.
 {productname} 서버의 기본 운영 체제는 개별적으로 관리하거나 별도의 {productname} 서버를 사용하여 관리해야 합니다.
 
-{productname} 서버 컨테이너를 관리하려면 [literal]``+mgradm+`` 도구를 사용하십시오.
+{productname} 서버 컨테이너를 관리하려면 `+mgradm+` 도구를 사용하십시오.
 
 ====
 
@@ -43,7 +43,7 @@ ifeval::[{mlm-content} == true]
 
 [IMPORTANT]
 ====
-{productname}의 이전 버전에서 최신 버전으로 마이그레이션한 후에는 잠재적 문제를 방지하기 위해 신규 시스템을 등록하기 전에 부팅 스크립트를 재생성하는 것을 적극 권장합니다.
+{productname}의 이전 버전에서 최신 버전으로 마이그레이션한 후에는 잠재적인 문제를 방지하기 위해 새 시스템을 온보딩하기 전에 부트스트랩 스크립트를 다시 생성하는 것이 적극 권장됩니다.
 ====
 
 endif::[]
