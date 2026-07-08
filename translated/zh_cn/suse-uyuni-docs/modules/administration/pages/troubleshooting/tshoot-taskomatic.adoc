@@ -32,11 +32,11 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 [IMPORTANT]
 ====
-要在服务器容器内访问外壳，请在容器主机上运行 [literal]``+mgrctl term+``。
+要在服务器容器内访问外壳，请在容器主机上运行 `+mgrctl term+`。
 ====
 
 如果 Taskomatic 仍在运行，或者该处理已崩溃，软件包更新在 {webui} 中似乎可用，但在客户端上并未显示，尝试更新客户端会失败。
-在这种情况下，[command]``+zypper ref+`` 命令会显示类似这样的错误：
+在这种情况下，`+zypper ref+`命令会显示类似这样的错误：
 
 ----
 Valid metadata not found at specified URL
@@ -49,7 +49,7 @@ Valid metadata not found at specified URL
 
 .过程：升级解决 Taskomatic 问题
 
-. 在 {productname} 服务器上，检查 [path]``+/var/log/rhn/rhn_taskomatic_daemon.log+`` 文件，以确定是否有任何元数据重新生成处理仍在运行，或者是否发生了崩溃。
+. 在 {productname} 服务器上，检查 `+/var/log/rhn/rhn_taskomatic_daemon.log+` 文件，以确定是否有任何元数据重新生成处理仍在运行，或者是否发生了崩溃。
 . 重启 Taskomatic：
 +
 ----
