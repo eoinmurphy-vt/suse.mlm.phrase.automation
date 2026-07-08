@@ -184,6 +184,9 @@ ifeval::[{uyuni-content} == true]
 | [OSのバージョン]
 | クライアントチャンネル
 
+| {sl-micro} 6.2
+| sl-microos-6.2-uyuni-client
+
 | {sl-micro} 6.1
 | sl-microos-6.1-uyuni-client
 
@@ -281,24 +284,24 @@ mgrctl exec -ti -- mgr-bootstrap --script=bootstrap-sl-micro.sh \
 
 {sl-micro}はトランザクションシステムです。
 トランザクション更新は、一般的にいくつかの再起動方法をサポートしています。
-で管理されているシステムの再起動には、[systemitem]``+systemd+``を使用することをお勧めします。{productname}
+`+systemd+`で管理されているシステムの再起動には、{productname}を使用することをお勧めします。
 他の方法を使用すると、望ましくない動作が発生する可能性があります。
 
-{productname}上でトランザクションシステムをブートストラップする際、システムがデフォルト構成の場合、再起動方法として[systemitem]``+systemd+``+が設定されます（[literal]+``+REBOOT_METHOD+``）。
+{productname}上でトランザクションシステムを起動する際、システムがデフォルトの設定の場合、再起動方法として`+systemd+`が設定されます（`+REBOOT_METHOD+`）。
 このような構成により、{productname}が再起動アクションを制御でき、再起動は即時に行うことも、{productname}を使用してスケジュールすることも可能です。
 
 
 === 背景情報
 
-デフォルトでは、クライアントインストール中の再起動方法は[option]``+auto+``に設定されています。
-[option]``+auto+``+ブート方法を使用すると、サービスが実行中の場合、[command]+``+rebootmgrd+``が構成されたポリシーに従ってシステムを再起動します。
+デフォルトでは、クライアントのインストール中の再起動方法は`+auto+`に設定されています。
+`+auto+`ブート方法を使用すると、サービスが実行中の場合、`+rebootmgrd+`が構成されたポリシーに従ってシステムを再起動します。
 ポリシーは、即時に再起動するか、メンテナンスウィンドウ中に再起動することができます。
-詳細については、[command]``+rebootmgrd+``(8)のマニュアルページを参照してください。
-そうでない場合、[command]``+rebootmgrd+``+が実行されていないと、{productname}が[command]+``+systemctl reboot+``を呼び出します。
+詳細については、`+rebootmgrd+`(8)のマニュアルページを参照してください。
+それ以外で`+rebootmgrd+`が実行されていない場合は、{productname}が`+systemctl reboot+`を呼び出します。
 
 [NOTE]
 ====
-[command]``+systemd+``とは異なる方法を使用すると、望ましくない動作が発生する可能性があります。
+`+systemd+`とは異なる方法を使用すると、望ましくない動作が発生する可能性があります。
 ====
 
 // 2023-05-23, ke: The rest is commented and the user will not see the
