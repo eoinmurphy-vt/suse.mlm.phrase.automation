@@ -8,12 +8,12 @@
 :page-product-version: 5.1
 
 在运行升级命令之前，必须更新主机操作系统。
-更新主机操作系统还会导致 {productname} 工具的更新，例如 [literal]``+mgrpxy+`` 工具。
+更新主机操作系统还会导致 {productname} 工具的更新，例如 `+mgrpxy+` 工具。
 
 .过程：升级升级代理
 [role=procedure]
 ____
-. 使用 [command]``+zypper+`` 刷新软件储存库：
+. 使用 `+zypper+` 刷新软件储存库：
 
 +
 
@@ -34,7 +34,7 @@ ifeval::[{mlm-content} == true]
 
 --
 
-. 使用 [command]``+transactional-update+`` 应用可用的更新：
+. 使用 `+transactional-update+` 应用可用更新：
 
 +
 
@@ -43,7 +43,7 @@ ifeval::[{mlm-content} == true]
 transactional-update
 ----
 
-. 如果已应用更新，[literal]``+reboot+``。
+. 如果已应用更新，`+reboot+`。
 
 --
 
@@ -53,7 +53,7 @@ endif::[]
 
 ifeval::[{uyuni-content} == true]
 
-. 使用 [command]``+transactional-update+`` 应用可用的更新：
+. 使用 `+transactional-update+` 应用可用更新：
 
 +
 
@@ -62,7 +62,7 @@ ifeval::[{uyuni-content} == true]
 transactional-update
 ----
 
-. 如果已应用更新，[literal]``+reboot+``。
+. 如果已应用更新，`+reboot+`。
 
 endif::[]
 
@@ -75,7 +75,7 @@ ifeval::[{mlm-content} == true]
 
 --
 
-使用 [command]``+zypper+`` 更新已安装的软件：
+使用 `+zypper+` 更新已安装的软件：
 
 [source,shell]
 ----
@@ -88,7 +88,7 @@ endif::[]
 
 +
 
-. 可使用以下命令来更新在 [literal]``+podman+`` 上运行的 {productname} 代理容器：
+. 可使用以下命令来更新在 {productname} 上运行的 `+podman+` 代理容器：
 
 +
 
@@ -120,8 +120,7 @@ podman image prune -a
 ----
 +
 
-在 {kube} 中，映像清理工作要么自动完成，要么由 {kube} 发行版决定。
-
+在 {kube} 中，镜像清理工作要么自动完成，要么由 {kube} 发行版决定。
 +
 
 ifndef::backend-pdf[]
@@ -154,4 +153,4 @@ endif::[]
 虽然可以使用特定的标记升级特定的容器，但此功能仅可用于应用 PTF。我们强烈建议对所有代理容器使用同一标记，以确保在正常情况下保持一致性。
 ====
 
-对于隔离的安装，请先升级容器 RPM 软件包，然后运行 [command]``+mgrpxy upgrade podman+`` 命令。
+对于隔离的安装，请先升级容器 RPM 软件包，然后运行 `+mgrpxy upgrade podman+` 命令。
