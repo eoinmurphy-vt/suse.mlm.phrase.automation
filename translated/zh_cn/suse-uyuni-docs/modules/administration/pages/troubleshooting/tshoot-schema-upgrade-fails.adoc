@@ -31,11 +31,11 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 
 如果架构升级发生故障，数据库版本检查和所有其他 Spacewalk 服务将无法启动。
-在容器主机上运行 [command]``+mgradm start+`` 以获取更多信息和后续操作的提示。
+在容器主机上运行 `+mgradm start+` 以获取更多信息和关于如何继续操作的提示。
 
 [IMPORTANT]
 ====
-要在服务器容器内访问外壳，请在容器主机上运行 [literal]``+mgrctl term+``。
+要在服务器容器内访问外壳，请在容器主机上运行 `+mgrctl term+`。
 ====
 
 也可以直接在容器中运行版本检查：
@@ -50,4 +50,4 @@ systemctl status uyuni-check-database.service
 journalctl -u uyuni-check-database.service
 ----
 
-如果您不想运行更通用的 [command]``+mgradm+`` 命令，这些命令会显示调试信息。
+如果您不想运行更通用的 `+mgradm+` 命令，这些命令会显示调试信息。
