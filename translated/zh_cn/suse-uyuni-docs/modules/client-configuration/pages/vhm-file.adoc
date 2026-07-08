@@ -14,7 +14,7 @@
 
 [NOTE]
 ====
-此选项用于导入使用 [command]``+虚拟主机收集器+`` 工具创建的文件。
+此选项用于导入使用 `+virtual-host-gatherer+` 工具创建的文件。
 它不适用于手动创建的文件。
 ====
 
@@ -24,16 +24,16 @@
 
 .过程：升级导出和导入 JSON 文件
 
-. 在 VM 网络上运行 [command]``+虚拟主机收集器+`` 以导出 JSON 配置文件。
+. 通过在 VM 网络上运行 `+virtual-host-gatherer+` 来导出 JSON 配置文件。
 . 将产生的文件保存到 {productname} 服务器可访问的位置。
 . 在 {productname} {webui} 中，导航到 menu:系统[虚拟主机管理器]。
-. 点击 btn:[创建] 并选择 [guimenu]``+基于文件的+``。
-. 在 [guimenu]``+添加基于文件的虚拟主机管理器+`` 部分，使用以下参数：
-* 在 [guimenu]``+标签+`` 字段中，为您的 VHM 输入自定义名称。
-* 在 [guimenu]``+URL+`` 字段中，键入导出的 JSON 配置文件的路径。
+. 单击 btn:[创建] 并选择 `+File-based+`。
+. 在 `+Add a file-based Virtual Host Manager+` 部分中，使用以下参数：
+* 在 `+Label+` 字段中，为您的 VHM 输入自定义名称。
+* 在 `+Url+` 字段中，键入导出的 JSON 配置文件的路径。
 . 单击 btn:[创建] 以保存更改并创建 VHM。
-. 在 [guimenu]``+虚拟主机管理器+`` 页面中，选择新 VHM。
-. 在 [guimenu]``+属性+`` 页面中，单击 btn:[刷新数据] 以清点新 VHM。
+. 在 `+Virtual Host Managers+` 页面中，选择新 VHM。
+. 在 `+Properties+` 页面中，单击 btn:[刷新数据] 以清点新 VHM。
 
 
 
@@ -86,7 +86,7 @@
 }
 ----
 
-有关详细信息，请参见 {productname} 服务器上 [command]``+虚拟主机收集器+`` 的手册页：
+有关详细信息，请参见 {productname} 服务器上 `+virtual-host-gatherer+` 的手册页：
 
 ----
 man virtual-host-gatherer
