@@ -43,9 +43,9 @@ endif::[]
 
 使用 {sles} 操作系统时所需的磁盘空间可能要多很多，具体取决于所选软件的数量。
 
-默认情况下，{productname} Server 容器将镜像储存库（软件包或产品）、数据库和其他数据存储在 [path]``+/var/lib/containers/storage/volumes/+`` 目录的子目录中。
+默认情况下，{productname} Server 容器将镜像储存库（软件包或产品）、数据库和其他数据存储在 `+/var/lib/containers/storage/volumes/+` 目录的子目录中。
 如果此目录的磁盘空间用尽，储存库同步将失败。
-根据您计划镜像的客户端和存储库的数量和类型，估算 [path]``+/var/lib/containers/storage/volumes/+`` 目录所需的空间。
+根据您计划镜像的客户端和存储库的数量和类型，估算 `+/var/lib/containers/storage/volumes/+` 目录所需的空间。
 
 有关文件系统和分区详细信息的更多信息，请参见 xref:installation-and-upgrade:hardware-requirements.adoc#install-hardware-requirements-storage[] 以及本指南安装和部署部分中的详细安装说明。
 
@@ -70,39 +70,39 @@ endif::[]
 | 32 GB
 
 | 磁盘空间
-| [path]``+/+``（根目录）
+| `+/+`（根目录）
 | 40 GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes+``
+| `+/var/lib/containers/storage/volumes+`
 | 最低 150 GB（具体取决于产品数量）
 
 |
-| [path]``+/var/lib/containers/storage/volumes/var-pgsql+``
+| `+/var/lib/containers/storage/volumes/var-pgsql+`
 | 最少 50 GB
 
 | 交换空间
-| 系统可以从额外的交换空间中受益。{suse} 建议使用交换文件而不是交换分区。 有关交换空间的更多信息，请参见 xref:installation-and-upgrade:hardware-requirements.adoc#installation-swap-space[]。
+| 系统可以从额外的交换空间中受益。 {suse} 建议使用交换文件而不是交换分区。 有关交换空间的更多信息，请参见 xref:installation-and-upgrade:hardware-requirements.adoc#installation-swap-space[]。
 | 8 到 12 GB
 |===
 
 // |
-// | [path]``+/var/lib/containers/storage/volumes/var-cache+``
+// | `+/var/lib/containers/storage/volumes/var-cache+`
 // | Minimum 10 GB.
 // Add 100 MB per {suse} product, 1 GB per {redhat} or other product.
 // Consider to double the space if the server is used for Inter-Server Synchronization (ISS)
 // 
 // |
-// | [path]``+/var/lib/containers/storage/volumes/srv-www+``
+// | `+/var/lib/containers/storage/volumes/srv-www+`
 // | Minimum 100 GB
 // 
 // * Storage requirments should be calculated for the number of ISO distribution images, containers, and bootstrap repositories you will use.
 
 
-默认情况下，映像具有 40 GB [literal]``+/+`` 分区。
-{sl-micro} {microversion} 的云映像仅具有 5 GB [literal]``+/+`` 分区。
+默认情况下，镜像具有 40 GB `+/+` 分区。
+{sl-micro} {microversion} 的云镜像仅具有 5 GB `+/+` 分区。
 两者与 {productname} 完美兼容。
-只要外部存储已挂载到 [path]``+/var/lib/containers/storage/volumes+``+，{productname} 不需要或使用 [literal]+``+/+`` 分区上的存储，而是将其留给容器主机本身的管理。
+只要外部存储已挂载到 `+/var/lib/containers/storage/volumes+`，{productname} 就不会在 `+/+` 分区上使用存储，而是由容器主机自行管理。
 
 
 
@@ -131,15 +131,15 @@ ifeval::[{mlm-content} == true]
 | 32 GB
 
 | Disk Space
-| [path]``+/+`` (root directory)
+| `+/+` (root directory)
 | Minimum 100 GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes/var-pgsql+``
+| `+/var/lib/containers/storage/volumes/var-pgsql+`
 | Minimum 50 GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes/var-spacewalk+``
+| `+/var/lib/containers/storage/volumes/var-spacewalk+`
 | Minimum storage required: 100 GB (this will be verified by the implemented check)
 
 * 50 GB for each {suse} product and Package Hub
@@ -147,13 +147,13 @@ ifeval::[{mlm-content} == true]
 * 360 GB for each {redhat} product
 
 |
-| [path]``+/var/lib/containers/storage/volumes/var-cache+``
+| `+/var/lib/containers/storage/volumes/var-cache+`
 | Minimum 10{nbsp}GB.
 Add 100{nbsp}MB per {suse} product, 1{nbsp}GB per {redhat} or other product.
 Double the space if the server is an ISS Master.
 
 |
-| [path]``+/var/lib/containers/storage/volumes/srv-www+``
+| `+/var/lib/containers/storage/volumes/srv-www+`
 | Minimum 100 GB
 
 * Storage requirements should be calculated for the number of ISO distribution images, containers, and bootstrap repositories you will use.
@@ -220,11 +220,11 @@ endif::[]
 | 8 GB
 
 | 磁盘空间
-| [path]``+/+``（根目录）
+| `+/+`（根目录）
 | 最少 40 GB
 
 |
-| [path]``+/var/lib/containers/storage/volumes+``
+| `+/var/lib/containers/storage/volumes+`
 | 最少 100 GB
 
 | 交换空间
@@ -233,21 +233,21 @@ endif::[]
 
 |===
 
-默认情况下，{productname} 代理容器在 [path]``+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+`` 目录中缓存软件包。
+默认情况下，{productname} Proxy 容器将软件包缓存在 `+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+` 目录中。
 如果可用空间不足，代理将删除旧的未使用软件包，并用更新的软件包替换它们。
 
 鉴于这种行为：
 
-* 代理上的 [path]``+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+`` 目录越大，代理与 {productname} 服务器之间的流量就越少。
-* 通过将代理上的 [path]``+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+``+ 目录与 [path]+``+/var/lib/containers/storage/volumes/var-spacewalk/+``{productname} 服务器上的大小保持一致，可以避免在首次同步后出现大量的流量。
-* 与代理相比，[path]``+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+`` 目录在 {productname} 服务器上可以很小。
+* 代理上的 `+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+` 目录越大，代理与 {productname} 服务器之间的流量就越少。
+* 使代理上的 `+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+` 目录与 `+/var/lib/containers/storage/volumes/var-spacewalk/+` 在 {productname} 服务器上保持相同的大小，可以避免在首次同步后出现大量的流量。
+* 与代理相比，`+/var/lib/containers/storage/volumes/uyuni-proxy-squid-cache/+` 服务器上的 {productname} 目录可能较小。
   有关大小估算的指南，请参见 <<server-hardware-requirements>> 部分。
 
 [NOTE]
 ====
 一般来说，{suse} 建议将缓存目录的值调整为可用空闲空间的约 80%。
-在服务器上生成代理配置时设置 [option]``+cache_dir+`` 值。
-您不能直接在 [path]``+squid.conf+`` 中设置该选项。
+在服务器上生成代理配置时设置 `+cache_dir+` 值。
+您不能直接在 `+squid.conf+` 中设置该选项。
 ====
 
 
@@ -265,7 +265,7 @@ endif::[]
 
 [NOTE]
 ====
-BtrFS 文件系统中的交换文件会导致无法创建该卷的快照。在下面的示例中，[path]``+/var+`` 已排除在 Snapper 快照范围之外，因此使用 [path]+``+/var/swap+`` 是安全的。
+BtrFS 文件系统中的交换文件会导致无法创建该卷的快照。在下面的示例中，`+/var+` 已排除在 snapper 快照范围之外，因此使用 `+/var/swap+` 是安全的。
 ====
 
 [source,shell]
@@ -338,9 +338,9 @@ endif::[]
 hwinfo --disk | grep -E "Device File:"
 ----
 
-使用 [command]``+lsblk+`` 命令查看每个设备的名称和大小。
+使用 `+lsblk+` 命令查看每个设备的名称和大小。
 
-使用 [command]``+mgr-storage-server+`` 命令并加上设备名，可将外部磁盘设置为数据存储位置，您还可以选择指定服务器自身的磁盘用于数据库：
+使用 `+mgr-storage-server+` 命令并加上设备名，可将外部磁盘设置为数据存储位置，也可以选择将数据库单独放在一个磁盘上。
 
 [source, shell]
 ----
@@ -354,11 +354,11 @@ mgr-storage-server <storage-disk-device> [<database-disk-device>]
 mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 ----
 
-外部存储卷将设置为挂载到 [path]``+/manager_storage+``+ 和 [path]+``+/pgsql_storage+`` 的 XFS 分区。
+外部存储卷被设置为挂载在 `+/manager_storage+` 和 `+/pgsql_storage+` 的 XFS 分区。
 
 [NOTE]
 ====
-此命令将在 [path]``+/var/lib/containers/storage/volumes+`` 中创建永久性存储卷。
+此命令将在 `+/var/lib/containers/storage/volumes+` 创建持久存储卷。
 
 有关更多信息，请参见 xref:installation-and-upgrade:container-management/persistent-container-volumes.adoc[]。
 ====
@@ -366,9 +366,9 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 可以将同一存储设备用于频道数据和数据库。
 这并不推荐，因为增长的频道存储库可能会填满存储，从而对数据库完整性构成风险。
 使用单独的存储设备也可能提高性能。
-如果您想使用单个存储设备，请使用单个设备名参数运行 [command]``+mgr-storage-server+``。
+如果您想使用单个存储设备，请使用单个设备名参数运行 `+mgr-storage-server+`。
 
-如果您安装的是代理，[command]``+mgr-storage-proxy+`` 命令只接受单个设备名参数，并将外部存储位置设置为 Squid 缓存。
+如果您安装的是代理，`+mgr-storage-proxy+` 命令只接受单个设备名参数，并将外部存储位置设置为 Squid 缓存。
 
 
 
@@ -382,19 +382,19 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 // container-deployment/mlm/server-deployment-mlm.adoc
 对于其他部署，也建议为卷使用单独的磁盘。
 
-在 {productname} 服务器的容器主机上，[command]``+mgr-storage-server+``+ 命令会将 [path]+``+/var/lib/containers/storage/volumes+``+ 目录的完整内容迁移到单独的磁盘，并将其重新挂载到 [path]+``+/var/lib/containers/storage/volumes+``。
+在 {productname} Server 的容器主机上，`+mgr-storage-server+` 命令将 `+/var/lib/containers/storage/volumes+` 目录的全部内容移动到单独的磁盘，并将其重新挂载到 `+/var/lib/containers/storage/volumes+`。
 
-（可选）如果指定了第二个设备名称，[command]``+mgr-storage-server+``+ 会将 [path]+``+/var/lib/containers/storage/volumes/var-pgsql+``+ 数据库目录的完整内容迁移到第二块单独的磁盘，并将其重新挂载到 [path]+``+/var/lib/containers/storage/volumes/var-pgsql+``。
+或者，如果指定了第二个设备名称，`+mgr-storage-server+` 会将 `+/var/lib/containers/storage/volumes/var-pgsql+` 数据库目录的内容移动到第二个单独的磁盘，并将其重新挂载到 `+/var/lib/containers/storage/volumes/var-pgsql+`。
 
-同样地，在 {productname} 代理的容器主机上，[command]``+mgr-storage-proxy+``+ 命令会将 [path]+``+/var/lib/containers/storage/volumes+``+ 目录的完整内容迁移到单独的磁盘，并将其重新挂载到 [path]+``+/var/lib/containers/storage/volumes+``。
+同样，在 {productname} 代理的容器主机上，`+mgr-storage-proxy+` 命令会将 `+/var/lib/containers/storage/volumes+` 目录的全部内容移动到单独的磁盘，并将其重新挂载到 `+/var/lib/containers/storage/volumes+`。
 
 
 
 ////
 // *** The following is commented, and can probably deleted ***
 
-// When installation takes place on bare metal (on-premise), [command]``+cockpit+`` can be used to create an LVM setup.
+// When installation takes place on bare metal (on-premise), `+cockpit+` can be used to create an LVM setup.
 // In such a case, the disk setup needs to be performed manually.
 
-// With containers {productname} now has [path]``+/var/lib/containers/storage/volumes+`` as an extra disk.
+// With containers {productname} now has `+/var/lib/containers/storage/volumes+` as an extra disk.
 ////
