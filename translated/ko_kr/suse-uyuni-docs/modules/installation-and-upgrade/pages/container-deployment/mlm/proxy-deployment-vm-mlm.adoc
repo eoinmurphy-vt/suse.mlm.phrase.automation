@@ -24,12 +24,12 @@ KVM은 이 설치를 위한 샌드박스로 Virtual Machine Manager (_virt-manag
 
 [IMPORTANT]
 ====
-{productname} 프록시를 배포하는 권장 방법은 다음의 사용 가능한 이미지 중 하나를 사용하는 것입니다.
-모든 도구가 이러한 이미지에 포함되어 배포를 간소화합니다.
+{productname} 프록시를 배포하는 가장 권장되는 방법은 다음의 사용 가능한 이미지 중 하나를 사용하는 것입니다.
+모든 도구는 이러한 이미지에 포함되어 있어 배포를 단순화합니다.
 ====
 
 // 2025-02-17, ke: as of today, suse-manager directory is still in use
-{productname} {productnumber} 프록시의 이미지는 link:https://www.suse.com/download/suse-manager/[{productname} {productnumber} VM 이미지]에서 사용할 수 있습니다.
+{productname} {productnumber} 프록시에 대한 이미지는 link:https://www.suse.com/download/suse-manager/[{productname} {productnumber} VM 이미지]에서 사용할 수 있습니다.
 
 ifndef::backend-pdf[]
 include::installation-and-upgrade:partial$snippet-warn-images-sl-micro.adoc[]
@@ -43,7 +43,7 @@ endif::[]
 ====
 Raw 이미지 준비에 대한 자세한 내용은 https://documentation.suse.com/sle-micro/6.1/html/Micro-deployment-raw-images-virtual-machines/index.html#deployment-preparing-configuration-device[]을 참조하십시오.
 
-자체 설치 이미지에 대한 자세한 내용은 https://documentation.suse.com/sle-micro/6.1/html/Micro-deployment-selfinstall-images/index.html을 참조하십시오.
+자체 설치 이미지에 대한 추가 정보는 https://documentation.suse.com/sle-micro/6.1/html/Micro-deployment-selfinstall-images/index.html을 참조하십시오.
 ====
 
 // FIXME more archs supported?
@@ -92,7 +92,8 @@ Raw 이미지 준비에 대한 자세한 내용은 https://documentation.suse.co
 
 [NOTE]
 ====
-[path]``+/var/lib/containers/storage/volumes+`` 최소 100 GB.
+`+/var/lib/containers/storage/volumes+`
+최소 100 GB.
 스토리지 요구사항은 사용할 ISO 배포 이미지, 컨테이너 및 부팅 리포지토리 수에 따라 계산해야 합니다.
 ====
 
@@ -104,9 +105,9 @@ Raw 이미지 준비에 대한 자세한 내용은 https://documentation.suse.co
 설정은 xref:installation-and-upgrade:container-deployment/mlm/proxy-deployment-vm-mlm.adoc#proxy-quickstart.sect.kvm.settings[]을 참조하십시오.
 
 .절차 초기 설정 생성 중
-. 다운로드한 {minimal} KVM 이미지를 사용하여 새 가상 머신을 생성하고 [guimenu]``+기존 디스크 이미지 임포트+``를 선택합니다.
+. 다운로드한 {minimal} KVM 이미지를 사용하여 새 가상 머신을 생성하고 `+Import existing disk image+`를 선택합니다.
 . RAM 및 CPU 수(RAM 16GB 및 CPU 4개 이상)를 구성합니다.
-. KVM 머신에 이름을 지정하고 [guimenu]``+설치 전에 구성 사용자 정의+`` 확인란을 선택합니다.
+. KVM 머신의 이름을 지정하고 `+Customize configuration before install+` 확인란을 선택합니다.
 . btn:[설치 시작]을 클릭하여 이미지에서 부팅합니다.
 . JeOS 첫 부팅 화면에서 시작을 선택하여 계속합니다.
 +
@@ -192,20 +193,20 @@ ifeval::[{mlm-content} == true]
 
 [NOTE]
 ====
-[literal]``+Containers Module+`` is required to be available for container host on a {sles} machine.
+`+Containers Module+` is required to be available for container host on a {sles} machine.
 ====
 endif::[]
 
-{productname} Proxy containers are using [literal]``+podman+``+ and [literal]+``+systemd+`` to run and manage all proxy containers.
+{productname} Proxy containers are using `+podman+` and `+systemd+` to run and manage all proxy containers.
 
-First step is to install the [literal]``+mgrpxy+`` utility provided by the package of the same name.
+First step is to install the `+mgrpxy+` utility provided by the package of the same name.
 
 ifeval::[{mlm-content} == true]
-The [literal]``+mgrpxy+`` package is available in the {productname} Proxy product repositories.
+The `+mgrpxy+` package is available in the {productname} Proxy product repositories.
 endif::[]
 
 ifeval::[{uyuni-content} == true]
-The [literal]``+mgrpxy+`` package is available in the container utils repository: pick the one matching the distribution in: https://download.opensuse.org/repositories/systemsmanagement:Uyuni:/Stable:/ContainerUtils/.
+The `+mgrpxy+` package is available in the container utils repository: pick the one matching the distribution in: https://download.opensuse.org/repositories/systemsmanagement:Uyuni:/Stable:/ContainerUtils/.
 endif::[]
 
 To install them run:
@@ -219,7 +220,7 @@ zypper in helm mgrpxy
 === 서비스에 사용자 정의 컨테이너 이미지 사용
 
 기본적으로 {productname} 프록시 스위트는 각 서비스에 대해 동일한 이미지 버전과 레지스트리 경로를 사용하도록 설정되어 있습니다.
-그러나 [literal]``+-tag+``+ 및 [literal]+``+-image+``로 끝나는 설치 매개변수를 사용하여 특정 서비스에 대한 기본 값을 재정의할 수 있습니다.
+그러나 `+-tag+` 및 `+-image+`으로 끝나는 설치 매개변수를 사용하여 특정 서비스에 대한 기본값을 재정의할 수 있습니다.
 
 예를 들어, 다음과 같이 사용합니다.
 
@@ -227,7 +228,7 @@ zypper in helm mgrpxy
 mgrpxy install podman --httpd-tag 0.1.0 --httpd-image registry.opensuse.org/uyuni/proxy-httpd /path/to/config.tar.gz
 ----
 
-이는 httpd 서비스의 구성 파일을 조정하는데, 여기서 [path]``+registry.opensuse.org/uyuni/proxy-httpds+``+는 사용할 이미지이며, [literal]+``+0.1.0+``은 버전 태그로 지정됩니다. 이후 서비스를 재시작하기 전에 적용됩니다.
+httpd 서비스에 대한 구성 파일을 조정하며, 여기서 `+registry.opensuse.org/uyuni/proxy-httpds+`은(는) 사용할 이미지이고 `+0.1.0+`은(는) 버전 태그이며, 그 후 서비스를 다시 시작합니다.
 
 값을 기본값으로 재설정하려면 해당 파라미터 없이 설치 명령을 다시 실행합니다.
 
