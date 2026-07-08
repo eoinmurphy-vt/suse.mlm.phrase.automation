@@ -8,13 +8,13 @@
 :page-product-version: 5.1
 
 在运行升级命令之前，必须更新主机操作系统。
-更新主机操作系统还将导致 {productname} 工具（如 [literal]``+mgradm+`` 工具）的更新。
+更新主机操作系统还会导致 {productname} 工具的更新，例如 `+mgradm+` 工具。
 
 .过程：升级升级服务器
 [role=procedure]
 ____
 
-. 使用 [command]``+zypper+`` 刷新软件储存库：
+. 使用 `+zypper+` 刷新软件储存库：
 
 +
 
@@ -35,7 +35,7 @@ ifeval::[{mlm-content} == true]
 
 --
 
-. 使用 [command]``+transactional-update+`` 应用可用的更新：
+. 使用 `+transactional-update+` 应用可用更新：
 
 +
 
@@ -44,7 +44,7 @@ ifeval::[{mlm-content} == true]
 transactional-update
 ----
 
-. 如果已应用更新，[literal]``+reboot+``。
+. 如果已应用更新，`+reboot+`。
 
 --
 
@@ -54,7 +54,7 @@ endif::[]
 
 ifeval::[{uyuni-content} == true]
 
-. 使用 [command]``+transactional-update+`` 应用可用的更新：
+. 使用 `+transactional-update+` 应用可用更新：
 
 +
 
@@ -63,7 +63,7 @@ ifeval::[{uyuni-content} == true]
 transactional-update
 ----
 
-. 如果已应用更新，[literal]``+reboot+``。
+. 如果已应用更新，`+reboot+`。
 
 endif::[]
 
@@ -75,7 +75,7 @@ ifeval::[{mlm-content} == true]
 
 --
 
-使用 [command]``+zypper+`` 更新已安装的软件：
+使用 `+zypper+` 更新已安装的软件：
 
 [source,shell]
 ----
@@ -138,16 +138,16 @@ ____
 ====
 在以前的版本中，数据库容器需要具有以下主题备用名称（SANs）的 SSL 证书：
 
-* [literal]``+db+``
-* [literal]``+reportdb+``
+* `+db+`
+* `+reportdb+`
 
 而现在的版本不再有这项要求。
 数据库容器只需要外部完全限定的域名。
-带有 [literal]``+db+``+ 和 [literal]+``+reportdb+`` SANs 的旧证书仍然可以使用。
+带有 `+db+` 和 `+reportdb+` SAN 的旧证书仍然可以使用。
 
 同一证书可以用于主容器和数据库容器。
 
-如需将新证书传递至升级命令，请使用 [command]``+--ssl-db-ca-root+``+、[command]+``+--ssl-db-cert+``+ 和 [command]+``+--ssl-db-key+`` 参数。
+为了将新证书传递给升级命令，请使用 `+--ssl-db-ca-root+`、`+--ssl-db-cert+` 和 `+--ssl-db-key+` 参数。
 ====
 
 .升级到特定版本
@@ -173,7 +173,7 @@ mgradm upgrade podman -h
 ----
 
 
-对于隔离的安装，请先升级容器 RPM 软件包，然后运行 [literal]``+mgradm+`` 命令。
+对于隔离的安装，请先升级容器 RPM 软件包，然后运行 `+mgradm+` 命令。
 
 
 
