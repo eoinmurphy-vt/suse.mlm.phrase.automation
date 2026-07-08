@@ -2,14 +2,14 @@
 :description: 특정 예제 형식으로 사용자 지정 mgradm.yaml 파일을 만드는 방법을 배우고, 배포 시 mgradm 도구와 함께 비밀번호를 안전하게 보호하면서 사용하는 방법을 알아보세요.
 :revdate: 2024-11-19
 :page-revdate: {revdate}
-:page-author: SUSE 제품 및 솔루션 문서 팀
+:page-author: SUSE 제품 및 솔루션 문서팀
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
 
-사용자 지정 [filename]``+mgradm.yaml+``+ 파일을 생성할 수 있으며, [command]+``+mgradm+`` 도구가 배포 중에 이를 활용할 수 있습니다.
-모든 [command]``+mgradm+`` 인수에는 해당하는 YAML 항목이 있습니다.
-예를 들어, [command]``+mgradm+``+ 인수 +``+--ssl-db-ca-intermediate+``+는 다음과 같이 [filename]+``+mgradm.yaml+`` 파일에 지정할 수 있습니다:
+사용자 지정 `+mgradm.yaml+` 파일을 생성할 수 있으며, `+mgradm+` 도구가 배포 시 이를 활용할 수 있습니다.
+모든 `+mgradm+` 인수에는 대응하는 YAML 항목이 있습니다.
+예를 들어, `+mgradm+` 인수 `+--ssl-db-ca-intermediate+`은(는) `+mgradm.yaml+` 파일에 다음과 같이 지정할 수 있습니다:
 
 [source, yaml]
 ssl:
@@ -19,14 +19,14 @@ ssl:
 
 [IMPORTANT]
 ====
-기본 변수가 명령줄 매개변수 또는 [filename]+``+mgradm.yaml+`` 구성 파일을 통해 제공되지 않은 경우, [command]``+mgradm+``+이(가) 해당 변수를 입력하라는 메시지를 표시합니다.
+`+mgradm+`명령 매개변수 또는 `+mgradm.yaml+` 구성 파일을 통해 기본 변수가 제공되지 않은 경우, 이(가) 해당 변수를 입력하라는 메시지를 표시합니다.
 
 보안을 위해 **비밀번호를 지정하기 위해 명령줄 매개변수를 사용하는 것은 피해야 합니다**. 
 대신 적절한 권한이 설정된 구성 파일을 사용하십시오.
 ====
 
 .절차 사용자 지정 구성 파일을 사용하여 Podman으로 {productname} 컨테이너를 배포하기
-. 다음 예제와 유사하게 [filename]``+mgradm.yaml+``이라는 이름의 구성 파일을 준비하십시오:
+. 다음 예제와 유사하게 `+mgradm.yaml+`이라는 이름의 구성 파일을 준비하십시오:
 +
 [source, yaml]
 ....
