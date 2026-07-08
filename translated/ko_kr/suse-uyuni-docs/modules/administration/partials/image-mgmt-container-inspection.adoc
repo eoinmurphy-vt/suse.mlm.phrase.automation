@@ -12,7 +12,7 @@ libssl.so.1.1: cannot open shared object file: No such file or directory
 
 BCI는 컨테이너 빌드 호스트 및 {salt} 번들을 사용한 검사 이외의 다른 상황에서도 사용할 수 있지만, 검사가 작동하려면 모든 필수 소프트웨어를 미리 추가해야 합니다.
 
-이러한 문제를 피하려면 [systemitem]+``+Dockerfile+``을 사용하여 이미지에 [systemitem]``+libopenssl+``+을 추가하고 이미지를 다시 빌드해야 합니다.
+이러한 문제를 방지하려면 `+libopenssl+`을(를) `+Dockerfile+`와 함께 이미지에 추가하고 이미지를 다시 빌드해야 합니다.
 
-[systemitem]``+libexpat+``에서도 같은 일이 발생할 수 있습니다.
+에서도 `+libexpat+`같은 일이 발생할 수 있습니다.
 
