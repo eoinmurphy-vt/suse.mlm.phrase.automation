@@ -3,7 +3,7 @@
 :description: SUSE Liberty Linuxクライアントを構成して登録する方法を学び、必要なソフトウェアチャンネルを追加し、SUSE Multi-Linux Manager Serverと同期します
 :revdate: 2026-04-20
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメンテーションチーム
+:page-author: SUSE 製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -100,6 +100,9 @@ endif::[]
 | {sll} 10
 | RHELまたはSLES ESおよびLiberty 10 x86_64
 
+| {sll} 9.6 EMS
+| SUSE Liberty Linux 9.6 EMS x86_64
+
 | {sll} 9
 | RHELまたはSLES ESおよびLiberty 9 x86_64
 
@@ -128,6 +131,7 @@ endif::[]
 
 | [OSのバージョン] | ベースチャンネル                     | ツールチャネル
 | {sll} 10    | RHELおよびLiberty 10 Base         | ManagerTools-EL10-Pool for x86_64およびManagerTools-EL10-Updates for x86_64
+| {sll} 9.6 EMS | RHELおよびLiberty 9.6 EMS Base  | ManagerTools-EL9-Pool for x86_64およびManagerTools-EL9-Updates for x86_64
 | {sll} 9     | RHELおよびLiberty 9 Base          | ManagerTools-EL9-Pool for x86_64およびManagerTools-EL9-Updates for x86_64
 | {sll} 8     | RHELまたはSLES ESまたはCentOS 8 Base | RES8-Manager-Tools-Pool for x86_64 and RES8-Manager-Tools-Updates for x86_64
 | {sll} 7     | RHEL Expanded Support 7          | RES7-SUSE-Manager-Tools x86_64
@@ -159,13 +163,18 @@ ifeval::[{mlm-content} == true]
 
 | [OSのバージョン]
 | ベースチャンネル
-| クライアントチャネル
-| ツールチャネル
+| クライアントチャンネル
+| ツールチャンネル
 
 | {sll} 10
 | el10-pool-x86_64
 | -
 | managertools-el10-pool-x86_64
+
+| {sll} 9.6 EMS
+| el9-pool-x86_64
+| -
+| managertools-el9-pool-x86_64
 
 | {sll} 9
 | el9-pool-x86_64
@@ -203,7 +212,7 @@ ifeval::[{uyuni-content} == true]
 
 | [OSのバージョン]
 | ベースチャンネル
-| クライアントチャネル
+| クライアントチャンネル
 | ツールチャネル
 
 | {sll} 9
@@ -262,11 +271,11 @@ endif::[]
 ====
 {redhat} 10、9、および8クライアントの場合、ベースチャネルとAppStreamチャネルの両方を追加してください。
 両方のチャネルからのパッケージが必要です。
-両方のチャネルを追加しないと、パッケージが不足しているため、ブートストラップリポジトリを作成できません。
+両方のチャンネルを追加しないと、パッケージが不足しているため、ブートストラップリポジトリを作成できません。
 ====
 
-モジュラーチャネルを使用している場合、クライアントでPython 3.6モジュールストリームを有効にする必要があります。
-Python 3.6を提供しない場合、[package]``+spacecmd+``パッケージのインストールは失敗します。
+モジュラー チャンネルを使用している場合は、クライアントで Python 3.6 モジュール ストリームを有効にする必要があります。
+Python 3.6 を提供しない場合、`+spacecmd+` パッケージのインストールは失敗します。
 
 
 .プロシージャ:ベースメディアをカスタムチャネルに追加する（RHEL 7.0の例）
@@ -277,7 +286,7 @@ ____
 {redhat}からのオリジナルのインストールメディアを使用する必要があります。
 メジャーバージョンリリース（例えば`+7+`）を使用する必要があり、マイナーバージョンリリース（例えば`+7.9+`）は使用しないでください。
 ====
-. ベースメディアイメージを{productname} Serverコンテナホストの[path]``+/tmp/+``ディレクトリにコピーします。
+. ベースメディアイメージを{productname}サーバーコンテナホストの`+/tmp/+`ディレクトリにコピーします。
 
 . ベースメディアイメージを{productname} Serverコンテナに取得するには、次のコマンドを使用します:
 
@@ -287,7 +296,7 @@ mgradm distribution copy /tmp/rhel-server-7.0-x86_64-dvd.iso rhel-server-7.0
 ----
 
 +
-コンテナ内のコピー先は[path]``+/srv/www/distributions/rhel-server-7.0+``になります。
+コンテナ内の宛先は`+/srv/www/distributions/rhel-server-7.0+`になります。
 
 . 前に作成した子チャンネルにパッケージをインポートします。
 
@@ -330,10 +339,10 @@ mgrctl exec -- spacewalk-repo-sync -c <channel-label> -u file:///srv/www/distrib
 
 | オプション                 | パラメータ
 | リポジトリ URL         | {redhat} CDNまたは{centos}が提供するコンテンツURL
-| メタデータは署名されていますか？  | すべての{redhat} Enterpriseリポジトリのチェックを外します。
-| SSL CA 証明書     | [systemitem]``+redhat-uep+``（{redhat}のみ）
-| SSL クライアント証明書 | [systemitem]``+Entitlement-Cert-date+``（{redhat}のみ）
-| SSL クライアントキー         | ``+Entitlement-Key-date+``（{redhat}のみ）
+| メタデータは署名されていますか？  | すべての{redhat}エンタープライズリポジトリのチェックを外してください
+| SSL CA 証明書     | `+redhat-uep+` ({redhat} のみ)
+| SSL クライアント証明書 | `+Entitlement-Cert-date+` ({redhat} のみ)
+| SSL クライアントキー         | `+Entitlement-Key-date+` ({redhat} のみ)
 
 |===
 
@@ -429,7 +438,7 @@ endif::[]
 REACTIVATION_KEY=<KEY> ./bootstrap_liberate9.sh
 ----
 
-もう1つの方法は、{salt}クライアント設定ファイル（[path]``+/etc/venv-salt-minon/minion.d/susemanager.conf+``+ または [path]+``+/etc/salt-minon/minion.d/susemanager.conf+``）に特別なフラグを追加し、既存の内容にこれを結合することです。
+別の方法として、{salt}（または`+/etc/venv-salt-minon/minion.d/susemanager.conf+`）にある`+/etc/salt-minon/minion.d/susemanager.conf+`クライアント設定ファイルに特別なフラグを追加します（この内容を既存の内容に結合してください）。
 
 ----
 grains:
@@ -438,7 +447,7 @@ grains:
         management_key: "MINION_REACTIVATION_KEY"
 ----
 
-[path]``+susemanager.conf+``+ファイルを変更した後、[systemitem]+``+salt-minion+``サービスを{salt}サーバ上で再起動する必要があります。 デフォルトでは:
+`+susemanager.conf+`ファイルを変更した後、`+salt-minion+`サーバー上で{salt}サービスを再起動する必要があります。 デフォルトでは:
 
 ----
 systemctl restart venv-salt-minon
@@ -453,7 +462,7 @@ systemctl restart salt-minon
 
 
 
-=== [systemitem]``+liberate+``フォーミュラ
+=== `+liberate+` フォーミュラ
 
-エンタープライズLinux（EL）クライアントを{sll}に移行するには、[systemitem]``+liberate+``フォーミュラを使用します。
+{sll} フォーミュラを使用して、エンタープライズLinux（EL）クライアントを`+liberate+`に移行します。
 詳細については、xref:specialized-guides:salt/salt-formula-liberate.adoc[]を参照してください。
