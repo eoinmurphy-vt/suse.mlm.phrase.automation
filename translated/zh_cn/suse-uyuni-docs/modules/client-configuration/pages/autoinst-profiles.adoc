@@ -49,14 +49,14 @@
 
 . 单击 btn:[上传 Kickstart/{ay} 文件]。
 
-. 在 [guimenu]``+标签+`` 字段中，键入控制文件的名称。
+. 在 `+Label+` 字段中，输入控制文件的名称。
   不要使用空格。
 
-. 在 [guimenu]``+自动安装树+`` 字段中，选择要用于此控制文件的可自动安装的发行版。
+. 在 `+Autoinstall Tree+` 字段中，选择要用于此控制文件的可自动安装的发行套件。
 
-. 在 [guimenu]``+虚拟化类型+``+ 字段中，选择要用于此控制文件的虚拟化类型，或选择 +``+无+``（如果您不想使用此控制文件创建新的虚拟机）。
+. 在 `+Virtualization Type+` 字段中，选择要用于此控制文件的虚拟化类型，或选择 `+None+`（如果您不想使用此控制文件创建新的虚拟机）。
 
-. 将自动安装文件的内容复制到 [guimenu]``+文件内容+``+ 字段中，或使用 [guimenu]+``+要上传的文件+`` 字段直接上传文件。
+. 将自动安装文件的内容复制到 `+File Contents+` 字段中，或使用 `+File to Upload+` 字段直接上传该文件。
 +
 
 有关此处包含的详细信息，请参见 xref:client-configuration:autoinst-profiles.adoc#autoyast[{ay} 控制文件] 或 xref:client-configuration:autoinst-profiles.adoc#kickstart[Kickstart 控制文件]。
@@ -71,18 +71,18 @@
 
 . 单击 btn:[创建 Kickstart 控制文件]。
 
-. 在 [guimenu]``+标签+`` 字段中，键入控制文件的名称。
+. 在 `+Label+` 字段中，输入控制文件的名称。
   不要使用空格。
 
-. 在 [guimenu]``+基础频道+`` 字段中，选择要用于此控制文件的基础频道。
+. 在 `+Base Channel+` 字段中，选择要用于此控制文件的基础频道。
   此字段由可用的发行版填充。
   如果您需要的基础频道不可用，请检查您是否正确创建了发行版。
 
-. 在 [guimenu]``+虚拟化类型+``+ 字段中，选择要用于此控制文件的虚拟化类型，或选择 +``+无+``（表示不进行虚拟化）。
+. 在 `+Virtualization Type+` 字段中，选择要用于此控制文件的虚拟化类型，或选择 `+None+`（表示不进行虚拟化）。
 
 . 单击 btn:[下一步]。
 
-. 在 [guimenu]``+发行版文件位置+`` 中，键入安装在 {productname} 服务器上的安装媒体的路径。
+. 在 `+Distribution File Location+` 中，输入安装在 {productname} 服务器上的安装介质的路径。
 
 . 单击 btn:[下一步]。
 
@@ -92,13 +92,13 @@
 
 . 查看新配置文件的细节，并视需要进行自定义。
 
-在创建自动安装配置文件时，您可以勾选 [guimenu]``+始终为此基础频道使用最新树+``。
+在创建自动安装控制文件时，您可以检查 `+Always use the newest Tree for this base channel+`。
 此设置允许 {productname} 自动选择与指定基础频道关联的最新发行版。
 如果您稍后添加新的发行版，{productname} 将使用最近创建或修改的版本。
 
-更改 [guimenu]``+虚拟化类型+`` 通常需要更改控制文件的引导加载程序和分区选项。
+更改 `+Virtualization Type+` 通常需要更改控制文件的引导加载程序和分区选项。
 这可能会覆盖您的自定义设置。
-在保存新或更改的设置之前，请通过导航到 [guimenu]``+分区+`` 选项卡进行验证。
+在保存新或更改的设置之前，请通过导航到 `+Partitioning+` 选项卡进行验证。
 
 来自发行套件和配置文件的内核选项会进行合并。
 
@@ -110,15 +110,15 @@
 [[autoyast]]
 == {ay} 控制文件
 
-一个 {ay} 控制文件由标识该控制文件的 [guimenu]``+标签+``+、指向可自动安装的发行版的 [guimenu]+``+自动安装树+``、各种选项以及最重要的 {ay} 安装文件组成。
+一个 {ay} 控制文件由标识该控制文件的 `+Label+`、指向可自动安装的发行套件的 `+Autoinstall Tree+`、各种选项以及最重要的 {ay} 安装文件组成。
 
 {ay} 安装文件是一个 XML 文件，向 {ay} 安装程序提供指令。{ay} 将其称为 "配置文件"。
 有关 {ay} 安装文件的完整语法，请参见 https://doc.opensuse.org/projects/autoyast/#cha-configuration-installation-options.。
 
 {suse} 提供 {ay} 安装文件的模板，您可以将其用作自己自定义文件的起点。
-您可以在 https://github.com/SUSE/manager-build-profiles 的 [path]``+AutoYast+`` 目录中找到这些模板。
+您可以在 https://github.com/SUSE/manager-build-profiles 的 `+AutoYast+` 目录中找到这些模板。
 每个控制文件都要求您在使用之前设置一些变量。
-检查与脚本一起提供的 [path]``+README+`` 文件，以确定您需要哪些变量。
+检查与脚本一起提供的 `+README+` 文件，以确定您需要哪些变量。
 有关在 {ay} 脚本中使用变量的更多信息，请参见 xref:client-configuration:autoinst-profiles#variables[变量]。
 
 [IMPORTANT]
@@ -130,15 +130,15 @@
 
 在 {ay} 安装文件中，用于通过 {productname} 安装的最重要的部分如下：
 
-* ``+<add-on>+`` 用于向安装添加子通道。
+* `+<add-on>+` 用于向安装添加子频道。
   有关示例，请参见 https://doc.opensuse.org/projects/autoyast/#Software-Selections-additional.
 +
-* ``+<general>$SNIPPET('spacewalk/sles_no_signature_checks')</general>+` 禁用签名检查
+* `+<general>$SNIPPET('spacewalk/sles_no_signature_checks')</general>+` 禁用签名检查
 
-* ``+<software>+`` 允许为 {unifiedinstaller} 指定产品
+* `+<software>+` 允许为 {unifiedinstaller} 指定产品
 ** 请参见 https://doc.opensuse.org/projects/autoyast/#CreateProfile-Software 的 "<software>" 示例
 +
-* ``+<init-scripts config:type="list">$SNIPPET('spacewalk/minion_script')</init-scripts>+`` 允许客户端作为 Salt 客户端注册到 {productname}。
+* `+<init-scripts config:type="list">$SNIPPET('spacewalk/minion_script')</init-scripts>+` 允许客户端以 Salt 客户端身份注册到 {productname}。
 
 有关 {ay} 的详细信息，请参见 https://doc.opensuse.org/projects/autoyast/.
 
@@ -173,7 +173,7 @@
 [NOTE]
 ====
 文件保留列表的总大小限制为 1{nbsp}MB。
-像 [path]``+/dev/hda1+``+ 和 [path]+``+/dev/sda1+`` 这样的特殊设备无法被保留。
+无法保留 `+/dev/hda1+` 和 `+/dev/sda1+` 等特殊设备。
 仅使用文件和目录名称，您不能使用正则表达式通配符。
 ====
 
@@ -192,7 +192,7 @@
 该机制使您能够重新安装大量系统，而无需为每个系统手动创建控制文件。
 
 您可以在 {productname} {webui} 中创建自动安装变量和代码片段。
-在控制文件中，[guimenu]``+自动安装文件+`` 选项卡允许您查看替换的结果。
+在控制文件中，`+Autoinstallation File+` 选项卡允许您查看替换的结果。
 
 * 有关变量的信息，请参见 xref:client-configuration:autoinst-profiles#variables[变量]。
 * 有关代码片段的信息，请参见 xref:client-configuration:autoinst-profiles#code-snippets[代码片段]。
@@ -204,26 +204,26 @@
 === 禁用
 
 自动安装变量可以用于将值替换到 {kickstart} 和 {ay} 控制文件中。
-要定义一个变量，从控制文件中导航到 [guimenu]``+变量+``+ 子选项卡，并在文本框中创建一个 [可替换]+``+名称=值+`` 对。
+要定义变量，请从控制文件导航到 `+Variables+` 子选项卡，并在文本框中创建 `+name=value+` 对。
 
 例如，您可以创建一个变量来保存客户端的 IP 地址，另一个变量来保存其网关的地址。
 这些变量可以为从同一控制文件安装的所有客户端定义。
-为此，请将以下行添加到 [guimenu]``+变量+`` 文本框中：
+为此，请将以下行添加到 `+Variables+` 文本框中：
 
 ----
 ipaddr=192.168.0.28
 gateway=192.168.0.1
 ----
 
-要使用该变量，请在控制文件中前面加上 [option]``+$+`` 符号以替换值。
-例如，[option]``+网络+`` 部分的 {kickstart} 文件可能如下所示：
+要使用该变量，请在控制文件中前面加上 `+$+` 符号以替换值。
+例如，{kickstart} 文件的 `+network+` 部分可能如下所示：
 
 ----
 network --bootproto=static --device=eth0 --onboot=on --ip=$ipaddr \
   --gateway=$gateway
 ----
 
-[option]``+$ipaddr+``+ 被解析为 +``+192.168.0.28+``+，而 [option]+``+$gateway+``+ 被解析为 +``+192.168.0.1+``。
+`+$ipaddr+` 解析为 `+192.168.0.28+`，`+$gateway+` 解析为 `+192.168.0.1+`。
 
 在安装文件中，变量使用层次结构。
 系统变量优先于控制文件变量，而控制文件变量优先于发行套件变量。
@@ -236,7 +236,7 @@ network --bootproto=static --device=eth0 --onboot=on --ip=$ipaddr \
 {productname} 附带大量预定义的代码片段。
 导航到 menu:系统[自动安装> 自动安装代码片段] 以查看现有代码片段的列表。
 
-通过在您的自动安装文件中插入 [option]``+$SNIPPET()+`` 宏来使用代码片段。
+通过在您的自动安装文件中插入 `+$SNIPPET()+` 宏来使用代码片段。
 例如，在 {kickstart} 中：
 
 ----
@@ -280,11 +280,11 @@ $SNIPPET('my_partition')
 [[escaping]]
 === 转义
 
-如果自动安装文件包含类似 ``+$(example)+``+ 的外壳脚本变量，则需要用反斜杠对其内容进行转义： +``+\$(example)+``。
-转义 ``+$+`` 符号可以防止模板引擎将该符号评估为内部变量。
+如果自动安装文件包含类似 `+$(example)+` 的外壳脚本变量，则需要用反斜杠对其内容进行转义：`+\$(example)+`。
+转义 `+$+` 符号可以防止模板引擎将该符号评估为内部变量。
 
 // FIXME 2023-09-12, ke: "#raw" or "#end raw"?
-可以通过使用指令 ``+\#raw+``+ 和 +``+\#end raw+`` 将代码片段或脚本等文本块包裹起来，从而实现转义。
+可以使用 `+\#raw+` 和 `+\#end raw+` 指令封装代码段或脚本等文本块，从而对其转义。
 例如：
 
 // FIXME 2023-09-12, ke: "#raw" or "#end raw"?
@@ -297,7 +297,7 @@ done
 #end raw
 ----
 
-所有包含 ``+#+`` 符号后接空格的行均视为注释行，因此不会对其进行评估。
+所有包含 `+#+` 符号后接空白的行均视为注释行，因此不会对其进行评估。
 例如：
 
 ----
