@@ -17,7 +17,7 @@ endif::[]
 == 安装 K3s
 
 
-在容器主机上，安装 [literal]``+K3s+``+（将 [literal]+``+<K3S_HOST_FQDN>+`` 替换为您的 K3s 主机的 FQDN）：
+在容器主机上，安装 `+K3s+`（将 `+<K3S_HOST_FQDN>+` 替换为您的 K3s 主机的 FQDN）：
 
 ----
 curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--tls-san=<K3S_HOST_FQDN>" sh -
@@ -27,7 +27,7 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--tls-san=<K3S_HOST_FQDN>" sh -
 [[installation-proxy-containers-k3s-helm]]
 == 安装工具
 
-安装需要提供 [literal]``+mgrpxy+``+ 和 [literal]+``+helm+`` 软件包。
+安装需要 `+mgrpxy+` 和 `+helm+` 软件包。
 
 使用安装程序脚本安装 Helm：
 ----
@@ -38,7 +38,7 @@ chmod 700 get_helm.sh
 
 有关更多信息，请参见https://helm.sh/docs/intro/install/#from-script.
 
-[literal]``+mgrpxy+`` 软件包可在容器工具储存库中获得。
+`+mgrpxy+` 软件包可在容器 utils 储存库中获得。
 选择与以下发行版匹配的一个：https://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Stable:/ContainerUtils/.
 
 .过程
@@ -59,12 +59,12 @@ transactional-update pkg install mgrpxy
 
 永久性卷声明已命名为：
 
-* [literal]``+squid-cache-pv-claim+``
-* [literal]``+/package-cache-pv-claim+``
-* [literal]``+/tftp-boot-pv-claim+``
+* `+squid-cache-pv-claim+`
+* `+/package-cache-pv-claim+`
+* `+/tftp-boot-pv-claim+`
 
 按照  中的文档创建 {productname} 代理的配置xref:installation-and-upgrade:container-deployment/uyuni/proxy-container-setup-uyuni.adoc[]。
-复制配置 [literal]``+tar.gz+`` 文件，然后安装：
+复制配置文件 `+tar.gz+`，然后安装：
 
 ----
 mgrpxy install kubernetes /path/to/config.tar.gz
