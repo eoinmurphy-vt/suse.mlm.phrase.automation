@@ -3,11 +3,10 @@
 :description: SL Micro Clientのサポートされている機能を探ります。これには、オペレーティングシステムパッケージ、登録、およびインストールオプションが含まれます。
 :revdate: 2024-07-18
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメンテーションチーム
+:page-author: SUSE 製品＆ソリューション ドキュメンテーション チーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
-
 
 [IMPORTANT]
 ====
@@ -16,7 +15,7 @@
 
 [IMPORTANT]
 ====
-{sl-micro}は、現時点では通常のミニオン（[systemitem]``+default+``+接続方法）としてのみサポートされています。私たちは、Salt SSHクライアント（[systemitem]+``+salt-ssh+``接続方法）として管理する作業も進めています。
+{sl-micro}は現時点では通常のミニオン（`+default+`連絡方法）としてのみサポートされています。私たちは、Salt SSHクライアント（`+salt-ssh+`連絡方法）として管理することにも取り組んでいます。
 ====
 
 この表のアイコンの意味は次のとおりです。
@@ -26,119 +25,156 @@
 * {question}: 機能は検討中であり、後日利用可能になるかどうかは未定です
 
 
-[cols="1,1", options="header"]
+[cols="1,1,1,1", options="header"]
 .オペレーティングシステム{sl-micro}でサポートされている機能
 |===
-
 | 機能
-| {sl-micro}
-
+| {sl-micro}{nbsp}6.0
+| {sl-micro}{nbsp}6.1
+| {sl-micro}{nbsp}6.2
 | [クライアント]
 | {check}
-
+| {check}
+| {check}
 | オペレーティングシステムパッケージ
 | {check}
-
+| {check}
+| {check}
 | 登録
 | {check}
-
+| {check}
+| {check}
 | パッケージのインストール
 | {check}
-
-| パッチを適用します（CVE IDが必要です）
 | {check}
-
+| {check}
+| パッチを適用する（CVE IDが必要）
+| {check}
+| {check}
+| {check}
 | リモートコマンド
 | {check}
-
+| {check}
+| {check}
 | システムパッケージの状態
 | {check}
-
+| {check}
+| {check}
 | システムカスタム状態
 | {check}
-
+| {check}
+| {check}
 | グループカスタム状態
 | {check}
-
+| {check}
+| {check}
 | 組織カスタム状態
 | {check}
-
+| {check}
+| {check}
 | システムセットマネージャ（SSM）
 | {check}
-
+| {check}
+| {check}
 | 製品の移行
 | {check}
-
+| {check}
+| {check}
 | システムデプロイメント（PXE/{ay}）
 | {question}
-
+| {question}
+| {question}
 | システム再デプロイメント（{ay}）
 | {question}
-
-| 接続方法
+| {question}
+| {question}
+| 連絡方法
 | {check} ZeroMQ
-
+| {check} ZeroMQ
+| {check} ZeroMQ
 | 動作チェーン
 | {check}
-
+| {check}
+| {check}
 | ステージング（パッケージの事前ダウンロード）
 | {question}
-
+| {question}
+| {question}
 | 重複パッケージの報告
 | {check}
-
+| {check}
+| {check}
 | CVE監査（CVE IDが必要）
 | {check}
-
+| {check}
+| {check}
 | SCAP監査
 | {question}
-
-| パッケージのロック
+| {question}
+| {question}
+| パッケージロック
 | {check}
-
+| {check}
+| {check}
 | システムのロック
 | {cross}
-
+| {cross}
+| {cross}
 | メンテナンスウィンドウ
 | {question}
-
+| {question}
+| {question}
 | システムスナップショット
 | {cross}
-
+| {cross}
+| {cross}
 | 設定ファイル管理
 | {check}
-
+| {check}
+| {check}
 | スナップショットとプロファイル
 | {check} プロファイルはサポートされていますが、syncはサポートされていません。
-
+| {check} プロファイルはサポートされていますが、syncはサポートされていません。
+| {check} プロファイルはサポートされていますが、syncはサポートされていません。
 | 電源管理
 | {check}
-
+| {check}
+| {check}
 | モニタリングサーバ
 | {cross}
-
-| 監視対象クライアント {star}{star}
+| {cross}
+| {cross}
+| 監視対象のクライアント {star}{star}
 | {check}
-
+| {check}
+| {check}
 | Dockerビルドホスト
 | {cross}
-
+| {cross}
+| {cross}
 | OSを使用してDockerイメージをビルド
 | {cross}
-
+| {cross}
+| {cross}
 | Kiwiビルドホスト
 | {cross}
-
+| {cross}
+| {cross}
 | OSを使用してKiwiイメージをビルド
 | {check}
-
+| {check}
+| {check}
 | 定期的なアクション
 | {check}
-
+| {check}
+| {check}
 | AppStream
 | N/A
-
+| N/A
+| N/A
 | 読み
+| {cross}
+| {cross}
 | {cross}
 |===
 
