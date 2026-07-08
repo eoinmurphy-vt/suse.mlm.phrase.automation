@@ -3,7 +3,7 @@
 :description: SUSE Multi-Linux ManagerサーバにSUSE Linux Enterpriseクライアントを登録して、ソフトウェアチャンネル、同期ツール、およびリポジトリにアクセスします。
 :revdate: 2025-02-06
 :page-revdate: {revdate}
-:page-author: SUSE Product & Solution Documentation Team
+:page-author: SUSE製品およびソリューションドキュメンテーションチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -55,7 +55,7 @@ endif::[]
 [[suse-registration-overview-check]]
 == 以前の登録ステータスの確認
 
-クライアントが以前にSCC、SMT、またはRMTに登録されていた場合、クライアントを{productname}サーバに移行する前に、[command]``+SUSEConnect+``でその登録を削除してください。
+クライアントが以前にSCC、SMT、またはRMTに登録されていた場合、クライアントを`+SUSEConnect+`サーバに移行する前に、{productname}でその登録を削除する。
 最初に古い登録を削除することを忘れないでください。
 そうしない場合、不要なリポジトリが、クライアントが{suse}付きの新しいバージョンのオペレーティングシステム{productname}へ移行した後、クライアントに追加されます。
 
