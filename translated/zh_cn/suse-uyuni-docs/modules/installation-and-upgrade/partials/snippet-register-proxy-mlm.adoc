@@ -36,8 +36,8 @@ transactional-update
 . 如果已应用更新，请重引导。
 
 . 该步骤可选。
-  但是，如果您的基础设施需要自定义的永久性存储，请使用 [command]``+mgr-storage-proxy+`` 工具。
-** 有关更多信息，请参见 [command]``+mgr-storage-proxy --help+``。
+  但是，如果您的基础设施需要自定义的永久性存储，请使用 `+mgr-storage-proxy+` 工具。
+** 有关详细信息，请访问 `+mgr-storage-proxy --help+`。
 该工具简化了创建容器卷的过程。
 
 ** 如下所示使用命令：
@@ -55,7 +55,7 @@ mgr-storage-proxy /dev/nvme1n1
 +
 [NOTE]
 ====
-此命令将把 [path]``+/var/lib/containers/storage/volumes+`` 中的永久性存储卷移动到指定的存储设备。
+此命令会将 `+/var/lib/containers/storage/volumes+` 处的永久性存储卷移动到指定的存储设备。
 
 有关详细信息，请参见
 
