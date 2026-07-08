@@ -25,29 +25,29 @@ VHM 允许 {productname} 获取和报告有关您的集群的信息。
 
 虚拟主机管理器 (VHM) 在 {productname} 服务器上运行。
 
-确保您已在 {productname} 服务器上安装软件包 [systemitem]``+virtual-host-gatherer-libcloud+``。
+确保您已在 {productname} 服务器上安装了 `+virtual-host-gatherer-libcloud+` 软件包。
 
 
 .过程：升级创建 Amazon EC2 VHM
 
 . 在 {productname} {webui} 中，导航到 menu:系统[虚拟主机管理器]。
-. 单击 btn:[创建] 并从下拉菜单中选择 [guimenu]``+Amazon EC2+``。
-. 在 [guimenu]``+添加 Amazon EC2 虚拟主机管理器+`` 部分，使用以下参数：
-* 在 [guimenu]``+标签+`` 字段中，为您的 VHM 输入自定义名称。
-* 在 [guimenu]``+访问密钥 ID+`` 字段中，输入亚马逊提供的访问密钥 ID。
-* 在 [guimenu]``+机密访问密钥+`` 字段中，输入与亚马逊实例关联的机密访问密钥。
-* 在 [guimenu]``+区域+`` 字段中，输入要使用的区域。
-* 在 [guimenu]``+可用区+`` 字段中，输入您的 VM 所在的可用区。
+. 单击 btn:[创建] 并从下拉菜单中选择 `+Amazon EC2+`。
+. 在 `+Add an Amazon EC2 Virtual Host Manager+` 部分中，使用以下参数：
+* 在 `+Label+` 字段中，为您的 VHM 输入自定义名称。
+* 在 `+Access Key ID+` 字段中，输入亚马逊提供的访问密钥 ID。
+* 在 `+Secret Access Key+` 字段中，输入与亚马逊实例关联的机密访问密钥。
+* 在 `+Region+` 字段中，输入要使用的区域。
+* 在 `+Zone+` 字段中，输入您的 VM 所在的可用区。
   要使订阅匹配功能正常工作，就必须提供此信息。
   有关设置区域和可用区的更多信息，请参见 <<susesupport_and_vm_zones>>。
 . 单击 btn:[创建] 以保存更改并创建 VHM。
-. 在 [guimenu]``+虚拟主机管理器+`` 页面中，选择新 VHM。
-. 在 [guimenu]``+属性+`` 页面中，单击 btn:[刷新数据] 以清点新 VHM。
+. 在 `+Virtual Host Managers+` 页面中，选择新 VHM。
+. 在 `+Properties+` 页面中，单击 btn:[刷新数据] 以清点新 VHM。
 
 要查看已清点的对象和资源，请导航到 menu:系统[系统列表> 虚拟系统]。
 
 
-在 Amazon 公有云上运行的实例会向 {productname} 服务器报告 UUID，其格式为一个 ``+i+`` 后跟 17 个十六进制数字：
+在 Amazon 公有云上运行的实例会向 {productname} 服务器报告 UUID，其格式为一个 `+i+` 后跟 17 个十六进制数字：
 
 ----
 I1234567890abcdef0
@@ -59,15 +59,15 @@ ifeval::[{mlm-content} == true]
 == SUSE 支持和 VM 可用区
 
 公有云提供商使用区域来定义提供虚拟机的数据中心的实际地理位置。
-例如，[systemitem]``+美国东部+``，或 [systemitem]+``+亚洲+``。
+例如，`+US-East+` 或 `+Asia+`。
 
 区域随后进一步划分为可用区。
-例如，[systemitem]``+美国东部+`` 区域可能包含名为 [systemitem]+``+us-east-2a+``+ 和 [systemitem]+``+us-east-2b+`` 的可用区，等等。
+例如，`+US-East+` 区域可能包含名为 `+us-east-2a+` 和 `+us-east-2b+` 等的可用区。
 
 {suse} 使用虚拟机的可用区来确定提供的适当订阅。
-如果您的所有 VM 都由同一可用区提供，则您符合 ``+1-2 虚拟机+`` 订阅的条款和条件。
+如果您的所有 VM 都由同一可用区提供，则您符合 `+1-2 Virtual Machines+` 订阅的条款和条件。
 
-如果您的 VM 是由不同可用区提供的，即使它们在同一区域内，您可能也不符合 ``+1-2 虚拟机+`` 订阅的条件。
+如果您的 VM 是由不同可用区提供的，即使它们在同一区域内，您可能也不符合 `+1-2 Virtual Machines+` 订阅的条件。
 在这种情况下，请仔细检查您的订阅。
 
 [NOTE]
