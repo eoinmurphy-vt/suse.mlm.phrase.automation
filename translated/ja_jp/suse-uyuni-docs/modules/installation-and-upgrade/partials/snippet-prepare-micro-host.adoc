@@ -9,7 +9,7 @@ ____
 
 . https://www.suse.com/download/sle-micro/,にある{sl-micro} {microversion}インストールメディアを見つけて、適切なメディアファイルをダウンロードします。
 
-. インストール用にダウンロードした[filename]``+.iso+``イメージを含むDVDまたはUSBフラッシュ ドライブを準備します。
+. インストール用にダウンロードした`+.iso+` イメージを含むDVDまたはUSBフラッシュ ドライブを準備します。
 
 ____
 
@@ -24,13 +24,13 @@ ____
 
 . システムをブートまたは再起動します。
 
-. 矢印キーを使用して[systemitem]``+インストール+``を選択します。
+. 矢印キーを使用して`+Installation+`を選択します。
 
 . キーボードと言語を調整します。
 
-. [systemitem]``+チェックボックス+``をクリックしてライセンス契約に同意します。
+. `+checkbox+`をクリックして、ライセンス契約を受け入れます。
 
-. 続行するには[systemitem]``+次へ+``をクリックします。
+. `+Next+`をクリックして続行します。
 
 . 登録方法を選択します。
   この例では、{scclongform}でサーバーを登録します。
@@ -58,22 +58,22 @@ ____
 
 . {sl-micro} {microversion}の登録コードを入力してください。
 
-. 続行するには[systemitem]``+次へ+``をクリックします。
+. `+Next+`をクリックして続行します。
 
-. プロキシをインストールするには、{productname} {productnumber}プロキシ拡張機能を選択します。サーバーをインストールするには、{productname} {productnumber}サーバー拡張機能``+チェックボックス+``を選択します。
+. プロキシをインストールするには、{productname} {productnumber}プロキシ拡張機能を選択します。サーバーをインストールするには、{productname} {productnumber}サーバー拡張機能 `+Checkbox+`を選択します。
 
-. 続行するには[systemitem]``+次へ+``をクリックします。
+. `+Next+`をクリックして続行します。
 
-. {productname} {productnumber}拡張機能の登録コードを入力してください。
+. {productname} {productnumber}拡張機能の登録コードを入力します。
 
-. btn:[次へ]をクリックして続行します。
+. 継続するにはbtn:[次へ]をクリックしてください。
 
-. [systemitem]``+NTP設定+``ページでbtn:[次へ]をクリックします。
+. `+NTP Configuration+`ページで、btn:[次へ]をクリックします。
 
-. [systemitem]``+システムの認証+``ページで、ルートユーザのパスワードを入力します。
+. `+Authentication for the System+`ページで、ルートユーザのパスワードを入力します。
   btn:[次へ]をクリックします。
 
-. [systemitem]``+インストール設定+``ページでbtn:[インストール]をクリックします。
+. `+Installation Settings+`ページで、btn:[インストール]をクリックします。
 
 ____
 
