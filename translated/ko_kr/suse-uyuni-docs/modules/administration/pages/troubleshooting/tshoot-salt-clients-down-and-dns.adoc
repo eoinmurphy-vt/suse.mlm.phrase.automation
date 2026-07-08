@@ -19,18 +19,18 @@ Minion is down or could not be contacted.
 
 [IMPORTANT]
 ====
-서버 컨테이너 내부의 셸에 액세스하려면 컨테이너 호스트에서 [literal]``+mgrctl term+``을 실행합니다.
+Server 컨테이너 내부의 셸에 접근하려면 컨테이너 호스트에서 `+mgrctl term+`을(를) 실행합니다.
 ====
 
 Salt 클라이언트가 재시작되거나 그레인이 새로 고쳐지면 클라이언트는 FQDN 그레인을 계산하며, 그레인이 처리될 때까지 응답하지 않습니다.
-{productname} 서버에서 예약된 작업이 실행될 때, {productname} 서버는 실제 작업 전에 클라이언트가 실제로 실행되고 있는지 확인하기 위해 ``+test.ping+``을 클라이언트에 수행합니다.
+{productname} 서버에서 예약된 작업이 실행될 때, {productname} 서버는 실제 작업 전에 클라이언트가 실제로 실행되고 있는지 확인하고 작업을 트리거할 수 있도록 클라이언트에 `+test.ping+`을(를) 수행합니다.
 
-기본적으로 {productname} 서버는 ``+test.ping+`` 명령의 응답을 받기 위해 5초를 기다립니다.
+기본적으로 {productname} 서버는 `+test.ping+` 명령의 응답을 받기 위해 5초를 기다립니다.
 5초 이내에 응답이 수신되지 않으면 클라이언트가 다운되었거나 연락할 수 없다는 메시지와 함께 작업이 실패로 설정됩니다.
 
 이 문제를 해결하려면 클라이언트에서 DNS 확인을 수정하여 FQDN을 확인하는 동안 클라이언트가 5초 동안 멈추지 않도록 하십시오.
 
-가능하지 않은 경우 {productname} 서버의 +``+/etc/rhn/rhn.conf+`` 파일에 있는 ``+java.salt_presence_ping_timeout+``+ 값을 4보다 큰 값으로 증가시키십시오.
+이것이 불가능한 경우, `+java.salt_presence_ping_timeout+` 서버의 `+/etc/rhn/rhn.conf+` 파일에 있는 {productname} 값을 4보다 큰 값으로 늘려 보십시오.
 
 예:
 
