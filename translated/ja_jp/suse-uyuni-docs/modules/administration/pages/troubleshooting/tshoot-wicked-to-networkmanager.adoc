@@ -31,10 +31,10 @@ Result: NetworkManager manages the network and the system is in a supported conf
  
 次の症状がシステムが影響を受けていることを確認します：
  
-* [command]``+systemctl status wicked+``+ は [literal]+``+active (exited)+`` を表示します。
-* [command]``+systemctl status NetworkManager+``+ は [literal]+``+Unit NetworkManager.service could not be found+`` を表示します。
-* [command]``+systemctl show -p Id network.service+``+ returns [literal]+``+Id=wicked.service+``
-* [command]``+sudo zypper se -s wicked+``+ はwickedが[literal]+``+(システムパッケージ)+``の下にリポジトリなしでリストされていることを示します。
+* `+systemctl status wicked+` 表示 `+active (exited)+`
+* `+systemctl status NetworkManager+` 表示 `+Unit NetworkManager.service could not be found+`
+* `+systemctl show -p Id network.service+` は `+Id=wicked.service+` を返します
+* `+sudo zypper se -s wicked+` は、リポジトリなしで `+(System Packages)+` の下にwickedがリストされていることを示します
  
 [WARNING]
 ====
@@ -147,7 +147,7 @@ zypper in NetworkManager
 
 +
  
-プロンプトが表示されたら、[literal]``+y+``で確認してください。
+プロンプトが表示されたら、`+y+` で確認してください。
 NetworkManagerとその依存関係はSL Micro-6.1リポジトリからインストールされます。
 
 +
@@ -162,7 +162,7 @@ zypper rm wicked wicked-service cockpit-wicked
 
 +
  
-プロンプトが表示されたら、[literal]``+y+``で確認してください。
+プロンプトが表示されたら、`+y+` で確認してください。
 
 +
  
@@ -232,7 +232,7 @@ sudo reboot
 
 +
  
-[literal]``+network.service+``が現在NetworkManagerを指していることを確認してください：
+`+network.service+` がNetworkManagerを指していることを今すぐ確認してください。
 
 +
  
@@ -298,7 +298,7 @@ ip route show
 [NOTE]
 ====
 ブート後にルートが欠落している場合は、90秒待って再度確認してください。
-[literal]``+cloud-netconfig+`` サービスは60秒のタイマーで動作し、欠落しているクラウドプロバイダー固有のルートを自動的に復元します。
+`+cloud-netconfig+` サービスは60秒のタイマーで動作し、欠落しているクラウドプロバイダー固有のルートを自動的に復元します。
 ====
 
 +
@@ -313,7 +313,7 @@ sudo podman ps
 
 +
  
-コンテナはブートから数分以内に状態 [literal]``+healthy+`` を表示する必要があります。
+コンテナはブートから数分以内に状態 `+healthy+` を表示する必要があります。
 
 ____
 
@@ -331,12 +331,12 @@ NetworkManagerはDHCPを介して同じアドレスを取得します。
  
 | スレーブまたはボンドインタフェース
 | スレーブインターフェースは存在し続け、マスターに接続されています。
-NetworkManagerはスレーブインターフェースをそこに表示しないため、[command]``+ip addr show+`` にはもはや表示されません。
-[command]``+ip link show <interface>+`` を使用して、存在することを確認してください。
+NetworkManagerはスレーブインターフェースをそこに表示しないため、`+ip addr show+` にはもはや表示されません。
+`+ip link show <interface>+` を使用して、それらが存在することを確認します。
 これは期待される動作であり、ネットワークパフォーマンスには影響しません。
  
 | クラウドプロバイダー固有のルート
-| [literal]``+cloud-netconfig+`` によって管理されており、ネットワークマネージャーとは独立して動作し、スイッチ後もそのままです。
+| `+cloud-netconfig+` によって管理されており、ネットワークマネージャーとは独立して動作し、スイッチ後もそのままです。
 ブート後に欠落している場合、60秒以内にルートが復元されます。
  
 | IPv6リンクローカルアドレス
@@ -344,13 +344,13 @@ NetworkManagerはスレーブインターフェースをそこに表示しない
 これは、IPv4を使用する標準{productname}デプロイメントには影響を与えません。
  
 | デフォルトルートメトリック
-| NetworkManagerは、デフォルトルートに明示的な[literal]``+metric 100+``を追加します。
+| NetworkManagerは、デフォルトルートに明示的な`+metric 100+`を追加します。
 これは正しい動作であり、悪影響はありません。
  
 | NetworkManager接続ファイル
-| NetworkManagerは、[literal]``+/var/run/NetworkManager/system-connections/+``に接続定義を自動生成します。これはtmpfsの場所です。
+| NetworkManagerは、tmpfsの場所である `+/var/run/NetworkManager/system-connections/+` に接続定義を自動生成します。
 これらは、DHCPからのすべてのブート時に再生成されます。
-元のwicked設定は[literal]``+/etc/sysconfig/network/ifcfg-*+``に残されていますが、NetworkManagerによって読み取られません。
+元のwicked設定は `+/etc/sysconfig/network/ifcfg-*+` に残されていますが、NetworkManagerによって読み取られません。
  
 | {productname} コンテナ
 | 影響を受けません。
