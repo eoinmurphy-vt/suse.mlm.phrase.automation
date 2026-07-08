@@ -58,6 +58,7 @@ endif::[]
 ** xref:patch-management.adoc[패치 관리]
 ** xref:ptfs.adoc[프로그램 임시 수정]
 ** xref:reports.adoc[보고서 생성]
+*** xref:reporting-database.adoc[보고 데이터베이스]
 ** 보안
 *** xref:auditing.adoc[패키지 감사]
 *** xref:master-fingerprint.adoc[마스터 지문]
