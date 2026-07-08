@@ -1,6 +1,6 @@
 .过程：升级在命令提示符下添加软件通道
 
-. 使用 [command]``+spacewalk-common-channels+`` 命令可以添加适当的通道。
+. 使用 `+spacewalk-common-channels+` 命令您可以添加相应的频道。
   在 {productname} 容器主机的命令提示符下，以 root 身份执行以下命令：
 
 +
