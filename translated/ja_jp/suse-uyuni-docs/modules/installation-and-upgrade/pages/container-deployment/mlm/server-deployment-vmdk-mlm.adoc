@@ -23,7 +23,7 @@ endif::[]
 
 [IMPORTANT]
 ====
-{productname} {productnumber} サーバーをデプロイするための推奨方法は、以下の利用可能なイメージのいずれかを使用することです。
+{productname} {productnumber} サーバーをデプロイするための推奨される方法は、以下の利用可能なイメージのいずれかを使用することです。
 すべてのツールはこれらのイメージに含まれており、デプロイメントを大幅に簡素化します。
 ====
 
@@ -51,13 +51,13 @@ endif::[]
 |===
 | アーキテクチャ | イメージフォーマット
 
-| aarch64| qcow2, vmdk
+| aarch64| qcow2、vmdk
 
-| x86_64  | qcow2, vmdk, raw, セルフインストーラー
+| x86_64  | qcow2、vmdk、raw、セルフインストーラー
 
-| ppc64le | raw, セルフインストーラー
+| ppc64le | raw、セルフインストーラー
 
-| s390x * | qcow2, raw
+| s390x * | qcow2、raw
 |===
 
 __* s390xには2つのストレージオプションが利用可能です：CDL DASD と FBA。__
@@ -71,20 +71,20 @@ __* s390xには2つのストレージオプションが利用可能です：CDL 
 
 このセクションでは、VMware環境内の {productname} ストレージパーティションに不可欠な追加の仮想ディスクの作成に重点を置いて、VMware設定について説明します。
 
-.プロシージャ:VMware仮想マシンを作成する
+.プロシージャ:VMware仮想マシンの作成
 
-. {productname}サーバー[filename]``+.vmdk+``ファイルをダウンロードし、VMwareストレージにコピーを転送します。
+. {productname}サーバー`+.vmdk+`ファイルをダウンロードし、VMwareストレージにコピーを転送します。
 
-. VMwareウェブインターフェースを使用して、アップロードされた[filename]``+.vmdk+``ファイルのコピーを作成します。
-  これにより、提供された[filename]``+.vmdk+``ファイルがvSphereハイパーバイザーに適した形式に変換されます。
+. VMwareウェブインターフェースを使用して、アップロードされた`+.vmdk+`ファイルのコピーを作成します。
+  この操作により、提供された`+.vmdk+`ファイルがvSphereハイパーバイザーに適した形式に変換されます。
 
-. ゲストOSファミリ[systemitem]``+Linux+``およびゲストOSバージョン{sle} 15 (64ビット)に基づいて、新しい仮想マシンを作成し、名前を付けます。
+. ゲストOSファミリ`+Linux+`およびゲストOSバージョン{sle} 15 (64ビット)に基づいて、新しい仮想マシンを作成し、名前を付けます。
 
 // FIXME: do we want to keep this size here? \/
 
 +
 
-. 500GB以上の[systemitem]``+ハードディスク 2+``を追加します。
+. 500GB（以上）の`+Hard Disk 2+`を追加します。
 
 . RAMおよびCPU数を最小値で設定します。*)
 
@@ -117,7 +117,7 @@ ifdef::backend-pdf[]
 include::../../../partials/snippet-hardened-tmpdir.adoc[leveloffset=+2]
 endif::[]
 
-.プロシージャ:{sl-micro}および{productname} {productnumber}を登録しています。
+.プロシージャ:{sl-micro} と {productname} {productnumber} を登録しています
 . 仮想マシンをブートします。
 . `+root+`としてログインします。
 . {sl-micro}を{scc}に登録します。
@@ -147,11 +147,11 @@ transactional-update
 . 更新が適用されていた場合は再起動します。
 
 . このステップはオプションです。
-  ただし、ご使用のインフラストラクチャにカスタム永続ストレージが必要な場合は、[command]``+mgr-storage-server+``ツールを使用します。
+  ただし、ご使用のインフラストラクチャにカスタム永続ストレージが必要な場合は、`+mgr-storage-server+`ツールを使用します。
 
 +
 
-詳細については、[command]``+mgr-storage-server --help+``を参照してください。
+詳細については、`+mgr-storage-server --help+`を参照してください。
 詳細については、[command]\``mgr-storage-server \--help``を参照してください。このツールを使用すると、コンテナストレージとデータベースボリュームの作成が容易になります。
 このコマンドは次のように使用します。
 
@@ -172,7 +172,7 @@ mgr-storage-server /dev/nvme1n1 /dev/nvme2n1
 +
 [NOTE]
 ====
-このコマンドは、[path]``+/var/lib/containers/storage/volumes+``に永続ストレージボリュームを作成します。
+このコマンドにより、`+/var/lib/containers/storage/volumes+`に永続ストレージボリュームが作成されます。
 
 詳細については、以下を参照してください。
 
