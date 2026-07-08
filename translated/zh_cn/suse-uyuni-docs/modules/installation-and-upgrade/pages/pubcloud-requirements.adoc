@@ -43,7 +43,7 @@
 这使您能够访问 {productname} {webui}。
 
 在 EC2 和 Azure 中，创建一个新的安全组，并为 HTTPS 添加入站和出站规则。
-在 GCE 中，在 +``+防火墙+`` 部分下勾选 ``+允许 HTTPS 流量+``+ 复选框。
+在 GCE 中，勾选 `+Allow HTTPS traffic+` 复选框，位于 `+Firewall+` 部分下。
 
 
 
@@ -75,11 +75,11 @@
 hwinfo --disk | grep -E "Device File:"
 ----
 
-如果您不确定选择哪个设备，请使用 [command]``+lsblk+`` 命令查看每个设备的名称和大小。
+如果您不确定选择哪个设备，请使用 `+lsblk+` 命令查看每个设备的名称和大小。
 选择与您要查找的虚拟磁盘大小匹配的名称。
 
-您可以使用 [command]``+mgr-storage-server+`` 命令设置外部磁盘。
-这会创建一个挂载在 ``+/manager_storage+`` 的 XFS 分区，并将其用作数据库和存储库的位置：
+您可以使用 `+mgr-storage-server+` 命令设置外部磁盘。
+这会创建一个挂载在 `+/manager_storage+` 的 XFS 分区，并将其用作数据库和存储库的位置：
 
 ----
 /usr/bin/mgr-storage-server <devicename>
