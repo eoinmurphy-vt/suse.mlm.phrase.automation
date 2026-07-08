@@ -97,7 +97,7 @@ menu:kickstartfile-sync-default[]::
 menu:mgr-forward-registration-default[]::
 与 {scclongform} 同步客户端注册数据。
 默认情况下，新的、已更改的或已删除的客户端数据将被转发。
-要禁用在 [path]``+/etc/rhn/rhn.conf+`` 中设置的同步，请运行：
+若要禁用 `+/etc/rhn/rhn.conf+` 中的同步，请运行：
 +
 ----
 server.susemanager.forward_registration = 0
@@ -114,7 +114,7 @@ https://suselinux.fra1.qualtrics.com/jfe/form/SV_0ooNnrY0rYuQScS[通过分享您
 ====
 
 menu:mgr-sync-refresh-default[]::
-与 {scclongform} 同步（``+mgr-sync-refresh+``）。
+与 {scclongform} (`+mgr-sync-refresh+`) 同步。
 默认情况下，所有自定义频道也作为此任务的一部分进行同步。
 有关自定义频道同步的更多信息，请参见 xref:administration:custom-channels.adoc#_custom_channel_synchronization[]。
 
