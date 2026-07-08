@@ -30,7 +30,7 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 [IMPORTANT]
 ====
-在服务器容器内执行步骤之前，请使用 [literal]``+mgrctl term+``。
+在服务器容器内运行步骤之前，请使用 `+mgrctl term+`。
 ====
 
 有时，已删除（未注册）客户的新注册可能无法进行。
