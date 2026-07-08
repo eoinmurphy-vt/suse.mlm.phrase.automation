@@ -39,9 +39,9 @@
 
 .プロシージャ:チャンネルへのサブスクライバアクセスの制限
 . {productname} {webui}で、menu:ソフトウェア[チャンネルリスト]に移動し、編集するチャンネルを選択します。
-. [guimenu]``+ユーザごとのサブスクリプション制限+``+セクションを見つけて、[guimenu]+``+この組織内の指定されたユーザのみがこのチャンネルに登録できます+``をオンにします。
+. `+Per-User Subscription Restrictions+`セクションを見つけて、`+Only selected users within your organization may subscribe to this channel+`にチェックを入れます。
   btn:[更新する]をクリックして、変更を保存します。
-. [guimenu]``+サブスクライバ+``タブに移動して、必要に応じてユーザを選択または選択解除します。
+. `+Subscribers+`タブに移動して、必要に応じてユーザーを選択または選択解除します。
 
 
 
