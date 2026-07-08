@@ -10,7 +10,7 @@ _____
 . 为代理主机创建一个激活密钥，使用 {sl-micro} {microversion} 或 {sles} {bci-mlm} 作为父通道。
   为代理主机创建激活密钥并使用 \{micro} \{microversion} 作为父通道。此密钥应包括所有建议的通道以及用作扩展子通道的代理。
 
-. 继续以 [systemitem]``+default+`` 客户端的身份对代理主机进行引导。
+. 继续以 `+default+` 客户端身份启动代理主机。
 
 _____
 
