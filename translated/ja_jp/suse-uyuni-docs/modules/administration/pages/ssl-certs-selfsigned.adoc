@@ -43,10 +43,10 @@ mgrctl exec -ti -- 'rhn-ssl-tool --gen-server --dir="/root/ssl-build" --set-coun
 
 +
 
-[systemitem]``+set-cname+``パラメータがあなたの{productname}サーバの完全修飾ドメイン名であることを確認してください。
-複数のエイリアスが必要な場合は、[systemitem]``+set-cname+``パラメータを複数回使用できます。
+`+set-cname+`パラメータが、お使いの{productname}サーバーの完全修飾ドメイン名であることを確認してください。
+複数のエイリアスが必要な場合は、`+set-cname+`パラメータを複数回使用できます。
 
-プライベートキーとサーバ証明書は、サーバコンテナ内のディレクトリ[path]``+/root/ssl-build/susemanager/+``+にあり、+`server.key`+および+`server.crt`として見つけることができます。
+秘密鍵とサーバ証明書は、サーバコンテナ内の`+/root/ssl-build/susemanager/+`ディレクトリに、それぞれ`+server.key+`および`+server.crt+`として格納されています。
 最後のディレクトリの名前は、`+--set-hostname+`オプションで使用されるホスト名によって異なります。
 
 コンテナのホストpodmanシークレットを更新して、新しい証明書とキーをデプロイまたはインポートします。
@@ -102,7 +102,7 @@ mgrctl exec -ti -- 'rhn-ssl-tool --gen-server --dir="/root/ssl-build" --set-coun
 
 +
 
-[systemitem]``+set-cname+``パラメータがあなたの{productname}サーバの完全修飾ドメイン名であることを確認してください。
-複数のエイリアスが必要な場合は、[systemitem]``+set-cname+``パラメータを複数回使用できます。
+`+set-cname+`パラメータが、お使いの{productname}サーバーの完全修飾ドメイン名であることを確認してください。
+複数のエイリアスが必要な場合は、`+set-cname+`パラメータを複数回使用できます。
 +
 ホスト名とcnameを使用して、各プロキシのサーバ証明書も生成する必要があります。
