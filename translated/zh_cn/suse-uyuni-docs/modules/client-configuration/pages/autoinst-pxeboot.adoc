@@ -36,7 +36,7 @@ image::cobbler_menu.png[scaledwidth=100%]
 Dhcpd 服务器还可以向客户端提供其他配置信息，例如主机名、路由器地址和域名服务器地址。
 这些信息可能在自动安装中需要，例如如果您通过域名指定安装服务器。
 
-在 PXE 引导菜单中，第一个选项是 [guimenu]``+本地引导+``。
+在 PXE 引导菜单中，第一个选项是 `+Local boot+`。
 如果您选择此项，启动过程将从本地磁盘驱动器继续。
 如果在一定时间内未选择任何控制文件，则自动选择此选项。
 这是一个安全措施，以防在没有人工操作员选择控制文件的情况下启动自动安装。
@@ -75,7 +75,7 @@ PXE 启动过程使用 Dhcpd 查找 TFTP 服务器。
 
 
 .示例：配置 Kea Dhcpd 服务器
-. 在 Dhcpd 服务器上，以 root 身份打开 [path]``+/etc/dhcpd.conf+`` 文件。
+. 在 DHCP 服务器上，以 root 用户身份打开 `+/etc/dhcpd.conf+` 文件。
 . 修改您的客户端的声明：
 +
 ----
@@ -83,26 +83,26 @@ PXE 启动过程使用 Dhcpd 查找 TFTP 服务器。
                   next-server 192.168.2.1;
                   filename "grub/grub.0"; }
 ----
-. 保存文件并重启 [systemitem]``+dhcpd+`` 服务。
+. 保存该文件并重启 `+dhcpd+` 服务。
 
 
-此示例将 PXE 客户端 ``+myclient+``+ 定向到位于 +``+192.168.2.1+``+ 的安装服务器，并指示其检索 [path]+``+grub/grub.0+`` 引导加载程序文件。
+此示例将 PXE 客户端 `+myclient+` 定向到位于 `+192.168.2.1+` 的安装服务器，并指示其检索 `+grub/grub.0+` 引导加载程序文件。
 
 或者，如果您的 Dhcpd 服务器已在 {productname} 注册，则可以改为使用 Dhcpd 公式进行配置：
 
 
 .示例：使用 Dhcpd 公式配置 Kea Dhcpd 服务器
-. 导航到 menu:系统[系统列表]，选择要更改的客户端，然后转到 [guimenu]``+公式+`` 选项卡以启用 Dhcpd 公式。
-. 转到公式的 [guimenu]``+Dhcpd+``+ 选项卡，并在 [guimenu]+``+下一台服务器+`` 字段中输入安装服务器的主机名或 IP 地址。
-. 在 [guimenu]``+文件名 EFI+``+ 字段中，键入 [path]+``+grub/shim.efi+`` 以启用 EFI PXE 支持。
-. 在 [guimenu]``+文件名+``+ 字段中，键入 [path]+``+grub/grub.0+`` 以启用旧式 BIOS 支持。
+. 导航到 menu:系统[系统列表]，选择要更改的客户端，然后转到 `+Formulas+` 选项卡以启用 DHCP 公式。
+. 转到公式的 `+Dhcpd+` 选项卡，并在 `+Next Server+` 字段中输入安装服务器的主机名或 IP 地址。
+. 在 `+Filename EFI+` 字段中，输入 `+grub/shim.efi+` 以启用 EFI PXE 支持。
+. 在 `+Filename+` 字段中，输入 `+grub/grub.0+` 以启用传统 BIOS 支持。
 . 单击 btn:[保存公式] 以保存您的配置。
 . 应用 highstate。
 
 
 [NOTE]
 ====
-* 如果不使用安全引导，请在 [guimenu]+``+文件名 EFI+`` 字段中键入 [path]``+grub/grubx86.efi+``+ 而不是 [path]+``+grub/shim.efi+``+。
+* 如果您不使用安全引导 (Secure Boot)，请在 `+Filename EFI+` 字段中输入 `+grub/grubx86.efi+` 而不是 `+grub/shim.efi+`。
 
 * 有关不同的体系结构，请参见表 <<grub-efi-arch>>。
 
@@ -125,7 +125,7 @@ PXE 启动过程使用 Dhcpd 查找 TFTP 服务器。
 
 [WARNING]
 ====
-如果您使用的是 {productname} 代理 4.3，请查阅 4.3 版本的文档 [link]``+https://documentation.suse.com/suma/4.3/en/suse-manager/client-configuration/autoinst-pxeboot.html+``。
+如果您使用的是 {productname} 代理 4.3，请查阅 4.3 版本的文档 `+https://documentation.suse.com/suma/4.3/en/suse-manager/client-configuration/autoinst-pxeboot.html+`。
 ====
 
 
