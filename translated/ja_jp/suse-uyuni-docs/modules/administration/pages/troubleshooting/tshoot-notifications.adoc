@@ -29,13 +29,13 @@ If more detailed instructions are required, put them in a "Resolving" procedure:
 
 
 通知メッセージのデフォルト有効期限は30日です。その後、既読か未読かにかかわらず、メッセージはデータベースから削除されます。
-この値を変更するには、[path]``+/etc/rhn/rhn.conf+``に次の行を追加または編集します。
+この値を変更するには、`+/etc/rhn/rhn.conf+`で次のように行を追加または編集します。
 
 ----
 java.notifications_lifetime = 30
 ----
 
-通知タイプを有効または無効にするには、[path]``+/etc/rhn/rhn.conf+``で次のように行を追加または編集します。
+通知タイプを有効または無効にするには、`+/etc/rhn/rhn.conf+`で次のように行を追加または編集します。
 
 ----
 java.notifications_type_disabled = OnboardingFailed,ChannelSyncFailed,\
@@ -43,4 +43,4 @@ java.notifications_type_disabled = OnboardingFailed,ChannelSyncFailed,\
   PaygAuthenticationUpdateFailed,EndOfLifePeriod,SubscriptionWarning
 ----
 
-デフォルト設定と設定オプションについては、[path]``+usr/share/rhn/config-defaults/rhn_java.conf+``テンプレートファイルを参照してください。
+デフォルト設定および設定オプションについては、`+usr/share/rhn/config-defaults/rhn_java.conf+`テンプレートファイルを参照してください。
