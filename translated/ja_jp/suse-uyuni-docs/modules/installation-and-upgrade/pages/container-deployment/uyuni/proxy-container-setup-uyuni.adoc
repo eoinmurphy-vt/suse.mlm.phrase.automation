@@ -3,7 +3,7 @@
 :description: SUSE Multi-Linux Manager プロキシコンテナの設定を行うには、まず設定アーカイブを生成し、それをコンテナホストに転送・展開した後、プロキシを起動します。
 :revdate: 2025-06-30
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメンテーションチーム
+:page-author: SUSE製品およびソリューションドキュメントチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -17,7 +17,7 @@ endif::[]
 .プロシージャ
 . プロキシ{productname}設定アーカイブファイルを生成します
 . インストールステップで準備したコンテナホストに設定アーカイブを転送し、抽出します
-. [literal]``+mgrpxy+``でプロキシサービスを開始します
+. でプロキシサービスを開始します。`+mgrpxy+`
 
 ifndef::backend-pdf[]
 include::installation-and-upgrade:partial$snippet-generate_proxy_config.adoc[]
@@ -32,7 +32,7 @@ endif::[]
 == プロキシ{productname}設定を転送します
 
 
-[command]``+spacecmd+``コマンドと{webui}を利用した方法の両方で、設定アーカイブが作成されます。
+`+spacecmd+`コマンドおよび{webui}の方法の両方で、設定アーカイブが作成されます。
 このアーカイブはコンテナホストで利用可能にする必要があります。
 この生成されたアーカイブをコンテナホストに転送します。
 
@@ -41,7 +41,7 @@ endif::[]
 [[proxy-setup-containers-transfer-start]]
 == プロキシ{productname}コンテナを開始します
 
-[literal]``+mgrpxy+``コマンドを使用してコンテナを起動できます。
+`+mgrpxy+`コマンドを使用してコンテナを起動できます。
 
 [[proc-setup-containers-setup-start]]
 .プロシージャ:プロキシ{productname}コンテナを開始します
@@ -58,7 +58,7 @@ mgrpxy start uyuni-proxy-pod
 podman ps
 ----
 
-5つの{productname}プロキシコンテナが存在し、[literal]``+proxy-pod+``コンテナポッドの一部である必要があります。
+5つの{productname}プロキシコンテナが存在し、`+proxy-pod+`コンテナポッドの一部である必要があります。
 
 * proxy-salt-broker
 * proxy-httpd
