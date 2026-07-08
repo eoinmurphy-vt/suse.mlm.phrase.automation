@@ -1,7 +1,7 @@
 == {productname} {productnumber}プロキシを起動します。
 
 
-コンテナは、[literal]`+mgrpxy+`コマンドで起動できるようになりました。
+コンテナは、`+mgrpxy+`コマンドで起動できるようになりました。
 
 .プロシージャ:プロキシの起動とステータスの確認
 
@@ -20,7 +20,7 @@ mgrpxy status
 ----
 +
 
-{productname}プロキシコンテナが5つ存在し、[literal]``+proxy-pod+``コンテナポッドの一部である必要があります。
+５つの{productname}プロキシコンテナが存在し、`+proxy-pod+`コンテナポッドの一部である必要があります。
 
 - proxy-salt-broker
 - proxy-httpd
