@@ -43,7 +43,7 @@
 これにより、{productname} {webui}にアクセスできます。
 
 EC2およびAzureでは、新しいセキュリティグループを作成し、HTTPSのためのインバウンドおよびアウトバウンドルールを追加します。
-GCEでは、``+Firewall+``セクションの下にある``+Allow HTTPS traffic+``ボックスにチェックを入れてください。
+GCEでは、`+Firewall+`セクションの下にある`+Allow HTTPS traffic+`ボックスにチェックを入れます。
 
 
 
@@ -75,11 +75,11 @@ GCEでは、``+Firewall+``セクションの下にある``+Allow HTTPS traffic+`
 hwinfo --disk | grep -E "Device File:"
 ----
 
-どのデバイスを選択するか不明な場合は、[command]``+lsblk+``コマンドを使用して、各デバイスの名前とサイズを確認してください。
+どのデバイスを選択するか不明な場合は、`+lsblk+`コマンドを使用して、各デバイスの名前とサイズを確認してください。
 探している仮想ディスクのサイズに一致する名前を選択してください。
 
-[command]``+mgr-storage-server+``コマンドを使用して、外部ディスクを設定できます。
-これにより、``+/manager_storage+``にマウントされたXFSパーティションが作成され、データベースとリポジトリの場所として使用されます。
+`+mgr-storage-server+`コマンドを使用して、外部ディスクをセットアップできます。
+これにより、`+/manager_storage+`にマウントされたXFSパーティションが作成され、データベースとリポジトリの場所として使用されます。
 
 ----
 /usr/bin/mgr-storage-server <devicename>
