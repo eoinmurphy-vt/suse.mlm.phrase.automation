@@ -21,7 +21,7 @@
 
 === 客户端
 
-- 已在 {productname} 中入驻
+- 已在 {productname} 中完成入驻。
 - 可通过网络访问
 
 
@@ -35,7 +35,7 @@
 
 您需要准备：
 
-* 为 {productname} 服务器签名的证书颁发机构 (CA) 的公共证书。
+* 为 {productname} 服务器证书签名的证书颁发机构 (CA) 的公共证书。
 * 为代理创建激活密钥
 * 附加到代理证书的其他信息。
 
@@ -44,7 +44,7 @@
 如果您的 CA 使用中间证书链，还必须包含所有中间证书。
 ====
 
-如果不使用第三方证书，可以在 `+rhn-ssl-tool+` 容器内使用 {productname} 生成证书。
+如果不使用第三方证书，可以在 {productname} 容器内使用 `+rhn-ssl-tool+` 生成证书。
 
 .生成 \{productname} Proxy 配置存档文件
 
@@ -60,7 +60,7 @@ mgrctl exec -ti -- rhn-ssl-tool --gen-server \
 有关其他参数的更多信息，请参见 xref:administration:ssl-certs-selfsigned.adoc[]。
 +
 
-. 将证书传输到 {productname} 服务器主机
+. 将证书传输到 {productname} 服务器主机。
 +
 [source,shell]
 ----
@@ -136,38 +136,38 @@ exit
 
 == 升级代理
 
-. 导航到客户端的 [literal]``+概览+`` 页面。
+. 导航至客户端的 `+Overview+` 页面。
 . 单击按钮 btn:[转换为代理]。
 +
 生成代理配置
 +
-以后可通过 [literal]``+细节+``+ > [literal]+``+代理+``+ > [literal]+``+配置+`` 选项卡访问该页面。
+此页面稍后可从 `+Details+` > `+Proxy+` > `+Configuration+` 选项卡访问。
 
 . 在 {webui} 中，导航到 menu:代理[配置] 并填写所需数据：
 
 +
 .过程：升级配置代理
-.. 在[guimenu]``+父 FQDN+``字段中，输入父服务器或代理的完全限定的域名。
-.. 在[guimenu]``+代理 SSH 端口+``字段中，输入{productname}代理上 SSH 服务监听的 SSH 端口。建议保持默认值：8022.
-.. 在[guimenu]``+最大 Squid 缓存大小+``字段中，输入允许的最大 Squid 缓存大小（以 GB 为单位）。
-.. 在[guimenu]``+代理管理员电子邮件+``字段中，输入管理员的电子邮件地址。
-.. 在[literal]``+证书+``部分，提供在准备步骤中获取的{productname}代理的证书。
+.. 在 `+Parent FQDN+` 字段中，输入父服务器或代理的完全限定的域名。
+.. 在 `+Proxy SSH port+` 字段中，输入 {productname} 代理上 SSH 服务侦听的 SSH 端口。建议保持默认值：8022.
+.. 在 `+Max Squid cache size+` 字段中，输入允许的最大 Squid 缓存大小（以 GB 为单位）。
+.. 在 `+Proxy admin email+` 字段中，输入管理员的电子邮件地址。
+.. 在 `+Certificates+` 部分，提供在准备步骤中获取的 {productname} 代理的证书。
 
-.. 在[literal]``+源+``部分，选择以下两个选项之一：[literal]+``+RPM+``+或[literal]+``+仓库+``。
+.. 在 `+Source+` 部分，选择以下两个选项之一：`+RPM+` 或 `+Registry+`。
 +
-* 对于隔离的或受限环境，建议使用[literal]``+RPM+``选项。
-* 如果可连接容器映像仓库，则可使用[literal]``+仓库+``选项。 +
-如果选择此选项，系统会提示您从两个子选项中选择：[literal]``+简单+``或 [literal]+``+高级+``。
+* 对于隔离的或受限环境，建议使用 `+RPM+` 选项。
+* 如果可连接容器映像仓库，则可使用 `+Registry+` 选项。 +
+如果选择此选项，系统会提示您从两个子选项中选择：`+Simple+` 或 `+Advanced+`。
 +
-** 如果选择[literal]``+简单+``，需要在[literal]+``+仓库 URL+``+ 和 [literal]+``+容器标记+`` 字段中输入对应值。
-*** 在[literal]``+仓库 URL+``中使用： [literal]+``+registry.opensuse.org/uyuni+``。
+** 如果选择 `+Simple+`，请在 `+Registry URL+` 和 `+Containers Tag+` 字段中提供值。
+*** 对于 `+Registry URL+`，请使用：`+registry.opensuse.org/uyuni+`。
 *** 从下拉列表中选择标记。
 
-** 如果选择[literal]``+高级+``，表单会显示一个额外的部分：
-*** 对于每个独立容器的 URL 字段，使用仓库：[literal]``+registry.opensuse.org/uyuni+``，后面跟上相应的后缀，例如 +`_proxy-httpd_`+ 或 +`_salt-broker_`。
+** 如果选择 `+Advanced+`，表单会显示一个额外的部分：
+*** 对于每个单独的容器 URL 字段，请使用仓库：`+registry.opensuse.org/uyuni+` 后跟相应的后缀，例如 `+_proxy-httpd_+` 或 `+_salt-broker_+`。
 *** 从下拉列表中选择标记。
 
-. 填写完所有字段后，单击 btn:[应用] 以应用配置并调度代理安装任务。
+. 填写完所有字段后，单击btn:[应用]以应用配置并调度代理安装任务。
 
 == 执行迁移
 
