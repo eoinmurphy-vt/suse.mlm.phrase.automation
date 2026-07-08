@@ -17,10 +17,10 @@ endif::[]
 エアギャップ(された)デプロイメントとは、特にインターネットなどの不安全なネットワークから物理的に隔離されたネットワークシステムのセットアップと運用を指します。
 このタイプのデプロイメントは、軍事施設、金融システム、重要なインフラストラクチャ、および機密データが取り扱われ、外部の脅威から保護されなければならない場所など、高セキュリティ環境で一般的に使用されます。
 
-インターネットにアクセスできるマシンで、[systemitem]``+Podman+``または[systemitem]``+Docker+``を使用して、コンテナイメージを簡単にプルできます。
+インターネットにアクセスできるマシンで、`+Podman+`または`+Docker+`を使用して、コンテナイメージを簡単にプルできます。
 
 .プロシージャ:イメージのプル
-. 目的のイメージをプルしてから、イメージを[literal]``+tar+``アーカイブとして保存します。
+. 目的のイメージをプルしてから、イメージを`+tar+`アーカイブとして保存します。
   例:
 
 +
@@ -36,7 +36,7 @@ docker pull registry.opensuse.org/uyuni/server:latest
 docker save --output images.tar registry.opensuse.org/uyuni/server:latest
 ----
 +
-. 生成された[filename]``+server-image.tar+``をサーバーコンテナホストに転送し、次のコマンドを使用してロードします:
+. 生成された`+server-image.tar+`をサーバーコンテナホストに転送し、次のコマンドを使用してロードします:
 +
 .サーバイメージをロードする
 ----
@@ -94,7 +94,7 @@ transactional-update pkg install mgradm* mgrctl* uyuni-server*-image*
 ----
 +
 . 再起動します。
-. [command]``+mgradm+``+を使用して{productname}をデプロイします。エアギャップ(された)環境では、オプション[command]+``+--pullPolicy Never+``を使用することをお勧めします。
+. {productname}を使用して`+mgradm+`をデプロイします。エアギャップ(された)環境では、オプション`+--pullPolicy Never+`を使用することをお勧めします。
 
 
 {leapmicro}に{productname}サーバーをインストールする際の詳細情報については、xref:container-deployment/uyuni/server-deployment-uyuni.adoc[サーバーデプロイメント]を参照してください。
