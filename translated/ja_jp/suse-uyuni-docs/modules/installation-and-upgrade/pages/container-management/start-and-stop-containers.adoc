@@ -10,21 +10,21 @@
 次のコマンドを使用して、{productname}{productnumber}サーバコンテナを再起動、起動、および停止できます。
 
 
-{productname}{productnumber}サーバを[command]``+restart+``するには、次のコマンドを実行してください。
+サーバを`+restart+`{productname}{productnumber}起動するには、次のコマンドを実行してください。
 ----
 # mgradm restart
 5:23PM INF Welcome to mgradm
 5:23PM INF Executing command: restart
 ----
 
-サーバを[command]``+start+``するには、次のコマンドを実行してください。
+サーバを`+start+`起動するには、次のコマンドを実行してください。
 ----
 # mgradm start
 5:21PM INF Welcome to mgradm
 5:21PM INF Executing command: start
 ----
 
-サーバを[command]``+stop+``するには、次のコマンドを実行してください。
+サーバを`+stop+`起動するには、次のコマンドを実行してください。
 ----
 # mgradm stop
 5:21PM INF Welcome to mgradm
