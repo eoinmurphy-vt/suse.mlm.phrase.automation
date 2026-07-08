@@ -3,7 +3,7 @@
 :description: Raspberry Pi OS 클라이언트를 SUSE Multi-Linux Manager 서버에 등록하고 필요한 소프트웨어 채널에 접근하도록 구성합니다.
 :revdate: 2026-03-17
 :page-revdate: {revdate}
-:page-author: SUSE 제품 및 솔루션 문서 팀
+:page-author: SUSE 제품 및 솔루션 문서팀
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -29,7 +29,7 @@ endif::[]
 {productname} 서버에 {raspberrypios} 클라이언트를 등록하기 전에 약간의 준비가 필요합니다:
 
 * DNS가 올바르게 구성되어 있고 클라이언트에 대한 항목을 제공하는지 확인하십시오.
-  또는 {productname} 서버와 클라이언트 모두에서 적절한 항목으로 ``+/etc/hosts+`` 파일을 구성할 수 있습니다.
+  또는 {productname} 서버와 클라이언트 모두에서 적절한 항목으로 `+/etc/hosts+` 파일을 구성할 수 있습니다.
 * 클라이언트는 등록 전에 {productname} 서버와 날짜 및 시간을 동기화해야 합니다.
 
 
@@ -171,7 +171,7 @@ endif::[]
 
 [NOTE]
 ====
-[command]``+spacewalk-common-channels+``가 제공하는 클라이언트 도구 채널은 {uyuni}가 아닌 {suse}에서 공급됩니다.
+`+spacewalk-common-channels+`에서 제공하는 클라이언트 도구 채널은 {uyuni}에서 가져오며, {suse}에서 가져오지 않습니다.
 ====
 
 [IMPORTANT]
@@ -227,7 +227,7 @@ endif::[]
 
 {raspberrypios} 채널에 연결된 활성화 키를 생성해야 합니다.
 
-활성화 키에 대한 자세한 정보는 xref:client-configuration:activation-keys.adoc[]를 참조하십시오.
+활성화 키에 대한 자세한 내용은 xref:client-configuration:activation-keys.adoc[]을 참조하십시오.
 
 
 
@@ -239,9 +239,9 @@ endif::[]
 
 [IMPORTANT]
 ====
-GPG 키를 신뢰하는 것은 클라이언트의 보안에 중요합니다.
+GPG 키를 신뢰하는 것은 클라이언트의 보안을 위해 중요합니다.
 어떤 키가 필요하고 신뢰할 수 있는지를 결정하는 것은 관리자의 임무입니다.
-GPG 키가 신뢰되지 않으면 소프트웨어 채널을 사용할 수 없기 때문에 클라이언트에 채널을 할당하는 결정은 키를 신뢰하는 결정에 달려 있습니다.
+GPG 키가 신뢰되지 않을 때 소프트웨어 채널을 사용할 수 없기 때문에, 클라이언트에 채널을 할당하는 결정은 키를 신뢰하는 결정에 달려 있습니다.
 ====
 
 GPG 키에 대한 자세한 내용은 xref:client-configuration:gpg-keys.adoc[]을 참조하십시오.
@@ -276,18 +276,18 @@ mgradm gpg add <filename>.gpg
 
 {raspberrypios}의 루트는 SSH 액세스에 대해 기본적으로 비활성화되어 있습니다.
 
-일반 사용자를 사용하여 온보딩하려면 [filename]``+sudoers+`` 파일을 편집해야 합니다.
+일반 사용자로 온보딩하려면 `+sudoers+` 파일을 편집해야 합니다.
 
 .절차 루트 액세스 부여
 
-. 클라이언트에서 [filename]``+sudoers+`` 파일을 다음과 같이 편집합니다:
+. 클라이언트에서 `+sudoers+` 파일을 편집하십시오:
 +
 ----
 sudo visudo
 ----
 +
-이 줄을 [filename]+``+sudoers+`` 파일의 끝에 추가하여 사용자에게 [command]``+sudo+`` 액세스를 부여하십시오.
-[systemitem]``+<user>+``를 클라이언트를 부트스트랩하는 사용자의 이름으로 교체하십시오 {webui}:
+이 줄을 `+sudoers+` 파일의 끝에 추가하여 사용자에게 `+sudo+` 접근 권한을 부여합니다.
+`+<user>+`을(를) {webui}에서 클라이언트를 부팅하는 사용자의 이름으로 교체하십시오:
 +
 ----
 <user>  ALL=NOPASSWD: /usr/bin/python, /usr/bin/python2, /usr/bin/python3, /var/tmp/venv-salt-minion/bin/python
@@ -297,7 +297,7 @@ sudo visudo
 ====
 이 절차는 클라이언트를 등록하는 데 필요한 비밀번호 없이 루트 액세스를 부여합니다.
 클라이언트가 성공적으로 설치되면 루트 권한으로 실행되므로 더 이상 액세스가 필요하지 않습니다.
-클라이언트가 성공적으로 설치된 후 [path]``+sudoers+`` 파일에서 해당 줄을 제거할 것을 권장합니다.
+클라이언트가 성공적으로 설치된 후 `+sudoers+` 파일에서 해당 줄을 제거할 것을 권장합니다.
 ====
 
 
