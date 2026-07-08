@@ -31,7 +31,7 @@ Showing my working. --LKB 2020-06-22
 
 Cause: Renaming the hostname
 Consequence: Changes not picked up by db, clients and proxies
-Fix: Use the [command]``+spacewalk-hostname-rename+`` script to update the settings in the PostgreSQL database and the internal structures of {productname}.
+Fix: Use the `+spacewalk-hostname-rename+` script to update the settings in the PostgreSQL database and the internal structures of {productname}.
 Result: Renaming is successfully propagated
 ////
 
@@ -42,7 +42,7 @@ Result: Renaming is successfully propagated
 
 == 重命名服务器
 
-如果您需要更改 {productname} 服务器的主机名，可以使用 [command]``+mgradm server rename+`` 命令进行更改。
+如果您需要更改 {productname} 服务器的主机名，可以使用 `+mgradm server rename+` 命令。
 此命令会更新 {postgresql} 数据库中的设置以及 {productname} 的内部结构。
 
 
@@ -57,7 +57,7 @@ Result: Renaming is successfully propagated
 .过程：升级准备 SSL CA 密码的配置文件
 [role=procedure]
 ____
-. 创建一个 [path]``+config.yaml+`` 文件，其中包含如下内容：
+. 创建一个 `+config.yaml+` 文件，其中包含如下内容：
 
 +
 
@@ -80,7 +80,7 @@ ____
 
 . 重启 {productname} 服务器以使用新网络配置并确保主机名已更改。
 
-. 在容器主机上，从命令行执行以下命令。如果您已创建用于存储 SSL CA 密码的文件，请添加 [command]``+-c config.yaml+``：
+. 在容器主机上，从命令行执行以下命令。如果您已创建用于存储 SSL CA 密码的文件，请添加 `+-c config.yaml+`：
 
 +
 
@@ -117,7 +117,7 @@ mgrctl exec -ti -- journalctl -u uyuni-update-config
 ____
 
 . 在每个客户端的 {salt} 客户端配置文件中，指定新的 {salt} 主服务器的名称 ({productname} 服务器)。
-  文件名为 [path]``+/etc/venv-salt-minion/minion.d/susemanager.conf+``+，或者，如果您未使用 {salt} 捆绑包，[path]+``+/etc/salt-minion/minion.d/susemanager.conf+``：
+  文件名为 `+/etc/venv-salt-minion/minion.d/susemanager.conf+`，或者如果您不使用 {salt} 捆绑包，则为 `+/etc/salt-minion/minion.d/susemanager.conf+`：
 
 +
 
@@ -166,7 +166,7 @@ ____
 [IMPORTANT]
 ====
 如果您通过代理使用 PXE 启动，您必须检查代理的配置设置。
-如果您通过非容器化的 {productname} 代理 4.3 使用 PXE 引导，[systemitem]``+tftpsync+`` 需要重新配置。
+如果您通过非容器化的 {productname} 代理 4.3 使用 PXE 引导，`+tftpsync+` 需要重新配置。
 
 在容器主机上执行以下命令：
 
