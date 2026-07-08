@@ -3,7 +3,7 @@
 :description: 同期設定を構成して、接続タイムアウト、GPGキーの不一致、チェックサムエラーのトラブルシューティングを行います。
 :revdate: 2025-07-08
 :page-revdate: {revdate}
-:page-author: SUSE製品およびソリューションドキュメンテーションチーム
+:page-author: SUSE製品およびソリューションドキュメントチーム
 :page-image: https://www.suse.com/assets/img/suse-white-logo-green.svg
 :page-product-name: SUSE Multi-Linux Manager
 :page-product-version: 5.1
@@ -35,13 +35,13 @@ export URLGRABBER_DEBUG=DEBUG
 spacewalk-repo-sync -c <channelname> <options> > /var/log/spacewalk-repo-sync-$(date +%F-%R).log 2>&1
 ----
 
-Zypperによって作成されたログは、[path]``+/var/log/zypper.log+``で確認することもできます。
+Zypperによって作成されたログは、`+/var/log/zypper.log+`でも確認できます。
 
 
 GPGキーの不一致::
 {productname}は自動的にサードパーティのGPGキーを信頼しません。
 パッケージの同期が失敗した場合、それは信頼されていないGPGキーが原因である可能性があります。
-これが該当するかどうかを確認するには、[path]``+/var/log/rhn/reposync+``を開き、次のようなエラーを探してください。
+これが該当するかどうかを確認するには、`+/var/log/rhn/reposync+`を開き、次のようなエラーを探してください。
 +
 ----
 ['/usr/bin/spacewalk-repo-sync', '--channel', 'sle-12-sp1-ga-desktop-
@@ -53,14 +53,14 @@ RepoMDError: Cannot access repository. Maybe repository GPG keys are not importe
 GPGキーのインポートに関する詳細は、xref:administration:repo-metadata.adoc[]を参照してください。
 
 
-GPGキーの削除（[literal]``+spacewalk-repo-sync+``より）::
-リポジトリのGPGキーが[literal]``+spacewalk-repo-sync+``+を使用して手動でインポートされ、このキーが不要になった場合（たとえば、キーが侵害された場合やテスト目的専用で使用された場合）、[literal]+``+spacewalk-repo-sync+``を用いて使用されるzypper RPMデータベースから、次のコマンドで削除できます。
+`+spacewalk-repo-sync+`からのGPGキーを削除する::
+リポジトリのGPGキーが`+spacewalk-repo-sync+`を使用して手動でインポートされ、このキーが不要になった場合（たとえば、キーが侵害された場合やテスト目的専用で使用された場合）、`+spacewalk-repo-sync+`によって使用されるzypper RPMデータベースから、次のコマンドで削除できます。
 +
 ----
 rpm --dbpath=/var/lib/spacewalk/reposync/root/var/lib/rpm/ -e gpg-pubkey-*
 ----
 +
-ここで、[literal]``+gpg-pubkey-*+``は削除されるGPGキーの名前です。
+ここで、`+gpg-pubkey-*+`は削除するGPGキーの名前です。
 
 
 
@@ -68,7 +68,7 @@ GPGキーの更新::
 GPGキーを更新する場合は、まず古いキーを削除してから、新しいキーを生成してインポートします。
 
 チェックサムの不一致::
-チェックサムが失敗すると、[path]``+/var/log/rhn/reposync/*.log+``ログファイルに次のようなエラーが表示される場合があります。
+チェックサムが失敗すると、`+/var/log/rhn/reposync/*.log+`のログファイルに次のようなエラーが表示される場合があります。
 +
 ----
 Repo Sync Errors: (50, u'checksums did not match
@@ -80,7 +80,7 @@ patch microcode_ctl-8413 was not found in the database. This patch has
 been skipped.
 ----
 +
-[command]``+-Y+``オプションを使用して、コマンドラインプロンプトから同期を実行することで、このエラーを解決できます。
+`+-Y+`オプションを使用して、コマンドラインプロンプトから同期を実行することで、このエラーを解決できます。
 +
 ----
 spacewalk-repo-sync --channel <channelname> -Y
@@ -96,13 +96,13 @@ spacewalk-repo-sync --channel <channelname> -Y
 28, 'Operation too slow. Less than 1000 bytes/sec transferred the last 300 seconds
 ----
 +
-このエラーは、[literal]``+reposync_timeout+``+および[literal]+``+reposync_minrate+``+の設定値を[path]+``+/etc/rhn/rhn.conf+``に指定することで解決できます。
+このエラーは、`+/etc/rhn/rhn.conf+`で`+reposync_timeout+`および`+reposync_minrate+`の設定値を指定することで解決できます。
 デフォルトでは、300秒間に1000バイト未満が転送されると、ダウンロードは中止されます。
-[literal]``+reposync_minrate+``+で1秒あたりのバイト数を調整し、``+reposync_timeout+``で待機する秒数を調整できます。
+`+reposync_minrate+`で1秒あたりのバイト数を、`+reposync_timeout+`で待機する秒数を調整できます。
 
 
 reposyncの実行中にキーを手動で信頼する::
-[command]``+reposync+``の実行時に、GPGキーを手動で承認する必要がある場合があります。
+`+reposync+`の実行時に、GPGキーを手動で承認する必要がある場合があります。
 例:
 +
 ----
