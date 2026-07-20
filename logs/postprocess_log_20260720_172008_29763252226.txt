@@ -1,0 +1,8 @@
+Postprocess started: 2026-07-20 17:20:08.805667
+
+✓ Processed: zh_cn/suse-uyuni-docs-5.2/modules/administration/pages/ssl-certs-selfsigned.adoc -> final/suse-uyuni-docs-5.2/zh/modules/administration/pages/ssl-certs-selfsigned.adoc
+✓ Processed: zh_cn/suse-uyuni-docs-5.2/modules/client-configuration/pages/client-upgrades-product-migration.adoc -> final/suse-uyuni-docs-5.2/zh/modules/client-configuration/pages/client-upgrades-product-migration.adoc
+✓ Processed: zh_cn/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/server/server-mlm-51-52.adoc -> final/suse-uyuni-docs-5.2/zh/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/server/server-mlm-51-52.adoc
+
+=== Test Complete ===
+Summary: Processed=3, Cleaned=3, Errors=0, Skipped=0
