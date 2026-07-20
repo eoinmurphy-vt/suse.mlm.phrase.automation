@@ -1,0 +1,171 @@
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-remote-root-on-micro.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-remote-root-on-micro.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.035616
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-resizingBtrfs.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-resizingBtrfs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:54.088578
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-rh-cdn-channel-and-multiple-certs.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-rh-cdn-channel-and-multiple-certs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.141090
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-rpctimeout.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-rpctimeout.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.194095
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-salt-clients-down-and-dns.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-salt-clients-down-and-dns.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.247795
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-salt-ssh-known-hosts.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-salt-ssh-known-hosts.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.301020
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-schema-upgrade-fails.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-schema-upgrade-fails.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.353812
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-sync.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-sync.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:54.407801
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-taskomatic.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-taskomatic.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.460732
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-webui-fails-load.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-webui-fails-load.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.513305
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-wicked-to-networkmanager.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/troubleshooting/tshoot-wicked-to-networkmanager.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.566354
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/tuning-changelogs.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/tuning-changelogs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.618364
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/users.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/users.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:54.671623
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/uyuni-admin-overview.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/uyuni-admin-overview.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.723792
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/partials/install_scap_security_guide_package.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/partials/install_scap_security_guide_package.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.778095
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/_attributes.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/_attributes.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.830226
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/nav-client-configuration-guide.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/nav-client-configuration-guide.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:54.882943
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/activation-keys.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/activation-keys.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.935541
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/appstreams.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/appstreams.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:54.987965

@@ -1,0 +1,171 @@
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-bootstrap.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-bootstrap.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:58.054731
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-cli.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-cli.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.107129
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-methods.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-methods.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.158803
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-alibaba.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-alibaba.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.210288
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-almalinux.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-almalinux.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.262425
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-amazon.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-amazon.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.314246
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-centos.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-centos.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.366119
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-debian.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-debian.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.417642
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-oes.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-oes.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.469266
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-openeuler.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-openeuler.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.521163
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-opensuse.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-opensuse.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.573477
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-oracle.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-oracle.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.626479
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-raspberrypios.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-raspberrypios.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.679278
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-redhat.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-redhat.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.731477
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-rocky.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-rocky.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.787697
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-suse.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-suse.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.841103
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-ubuntu.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview-ubuntu.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.893177
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-overview.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:58.944918
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-webui.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/registration-webui.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:58.997125

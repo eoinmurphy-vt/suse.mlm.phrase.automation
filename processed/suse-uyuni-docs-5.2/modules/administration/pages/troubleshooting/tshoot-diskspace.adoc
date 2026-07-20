@@ -1,0 +1,120 @@
+[[troubleshooting-disk-space]]
+= Troubleshooting Disk Space
+:revdate: 2024-06-19
+:page-revdate: {revdate}
+
+////
+PUT THIS COMMENT AT THE TOP OF TROUBLESHOOTING SECTIONS
+
+Troubleshooting format:
+
+One sentence each:
+Cause: What created the problem?
+Consequence: What does the user see when this happens?
+Fix: What can the user do to fix this problem?
+Result: What happens after the user has completed the fix?
+
+If more detailed instructions are required, put them in a "Resolving" procedure:
+.Procedure: Resolving Widget Wobbles
+. First step
+. Another step
+. Last step
+////
+
+Running out of disk space can have a severe impact on the {productname} database and file structure which, in most cases, is not recoverable.
+{productname} monitors free space in specific directories, and has configurable alerts.
+For more on space management, see xref:administration:space-management.adoc[].
+
+Generally, container volumes share space with the host filesystem.
+When the `+btrfs+` filesystem becomes full, it can prevent you from deleting files.
+To resolve this, you can add a small amount of storage temporarily to the filesystem using the `+btrfs device add+` command.
+This will allow you to delete files to gain space for further filesystem maintenance.
+When done with the maintenance, you can remove the temporary storage with `+btrfs device delete+`.
+For more information about this topic, see https://www.suse.com/support/kb/doc/?id=000018779.
+
+You can recover disk space by removing unused software channels.
+
+* For instructions on how to delete vendor channels, see xref:administration:channel-management.adoc[].
+* For instructions on how to delete custom channels, see xref:administration:custom-channels.adoc[].
+
+You can also check how often your custom channels are synchronized.
+For instructions on how deal with custom channel synchronization, see xref:administration:custom-channels.adoc#_custom_channel_synchronization[].
+
+You can also recover disk space by cleaning up unused activation keys, content lifecycle projects, and client registrations.
+You can also remove redundant database entries:
+
+
+
+.Procedure: Resolving Redundant Database Entries
+. Use the `+spacewalk-data-fsck+` command to list any redundant database entries.
+. Use the `+spacewalk-data-fsck --remove+` command to delete them.
+
+
+
+== Disk Check Warnings for Missing Directories
+
+After migrating to containerized deployments from 5.0 or when using custom disk check configurations, you might see warnings for directories that no longer exist.
+This commonly occurs when the `+DISKCHECKDIRS+` environment variable references `+/var/lib/pgsql+` or its subdirectories.
+
+In containerized deployments, the PostgreSQL database runs in its own container, and the `+/var/lib/pgsql+` directory no longer exists in the server container.
+The database files are stored in a separate database container volume.
+
+If you see warnings like these in the logs or notifications:
+
+----
+DISKCHECK: Directory /var/lib/pgsql does not exist
+DISKCHECK: Directory /var/lib/pgsql/data does not exist
+----
+
+This indicates that the disk check configuration includes directories that are no longer valid in containerized deployments.
+
+
+=== Cause
+
+Prior to containerization, customers could configure custom directories to monitor by setting the `+spacecheck_dirs+` parameter in `+/etc/rhn/rhn.conf+`.
+A common configuration included `+/var/lib/pgsql+` to monitor database disk space.
+
+In containerized deployments:
+
+* The `+spacecheck_dirs+` parameter in `+/etc/rhn/rhn.conf+` is still read, but is overridden by the `+DISKCHECKDIRS+` environment variable if set
+* If `+DISKCHECKDIRS+` is not set, the system falls back to `+spacecheck_dirs+` from the configuration file
+* The database runs in a separate container and has its own dedicated disk check
+
+
+=== Fix
+
+Remove the obsolete directory references from the `+DISKCHECKDIRS+` environment variable.
+
+.Procedure: Removing Obsolete Directory References
+
+. Check if you have a systemd override file with custom directory configuration:
++
+----
+cat /etc/systemd/system/uyuni-server.service.d/diskcheck.conf
+----
+
+. If the file contains `+/var/lib/pgsql+` or other non-existent directories, update it to use only valid directories:
++
+----
+cat > /etc/systemd/system/uyuni-server.service.d/diskcheck.conf << 'EOF'
+[Service]
+Environment="DISKCHECKDIRS=/var/spacewalk /var/cache /srv"
+EOF
+----
+
+. Apply the configuration by restarting {productname}:
++
+----
+mgradm restart
+----
+
+
+=== Result
+
+The disk check warnings for missing directories will no longer appear.
+The server container will only monitor the directories that exist within the container.
+
+The database container has its own separate disk check that monitors the PostgreSQL data directory (`+/var/lib/pgsql/data+`) within the database container.
+This check is automatically configured and does not require manual intervention.
+
+For more information about disk space management in containerized deployments, see xref:administration:space-management.adoc[].

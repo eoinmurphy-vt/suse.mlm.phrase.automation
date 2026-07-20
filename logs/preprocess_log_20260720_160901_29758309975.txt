@@ -1,0 +1,162 @@
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/partials/check_sync_webui_uyuni.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/partials/check_sync_webui_uyuni.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.056312
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/partials/create_bootstrap_repo_register.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/partials/create_bootstrap_repo_register.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.109196
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/partials/eol-clients.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/partials/eol-clients.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.161909
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/partials/managing_appstreams.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/partials/managing_appstreams.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.213669
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/partials/manual_associate.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/partials/manual_associate.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:09:01.267188
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/partials/manual_channels.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/partials/manual_channels.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.320171
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/partials/manual_repos.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/partials/manual_repos.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.372575
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/partials/rhel10_cpu_architecture_warning.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/partials/rhel10_cpu_architecture_warning.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.425255
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/partials/trust_gpg.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/partials/trust_gpg.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.477313
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/_attributes.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/_attributes.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.531160
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/nav-installation-and-upgrade-guide.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/nav-installation-and-upgrade-guide.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.584539
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/client-intro.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/client-intro.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.637057
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/connect-payg.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/connect-payg.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.690090
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/proxy/proxy-mlm-50-52.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/proxy/proxy-mlm-50-52.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.744201
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/proxy/proxy-mlm-51-52.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/proxy/proxy-mlm-51-52.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.799041
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/server/server-mlm-50-52.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/server/server-mlm-50-52.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.852764
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/server/server-mlm-51-52.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-deployment/mlm/migrations/server/server-mlm-51-52.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.905845
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-deployment/mlm/proxy-air-gapped-deployment-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-deployment/mlm/proxy-air-gapped-deployment-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:01.958180

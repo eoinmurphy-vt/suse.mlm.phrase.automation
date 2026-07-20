@@ -1,0 +1,171 @@
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/repositories.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/repositories.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:59.049191
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-alibaba.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-alibaba.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:59.101653
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-almalinux.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-almalinux.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:59.153796
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-amazon.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-amazon.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:59.205606
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-centos.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-centos.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:59.257088
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-debian.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-debian.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:59.308412
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-oes.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-oes.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:59.360133
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-openeuler.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-openeuler.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:59.412062
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-opensuse-leap-micro.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-opensuse-leap-micro.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:59.465907
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-oracle.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-oracle.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:59.517897
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-raspberrypios.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-raspberrypios.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:59.570156
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-rh.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-rh.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:59.621801
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-rocky.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-rocky.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:59.673614
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-sl-micro.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-sl-micro.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:59.725757
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-sle-micro.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-sle-micro.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:59.778118
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-sles.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-sles.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:59.830591
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-sll.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-sll.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:59.882616
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-tumbleweed.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-tumbleweed.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:59.934488
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-ubuntu.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/client-configuration/pages/supported-features-ubuntu.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:59.987008

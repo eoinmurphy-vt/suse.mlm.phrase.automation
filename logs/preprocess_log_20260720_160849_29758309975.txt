@@ -1,0 +1,72 @@
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/_attributes.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/_attributes.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:49.593888
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/nav-administration-guide.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/nav-administration-guide.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:49.646011
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/actions.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/actions.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:49.698899
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/admin-overview.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/admin-overview.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:49.752461
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/ansible-compliance-as-code.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/ansible-compliance-as-code.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:49.806407
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/ansible-integration.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/ansible-integration.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:49.859906
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/ansible-setup-control-node.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/ansible-setup-control-node.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:49.913309
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/auditing.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/auditing.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:49.966463

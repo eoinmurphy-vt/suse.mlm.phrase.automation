@@ -1,0 +1,171 @@
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/auth-methods-pam.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/auth-methods-pam.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.019055
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/auth-methods-sso-example.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/auth-methods-sso-example.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:50.073277
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/auth-methods-sso.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/auth-methods-sso.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.127098
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/auth-methods.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/auth-methods.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.180583
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/backup-restore-db.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/backup-restore-db.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.233144
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/backup-restore.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/backup-restore.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.286006
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/channel-management.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/channel-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.338372
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/confidential-computing.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/confidential-computing.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.391272
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/content-lifecycle-examples.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/content-lifecycle-examples.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.447907
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/content-lifecycle.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/content-lifecycle.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.503054
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/content-staging.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/content-staging.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.556305
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/custom-channels.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/custom-channels.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.609055
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/disconnected-setup.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/disconnected-setup.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.661656
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/image-management.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/image-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:50.717368
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/image-mgmt-container-inspection.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/image-mgmt-container-inspection.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.771256
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/infra-maintenance.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/infra-maintenance.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.824453
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/live-patching-channel-setup.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/live-patching-channel-setup.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.877960
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/live-patching-sles12.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/live-patching-sles12.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.931277
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/live-patching-sles15.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/live-patching-sles15.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:50.984452

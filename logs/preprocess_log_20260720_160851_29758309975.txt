@@ -1,0 +1,162 @@
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/live-patching.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/live-patching.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:51.038164
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/maintenance-windows.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/maintenance-windows.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:51.091606
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/master-fingerprint.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/master-fingerprint.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:51.144446
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/mgr-sync.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/mgr-sync.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:51.197419
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/mirror-sources.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/mirror-sources.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:51.251067
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/monitoring.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/monitoring.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:51.305972
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/openscap-enhanced-beta.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/openscap-enhanced-beta.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:51.360329
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/openscap.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/openscap.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:51.414886
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/organizations.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/organizations.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:51.469810
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/patch-management.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/patch-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:51.524168
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/ptfs.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/ptfs.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:51.577819
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/removing-channels.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/removing-channels.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:51.630299
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/repo-metadata.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/repo-metadata.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:51.683177
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/reporting-database.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/reporting-database.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:51.740074
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/reports.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/reports.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:08:51.794522
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/role-based-access-control.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/role-based-access-control.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:51.847322
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/skip-auto-sync-channels.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/skip-auto-sync-channels.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:51.899174
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/administration/pages/space-management.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/administration/pages/space-management.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:08:51.958792

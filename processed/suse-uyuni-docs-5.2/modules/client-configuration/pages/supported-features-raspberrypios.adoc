@@ -1,0 +1,257 @@
+[[supported-features-raspberrypios]]
+= Supported {raspberrypios} Features
+:revdate: 2025-06-30
+:page-revdate: {revdate}
+
+This table lists the availability of various features on {raspberrypios} clients.
+
+[IMPORTANT]
+====
+The operating system you run on a client is supported by the organization that supplies the operating system.
+{raspberrypios} is supported by the {raspberrypios} community.
+====
+
+The icons in this table indicate:
+
+* {check} the feature is available
+* {cross} the feature is not available
+* {question} the feature is under consideration, and may or may not be made available at a later date
+
+ifeval::[{mlm-content} == true]
+[cols="1,1", options="header"]
+.Supported Features on {raspberrypios} Operating Systems
+|===
+
+| Feature
+| {raspberrypios}{nbsp}13
+
+| Client
+| {check}
+
+| System packages
+| {raspberrypios} Community
+
+| Registration
+| {check}
+
+| Install packages
+| {check}
+
+| Apply patches
+| {question}
+
+| Remote commands
+| {check}
+
+| System package states
+| {check}
+
+| System custom states
+| {check}
+
+| Group custom states
+| {check}
+
+| Organization custom states
+| {check}
+
+| System set manager (SSM)
+| {check}
+
+| Product migration
+| N/A
+
+| System deployment (PXE/Kickstart)
+| {cross}
+
+| System redeployment (Kickstart)
+| {cross}
+
+| Contact methods
+| {check} ZeroMQ, Salt-SSH
+
+| Action chains
+| {check}
+
+| Staging (pre-download of packages)
+| {check}
+
+| Duplicate package reporting
+| {check}
+
+| CVE auditing
+| {question}
+
+| SCAP auditing
+| {question}
+
+| Package locking
+| {check}
+
+| System locking
+| {cross}
+
+| Maintenance Windows
+| {check}
+
+| System snapshot
+| {cross}
+
+| Configuration file management
+| {check}
+
+| Package profiles
+| {check} Profiles supported, Sync not supported
+
+| Power management
+| {check}
+
+| Monitoring server
+| {cross}
+
+| Monitoring clients
+| {check}
+
+| Docker buildhost
+| {question}
+
+| Build Docker image with OS
+| {check}
+
+| Kiwi buildhost
+| {cross}
+
+| Build Kiwi image with OS
+| {cross}
+
+| Recurring Actions
+| {check}
+
+| AppStreams
+| N/A
+
+| Yomi
+| N/A
+
+|===
+endif::[]
+
+ifeval::[{uyuni-content} == true]
+[cols="1,1", options="header"]
+.Supported Features on {raspberrypios} Operating Systems
+|===
+
+| Feature
+| {raspberrypios}{nbsp}13
+
+| Client
+| {check}
+
+| System packages
+| {raspberrypios} Community
+
+| Registration
+| {check}
+
+| Install packages
+| {check}
+
+| Apply patches
+| {question}
+
+| Remote commands
+| {check}
+
+| System package states
+| {check}
+
+| System custom states
+| {check}
+
+| Group custom states
+| {check}
+
+| Organization custom states
+| {check}
+
+| System set manager (SSM)
+| {check}
+
+| Product migration
+| N/A
+
+| System deployment (PXE/Kickstart)
+| {cross}
+
+| System redeployment (Kickstart)
+| {cross}
+
+| Contact methods
+| {check} ZeroMQ, Salt-SSH
+
+| Action chains
+| {check}
+
+| Staging (pre-download of packages)
+| {check}
+
+| Duplicate package reporting
+| {check}
+
+| CVE auditing
+| {question}
+
+| SCAP auditing
+| {question}
+
+| Package locking
+| {check}
+
+| System locking
+| {cross}
+
+| Maintenance Windows
+| {check}
+
+| System snapshot
+| {cross}
+
+| Configuration file management
+| {check}
+
+| Package profiles
+| {check} Profiles supported, Sync not supported
+
+| Power management
+| {check}
+
+| Monitoring server
+| {cross}
+
+| Monitoring clients
+| {check}
+
+| Docker buildhost
+| {question}
+
+| Build Docker image with OS
+| {check}
+
+| Kiwi buildhost
+| {cross}
+
+| Build Kiwi image with OS
+| {cross}
+
+| Recurring Actions
+| {check}
+
+| AppStreams
+| N/A
+
+| Yomi
+| N/A
+
+|===
+endif::[]
+

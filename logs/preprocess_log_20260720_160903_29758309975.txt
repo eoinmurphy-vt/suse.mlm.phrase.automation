@@ -1,0 +1,162 @@
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-management/persistent-container-volumes.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-management/persistent-container-volumes.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:09:03.025170
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-management/start-and-stop-containers.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-management/start-and-stop-containers.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.077871
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-management/storage-scripts.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/container-management/storage-scripts.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:09:03.130522
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/general-requirements.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/general-requirements.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.188321
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/hardware-requirements.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/hardware-requirements.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 1
+
+Completed at 2026-07-20 16:09:03.242386
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/install-proxy.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/install-proxy.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.293750
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/install-pubcloud.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/install-pubcloud.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.349931
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/install-server.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/install-server.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.406986
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/installation-and-upgrade-overview.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/installation-and-upgrade-overview.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.474967
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/network-requirements.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/network-requirements.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.533785
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/pubcloud-requirements.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/pubcloud-requirements.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.587793
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/uyuni-install-requirements.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/uyuni-install-requirements.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.641272
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/uyuni-installation-and-upgrade-overview.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/pages/uyuni-installation-and-upgrade-overview.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.694282
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/partials/snippet-actkey-bootstrap-proxy-mlm.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/partials/snippet-actkey-bootstrap-proxy-mlm.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.746278
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/partials/snippet-bootstrap-proxy-client.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/partials/snippet-bootstrap-proxy-client.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.798155
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/partials/snippet-certificate-validators.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/partials/snippet-certificate-validators.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.849987
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/partials/snippet-check-rpmnew-rpmsave.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/partials/snippet-check-rpmnew-rpmsave.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.901622
+Starting preprocess: source/suse-uyuni-docs-5.2/modules/installation-and-upgrade/partials/snippet-database-backup-volume.adoc
+Saved processed file → processed/suse-uyuni-docs-5.2/modules/installation-and-upgrade/partials/snippet-database-backup-volume.adoc
+
+Summary:
+  ✅ Processed: 1
+  ⚠️ Encoding issues fixed: 0
+  ✅ Normalized files: 0
+
+Completed at 2026-07-20 16:09:03.953144
